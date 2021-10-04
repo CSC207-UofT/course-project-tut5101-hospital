@@ -1,0 +1,13 @@
+Class name: Visitors
+Parent class: None Yet
+
+Responsibilities:
+* Asks reason/person(link patient information) for visit.
+* Asks for which room you are visiting.
+* Asks for the name of the visitor.
+* Asks for the visitor’s contact information
+
+
+Collaborators:
+* Patient
+* Map
