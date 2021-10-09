@@ -10,7 +10,16 @@ public class Staff {
     private String role;
     private String ID;
 
-    public Staff() {
-
+    /**
+     * Construct a Staff, giving them a name, gender, role and ID.
+     *
+     */
+    public Staff(String name, String gender, String role, String id) {
+        this.name = name;
+        this.gender = gender;
+        this.role = role;
+        this.ID = id;
     }
+
+
 }
