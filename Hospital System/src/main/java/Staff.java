@@ -8,24 +8,32 @@ public class Staff {
     private String name;
     private String gender;
     private String role;
-    private String ID;
+    private Integer ID;
+    private HashMap<Integer,ArrayList<String>> AllStaff;
 
     /**
      * Construct a Staff, giving them a name, gender, role and ID.
      *
      */
     public Staff(String name, String gender, String role) {
+        if (this.AllStaff == null) {
+            this.AllStaff = new HashMap<Integer,ArrayList<String>>();
+        }
         this.name = name;
         this.gender = gender;
         this.role = role;
-
-        Random randomizer = new Random();
-        Integer id = randomizer.nextInt(1000000);
-        this.ID = id.toString() ;
+        this.ID = AllStaff.size();
     }
 
-    public void addtosystem() {
-
+    public void addtoAllStaff() {
+        if (this.AllStaff == null) {
+            this.AllStaff = new HashMap<Integer,ArrayList<String>>();
+        }
+        ArrayList<String> staffinfo = new ArrayList<>();
+        staffinfo.add(this.name);
+        staffinfo.add(this.gender);
+        staffinfo.add(this.role);
+        AllStaff.put(this.ID, staffinfo)
     }
 
 }
