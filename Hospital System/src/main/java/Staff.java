@@ -20,7 +20,7 @@ public class Staff {
         this.role = role;
 
         Random randomizer = new Random();
-        Integer id = randomizer.nextInt(1000000)
+        Integer id = randomizer.nextInt(1000000);
         this.ID = id.toString() ;
     }
 
