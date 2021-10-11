@@ -33,7 +33,7 @@ public class Staff {
         staffinfo.add(this.name);
         staffinfo.add(this.gender);
         staffinfo.add(this.role);
-        AllStaff.put(this.ID, staffinfo)
+        AllStaff.put(this.ID, staffinfo);
     }
 
 }
