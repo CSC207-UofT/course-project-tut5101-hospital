@@ -1,4 +1,4 @@
-/** This file contains the class Staff and is used to get the staff information
+/** This file contains the class Staff and is used to input the staff information
  *
  */
 
@@ -9,31 +9,26 @@ public class Staff {
     private String gender;
     private String role;
     private Integer ID;
-    private HashMap<Integer,ArrayList<String>> AllStaff;
+    private ArrayList<String> StaffInfo;
 
     /**
      * Construct a Staff, giving them a name, gender, role and ID.
      *
      */
     public Staff(String name, String gender, String role) {
-        if (this.AllStaff == null) {
-            this.AllStaff = new HashMap<Integer,ArrayList<String>>();
-        }
+
         this.name = name;
         this.gender = gender;
         this.role = role;
-        this.ID = AllStaff.size();
+        this.StaffInfo = new ArrayList<>();
+        StaffMap m = new StaffMap();
+        this.ID = m.getAllStaffsize();
     }
 
-    public void addtoAllStaff() {
-        if (this.AllStaff == null) {
-            this.AllStaff = new HashMap<Integer,ArrayList<String>>();
-        }
-        ArrayList<String> staffinfo = new ArrayList<>();
-        staffinfo.add(this.name);
-        staffinfo.add(this.gender);
-        staffinfo.add(this.role);
-        AllStaff.put(this.ID, staffinfo);
+    public void addtoStaffInfo() {
+        StaffInfo.add(this.name);
+        StaffInfo.add(this.gender);
+        StaffInfo.add(this.role);
     }
 
 }
