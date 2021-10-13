@@ -5,18 +5,17 @@ eg. Janitor, Management, Security...
 public class OtherStaff extends Staff{
     private String name;
     private String gender;
-    private String role;
-    private String ID;
+    private Integer ID;
     private Schedule workingTime;
 
     /**
-     * Construct a Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
+     * Construct a Staff that is not a doctor or nurse, giving them a name, gender, ID, and working time.
      *
      */
-    public OtherStaff(String name, String gender, String role, String ID, Schedule workingTime){
-        super(name, gender, role);
-        this.ID = ID;
-        this.workingTime = workingTime;
+    public OtherStaff(String name, String gender, Schedule workingTime){
+        super(name, gender, workingTime);
+        StaffData m = new StaffData();
+        this.ID = m.getStaffDatasize();
     }
 
     //This method gets the name of the OtherStaff
@@ -30,12 +29,7 @@ public class OtherStaff extends Staff{
     }
 
     //This method gets the role of the OtherStaff
-    public String getRole(){
-        return this.role;
-    }
-
-    //This method gets the role of the OtherStaff
-    public String getID(){
+    public Integer getID(){
         return this.ID;
     }
 

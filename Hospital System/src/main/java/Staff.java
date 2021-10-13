@@ -8,32 +8,34 @@ public class Staff {
     private String name;
     private String gender;
     private Integer ID;
-    private ArrayList<String> StaffInfo;
+    private Schedule workingTime;
 
     /**
-     * Construct a Staff, giving them a name, gender, role and ID.
+     * Construct a Staff, giving them a name, gender and ID.
      *
+     * @param name
+     * @param gender
+     * @param workingTime
      */
-    public Staff(String name, String gender) {
+    public Staff(String name, String gender, Schedule workingTime) {
 
         this.name = name;
         this.gender = gender;
-        this.StaffInfo = new ArrayList<>();
-        StaffData m = new StaffData();
+        StaffData m = new StaffData();  // used to generate an ID
         this.ID = m.getStaffDatasize();
+        this.workingTime = workingTime;
     }
 
-    public void addtoStaffInfo() {
-        StaffInfo.add(this.name);
-        StaffInfo.add(this.gender);
-    }
 
+    //This method get the information of the Staff in a string
     public String getStaffInfo() {
         return "Staff Name: " + this.name + "\n" +
                 "Gender: " + this.gender + "\n" +
                 "ID Number: " + this.ID.toString();
     }
 
+
+    //This method gets the name of the ID of Staff
     public Integer getStaffID() {
         return this.ID;
     }
