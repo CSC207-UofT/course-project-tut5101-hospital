@@ -15,14 +15,14 @@ public class Staff {
      *
      * @param name
      * @param gender
+     * @param id
      * @param workingTime
      */
-    public Staff(String name, String gender, Schedule workingTime) {
+    public Staff(String name, String gender, Integer id, Schedule workingTime) {
 
         this.name = name;
         this.gender = gender;
-        StaffData m = new StaffData();  // used to generate an ID
-        this.ID = m.getStaffDatasize();
+        this.ID = id;
         this.workingTime = workingTime;
     }
 

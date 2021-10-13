@@ -15,12 +15,11 @@ public class Nurse extends Staff {
      *
      * @param name
      * @param gender
+     * @param id
      * @param workingTime
      */
-    public Nurse(String name, String gender, Schedule workingTime) {
-        super(name, gender, workingTime);
-        StaffData m = new StaffData();
-        this.ID = m.getStaffDatasize();
+    public Nurse(String name, String gender, Integer id, Schedule workingTime) {
+        super(name, gender, id, workingTime);
     }
 
 }

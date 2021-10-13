@@ -4,23 +4,18 @@
 
 import java.util.*;
 
-public class Doctor extends Staff {
-    private String name;
-    private String gender;
-    private Integer ID;
-    private Schedule workingTime;
+class Doctor extends Staff {
 
     /**
      * Construct a Doctor, giving them a name, gender, ID and work schedule.
      *
      * @param name
      * @param gender
+     * @param id
      * @param workingTime
      */
-    public Doctor(String name, String gender, Schedule workingTime) {
-        super(name, gender, workingTime);
-        StaffData m = new StaffData();
-        this.ID = m.getStaffDatasize();
+    public Doctor(String name, String gender, Integer id, Schedule workingTime) {
+        super(name, gender, id, workingTime);
     }
 
 }
