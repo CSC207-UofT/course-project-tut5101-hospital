@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
+import Schedule.Schedule;
+
 public class Main {
 
-    public static void main(String[] args) {
+/*     public static void main(String[] args) {
         Schedule test;
         test = new Schedule("sdf");
         test.printTimeTable();
@@ -25,5 +27,5 @@ public class Main {
             System.out.println("Wrong key please try again.");
             System.exit(0);
         }
-    }
+    } */
 }
