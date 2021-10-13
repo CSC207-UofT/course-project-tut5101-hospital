@@ -21,14 +21,25 @@ public class Staff {
         this.gender = gender;
         this.role = role;
         this.StaffInfo = new ArrayList<>();
-        StaffMap m = new StaffMap();
-        this.ID = m.getAllStaffsize();
+        StaffData m = new StaffData();
+        this.ID = m.getStaffDatasize();
     }
 
     public void addtoStaffInfo() {
         StaffInfo.add(this.name);
         StaffInfo.add(this.gender);
         StaffInfo.add(this.role);
+    }
+
+    public String getStaffInfo() {
+        return "Staff Name: " + this.name + "\n" +
+                "Gender: " + this.gender + "\n" +
+                "Staff role: " + this.role + "\n" +
+                "ID Number: " + this.ID.toString();
+    }
+
+    public Integer getStaffID() {
+        return this.ID;
     }
 
 }
