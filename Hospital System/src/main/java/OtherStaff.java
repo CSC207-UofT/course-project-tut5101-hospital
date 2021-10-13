@@ -1,7 +1,8 @@
 /*
 This class contains the information for other staffs.
-eg. Janitor, Management, Security...
+e.g. Cleaning staff, Management, Security...
  */
+
 public class OtherStaff extends Staff{
     private String name;
     private String gender;
