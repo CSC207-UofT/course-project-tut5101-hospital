@@ -19,12 +19,12 @@ public class OtherStaff extends Staff{
      *
      */
 <<<<<<< HEAD:Hospital System/src/main/java/Staff/OtherStaff.java
-    public OtherStaff(String name, String gender,  String ID, Schedule workingTime, String pwd){
+    public OtherStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd){
         super(name, gender, pwd);
         this.ID = ID;
         this.workingTime = workingTime;
 =======
-    public OtherStaff(String name, String gender, String role, Integer id, Schedule workingTime){
+    public OtherStaff(String name, String gender, String role, Integer ID, Schedule workingTime){
         super(name, gender, id, workingTime);
         this.role = role;
 >>>>>>> e74133a0ea737862c05c03273e1bc9eb0e2e0feb:Hospital System/src/main/java/OtherStaff.java

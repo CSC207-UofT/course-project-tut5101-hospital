@@ -1,4 +1,4 @@
-/** This file contains the class Doctor and is used to input the Nurse information
+package Staff; /** This file contains the class Staff.Nurse and is used to input the Staff.Nurse information
  *
  */
 
@@ -12,7 +12,7 @@ public class Nurse extends Staff {
     private ArrayList<Patient> patients;
 
     /**
-     * Construct a Nurse, giving them a name, gender, ID and work schedule.
+     * Construct a Staff.Nurse, giving them a name, gender, ID and work schedule.
      *
      * @param name
      * @param gender

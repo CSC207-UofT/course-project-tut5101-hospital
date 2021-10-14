@@ -1,4 +1,4 @@
-/** This file contains the class Doctor and is used to input the Doctor information
+package Staff; /** This file contains the class Staff.Doctor and is used to input the Staff.Doctor information
  *
  */
 
@@ -7,7 +7,7 @@ import java.util.*;
 class Doctor extends Staff {
 
     /**
-     * Construct a Doctor, giving them a name, gender, ID and work schedule.
+     * Construct a Staff.Doctor, giving them a name, gender, ID and work schedule.
      *
      * @param name
      * @param gender
