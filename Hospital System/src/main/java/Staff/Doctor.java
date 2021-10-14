@@ -8,7 +8,6 @@ import Schedule.Schedule;
 import java.util.*;
 
 class Doctor extends Staff {
-
     /**
      * Construct a Staff.Doctor, giving them a name, gender, ID and work schedule.
      *
@@ -17,8 +16,8 @@ class Doctor extends Staff {
      * @param id
      * @param workingTime
      */
-    public Doctor(String name, String gender, Integer id, Schedule workingTime) {
-        super(name, gender, id, workingTime);
+    public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
+        super(name, gender, id, workingTime, pwd);
     }
 
 }

@@ -9,10 +9,6 @@ import Patients.*;
 import java.util.*;
 
 public class Nurse extends Staff {
-    private String name;
-    private String gender;
-    private Integer ID;
-    private Schedule workingTime;
     private ArrayList<Patient> patients;
 
     /**
@@ -23,8 +19,8 @@ public class Nurse extends Staff {
      * @param id
      * @param workingTime
      */
-    public Nurse(String name, String gender, Integer id, Schedule workingTime, ArrayList<Patient> patients) {
-        super(name, gender, id, workingTime);
+    public Nurse(String name, String gender, Integer id, Schedule workingTime, String pwd, ArrayList<Patient> patients) {
+        super(name, gender, id, workingTime, pwd);
         this.patients = patients;
     }
 

@@ -1,5 +1,4 @@
 package Staff;
-
 import Schedule.Schedule;
 
 /** This file contains the class Staff and is used to input the staff information
@@ -29,8 +28,8 @@ public class Staff implements java.io.Serializable{
         this.gender = gender;
         this.ID = id;
         this.workingTime = workingTime;
-        this.pwd=pwd;
-
+        this.pwd = pwd;
+    }
 
     //This method get the information of the Staff in a string
     public String getStaffInfo() {
@@ -43,7 +42,11 @@ public class Staff implements java.io.Serializable{
     //This method gets the name of the ID of Staff
     public Integer getStaffID() {
         return this.ID;
-    }public Boolean checkPwd(String ipt_pwd){
+    }
+
+
+    //This method checks to ensure the entered password is the same as the set password
+    public Boolean checkPwd(String ipt_pwd){
         return this.pwd==ipt_pwd;
     }
 
