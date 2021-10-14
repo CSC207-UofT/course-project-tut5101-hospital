@@ -1,4 +1,8 @@
-package Staff; /** This file contains the class Staff.Nurse and is used to input the Staff.Nurse information
+package Staff;
+import Schedule.Schedule;
+import Patients.*;
+
+/** This file contains the class Staff.Nurse and is used to input the Staff.Nurse information
  *
  */
 

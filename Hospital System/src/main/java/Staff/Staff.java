@@ -8,7 +8,7 @@ import Schedule.Schedule;
 
 import java.util.*;
 
-public class Staff {
+public class Staff implements java.io.Serializable{
     private String name;
     private String gender;
     private Integer ID;
