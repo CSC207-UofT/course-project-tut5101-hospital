@@ -17,8 +17,8 @@ public class OtherStaff extends Staff{
      * Construct a Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
      *
      */
-    public OtherStaff(String name, String gender, String role, String ID, Schedule workingTime, String pwd){
-        super(name, gender, role, pwd);
+    public OtherStaff(String name, String gender,  String ID, Schedule workingTime, String pwd){
+        super(name, gender, pwd);
         this.ID = ID;
         this.workingTime = workingTime;
     }

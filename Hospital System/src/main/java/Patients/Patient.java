@@ -6,13 +6,13 @@ import Schedule.Schedule;
  *
  */
 
-public class Patient {
+public class Patient implements java.io.Serializable{
     private String name;
     private String gender;
     private int contactNum;
     private int healthCardNum;
     private String pwd;
-    private Schedule scdl;
+    private Schedule scdl = new Schedule();
 //    add a variable for collection of previous appointments
 
 //    Constructs a patient class instant.
@@ -33,6 +33,10 @@ public class Patient {
     public int getHealthCardNum() {
         return this.healthCardNum;
     }public boolean checkPwd(String ipt_pwd) {
-        return this.pwd==ipt_pwd;
-    }public String
+        return pwd.equals(ipt_pwd);
+    }public Schedule getSchedule() {
+        return scdl;
+    }public void setSchedule(Schedule s){
+        this.scdl=s;
+    }
 }

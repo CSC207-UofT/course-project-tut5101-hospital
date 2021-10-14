@@ -1,22 +1,25 @@
 package UseCases;
-import Patients.Patient;
-import Patients.PatientData;
 import Patients.PatientManager;
+import Patients.Patient;
 
 
 
 
 
 public class LoginSignup {
-    PatientData pd = new PatientData();
+    PatientManager pm ;
+    public LoginSignup(){
+        this.pm = new PatientManager();
+    }
     public Boolean check_if_patient_exists(int hcn){
-        return (pd.searchHCN(hcn) != null);
-    }public Boolean logIn(Patient p, String ipt_pwd){
-        return p.checkPwd(ipt_pwd);
-    }public Patient signUp(String name, String gender, int contactNum, int healthCardNum, String pwd){
-        PatientManager pm = new PatientManager();
-        Patient p=pm.newPatient(name, gender,contactNum, healthCardNum, pwd);
-        pm.addPatient(p);
-        return p;
+        return (pm.checkIfPateintExist(hcn));
+    }public boolean logIn(int hcn, String ipt_pwd){
+        return pm.checkLoginInfo(hcn, ipt_pwd);
+            
+    }public void signUp(String name, String gender, int contactNum, int healthCardNum, String pwd){
+        pm.addPatient(name, gender, contactNum, healthCardNum, pwd);
+        
+    }public Patient initPatient(int hcn){
+        return pm.getPatient(hcn);
     }
 }

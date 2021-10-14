@@ -1,19 +1,42 @@
 package Schedule;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.GregorianCalendar;
+import java.util.Map.Entry;
+
+import Exceptions.StuffNotFoundException;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class Schedule {
+public class Schedule implements java.io.Serializable{
     private String room;
-    private HashMap<String, List<GregorianCalendar>> schedule;
+    private HashMap<List<LocalDateTime>, String> schedule = new HashMap<List<LocalDateTime>, String>() ;
+    //private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E");
 
-    public void addEvent(String event, List<GregorianCalendar> dates){
-        this.schedule.put(event, dates);
-    }public void removeEvent(String event, List<GregorianCalendar> dates){
-        this.schedule.remove(event,dates);
-    }public HashMap<String, List<GregorianCalendar>> getSchedule(){
-        return 
+    public void add_or_modify_Event(String event, List<LocalDateTime> dates){
+        if (!schedule.containsKey(dates)){
+            this.schedule.put(dates, event);}
+    }public void removeEvent(List<LocalDateTime> dates) throws StuffNotFoundException{
+        if (!schedule.containsKey(dates)){
+            this.schedule.remove(dates);
+        }else{
+            throw new StuffNotFoundException("");
+        }
+    }public HashMap<List<LocalDateTime>, String> getSchedule(){
+        return schedule;
+    }public String getScheduleString(){
+        if(schedule==null||schedule.isEmpty()){
+            return "You have no appointments";
+        }
+        String s ="";
+        for (Entry<List<LocalDateTime>, String> entry : schedule.entrySet()){
+            s+="Start-End:\t";
+            for (LocalDateTime t : entry.getKey()){
+                s+=t.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
+                s+="\t";
+            }s+="\tEvent:";
+            s+=entry.getValue();
+        }return s;
     }
 }
 

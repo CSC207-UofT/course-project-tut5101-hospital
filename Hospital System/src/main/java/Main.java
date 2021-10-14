@@ -1,8 +1,11 @@
-import java.util.Scanner;
-
-import Schedule.Schedule;
+import UI.Menu;
 
 public class Main {
+        public static void main(String[] args){
+            Menu menu = new Menu();
+            menu.loginSignup();
+            menu.activities();
+        }
 
 /*     public static void main(String[] args) {
         Schedule test;
