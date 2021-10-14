@@ -1,8 +1,13 @@
-import java.util.Scanner;
+import UI.Menu;
 
 public class Main {
+        public static void main(String[] args){
+            Menu menu = new Menu();
+            menu.loginSignup();
+            menu.activities();
+        }
 
-    public static void main(String[] args) {
+/*     public static void main(String[] args) {
         Schedule test;
         test = new Schedule("sdf");
         test.printTimeTable();
@@ -25,5 +30,5 @@ public class Main {
             System.out.println("Wrong key please try again.");
             System.exit(0);
         }
-    }
+    } */
 }
