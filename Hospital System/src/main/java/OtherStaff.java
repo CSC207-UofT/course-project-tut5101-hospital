@@ -6,15 +6,17 @@ e.g. Cleaning staff, Management, Security...
 public class OtherStaff extends Staff{
     private String name;
     private String gender;
+    private String role;
     private Integer ID;
     private Schedule workingTime;
 
     /**
-     * Construct a Staff that is not a doctor or nurse, giving them a name, gender, ID, and working time.
+     * Construct a Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
      *
      */
-    public OtherStaff(String name, String gender, Integer id, Schedule workingTime){
+    public OtherStaff(String name, String gender, String role, Integer id, Schedule workingTime){
         super(name, gender, id, workingTime);
+        this.role = role;
     }
 
     //This method gets the name of the OtherStaff
