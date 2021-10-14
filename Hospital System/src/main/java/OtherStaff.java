@@ -29,9 +29,14 @@ public class OtherStaff extends Staff{
         return this.gender;
     }
 
-    //This method gets the role of the OtherStaff
+    //This method gets the id of the OtherStaff
     public Integer getID(){
         return this.ID;
+    }
+
+    //This method gets the role of the OtherStaff
+    public String getrole(){
+        return this.role;
     }
 
     //This method gets the schedule of the OtherStaff
