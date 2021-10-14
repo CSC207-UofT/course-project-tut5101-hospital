@@ -1,6 +1,6 @@
 package Staff;
 import Schedule.Schedule;
-import Patients.*;
+import Patients.Patient;
 
 /** This file contains the class Staff.Nurse and is used to input the Staff.Nurse information
  *
