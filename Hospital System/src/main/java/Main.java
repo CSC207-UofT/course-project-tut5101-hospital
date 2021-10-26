@@ -1,11 +1,12 @@
-import UI.Menu;
 
 public class Main {
         public static void main(String[] args){
-            Menu menu = new Menu();
+            /*Menu menu = new Menu();
             menu.loginSignup();
-            menu.activities();
+            menu.activities();*/
         }
+
+
 
 /*     public static void main(String[] args) {
         Schedule test;
