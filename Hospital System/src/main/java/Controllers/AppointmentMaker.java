@@ -1,4 +1,4 @@
-package UseCases;
+package Controllers;
 
 import Schedule.ScheduleManager;
 

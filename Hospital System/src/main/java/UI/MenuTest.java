@@ -1,7 +1,7 @@
 package UI;
 
 import Schedule.ScheduleManager;
-import UseCases.LoginSignup;
+import Controllers.LoginSignup;
 import org.junit.Assert;
 import org.junit.Test;
 

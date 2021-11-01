@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
 import Schedule.ScheduleManager;
-import UseCases.LoginSignup;
+import Controllers.LoginSignup;
 public class Menu{
     Scanner s = new Scanner(System.in);
     int hcn;
