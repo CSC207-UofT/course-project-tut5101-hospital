@@ -1,0 +1,74 @@
+:root {
+  --main-bg: #e2e2e2;
+  --contrast-bg: #507b00;
+  --normal-font: #96c22b;
+  --lighter: #A7D930;
+}
+
+h1 {
+  text-align: center;
+  border: thin solid;
+  background-color: var(--contrast-bg);
+  color: var(--main-bg);
+  height: 20%;
+  padding:0;
+  margin-top:0;
+}
+* {
+  background-color:var(--main-bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--normal-font);
+  font-size: 120%;
+  margin: 0;
+  padding: 0;
+  resize: both;
+}
+#login_screen
+{
+  background-color:var(--main-bg);
+  display: grid;
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  grid-template-columns: 40% 60%;
+}.left {
+   background-image: url('imgs/login_screen.jpg');
+   background-size: cover;
+   text-align: center;
+   border:  solid;
+ }
+.login {
+
+  text-align: center;
+  border:  solid;
+  background-color: var(--lighter);
+
+
+
+
+}
+.body-form {
+  opacity:0.5;
+  border-radius:2%;
+  background-color: var(--main-bg);
+  align-items:center;
+  justify-content:center;
+  margin: 20%;
+
+}
+.body-form div {
+  font-size: 70%;
+  padding: 10%;
+
+}
+
+button {
+  margin-top:40px;
+  margin-bottom:10px;
+  background-color: var(--contrast-bg);
+  color: var(--main-bg);
+  font-size: 70%;
+}
+input {
+  width: 50%;
+}
