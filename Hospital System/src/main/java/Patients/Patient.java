@@ -5,6 +5,7 @@ import Schedule.Schedule;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import javax.persistence.*;
 
 /**
  * This file contains the class Patient and is used to get the patient information
