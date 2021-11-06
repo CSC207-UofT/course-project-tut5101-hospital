@@ -18,7 +18,16 @@ public class Patient implements Serializable {
     @Id
     private int healthCardNum;
     private String pwd;
+    @Transient
     private Schedule scdl = new Schedule();
+
+    public void setScdl(Schedule scdl) {
+        this.scdl = scdl;
+    }
+
+    public Schedule getScdl() {
+        return scdl;
+    }
 //    add a variable for collection of previous appointments
 
     //    Constructs a patient class instant.
@@ -34,12 +43,7 @@ public class Patient implements Serializable {
 
     }
 
-    public String getPatientInfo() {
-        return "Patient Name: " + this.name + "\n" +
-                "Gender: " + this.gender + "\n" +
-                "Contact Number: " + this.contactNum + "\n" +
-                "Health Card Number: " + this.healthCardNum;
-    }//add get healthcardid since we need to use healthcardnum as keys in patients database.
+
 
     @Id
     public int getHealthCardNum() {
@@ -63,4 +67,10 @@ public class Patient implements Serializable {
     }
 
 
+    public String printPatientInfo() {
+        return "Patient Name: " + this.name + "\n" +
+                "Gender: " + this.gender + "\n" +
+                "Contact Number: " + this.contactNum + "\n" +
+                "Health Card Number: " + this.healthCardNum;
+    }//add get healthcardid since we need to use healthcardnum as keys in patients database.
 }

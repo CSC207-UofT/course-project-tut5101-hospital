@@ -35,7 +35,7 @@ public class PatientData implements java.io.Serializable {
     // view and search patients
     public String viewPatient(Patient patient) {
         if (!patients.containsKey(patient.getHealthCardNum())) {
-            return patients.get(patient.getHealthCardNum()).getPatientInfo();
+            return patients.get(patient.getHealthCardNum()).printPatientInfo();
         } else {
             return "Patient not found";
         }

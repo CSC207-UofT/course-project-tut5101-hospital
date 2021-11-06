@@ -28,15 +28,16 @@ public class Schedule implements java.io.Serializable{
         if(schedule==null||schedule.isEmpty()){
             return "You have no appointments";
         }
-        String s ="";
+        StringBuilder s = new StringBuilder();
         for (Entry<List<LocalDateTime>, String> entry : schedule.entrySet()){
-            s+="Start-End:\t";
+            s.append("Start-End:\t");
             for (LocalDateTime t : entry.getKey()){
-                s+=t.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
-                s+="\t";
-            }s+="\tEvent:";
-            s+=entry.getValue();
-        }return s;
+                s.append(t.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
+                s.append("\t");
+            }
+            s.append("\tEvent:");
+            s.append(entry.getValue());
+        }return s.toString();
     }
 }
 
