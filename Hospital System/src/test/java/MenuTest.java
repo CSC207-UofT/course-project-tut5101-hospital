@@ -1,6 +1,5 @@
-package UI;
-
 import Schedule.ScheduleManager;
+import UI.Menu;
 import UseCases.LoginSignup;
 import org.junit.Assert;
 import org.junit.Test;
