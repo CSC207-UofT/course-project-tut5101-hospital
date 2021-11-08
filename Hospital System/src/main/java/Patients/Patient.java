@@ -12,13 +12,23 @@ import javax.persistence.*;
  */
 @Entity
 public class Patient implements Serializable {
-    private String name;
-    private String gender;
-    private int contactNum;
     @Id
+    @GeneratedValue
+    @Column(name="ID")
+    long id;
+    @Column(name="name")
+    private String name;
+    @Column(name="gender")
+    private String gender;
+    @Column(name="ctctn")
+    private int contactNum;
+    @Column(name="hcn")
     private int healthCardNum;
+    @Column(name="pwd")
     private String pwd;
     @Transient
+    @OneToOne
+    @Column(name= "SCHEDULE")
     private Schedule scdl = new Schedule();
 
     public void setScdl(Schedule scdl) {

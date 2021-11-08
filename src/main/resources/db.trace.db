@@ -40,3 +40,57 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+2021-11-07 14:44:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ [42102-200]
+2021-11-07 15:27:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:27:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]
+2021-11-07 15:28:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PATIENT" not found; SQL statement:
+select patient0_.health_card_num as health_c1_0_, patient0_.scdl as scdl2_0_, patient0_.schedule as schedule3_0_ from patient patient0_ limit ? [42102-200]

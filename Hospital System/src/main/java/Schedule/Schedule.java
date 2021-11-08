@@ -1,43 +1,94 @@
 package Schedule;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map.Entry;
 
 import Exceptions.StuffNotFoundException;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class Schedule implements java.io.Serializable{
+@Entity
+public class Schedule implements java.io.Serializable {
+    @Id
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Column(name = "room")
     private String room;
-    private HashMap<List<LocalDateTime>, String> schedule = new HashMap<List<LocalDateTime>, String>() ;
+
+
+    @OneToOne(mappedBy="dates")
+    @JoinColumn(name = "event")
+    private HashMap<List<LocalDateTime>, String> schedule = new HashMap<List<LocalDateTime>, String>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     //private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E");
 
-    public void add_or_modify_Event(String event, List<LocalDateTime> dates){
-        if (!schedule.containsKey(dates)){
-            this.schedule.put(dates, event);}
-    }public void removeEvent(List<LocalDateTime> dates) throws StuffNotFoundException{
-        if (!schedule.containsKey(dates)){
+    public void add_or_modify_Event(String event, List<LocalDateTime> dates) {
+        if (!schedule.containsKey(dates)) {
+            this.schedule.put(dates, event);
+        }
+    }
+
+    public void removeEvent(List<LocalDateTime> dates) throws StuffNotFoundException {
+        if (!schedule.containsKey(dates)) {
             this.schedule.remove(dates);
-        }else{
+        } else {
             throw new StuffNotFoundException("");
         }
-    }public HashMap<List<LocalDateTime>, String> getSchedule(){
+    }
+
+    public HashMap<List<LocalDateTime>, String> getSchedule() {
         return schedule;
-    }public String getScheduleString(){
-        if(schedule==null||schedule.isEmpty()){
+    }
+
+    public String getScheduleString() {
+        if (schedule == null || schedule.isEmpty()) {
             return "You have no appointments";
         }
         StringBuilder s = new StringBuilder();
-        for (Entry<List<LocalDateTime>, String> entry : schedule.entrySet()){
+        for (Entry<List<LocalDateTime>, String> entry : schedule.entrySet()) {
             s.append("Start-End:\t");
-            for (LocalDateTime t : entry.getKey()){
+            for (LocalDateTime t : entry.getKey()) {
                 s.append(t.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
                 s.append("\t");
             }
             s.append("\tEvent:");
             s.append(entry.getValue());
-        }return s.toString();
+        }
+        return s.toString();
+    }
+
+    @Converter(autoApply = true)
+    public static class DateListConverter implements AttributeConverter<List<LocalDateTime>, String> {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        private static final String SPLIT_CHAR = ";";
+
+
+        @Override
+        public String convertToDatabaseColumn(List<LocalDateTime> attribute) {
+            return attribute.get(0).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")) + SPLIT_CHAR + attribute.get(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
+        }
+
+        @Override
+        public List<LocalDateTime> convertToEntityAttribute(String string) {
+            List<LocalDateTime> localDateTimes = null;
+            if (!string.isEmpty()) {
+                List<String> list_s = Arrays.asList(string.split(SPLIT_CHAR));
+                localDateTimes = Arrays.asList(LocalDateTime.parse(list_s.get(0), formatter), LocalDateTime.parse(list_s.get(1), formatter));
+            }
+            return localDateTimes;
+        }
     }
 }
 
