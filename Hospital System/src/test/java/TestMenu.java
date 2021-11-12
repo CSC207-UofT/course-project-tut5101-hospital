@@ -48,9 +48,9 @@ public class TestMenu {
     }
 
     @Test
-    public void TestSchedule() {
+    public void TestAppointmentMaker() {
         Assert.assertEquals("Patient appointment is in the schedule",
-                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\t\tEvent:x-ray",
+                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\tEvent:x-ray",
                 scheduleManager.getScheduleString());
     }
 
