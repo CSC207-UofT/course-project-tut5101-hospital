@@ -19,13 +19,11 @@ public class PatientData implements java.io.Serializable {
     public void add_or_modify_Patient(Patient patient) {
         // add the patient if it is not already in, modify it if it is already in
         // the database.
-        if (!patients.containsKey(patient.getHealthCardNum())) {
             patients.put(patient.getHealthCardNum(), patient);
-        }
     }
 
     public void removePatient(Patient patient) throws StuffNotFoundException {
-        if (!patients.containsKey(patient.getHealthCardNum())) {
+        if (patients.containsKey(patient.getHealthCardNum())) {
             patients.remove(patient.getHealthCardNum());
         } else {
             throw new StuffNotFoundException("");
@@ -34,7 +32,7 @@ public class PatientData implements java.io.Serializable {
 
     // view and search patients
     public String viewPatient(Patient patient) {
-        if (!patients.containsKey(patient.getHealthCardNum())) {
+        if (patients.containsKey(patient.getHealthCardNum())) {
             return patients.get(patient.getHealthCardNum()).getPatientInfo();
         } else {
             return "Patient not found";
