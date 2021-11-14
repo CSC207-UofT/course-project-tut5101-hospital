@@ -1,10 +1,8 @@
-import Exceptions.InvalidInputException;
 import Patients.PatientData;
 import Patients.Patient;
 import Patients.PatientManager;
 import Schedule.Schedule;
 import Schedule.ScheduleManager;
-import UI.Menu;
 import UseCases.LoginSignup;
 import UseCases.AppointmentMaker;
 import org.junit.Assert;
@@ -53,7 +51,5 @@ public class TestMenu {
                 "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\tEvent:x-ray",
                 scheduleManager.getScheduleString());
     }
-
-
 
 }
