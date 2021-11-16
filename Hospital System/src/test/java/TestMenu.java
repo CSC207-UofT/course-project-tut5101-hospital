@@ -1,10 +1,8 @@
-import Exceptions.InvalidInputException;
 import Patients.PatientData;
 import Patients.Patient;
 import Patients.PatientManager;
 import Schedule.Schedule;
 import Schedule.ScheduleManager;
-import UI.Menu;
 import UseCases.LoginSignup;
 import UseCases.AppointmentMaker;
 import org.junit.Assert;
@@ -48,12 +46,10 @@ public class TestMenu {
     }
 
     @Test
-    public void TestSchedule() {
+    public void TestAppointmentMaker() {
         Assert.assertEquals("Patient appointment is in the schedule",
-                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\t\tEvent:x-ray",
+                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\tEvent:x-ray",
                 scheduleManager.getScheduleString());
     }
-
-
 
 }
