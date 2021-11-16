@@ -1,5 +1,7 @@
 package Staff;
+import Exceptions.StuffNotFoundException;
 import Schedule.Schedule;
+import UseCases.AppointmentMaker;
 
 /** This file contains the class Staff.Doctor and is used to input the Staff.Doctor information
  *
@@ -18,6 +20,12 @@ class Doctor extends Staff {
      */
     public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
         super(name, gender, id, workingTime, pwd);
+    }
+
+    public void doctorModifySchedule(Doctor doctor, AppointmentMaker appointmentMaker){
+        if (appointmentMaker.getSchedule()){
+
+        }
     }
 
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -36,5 +41,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="springframework.data.spring.jpa" level="application" />
+    <orderEntry type="library" name="Spring Web Services-2.0.2" level="project" />
+    <orderEntry type="library" name="Spring Batch-2.2.6" level="project" />
+    <orderEntry type="library" name="Spring Security-5.2.1" level="project" />
+    <orderEntry type="library" name="Spring Integration-5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Spring MVC-5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" name="springframework.boot.spring1" level="application" />
+    <orderEntry type="library" name="springframework.boot.spring.autoconfigure1" level="application" />
+    <orderEntry type="library" name="springframework.boot.spring.dependency.tools" level="application" />
   </component>
 </module>
