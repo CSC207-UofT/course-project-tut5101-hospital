@@ -1,10 +1,10 @@
-package UseCases;
+package Controllers;
 
-import Schedule.ScheduleManager;
+import UseCases.ScheduleManager;
 
 import Exceptions.StuffNotFoundException;
 import Exceptions.InvalidInputException;
-import Patients.PatientManager;
+import UseCases.PatientManager;
 
 /** This file contains the main system for the hospital and is used to make appointments for patients
  *

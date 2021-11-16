@@ -1,4 +1,4 @@
-package Patients;
+package Entity.Patients;
 
 import Schedule.Schedule;
 

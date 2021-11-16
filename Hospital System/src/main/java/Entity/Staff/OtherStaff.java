@@ -1,4 +1,4 @@
-package Staff;
+package Entity.Staff;
 import Schedule.Schedule;
 
 
@@ -11,7 +11,7 @@ public class OtherStaff extends Staff{
     private String role;
 
     /**
-     * Construct a Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
+     * Construct a Entity.Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
      *
      */
     public OtherStaff(String name, String gender, String role, Integer id, Schedule workingTime, String pwd){

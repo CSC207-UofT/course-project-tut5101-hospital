@@ -1,4 +1,8 @@
-package Patients;
+package UseCases;
+
+import Entity.Patients.Patient;
+import Entity.Patients.PatientData;
+
 public class PatientManager {
     PatientData sessionData = new PatientData();
     public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd){

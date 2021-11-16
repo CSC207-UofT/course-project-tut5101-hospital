@@ -1,4 +1,4 @@
-package Staff;
+package Entity.Staff;
 
 import java.util.HashMap;
 
@@ -21,7 +21,7 @@ public class StaffData implements java.io.Serializable {
     }
 
 
-    //add, modify, remove Staff
+    //add, modify, remove Entity.Staff
     public void add_or_modify_Staff(Staff staff) {
         // add the patient if it is not already in, modify it if it is already in
         //the database.
@@ -38,12 +38,12 @@ public class StaffData implements java.io.Serializable {
 
 
 
-    //view and search Staff
+    //view and search Entity.Staff
     public String viewStaff(Staff staff) {
         if (!allstaff.containsKey(staff.getStaffID())) {
             return allstaff.get(staff.getStaffID()).getStaffInfo();
         }else{
-            return "Staff not found";
+            return "Entity.Staff not found";
         }}
     public Staff searchID(Integer ID) {
         if (!allstaff.containsKey(ID)) {

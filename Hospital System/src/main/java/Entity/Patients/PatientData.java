@@ -1,4 +1,4 @@
-package Patients;
+package Entity.Patients;
 
 import java.util.HashMap;
 
@@ -15,7 +15,7 @@ public class PatientData implements java.io.Serializable {
         loadData();
     }
 
-    // add, modify, remove Patients
+    // add, modify, remove Entity.Patients
     public void add_or_modify_Patient(Patient patient) {
         // add the patient if it is not already in, modify it if it is already in
         // the database.

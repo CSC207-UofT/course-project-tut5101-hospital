@@ -1,14 +1,15 @@
-package Schedule;
+package UseCases;
 // import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import Patients.Patient;
-import Patients.PatientData;
+import Entity.Patients.Patient;
+import Entity.Patients.PatientData;
 import Exceptions.InvalidInputException;
 import Exceptions.StuffNotFoundException;
+import Schedule.Schedule;
 
 public class ScheduleManager {
     Schedule s;

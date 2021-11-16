@@ -1,6 +1,6 @@
-package UseCases;
-import Patients.PatientManager;
-import Patients.Patient;
+package Controllers;
+import UseCases.PatientManager;
+import Entity.Patients.Patient;
 
 
 
