@@ -1,10 +1,10 @@
-import Patients.PatientData;
-import Patients.Patient;
-import Patients.PatientManager;
+import Entity.Patients.PatientData;
+import Entity.Patients.Patient;
+import UseCases.PatientManager;
 import Schedule.Schedule;
-import Schedule.ScheduleManager;
-import UseCases.LoginSignup;
-import UseCases.AppointmentMaker;
+import UseCases.ScheduleManager;
+import Controllers.LoginSignup;
+import Controllers.AppointmentMaker;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,10 +46,12 @@ public class TestMenu {
     }
 
     @Test
-    public void TestAppointmentMaker() {
+    public void TestSchedule() {
         Assert.assertEquals("Patient appointment is in the schedule",
-                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\tEvent:x-ray",
+                "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\t\tEvent:x-ray",
                 scheduleManager.getScheduleString());
     }
+
+
 
 }

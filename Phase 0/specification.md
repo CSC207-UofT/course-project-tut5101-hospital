@@ -24,16 +24,16 @@ Exit
 
 Every user input should be an integer that corresponds to the different choices.
 
-Signup or Login: Patients create an account, patient login to their account
+Signup or Login: Entity.Patients create an account, patient login to their account
 
-Make or View Appointment: Patients check their appointment, patients change their appointment, patients cancel the appointment.
+Make or View Appointment: Entity.Patients check their appointment, patients change their appointment, patients cancel the appointment.
 
-Check in: Patients check in their appointment or their appointment will be cancelled.
+Check in: Entity.Patients check in their appointment or their appointment will be cancelled.
 
-Signup or Login: Patients create an account, patient login to their account
+Signup or Login: Entity.Patients create an account, patient login to their account
 
-View Patient Records: Staff gets Patient medical records from the system. 
+View Patient Records: Entity.Staff gets Patient medical records from the system. 
 
-View Schedule: Staff views their work schedule. Appointments are based on their schedule.
+View Schedule: Entity.Staff views their work schedule. Appointments are based on their schedule.
 
 Exit: Quit the program

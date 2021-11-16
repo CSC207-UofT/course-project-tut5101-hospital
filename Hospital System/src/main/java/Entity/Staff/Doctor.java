@@ -1,17 +1,14 @@
-package Staff;
-import Exceptions.StuffNotFoundException;
+package Entity.Staff;
 import Schedule.Schedule;
-import UseCases.AppointmentMaker;
+import Controllers.AppointmentMaker;
 
-/** This file contains the class Staff.Doctor and is used to input the Staff.Doctor information
+/** This file contains the class Entity.Staff.Doctor and is used to input the Entity.Staff.Doctor information
  *
  */
 
-import java.util.*;
-
 class Doctor extends Staff {
     /**
-     * Construct a Staff.Doctor, giving them a name, gender, ID and work schedule.
+     * Construct a Entity.Staff.Doctor, giving them a name, gender, ID and work schedule.
      *
      * @param name
      * @param gender
