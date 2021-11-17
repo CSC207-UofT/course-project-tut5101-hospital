@@ -15,7 +15,7 @@ public class OtherStaff extends Staff{
      *
      */
     public OtherStaff(String name, String gender, String role, Integer id, Schedule workingTime, String pwd){
-        super(name, gender, id, workingTime, pwd);
+        super(name, gender, id, workingTime, pwd, fixed_salary);
         this.role = role;
     }
 

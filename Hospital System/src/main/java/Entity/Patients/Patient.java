@@ -13,6 +13,8 @@ public class Patient implements java.io.Serializable{
     private int healthCardNum;
     private String pwd;
     private Schedule scdl = new Schedule();
+    private int fee;
+
 //    add a variable for collection of previous appointments
 
 //    Constructs a patient class instant.
