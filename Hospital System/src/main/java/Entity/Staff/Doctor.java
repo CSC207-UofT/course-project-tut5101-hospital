@@ -1,12 +1,11 @@
 package Entity.Staff;
 import Schedule.Schedule;
-import Controllers.AppointmentMaker;
 
 /** This file contains the class Entity.Staff.Doctor and is used to input the Entity.Staff.Doctor information
  *
  */
 
-class Doctor extends Staff {
+public class Doctor extends Staff {
     /**
      * Construct a Entity.Staff.Doctor, giving them a name, gender, ID and work schedule.
      *
@@ -17,12 +16,6 @@ class Doctor extends Staff {
      */
     public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
         super(name, gender, id, workingTime, pwd);
-    }
-
-    public void doctorModifySchedule(Doctor doctor, AppointmentMaker appointmentMaker){
-        if (appointmentMaker.getSchedule()){
-
-        }
     }
 
 }
