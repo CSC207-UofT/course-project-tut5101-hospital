@@ -25,11 +25,10 @@ public class TestMenu {
         loginSignup = new LoginSignup();
         loginSignup.signUp("Harry", "Male", 1, 2, "3");
         patientData = new PatientData();
-        patient = new Patient("Harry", "Male", 1, 2, "3");
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
-        scheduleManager = new ScheduleManager(patient);
+        scheduleManager = new ScheduleManager(loginSignup.initPatient(2));
 
     }
 
@@ -42,7 +41,7 @@ public class TestMenu {
     public void TestPatientDatacontainsPatient() {
         Assert.assertEquals("Patient information should be stored in Patient Data",
                 "Patient Name: Harry" + "\n" + "Gender: Male" + "\n" + "Contact Number: 1" + "\n" + "Health Card Number: 2",
-                patientData.viewPatient(patient));
+                patientData.viewPatient(loginSignup.initPatient(2)));
     }
 
     @Test

@@ -3,6 +3,7 @@ package UI;
 import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
+import Patients.PatientData;
 import Schedule.ScheduleManager;
 import UseCases.LoginSignup;
 public class Menu{
@@ -17,26 +18,41 @@ public class Menu{
     public void loginSignup(){
 
         int hcn =0;
-        System.out.println("Sign up or login(1/2)");
+        System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
 
         String c = s.nextLine();
         if(c.equals("2")){
             boolean success = false;
 
             do{
+                PatientData pd = new PatientData();
                 System.out.println("Input HealthCardNumber");
                 hcn = s.nextInt();
-                s.nextLine();
-                System.out.println("Input password");
-                String ipt_pwd = s.nextLine();
-                success= ls.logIn(hcn, ipt_pwd);
-                if(!success){
+                if (pd.patientExist(hcn)) {
+                    s.nextLine();
+                } else {
                     System.out.println("Login failed, enter 1 to switch to sign up instead");
                     int k=s.nextInt();
                     s.nextLine();
-                    if(k==1){
-                        c="1";
+                    if(k==1) {
+                        c = "1";
                         break;
+                    }
+                }
+                System.out.println("Input password");
+                String ipt_pwd = s.nextLine();
+                success= ls.logIn(hcn, ipt_pwd);
+                while (!success){
+                    System.out.println("Login failed due to incorrect password, please enter 2 to try again. If you forgot your password, enter 3");
+                    int k=s.nextInt();
+                    s.nextLine();
+                    if(k==2) {
+                        c = "2";
+                        break;
+                    } if (k==3) {
+                        System.out.println("Input contact number");
+                        int contactNum = s.nextInt();
+                        System.out.println("You will be contacted by a staff in the next 48 hours to retrieve your password.");
                     }
                 }
             }while(!success);
@@ -62,7 +78,7 @@ public class Menu{
     }public void activities(){
             //System.out.println(ls.check_if_patient_exists(hcn));
             String c="1";
-            System.out.println("Make or view appointments(1/2)");
+            System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
             c = s.nextLine();
             if(c.equals("1")){
                 makeAppointment();
