@@ -71,7 +71,7 @@ public class Menu{
             System.out.println("Input password");
             String pwd = s.nextLine();
             ls.signUp(name, gender, ctctNum, hcn, pwd);
-            //System.out.println(ls.check_if_patient_exists(hcn));
+            System.out.println("Patient account successfully created");
         }
         this.hcn=hcn;
 
@@ -99,6 +99,9 @@ public class Menu{
             sm.add_or_modify_Event(event, start, end);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
+        }
+        if (sm.getScheduleString() != null) {
+            System.out.println("You have successfully booked an appointment");
         }
         
     }private void viewAppointment() {
