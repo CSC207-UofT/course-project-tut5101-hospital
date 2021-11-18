@@ -16,7 +16,6 @@ public class PatientScheduleManager {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     PatientData sessionData = new PatientData();
     Patient p;
-    //since staff class is not implemented we will ignore the staff side schedule
     public PatientScheduleManager(Schedule s){
         sessionData = new PatientData();
         this.s = s;

@@ -33,14 +33,14 @@ public class Staff implements Serializable {
     /**
      * Construct a Entity.Staff, giving them a name, gender, worktime and ID.
      */
-    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixed_salary) {
+    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int salary) {
 
         this.name = name;
         this.gender = gender;
         this.ID = id;
         this.workingTime = workingTime;
         this.pwd = pwd;
-        this.fixed_salary = fixed_salary;
+        this.salary = salary;
     }
     //This method get the information of the Entity.Staff in a string
     public String getStaffInfo() {
