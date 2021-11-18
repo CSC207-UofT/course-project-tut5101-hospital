@@ -25,13 +25,12 @@ public class Menu{
             boolean success = false;
 
             do{
-                PatientData pd = new PatientData();
                 System.out.println("Input HealthCardNumber");
                 hcn = s.nextInt();
-                if (pd.patientExist(hcn)) {
+                if (ls.check_if_patient_exists(hcn)) {
                     s.nextLine();
                 } else {
-                    System.out.println("Login failed, enter 1 to switch to sign up instead");
+                    System.out.println("You do not have an account, enter 1 to switch to sign up instead");
                     int k=s.nextInt();
                     s.nextLine();
                     if(k==1) {
