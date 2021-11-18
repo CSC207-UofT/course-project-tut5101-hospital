@@ -17,10 +17,9 @@ public class ScheduleManager {
     PatientData sessionData = new PatientData();
     Patient p;
     //since staff class is not implemented we will ignore the staff side schedule
-    public ScheduleManager(Patient p){
+    public ScheduleManager(Schedule s){
         sessionData = new PatientData();
-        this.p = p;
-        this.s = p.getSchedule();
+        this.s = s;
         
     }public Schedule getSchedule(){
         return this.s;

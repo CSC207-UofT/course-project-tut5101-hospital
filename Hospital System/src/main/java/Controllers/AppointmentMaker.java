@@ -15,7 +15,7 @@ public class AppointmentMaker {
     ScheduleManager sm;
     public AppointmentMaker(int hcn){
         this.pm = new PatientManager();
-        this.sm = new ScheduleManager(pm.getPatient(hcn));
+        this.sm = pm.getPatientSm(hcn);
     }public String getSchedule(){
         return sm.getScheduleString();
     }public void makeAppointment(String event, String start, String end) throws InvalidInputException{

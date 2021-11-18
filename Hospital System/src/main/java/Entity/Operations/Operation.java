@@ -3,13 +3,16 @@ package Entity.Operations;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public abstract class Operations {
+public class Operation {
     private int cost;
     private String name;
     private String description;
     private final List<LocalDateTime> time;
 
-    public Operations( List<LocalDateTime> time) {
+    public Operation(int cost, String name, String description, List<LocalDateTime> time) {
+        this.cost=cost;
+        this.name = name;
+        this.description=description;
         this.time=time;
     }
 

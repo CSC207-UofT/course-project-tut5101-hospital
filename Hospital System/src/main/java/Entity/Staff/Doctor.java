@@ -1,5 +1,6 @@
 package Entity.Staff;
-import Entity.Operations.Operations;
+import Entity.Operations.Operation;
+import Entity.Operations.OperationList;
 import Schedule.Schedule;
 
 import java.util.ArrayList;
@@ -18,26 +19,20 @@ public class Doctor extends Staff {
      * @param id
      * @param workingTime
      */
-    private List<Operations> scheduledOperations = new ArrayList<Operations>();
-    private List<Operations> finishedOperations = new ArrayList<Operations>();
+    private OperationList scdldOps = new OperationList();
+    private OperationList fnshdOps = new OperationList();
 
     public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
         super(name, gender, id, workingTime, pwd, fixed_salary);
     }
 
-    public void setScheduledOperations(List<Operations> scheduledOperations) {
-        this.scheduledOperations = scheduledOperations;
+
+
+    public OperationList getFnshdOps() {
+        return fnshdOps;
     }
 
-    public void setFinishedOperations(List<Operations> finishedOperations) {
-        this.finishedOperations = finishedOperations;
-    }
-
-    public List<Operations> getFinishedOperations() {
-        return finishedOperations;
-    }
-
-    public List<Operations> getScheduledOperations() {
-        return scheduledOperations;
+    public OperationList getScdldOps() {
+        return scdldOps;
     }
 }

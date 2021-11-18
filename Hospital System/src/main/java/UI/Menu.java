@@ -72,7 +72,7 @@ public class Menu{
         }
     private void makeAppointment() {
         System.out.println(ls.check_if_patient_exists(hcn));
-        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn));
+        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
         System.out.println("Input event");
         String event = s.nextLine();
         System.out.println("Input start time yyyy-MM-dd HH:mm");
@@ -86,7 +86,7 @@ public class Menu{
         }
         
     }private void viewAppointment() {
-        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn));
+        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
         System.out.println(sm.getScheduleString());
     }
 }
