@@ -8,13 +8,16 @@ import Entity.Staff.Doctor;
 import java.util.List;
 
 public class OperationManager {
-OperationList scdl_ops;
-OperationList fnsh_ops;
+    OperationList scdl_ops;
+    OperationList fnsh_ops;
+
+    //reads in a patient or a doctor and manage scheduled and finished operations
     public OperationManager(Patient p) {
         this.scdl_ops = p.getScdldOps();
         this.fnsh_ops = p.getFnshdOps();
     }
-    public OperationManager(Doctor d){
+
+    public OperationManager(Doctor d) {
         this.scdl_ops = d.getScdldOps();
         this.fnsh_ops = d.getFnshdOps();
     }

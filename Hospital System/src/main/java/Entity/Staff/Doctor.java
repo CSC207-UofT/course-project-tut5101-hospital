@@ -1,4 +1,5 @@
 package Entity.Staff;
+import Entity.Operations.OperationList;
 import Schedule.Schedule;
 
 /** This file contains the class Entity.Staff.Doctor and is used to input the Entity.Staff.Doctor information
@@ -16,6 +17,10 @@ public class Doctor extends Staff {
      */
     public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
         super(name, gender, id, workingTime, pwd);
+    }public OperationList getScdldOps() {
     }
+    public OperationList getFnshdOps() {
+    }
+
 
 }
