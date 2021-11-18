@@ -25,6 +25,7 @@ public class TestMenu {
         loginSignup = new LoginSignup();
         loginSignup.signUp("Harry", "Male", 1, 2, "3");
         patientData = new PatientData();
+        patient = new Patient("James", "Male", 9, 7, "bob");
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
@@ -50,5 +51,13 @@ public class TestMenu {
                 "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\tEvent:x-ray",
                 scheduleManager.getScheduleString());
     }
+
+    @Test
+    public void TestPatient() {
+        Assert.assertEquals("Patient class creates a patient", 7,
+                patient.getHealthCardNum());
+    }
+
+
 
 }

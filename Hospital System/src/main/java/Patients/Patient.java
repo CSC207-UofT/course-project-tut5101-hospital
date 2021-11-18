@@ -30,13 +30,20 @@ public class Patient implements java.io.Serializable{
                 "Contact Number: " + this.contactNum + "\n" +
                 "Health Card Number: " + this.healthCardNum;
     }//add get healthcardid since we need to use healthcardnum as keys in patients database.
+
     public int getHealthCardNum() {
         return this.healthCardNum;
-    }public boolean checkPwd(String ipt_pwd) {
+    }
+
+    public boolean checkPwd(String ipt_pwd) {
         return pwd.equals(ipt_pwd);
-    }public Schedule getSchedule() {
+    }
+
+    public Schedule getSchedule() {
         return scdl;
-    }public void setSchedule(Schedule s){
+    }
+
+    public void setSchedule(Schedule s){
         this.scdl=s;
     }
 }
