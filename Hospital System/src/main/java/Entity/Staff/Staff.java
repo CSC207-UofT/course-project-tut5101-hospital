@@ -1,4 +1,5 @@
 package Entity.Staff;
+import Entity.Operations.OperationList;
 import Schedule.Schedule;
 
 /** This file contains the class Entity.Staff and is used to input the staff information
@@ -18,7 +19,7 @@ public class Staff implements Serializable {
     private String pwd;
     private Schedule workingTime;
     private Schedule scdl = new Schedule();
-    private int fixed_salary;
+    private double salary;
 
     public void setScdl(Schedule scdl) {
         this.scdl = scdl;
@@ -32,13 +33,14 @@ public class Staff implements Serializable {
     /**
      * Construct a Entity.Staff, giving them a name, gender, worktime and ID.
      */
-    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd) {
+    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int salary) {
 
         this.name = name;
         this.gender = gender;
         this.ID = id;
         this.workingTime = workingTime;
         this.pwd = pwd;
+        this.salary = salary;
     }
     //This method get the information of the Entity.Staff in a string
     public String getStaffInfo() {
@@ -66,5 +68,9 @@ public class Staff implements Serializable {
     public void setSchedule(Schedule s) {
         this.scdl = s;
     }
+    public void addBonus(double bonus){
+        salary+=bonus;
+    }
+
 
 }

@@ -2,7 +2,7 @@ import Entity.Patients.PatientData;
 import Entity.Patients.Patient;
 import UseCases.PatientManager;
 import Schedule.Schedule;
-import UseCases.ScheduleManager;
+import UseCases.PatientScheduleManager;
 import Controllers.LoginSignup;
 import Controllers.AppointmentMaker;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ public class TestMenu {
     private PatientManager patientManager;
     private AppointmentMaker appointmentMaker;
     private Schedule schedule;
-    private ScheduleManager scheduleManager;
+    private PatientScheduleManager patientScheduleManager;
 
 
     @Before
@@ -29,7 +29,7 @@ public class TestMenu {
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
-        scheduleManager = new ScheduleManager(patient);
+        patientScheduleManager = new PatientScheduleManager(patient);
 
     }
 
@@ -49,7 +49,7 @@ public class TestMenu {
     public void TestSchedule() {
         Assert.assertEquals("Patient appointment is in the schedule",
                 "Start-End:\t2020-10-01 10:00 Tue\t2020-10-01 11:00 Tue\t\tEvent:x-ray",
-                scheduleManager.getScheduleString());
+                patientScheduleManager.getScheduleString());
     }
 
 

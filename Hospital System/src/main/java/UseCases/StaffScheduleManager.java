@@ -1,27 +1,25 @@
 package UseCases;
-// import java.time.format.DateTimeFormatter;
+
 import java.util.Arrays;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import Entity.Patients.Patient;
-import Entity.Patients.PatientData;
+import Entity.Staff.Staff;
+import Entity.Staff.StaffData;
 import Exceptions.InvalidInputException;
 import Exceptions.StuffNotFoundException;
 import Schedule.Schedule;
 
-public class ScheduleManager {
+public class StaffScheduleManager {
     Schedule s;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    PatientData sessionData = new PatientData();
-    Patient p;
-    //since staff class is not implemented we will ignore the staff side schedule
-    public ScheduleManager(Patient p){
-        sessionData = new PatientData();
-        this.p = p;
-        this.s = p.getSchedule();
-        
+    StaffData sessionData = new StaffData();
+    Staff p;
+    public StaffScheduleManager(Schedule s){
+        sessionData = new StaffData();
+        this.s = s;
+
     }public Schedule getSchedule(){
         return this.s;
     }public void add_or_modify_Event(String event, String start, String end) throws InvalidInputException{
@@ -45,7 +43,7 @@ public class ScheduleManager {
         }
         return s.getScheduleString();
     }private void saveSchedule(){
-        sessionData.searchHCN(p.getHealthCardNum()).setSchedule(s);
+        sessionData.searchID(p.getStaffID()).setSchedule(s);
         sessionData.saveData();
     }
 }
