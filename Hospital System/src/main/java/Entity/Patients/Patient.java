@@ -62,6 +62,8 @@ public class Patient implements java.io.Serializable {
 
     public OperationList getScdldOps() {
         return scdldOps;
+    }public void addFee(int new_fee){
+        fee+=new_fee;
     }
 
 }
