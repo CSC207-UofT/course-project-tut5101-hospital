@@ -11,13 +11,13 @@ import Exceptions.InvalidInputException;
 import Exceptions.StuffNotFoundException;
 import Schedule.Schedule;
 
-public class ScheduleManager {
+public class PatientScheduleManager {
     Schedule s;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     PatientData sessionData = new PatientData();
     Patient p;
     //since staff class is not implemented we will ignore the staff side schedule
-    public ScheduleManager(Schedule s){
+    public PatientScheduleManager(Schedule s){
         sessionData = new PatientData();
         this.s = s;
         

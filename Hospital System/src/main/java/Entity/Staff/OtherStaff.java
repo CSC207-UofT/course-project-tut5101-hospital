@@ -14,7 +14,7 @@ public class OtherStaff extends Staff{
      * Construct a Entity.Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
      *
      */
-    public OtherStaff(String name, String gender, String role, Integer id, Schedule workingTime, String pwd){
+    public OtherStaff(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixed_salary, String role){
         super(name, gender, id, workingTime, pwd, fixed_salary);
         this.role = role;
     }
