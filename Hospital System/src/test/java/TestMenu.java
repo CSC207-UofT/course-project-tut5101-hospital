@@ -5,9 +5,7 @@ import Schedule.Schedule;
 import Schedule.ScheduleManager;
 import UseCases.LoginSignup;
 import UseCases.AppointmentMaker;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class TestMenu {
 
@@ -16,7 +14,6 @@ public class TestMenu {
     private Patient patient;
     private PatientManager patientManager;
     private AppointmentMaker appointmentMaker;
-    private Schedule schedule;
     private ScheduleManager scheduleManager;
 
 
@@ -26,11 +23,12 @@ public class TestMenu {
         loginSignup.signUp("Harry", "Male", 1, 2, "3");
         patientData = new PatientData();
         patient = new Patient("James", "Male", 9, 7, "bob");
+        patientData.add_or_modify_Patient(patient);
+        patientData.removePatient(loginSignup.initPatient(3));
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
         scheduleManager = new ScheduleManager(loginSignup.initPatient(2));
-
     }
 
     @Test
@@ -58,6 +56,9 @@ public class TestMenu {
                 patient.getHealthCardNum());
     }
 
-
+    @Test
+    public void TestAddorModifyPatient() {
+        Assert.assertTrue("Patient information should be added to Patient Data", patientData.patientExist(7));
+    }
 
 }
