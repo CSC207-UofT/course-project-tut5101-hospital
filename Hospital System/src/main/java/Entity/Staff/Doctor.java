@@ -15,12 +15,19 @@ public class Doctor extends Staff {
      * @param id
      * @param workingTime
      */
-    public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd) {
-        super(name, gender, id, workingTime, pwd);
-    }public OperationList getScdldOps() {
+    private OperationList scdldOps = new OperationList();
+    private OperationList fnshdOps = new OperationList();
+
+    public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixed_salary) {
+        super(name, gender, id, workingTime, pwd, fixed_salary);
     }
+
+
     public OperationList getFnshdOps() {
+        return fnshdOps;
     }
 
-
+    public OperationList getScdldOps() {
+        return scdldOps;
+    }
 }

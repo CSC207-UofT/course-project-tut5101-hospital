@@ -19,7 +19,7 @@ public class Nurse extends Staff {
      * @param id
      * @param workingTime
      */
-    public Nurse(String name, String gender, Integer id, Schedule workingTime, String pwd, ArrayList<Patient> patients) {
+    public Nurse(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixed_salary, ArrayList<Patient> patients) {
         super(name, gender, id, workingTime, pwd, fixed_salary);
         this.patients = patients;
     }
