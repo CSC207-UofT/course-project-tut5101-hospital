@@ -1,6 +1,6 @@
-import Schedule.ScheduleManager;
+import UseCases.PatientScheduleManager;
 import UI.Menu;
-import UseCases.LoginSignup;
+import Controllers.LoginSignup;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +32,7 @@ public class MenuTest {
         MenuTest.main(null);
 
         ls.signUp("Harry", "Male", 111111, 222222, "333333");
-        ScheduleManager sm = new ScheduleManager(ls.initPatient(222222));
+        PatientScheduleManager sm = new PatientScheduleManager(ls.initPatient(222222));
         String actual = sm.getScheduleString();
 
         String expected = "Start-End:\t2020-12-01 12:00 Tue\t2020-12-01 13:00 Tue\t\tEvent:ill";
