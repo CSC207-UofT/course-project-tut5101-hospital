@@ -9,6 +9,7 @@ For patients:
   Make or View Appointment
 
   Check in
+  
 For staff:
 
   Signup or Login
@@ -16,6 +17,7 @@ For staff:
   View Schedule
 
   View Patient Records
+  
 Exit
 
 Every user input should be an integer that corresponds to the different choices.
