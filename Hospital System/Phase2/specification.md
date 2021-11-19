@@ -4,18 +4,18 @@ Running the project starts a system that allows the user to interact with a hosp
 
 For patients:
 
-Signup or Login
+  Signup or Login
 
-Make or View Appointment
+  Make or View Appointment
 
-Check in
+  Check in
 For staff:
 
-Signup or Login
+  Signup or Login
 
-View Schedule
+  View Schedule
 
-View Patient Records
+  View Patient Records
 Exit
 
 Every user input should be an integer that corresponds to the different choices.
