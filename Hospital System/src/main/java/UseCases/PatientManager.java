@@ -22,8 +22,8 @@ public class PatientManager {
 
     public Patient getPatient(int healthCardNum) {
         return sessionData.searchHCN(healthCardNum);
-    }public PatientScheduleManager getPatientSm(int healthCardNum){
-        return new PatientScheduleManager(sessionData.searchHCN(healthCardNum).getSchedule());
+    }public ScheduleManager getPatientSm(int healthCardNum){
+        return new ScheduleManager(sessionData.searchHCN(healthCardNum));
     }
 
     public boolean checkIfPateintExist(int hcn) {

@@ -6,6 +6,12 @@ import Schedule.ScheduleManager;
 import UseCases.LoginSignup;
 import UseCases.AppointmentMaker;
 import org.junit.*;
+import UseCases.ScheduleManager;
+import Controllers.LoginSignup;
+import Controllers.AppointmentMaker;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestMenu {
 
@@ -15,6 +21,8 @@ public class TestMenu {
     private PatientManager patientManager;
     private AppointmentMaker appointmentMaker;
     private ScheduleManager scheduleManager;
+    private Schedule schedule;
+    private ScheduleManager patientScheduleManager;
 
 
     @Before
@@ -29,6 +37,7 @@ public class TestMenu {
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
         scheduleManager = new ScheduleManager(loginSignup.initPatient(2));
+        patientScheduleManager = new ScheduleManager(patient);
     }
 
     @Test

@@ -1,6 +1,6 @@
 package Controllers;
 
-import UseCases.PatientScheduleManager;
+import UseCases.ScheduleManager;
 
 import Exceptions.StuffNotFoundException;
 import Exceptions.InvalidInputException;
@@ -12,7 +12,7 @@ import UseCases.PatientManager;
 
 public class AppointmentMaker {
     PatientManager pm;
-    PatientScheduleManager sm;
+    ScheduleManager sm;
     public AppointmentMaker(int hcn){
         this.pm = new PatientManager();
         this.sm = pm.getPatientSm(hcn);

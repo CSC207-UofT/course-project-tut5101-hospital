@@ -3,7 +3,7 @@ package UI;
 import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
-import UseCases.PatientScheduleManager;
+import UseCases.ScheduleManager;
 import Controllers.LoginSignup;
 public class Menu{
     Scanner s = new Scanner(System.in);
@@ -86,7 +86,7 @@ public class Menu{
         }
     private void makeAppointment() {
         System.out.println(ls.check_if_patient_exists(hcn));
-        PatientScheduleManager sm = new PatientScheduleManager(ls.initPatient(hcn).getSchedule());
+        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
         System.out.println("Input event");
         String event = s.nextLine();
         System.out.println("Input start time yyyy-MM-dd HH:mm");
@@ -103,7 +103,7 @@ public class Menu{
         }
 
     }private void viewAppointment() {
-        PatientScheduleManager sm = new PatientScheduleManager(ls.initPatient(hcn).getSchedule());
+        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
         System.out.println(sm.getScheduleString());
     }
 }
