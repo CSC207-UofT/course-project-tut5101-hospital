@@ -1,26 +1,40 @@
 package UseCases;
-
+// import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import Entity.Patients.Patient;
+import Entity.Patients.PatientData;
 import Entity.Staff.Staff;
-import Entity.Staff.StaffData;
 import Exceptions.InvalidInputException;
 import Exceptions.StuffNotFoundException;
 import Schedule.Schedule;
 
-public class StaffScheduleManager {
+public class ScheduleManager {
     Schedule s;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    StaffData sessionData = new StaffData();
-    Staff p;
-    public StaffScheduleManager(Schedule s){
-        sessionData = new StaffData();
+    PatientData sessionData;
+    //fuzzy overloaded constructor: can accept staff or patient and accept their schedules
+    public ScheduleManager(Schedule s){
+        sessionData = new PatientData();
         this.s = s;
+        
+    }
+    public ScheduleManager(Patient p){
+        sessionData = new PatientData();
+        this.s = p.getSchedule();
 
-    }public Schedule getSchedule(){
+    }
+    public ScheduleManager(Staff st){
+        sessionData = new PatientData();
+        this.s = st.getScdl();
+
+    }
+
+
+    public Schedule getSchedule(){
         return this.s;
     }public void add_or_modify_Event(String event, String start, String end) throws InvalidInputException{
         LocalDateTime st = LocalDateTime.parse(start, formatter);
@@ -43,7 +57,6 @@ public class StaffScheduleManager {
         }
         return s.getScheduleString();
     }private void saveSchedule(){
-        sessionData.searchID(p.getStaffID()).setSchedule(s);
         sessionData.saveData();
     }
 }
