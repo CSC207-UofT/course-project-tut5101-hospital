@@ -1,10 +1,12 @@
 package Entity.Staff;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import Exceptions.StuffNotFoundException;
 
 import java.io.*;
+import java.util.List;
 
 public class StaffData implements java.io.Serializable {
     private HashMap<Integer,Staff> allstaff;
@@ -53,7 +55,12 @@ public class StaffData implements java.io.Serializable {
         }
     }
 
-
+    //get all Staffs
+    public List<Staff> getAllStaff(){
+        return new ArrayList<Staff>(allstaff.values());
+    }public List<Integer> getAllStaffId(){
+        return new ArrayList<Integer>(allstaff.keySet());
+    }
 
     //load and save data
     public void saveData(){

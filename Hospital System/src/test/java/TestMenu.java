@@ -2,7 +2,7 @@ import Entity.Patients.PatientData;
 import Entity.Patients.Patient;
 import UseCases.PatientManager;
 import Schedule.Schedule;
-import UseCases.PatientScheduleManager;
+import UseCases.ScheduleManager;
 import Controllers.LoginSignup;
 import Controllers.AppointmentMaker;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ public class TestMenu {
     private PatientManager patientManager;
     private AppointmentMaker appointmentMaker;
     private Schedule schedule;
-    private PatientScheduleManager patientScheduleManager;
+    private ScheduleManager patientScheduleManager;
 
 
     @Before
@@ -29,7 +29,7 @@ public class TestMenu {
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
         appointmentMaker.makeAppointment("x-ray","2020-10-01 10:00", "2020-10-01 11:00");
-        patientScheduleManager = new PatientScheduleManager(patient);
+        patientScheduleManager = new ScheduleManager(patient);
 
     }
 
