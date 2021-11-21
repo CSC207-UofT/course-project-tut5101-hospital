@@ -31,7 +31,7 @@ public class MenuTest {
 
         MenuTest.main(null);
 
-        ls.signUp("Harry", "Male", 111111, 222222, "333333");
+        ls.signUpForPatients("Harry", "Male", 111111, 222222, "333333");
         ScheduleManager sm = new ScheduleManager(ls.initPatient(222222));
         String actual = sm.getScheduleString();
 
@@ -42,9 +42,9 @@ public class MenuTest {
 
     public static void main(String[] args) {
         Menu menu = new Menu();
-        menu.loginSignup();
+        menu.loginSignupForPatient();
         menu.activities();
-        menu.loginSignup();
+        menu.loginSignupForPatient();
         menu.activities();
     }
 }

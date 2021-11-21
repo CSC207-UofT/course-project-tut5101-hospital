@@ -4,8 +4,8 @@ public class Main {
         public static void main(String[] args){
             Menu menu = new Menu();
             menu.greeter();
-            menu.loginSignup();
-            menu.activities();
+            menu.loginSignupForStaff();
+            //menu.activities();
         }
 
 /*     public static void main(String[] args) {

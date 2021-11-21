@@ -1,11 +1,7 @@
-import Patients.PatientData;
-import Patients.Patient;
-import Patients.PatientManager;
+import Entity.Patients.PatientData;
+import Entity.Patients.Patient;
+import UseCases.PatientManager;
 import Schedule.Schedule;
-import Schedule.ScheduleManager;
-import UseCases.LoginSignup;
-import UseCases.AppointmentMaker;
-import org.junit.*;
 import UseCases.ScheduleManager;
 import Controllers.LoginSignup;
 import Controllers.AppointmentMaker;
@@ -28,7 +24,7 @@ public class TestMenu {
     @Before
     public void setUp() throws Exception {
         loginSignup = new LoginSignup();
-        loginSignup.signUp("Harry", "Male", 1, 2, "3");
+        loginSignup.signUpForPatients("Harry", "Male", 1, 2, "3");
         patientData = new PatientData();
         patient = new Patient("James", "Male", 9, 7, "bob");
         patientData.add_or_modify_Patient(patient);
