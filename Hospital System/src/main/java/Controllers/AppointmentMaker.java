@@ -1,10 +1,10 @@
 package Controllers;
 
-import Schedule.ScheduleManager;
+import UseCases.ScheduleManager;
 
 import Exceptions.StuffNotFoundException;
 import Exceptions.InvalidInputException;
-import Patients.PatientManager;
+import UseCases.PatientManager;
 
 /** This file contains the main system for the hospital and is used to make appointments for patients
  *
@@ -15,7 +15,7 @@ public class AppointmentMaker {
     ScheduleManager sm;
     public AppointmentMaker(int hcn){
         this.pm = new PatientManager();
-        this.sm = new ScheduleManager(pm.getPatient(hcn));
+        this.sm = pm.getPatientSm(hcn);
     }public String getSchedule(){
         return sm.getScheduleString();
     }public void makeAppointment(String event, String start, String end) throws InvalidInputException{
