@@ -5,6 +5,7 @@ public class Main {
         Menu menu = new Menu();
         menu.greeter();
         menu.loginSignupForStaff();
+        menu.checkSchedule();
         //menu.activities();
     }
 
