@@ -40,7 +40,7 @@ public class Schedule implements java.io.Serializable {
     public void add_or_modify_Event(String event, Event dates) throws InvalidInputException {
         if (!schedule.containsKey(dates)) {
             this.schedule.put(dates, event);
-        } else{
+        } else {
             throw new InvalidInputException("");
         }
     }
@@ -92,7 +92,7 @@ public class Schedule implements java.io.Serializable {
 
         @Override
         public Event convertToEntityAttribute(String string) {
-            Event localDateTimes = new Event(null,null);
+            Event localDateTimes = new Event(null, null);
             if (!string.isEmpty()) {
                 List<String> list_s = Arrays.asList(string.split(SPLIT_CHAR));
                 localDateTimes.setStart_time(LocalDateTime.parse(list_s.get(0), formatter));

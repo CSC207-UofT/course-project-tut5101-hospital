@@ -9,7 +9,8 @@ import java.io.*;
 import java.util.List;
 
 public class StaffData implements java.io.Serializable {
-    private HashMap<Integer,Staff> allstaff;
+    private HashMap<Integer, Staff> allstaff;
+
     //init
     public StaffData() {
         allstaff = new HashMap<>();
@@ -30,40 +31,45 @@ public class StaffData implements java.io.Serializable {
         if (!allstaff.containsKey(staff.getStaffID())) {
             allstaff.put(staff.getStaffID(), staff);
         }
-    }public void removeStaff(Staff staff) throws StuffNotFoundException{
+    }
+
+    public void removeStaff(Staff staff) throws StuffNotFoundException {
         if (!allstaff.containsKey(staff.getStaffID())) {
             allstaff.remove(staff.getStaffID());
-        }else{
+        } else {
             throw new StuffNotFoundException("");
         }
     }
-
 
 
     //view and search Entity.Staff
     public String viewStaff(Staff staff) {
         if (!allstaff.containsKey(staff.getStaffID())) {
             return allstaff.get(staff.getStaffID()).getStaffInfo();
-        }else{
+        } else {
             return "Entity.Staff not found";
-        }}
+        }
+    }
+
     public Staff searchID(Integer ID) {
         if (!allstaff.containsKey(ID)) {
             return allstaff.get(ID);
-        } else{
+        } else {
             return null;
         }
     }
 
     //get all Staffs
-    public List<Staff> getAllStaff(){
+    public List<Staff> getAllStaff() {
         return new ArrayList<Staff>(allstaff.values());
-    }public List<Integer> getAllStaffId(){
+    }
+
+    public List<Integer> getAllStaffId() {
         return new ArrayList<Integer>(allstaff.keySet());
     }
 
     //load and save data
-    public void saveData(){
+    public void saveData() {
         try {
             FileOutputStream fileOut =
                     new FileOutputStream("staff.ser");
@@ -74,7 +80,9 @@ public class StaffData implements java.io.Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }private void loadData(){
+    }
+
+    private void loadData() {
         StaffData pd = null;
         try {
             FileInputStream fileIn = new FileInputStream("staff.ser");
@@ -82,14 +90,13 @@ public class StaffData implements java.io.Serializable {
             pd = (StaffData) in.readObject();
             in.close();
             fileIn.close();
-            this.allstaff=pd.allstaff;
-        } catch (IOException e){
+            this.allstaff = pd.allstaff;
+        } catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }

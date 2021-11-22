@@ -7,10 +7,13 @@ import Entity.Patients.Patient;
 public class OperationFeeCalculator {
     Patient p;
     Operation op;
-    public OperationFeeCalculator(Patient p, Operation op){
+
+    public OperationFeeCalculator(Patient p, Operation op) {
         this.p = p;
         this.op = op;
-    }public double finish(){
+    }
+
+    public double finish() {
         p.addFee(op.getCost());
         return op.getCost();
     }

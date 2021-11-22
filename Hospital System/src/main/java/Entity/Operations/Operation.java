@@ -10,10 +10,10 @@ public class Operation {
     private final List<LocalDateTime> time;
 
     public Operation(int cost, String name, String description, List<LocalDateTime> time) {
-        this.cost=cost;
+        this.cost = cost;
         this.name = name;
-        this.description=description;
-        this.time=time;
+        this.description = description;
+        this.time = time;
     }
 
     public int getCost() {

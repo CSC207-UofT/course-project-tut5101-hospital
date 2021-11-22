@@ -17,6 +17,7 @@ public class OperationLogger {
         this.p_opm = new OperationManager(p);
         this.op = op;
     }
+
     // calls operation manager to manage the operation lists
     public void finishOperation() {
         p_opm.finishOp(op);
