@@ -14,16 +14,16 @@ public class LoginSignup {
         this.sm = new StaffManager();
     }
 
-    public Boolean check_if_patient_exists(int hcn){
+    public Boolean checkIfPatientExists(int hcn){
         return (pm.checkIfPateintExist(hcn));
     }
 
-    public Boolean check_if_staff_exists(int id){
+    public Boolean checkIfStaffExists(int id){
         return (sm.checkIfStaffExist(id));
     }
 
-    public boolean LoginForPatients(int hcn, String ipt_pwd){
-        return pm.checkLoginInfo(hcn, ipt_pwd);
+    public boolean LoginForPatients(int hcn, String iptPwd){
+        return pm.checkLoginInfo(hcn, iptPwd);
     }
 
     public boolean LoginForStaffs(int id, String ipt_pwd){
@@ -34,8 +34,8 @@ public class LoginSignup {
         pm.addPatient(name, gender, contactNum, healthCardNum, pwd);
     }
 
-    public void signUpForStaffs(String name, String gender, Integer id, Schedule  workingTime, String pwd, int base_salary){
-        sm.addStaff(name, gender, id, workingTime, pwd, base_salary);
+    public void signUpForStaffs(String name, String gender, Integer id, Schedule  workingTime, String pwd, int baseSalary){
+        sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);
     }
 
     public Patient initPatient(int hcn){

@@ -44,8 +44,8 @@ public class Patient implements java.io.Serializable {
         return this.healthCardNum;
     }
 
-    public boolean checkPwd(String ipt_pwd) {
-        return pwd.equals(ipt_pwd);
+    public boolean checkPwd(String iptPwd) {
+        return pwd.equals(iptPwd);
     }
 
     public Schedule getSchedule() {
@@ -64,8 +64,8 @@ public class Patient implements java.io.Serializable {
         return scdldOps;
     }
 
-    public void addFee(int new_fee) {
-        fee += new_fee;
+    public void addFee(int newFee) {
+        fee += newFee;
     }
 
 }

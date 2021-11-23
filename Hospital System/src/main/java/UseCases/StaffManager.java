@@ -11,12 +11,12 @@ public class StaffManager {
 
     StaffData sessionData = new StaffData();
 
-    public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixed_salary) {
-        return new Staff(name, gender, ID, workingTime, pwd, fixed_salary);
+    public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary) {
+        return new Staff(name, gender, ID, workingTime, pwd, fixedSalary);
     }
 
-    public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixed_salary) {
-        Staff s = new Staff(name, gender, ID, workingTime, pwd, fixed_salary);
+    public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary) {
+        Staff s = new Staff(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.add_or_modify_Staff(s);
         saveSession();
     }

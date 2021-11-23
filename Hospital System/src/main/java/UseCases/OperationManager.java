@@ -5,37 +5,35 @@ import Entity.Operations.OperationList;
 import Entity.Patients.Patient;
 import Entity.Staff.Doctor;
 
-import java.util.List;
-
 public class OperationManager {
-    OperationList scdl_ops;
-    OperationList fnsh_ops;
+    OperationList scdlOps;
+    OperationList fnshOps;
 
     //reads in a patient or a doctor and manage scheduled and finished operations
     public OperationManager(Patient p) {
-        this.scdl_ops = p.getScdldOps();
-        this.fnsh_ops = p.getFnshdOps();
+        this.scdlOps = p.getScdldOps();
+        this.fnshOps = p.getFnshdOps();
     }
 
     public OperationManager(Doctor d) {
-        this.scdl_ops = d.getScdldOps();
-        this.fnsh_ops = d.getFnshdOps();
+        this.scdlOps = d.getScdldOps();
+        this.fnshOps = d.getFnshdOps();
     }
 
     public OperationList getScdldOps() {
-        return scdl_ops;
+        return scdlOps;
     }
 
     public OperationList getfnshdOps() {
-        return fnsh_ops;
+        return fnshOps;
     }
 
     public void scheduleNewOp(Operation op) {
-        scdl_ops.addOperation(op);
+        scdlOps.addOperation(op);
     }
 
     public void finishOp(Operation op) {
-        scdl_ops.removeOperation(op);
-        fnsh_ops.addOperation(op);
+        scdlOps.removeOperation(op);
+        fnshOps.addOperation(op);
     }
 }

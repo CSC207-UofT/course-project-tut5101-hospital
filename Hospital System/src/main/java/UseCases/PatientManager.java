@@ -12,7 +12,7 @@ public class PatientManager {
 
     public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
         Patient p = new Patient(name, gender, contactNum, healthCardNum, pwd);
-        sessionData.add_or_modify_Patient(p);
+        sessionData.addOrModifyPatient(p);
         saveSession();
     }
 

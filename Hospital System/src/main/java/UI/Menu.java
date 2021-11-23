@@ -56,7 +56,7 @@ public class Menu {
         do {
             System.out.println("Input HealthCardNumber");
             hcn = scanner.nextInt();
-            if (loginSignup.check_if_patient_exists(hcn)) {
+            if (loginSignup.checkIfPatientExists(hcn)) {
                 scanner.nextLine();
             } else {
                 System.out.println("You do not have an account, enter 1 to switch to sign up instead");
@@ -128,7 +128,7 @@ public class Menu {
         do {
             System.out.println("Input id");
             id = scanner.nextInt();
-            if (loginSignup.check_if_patient_exists(id)) {
+            if (loginSignup.checkIfPatientExists(id)) {
                 scanner.nextLine();
             } else {
                 System.out.println("You do not have an account, enter 1 to switch to sign up instead");
@@ -160,7 +160,7 @@ public class Menu {
     }
 
     public void activities() {
-        //System.out.println(ls.check_if_patient_exists(hcn));
+        //System.out.println(ls.checkIfPatientExists(hcn));
         String c = "1";
         System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
         c = scanner.nextLine();
@@ -173,7 +173,7 @@ public class Menu {
     }
 
     private void makeAppointment() {
-        System.out.println(loginSignup.check_if_patient_exists(hcn));
+        System.out.println(loginSignup.checkIfPatientExists(hcn));
         ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
         System.out.println("Input event");
         String event = scanner.nextLine();
@@ -182,7 +182,7 @@ public class Menu {
         System.out.println("Input end time yyyy-MM-dd HH:mm");
         String end = scanner.nextLine();
         try {
-            sm.add_or_modify_Event(event, start, end);
+            sm.addOrModifyEvent(event, start, end);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }

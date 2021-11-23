@@ -16,7 +16,7 @@ public class PatientData implements java.io.Serializable {
     }
 
     // add, modify, remove Entity.Patients
-    public void add_or_modify_Patient(Patient patient) {
+    public void addOrModifyPatient(Patient patient) {
         // add the patient if it is not already in, modify it if it is already in
         // the database.
         patients.put(patient.getHealthCardNum(), patient);

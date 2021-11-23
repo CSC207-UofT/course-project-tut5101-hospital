@@ -24,10 +24,10 @@ public class AppointmentMaker {
     }
 
     public void makeAppointment(String event, String start, String end) throws InvalidInputException {
-        sm.add_or_modify_Event(event, start, end);
+        sm.addOrModifyEvent(event, start, end);
     }
 
     public void deleteEvent(String start, String end) throws StuffNotFoundException {
-        sm.remove_Event(start, end);
+        sm.removeEvent(start, end);
     }
 }

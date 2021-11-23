@@ -27,7 +27,7 @@ public class TestMenu {
         loginSignup.signUpForPatients("Harry", "Male", 1, 2, "3");
         patientData = new PatientData();
         patient = new Patient("James", "Male", 9, 7, "bob");
-        patientData.add_or_modify_Patient(patient);
+        patientData.addOrModifyPatient(patient);
         patientData.removePatient(loginSignup.initPatient(3));
         patientManager = new PatientManager();
         appointmentMaker = new AppointmentMaker(2);
@@ -38,7 +38,7 @@ public class TestMenu {
 
     @Test
     public void TestLoginSignUpHCNexist() {
-        Assert.assertTrue("Health card should be added into the system as part of the signup", loginSignup.check_if_patient_exists(2));
+        Assert.assertTrue("Health card should be added into the system as part of the signup", loginSignup.checkIfPatientExists(2));
     }
 
     @Test

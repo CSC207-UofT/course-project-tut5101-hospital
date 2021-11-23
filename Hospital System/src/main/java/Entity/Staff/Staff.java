@@ -34,14 +34,14 @@ public class Staff implements Serializable {
     /**
      * Construct a Entity.Staff, giving them a name, gender, worktime and ID.
      */
-    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int base_salary) {
+    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int baseSalary) {
 
         this.name = name;
         this.gender = gender;
         this.ID = id;
         this.workingTime = workingTime;
         this.pwd = pwd;
-        this.salary = base_salary;
+        this.salary = baseSalary;
     }
 
     //This method get the information of the Entity.Staff in a string
@@ -59,8 +59,8 @@ public class Staff implements Serializable {
 
 
     //This method checks to ensure the entered password is the same as the set password
-    public Boolean checkPwd(String ipt_pwd) {
-        return this.pwd == ipt_pwd;
+    public Boolean checkPwd(String iptPwd) {
+        return this.pwd == iptPwd;
     }
 
     public Schedule getSchedule() {

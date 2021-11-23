@@ -19,8 +19,8 @@ public class Doctor extends Staff {
     private OperationList scdldOps = new OperationList();
     private OperationList fnshdOps = new OperationList();
 
-    public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixed_salary) {
-        super(name, gender, id, workingTime, pwd, fixed_salary);
+    public Doctor(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixedSalary) {
+        super(name, gender, id, workingTime, pwd, fixedSalary);
     }
 
 

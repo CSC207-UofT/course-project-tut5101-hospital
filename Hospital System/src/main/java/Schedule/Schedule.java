@@ -48,7 +48,7 @@ public class Schedule implements java.io.Serializable {
     public void removeEvent(Event dates) throws StuffNotFoundException {
         boolean ex = true;
         for (Event key : schedule.keySet()) {
-            if ((key.getEnd_time() == dates.getEnd_time()) && (key.getStart_time() == dates.getStart_time())) {
+            if ((key.getEndTime() == dates.getEndTime()) && (key.getStartTime() == dates.getStartTime())) {
                 this.schedule.remove(dates);
                 ex = false;
             }
@@ -70,7 +70,7 @@ public class Schedule implements java.io.Serializable {
         for (Entry<Event, String> entry : schedule.entrySet()) {
             s.append("Start-End:\t");
 
-            s.append(entry.getKey().getStart_time().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
+            s.append(entry.getKey().getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
             s.append("\t");
 
             s.append("\tEvent:");
@@ -87,7 +87,7 @@ public class Schedule implements java.io.Serializable {
 
         @Override
         public String convertToDatabaseColumn(Event attribute) {
-            return attribute.getStart_time().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")) + SPLIT_CHAR + attribute.getEnd_time().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
+            return attribute.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")) + SPLIT_CHAR + attribute.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
         }
 
         @Override
@@ -95,8 +95,8 @@ public class Schedule implements java.io.Serializable {
             Event localDateTimes = new Event(null, null);
             if (!string.isEmpty()) {
                 List<String> list_s = Arrays.asList(string.split(SPLIT_CHAR));
-                localDateTimes.setStart_time(LocalDateTime.parse(list_s.get(0), formatter));
-                localDateTimes.setEnd_time(LocalDateTime.parse(list_s.get(1), formatter));
+                localDateTimes.setStartTime(LocalDateTime.parse(list_s.get(0), formatter));
+                localDateTimes.setEndTime(LocalDateTime.parse(list_s.get(1), formatter));
             }
             return localDateTimes;
         }

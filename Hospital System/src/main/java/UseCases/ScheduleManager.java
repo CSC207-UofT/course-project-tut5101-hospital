@@ -42,7 +42,7 @@ public class ScheduleManager {
         return this.s;
     }
 
-    public void add_or_modify_Event(String event, String start, String end) throws InvalidInputException {
+    public void addOrModifyEvent(String event, String start, String end) throws InvalidInputException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
         if (!st.isBefore(e)) {
@@ -53,7 +53,7 @@ public class ScheduleManager {
         }
     }
 
-    public void remove_Event(String start, String end) throws StuffNotFoundException {
+    public void removeEvent(String start, String end) throws StuffNotFoundException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
         List<LocalDateTime> list = Arrays.asList(st, e);
