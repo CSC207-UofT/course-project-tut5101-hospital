@@ -1,4 +1,4 @@
-package Schedule;
+package Entity.Schedule;
 /**
  * This file contains the map of the hospital and is used to hold all the rooms in the building
  * <p>

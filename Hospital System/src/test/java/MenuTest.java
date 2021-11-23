@@ -1,6 +1,7 @@
-import UseCases.ScheduleManager;
+
+import Controllers.LoginSignUp.LoginSignup;
 import UI.Menu;
-import Controllers.LoginSignup;
+import UseCases.Schedule.ScheduleManager;
 import org.junit.Assert;
 import org.junit.Test;
 

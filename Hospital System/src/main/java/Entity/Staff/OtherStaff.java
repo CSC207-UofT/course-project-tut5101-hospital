@@ -1,6 +1,6 @@
 package Entity.Staff;
 
-import Schedule.Schedule;
+import Entity.Schedule.Schedule;
 
 
 /*

@@ -1,4 +1,4 @@
-package Schedule;
+package Entity.Schedule;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.Map.Entry;
 
 import Exceptions.InvalidInputException;
 import Exceptions.StuffNotFoundException;
-import org.hibernate.type.TrueFalseType;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -110,7 +109,7 @@ public class Schedule implements java.io.Serializable {
 
 
     //The default schedule is people work from 9AM to 9PM
-    public Schedule(String room) {
+    public Entity.Schedule(String room) {
         this.room = room;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 7; j++) {
