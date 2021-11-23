@@ -15,7 +15,7 @@ For staff:
 
     Signup or Login
 
-    View Schedule
+    View Entity.Schedule
 
     View Patient Records
 
@@ -34,6 +34,6 @@ Signup or Login: Entity.Patients create an account, patient login to their accou
 
 View Patient Records: Entity.Staff gets Patient medical records from the system. 
 
-View Schedule: Entity.Staff views their work schedule. Appointments are based on their schedule.
+View Entity.Schedule: Entity.Staff views their work schedule. Appointments are based on their schedule.
 
 Exit: Quit the program

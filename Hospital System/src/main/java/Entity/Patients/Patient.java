@@ -1,11 +1,7 @@
 package Entity.Patients;
 
-import Entity.Operations.Operation;
 import Entity.Operations.OperationList;
-import Schedule.Schedule;
-
-import java.util.ArrayList;
-import java.util.List;
+import Entity.Schedule.Schedule;
 
 /**
  * This file contains the class Patient and is used to get the patient information

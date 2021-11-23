@@ -10,8 +10,8 @@ public class Main {
     }
 
 /*     public static void main(String[] args) {
-        Schedule test;
-        test = new Schedule("sdf");
+        Entity.Schedule test;
+        test = new Entity.Schedule("sdf");
         test.printTimeTable();
         System.out.println("Press 1 if you are a staff. Press 2 if you are a patient.");
         Scanner reader = new Scanner(System.in);  // Reading from System.in

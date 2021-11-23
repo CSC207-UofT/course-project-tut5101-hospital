@@ -1,10 +1,10 @@
+import Controllers.Appointment.AppointmentMaker;
+import Controllers.LoginSignUp.LoginSignup;
 import Entity.Patients.PatientData;
 import Entity.Patients.Patient;
-import UseCases.PatientManager;
-import Schedule.Schedule;
-import UseCases.ScheduleManager;
-import Controllers.LoginSignup;
-import Controllers.AppointmentMaker;
+import Entity.Schedule.Schedule;
+import UseCases.Patient.PatientManager;
+import UseCases.Schedule.ScheduleManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

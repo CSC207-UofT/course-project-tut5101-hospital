@@ -1,6 +1,6 @@
 package Entity.Staff;
 
-import Schedule.Schedule;
+import Entity.Schedule.Schedule;
 import Entity.Patients.Patient;
 
 /** This file contains the class Entity.Staff.Nurse and is used to input the Entity.Staff.Nurse information

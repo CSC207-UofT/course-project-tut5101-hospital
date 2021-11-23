@@ -3,8 +3,12 @@ package UI;
 import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
-import UseCases.ScheduleManager;
-import Controllers.LoginSignup;
+import Presenters.Schedule.ViewDoctorSchedules;
+import Presenters.Schedule.ViewNurseSchedules;
+import Presenters.Schedule.ViewOtherStaffSchedules;
+import UseCases.Schedule.ScheduleManager;
+import UseCases.Schedule.ScheduleManager;
+import Controllers.LoginSignUp.LoginSignup;
 import Presenters.*;
 
 public class Menu {

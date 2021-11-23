@@ -1,7 +1,6 @@
 package Entity.Staff;
 
-import Entity.Operations.OperationList;
-import Schedule.Schedule;
+import Entity.Schedule.Schedule;
 
 /** This file contains the class Entity.Staff and is used to input the staff information
  *
