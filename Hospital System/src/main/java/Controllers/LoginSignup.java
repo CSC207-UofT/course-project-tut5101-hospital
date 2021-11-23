@@ -34,7 +34,7 @@ public class LoginSignup {
         pm.addPatient(name, gender, contactNum, healthCardNum, pwd);
     }
 
-    public void signUpForStaffs(String name, String gender, Integer id, Schedule workingTime, String pwd, int base_salary){
+    public void signUpForStaffs(String name, String gender, Integer id, Schedule  workingTime, String pwd, int base_salary){
         sm.addStaff(name, gender, id, workingTime, pwd, base_salary);
     }
 
