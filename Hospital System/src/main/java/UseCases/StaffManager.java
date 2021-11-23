@@ -70,7 +70,7 @@ public class StaffManager {
         List<Integer> nurses = new ArrayList<Integer>();
         for (Staff s : staffs) {
             if (s instanceof Nurse) {
-                nurses.add( s.getStaffID());
+                nurses.add(s.getStaffID());
             }
         }
         return nurses;

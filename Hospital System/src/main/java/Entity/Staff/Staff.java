@@ -1,4 +1,5 @@
 package Entity.Staff;
+
 import Entity.Operations.OperationList;
 import Schedule.Schedule;
 
@@ -42,6 +43,7 @@ public class Staff implements Serializable {
         this.pwd = pwd;
         this.salary = base_salary;
     }
+
     //This method get the information of the Entity.Staff in a string
     public String getStaffInfo() {
         return "Entity.Staff Name: " + this.name + "\n" +
@@ -57,8 +59,8 @@ public class Staff implements Serializable {
 
 
     //This method checks to ensure the entered password is the same as the set password
-    public Boolean checkPwd(String ipt_pwd){
-        return this.pwd==ipt_pwd;
+    public Boolean checkPwd(String ipt_pwd) {
+        return this.pwd == ipt_pwd;
     }
 
     public Schedule getSchedule() {
@@ -68,8 +70,9 @@ public class Staff implements Serializable {
     public void setSchedule(Schedule s) {
         this.scdl = s;
     }
-    public void addBonus(double bonus){
-        salary+=bonus;
+
+    public void addBonus(double bonus) {
+        salary += bonus;
     }
 
 

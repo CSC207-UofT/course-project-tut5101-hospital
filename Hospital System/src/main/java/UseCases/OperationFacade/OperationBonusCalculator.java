@@ -7,11 +7,14 @@ import Entity.Staff.Doctor;
 public class OperationBonusCalculator {
     Doctor d;
     Operation op;
-    public OperationBonusCalculator(Doctor d, Operation op){
+
+    public OperationBonusCalculator(Doctor d, Operation op) {
         this.d = d;
         this.op = op;
-    }public double finish(){
-        d.addBonus(.20*op.getCost());
-        return .20*op.getCost();
+    }
+
+    public double finish() {
+        d.addBonus(.20 * op.getCost());
+        return .20 * op.getCost();
     }
 }

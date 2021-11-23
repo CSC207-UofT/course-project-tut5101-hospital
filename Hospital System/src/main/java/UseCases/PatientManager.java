@@ -22,7 +22,9 @@ public class PatientManager {
 
     public Patient getPatient(int healthCardNum) {
         return sessionData.searchHCN(healthCardNum);
-    }public ScheduleManager getPatientSm(int healthCardNum){
+    }
+
+    public ScheduleManager getPatientSm(int healthCardNum) {
         return new ScheduleManager(sessionData.searchHCN(healthCardNum));
     }
 

@@ -19,7 +19,7 @@ public class PatientData implements java.io.Serializable {
     public void add_or_modify_Patient(Patient patient) {
         // add the patient if it is not already in, modify it if it is already in
         // the database.
-            patients.put(patient.getHealthCardNum(), patient);
+        patients.put(patient.getHealthCardNum(), patient);
     }
 
     public void removePatient(Patient patient) throws StuffNotFoundException {
