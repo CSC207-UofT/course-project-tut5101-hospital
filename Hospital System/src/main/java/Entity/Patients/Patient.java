@@ -21,12 +21,8 @@ public class Patient implements java.io.Serializable {
 //    add a variable for collection of previous appointments
 
     //    Constructs a patient class instant.
-    public Patient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
-        this.name = name;
-        this.gender = gender;
-        this.contactNum = contactNum;
-        this.healthCardNum = healthCardNum;
-        this.pwd = pwd;
+    public Patient() {
+
     }
 
     public String getPatientInfo() {
@@ -36,6 +32,7 @@ public class Patient implements java.io.Serializable {
                 "Health Card Number: " + this.healthCardNum;
     }//add get healthcardid since we need to use healthcardnum as keys in patients database.
 
+    //getter setters
     public int getHealthCardNum() {
         return this.healthCardNum;
     }
@@ -64,4 +61,23 @@ public class Patient implements java.io.Serializable {
         fee += newFee;
     }
 
+    public void setName(String n) {
+        this.name = n;
+    }
+
+    public void setGender(String n) {
+        this.gender=n;
+    }
+
+    public void setContactNum(int contactNum) {
+        this.contactNum = contactNum;
+    }
+
+    public void setHealthCardNum(int healthCardNum) {
+        this.healthCardNum = healthCardNum;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

@@ -1,9 +1,9 @@
 package Controllers.LoginSignUp;
 import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
-import UseCases.PatientManager;
+import UseCases.Patient.PatientManager;
 import Entity.Patients.Patient;
-import UseCases.StaffManager;
+import UseCases.Staff.StaffManager;
 
 
 public class LoginSignup {
