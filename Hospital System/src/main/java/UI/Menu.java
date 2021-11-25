@@ -213,15 +213,16 @@ public class Menu {
             }
         }
         if (choice == 1) {
-            ViewDoctorSchedules SSV = new ViewDoctorSchedules();
-            SSV.print();
+            ViewDoctorSchedules viewDoctorSchedules = new ViewDoctorSchedules();
+            viewDoctorSchedules.print();
         } else if (choice == 2) {
-            ViewNurseSchedules VNS = new ViewNurseSchedules();
-            VNS.print();
+            ViewNurseSchedules viewNurseSchedules = new ViewNurseSchedules();
+            viewNurseSchedules.print();
         } else {
-            ViewOtherStaffSchedules VOSS = new ViewOtherStaffSchedules();
-            VOSS.print();
+            ViewOtherStaffSchedules viewOtherStaffSchedules = new ViewOtherStaffSchedules();
+            viewOtherStaffSchedules.print();
         }
+
     }
 
 }
