@@ -5,7 +5,7 @@ import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
 import UseCases.Schedule.ScheduleManager;
 
-public class PatientManager {
+public class PatientManager implements PatientManaging{
     PatientData sessionData = new PatientData();
 
     public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {

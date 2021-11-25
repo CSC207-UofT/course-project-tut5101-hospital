@@ -3,12 +3,14 @@ import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
 import UseCases.Patient.PatientManager;
 import Entity.Patients.Patient;
+import UseCases.Patient.PatientManaging;
 import UseCases.Staff.StaffManager;
+import UseCases.Staff.StaffManaging;
 
 
 public class LoginSignup {
-    PatientManager pm ;
-    StaffManager sm;
+    PatientManaging pm ;
+    StaffManaging sm;
     public LoginSignup(){
         this.pm = new PatientManager();
         this.sm = new StaffManager();
