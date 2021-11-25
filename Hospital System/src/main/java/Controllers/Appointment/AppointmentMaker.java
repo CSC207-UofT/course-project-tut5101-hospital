@@ -12,23 +12,51 @@ import Exceptions.InvalidInputException;
  */
 
 public class AppointmentMaker {
-    PatientManaging pm;
-    ScheduleManager sm;
+    /**
+     * Controller for appointment to make appointment
+     */
+    PatientManaging patientManaging;
+    ScheduleManager scheduleManager;
 
-    public AppointmentMaker(int hcn) {
-        this.pm = new PatientManager();
-        this.sm = pm.getPatientSm(hcn);
+    /**
+     * Constructor for Appointment Maker, accept a health card number
+     *
+     * @param healthCardNumber
+     */
+    public AppointmentMaker(int healthCardNumber) {
+        this.patientManaging = new PatientManager();
+        this.scheduleManager = patientManaging.getPatientSm(healthCardNumber);
     }
 
+    /**
+     * Get schedule that represented by string
+     *
+     * @return
+     */
     public String getSchedule() {
-        return sm.getScheduleString();
+        return scheduleManager.getScheduleString();
     }
 
+    /**
+     * Make appointment by schedule manager
+     *
+     * @param event
+     * @param start
+     * @param end
+     * @throws InvalidInputException
+     */
     public void makeAppointment(String event, String start, String end) throws InvalidInputException {
-        sm.addOrModifyEvent(event, start, end);
+        scheduleManager.addOrModifyEvent(event, start, end);
     }
 
+    /**
+     * Cancel event by schedule manager
+     *
+     * @param start
+     * @param end
+     * @throws StuffNotFoundException
+     */
     public void deleteEvent(String start, String end) throws StuffNotFoundException {
-        sm.removeEvent(start, end);
+        scheduleManager.removeEvent(start, end);
     }
 }
