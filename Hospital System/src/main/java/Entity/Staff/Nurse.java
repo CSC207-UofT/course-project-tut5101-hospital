@@ -7,6 +7,7 @@ import java.util.*;
 
 public class Nurse extends Staff {
     private ArrayList<Patient> patients;
+
     public Nurse() {
 
     }

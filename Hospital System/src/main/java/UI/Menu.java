@@ -38,7 +38,7 @@ public class Menu {
         this.hcn = healthCardNumber;
     }
 
-    public void signupPatient(){
+    public void signupPatient() {
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -55,7 +55,7 @@ public class Menu {
         System.out.println("Patient account successfully created");
     }
 
-    public void loginPatient(String c){
+    public void loginPatient(String c) {
         boolean success = false;
         do {
             System.out.println("Input HealthCardNumber");
@@ -92,7 +92,6 @@ public class Menu {
     }
 
 
-
     public void loginSignupForStaff() {
         int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
@@ -107,7 +106,7 @@ public class Menu {
         this.id = id;
     }
 
-    public void signupStaff(){
+    public void signupStaff() {
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -126,7 +125,7 @@ public class Menu {
         System.out.println("Staff account successfully created");
     }
 
-    public void loginStaff(String c){
+    public void loginStaff(String c) {
         boolean success = false;
 
         do {
