@@ -12,15 +12,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.5.5')
     implementation 'junit:junit:4.13.1'
-    implementation('org.hibernate:hibernate-core')
     implementation('org.javassist:javassist')
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation('org.springframework.boot:spring-boot-starter-data-rest')
-    runtimeOnly("com.h2database:h2")
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }

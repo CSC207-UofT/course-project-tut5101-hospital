@@ -66,7 +66,7 @@ public class Patient implements java.io.Serializable {
     }
 
     public void setGender(String n) {
-        this.gender=n;
+        this.gender = n;
     }
 
     public void setContactNum(int contactNum) {

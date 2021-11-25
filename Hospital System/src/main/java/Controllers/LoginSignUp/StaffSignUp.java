@@ -1,4 +1,4 @@
 package Controllers.LoginSignUp;
 
-public class StaffSignUp extends SignUp{
+public class StaffSignUp extends SignUp {
 }

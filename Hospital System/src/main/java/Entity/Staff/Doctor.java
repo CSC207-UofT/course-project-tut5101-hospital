@@ -11,6 +11,7 @@ public class Doctor extends Staff {
 
     private OperationList scdldOps = new OperationList();
     private OperationList fnshdOps = new OperationList();
+
     public OperationList getFnshdOps() {
         return fnshdOps;
     }

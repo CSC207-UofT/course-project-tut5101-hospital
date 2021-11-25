@@ -49,7 +49,7 @@ public class ScheduleManager {
         if (!st.isBefore(e)) {
             throw new InvalidInputException("");
         } else {
-            s.add_or_modify_Event(event, new Event(st,e));
+            s.add_or_modify_Event(event, new Event(st, e));
             saveSchedule();
         }
     }

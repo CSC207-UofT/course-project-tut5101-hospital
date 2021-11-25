@@ -1,4 +1,4 @@
 package Controllers.LoginSignUp;
 
-public class PatientSignUp extends SignUp{
+public class PatientSignUp extends SignUp {
 }
