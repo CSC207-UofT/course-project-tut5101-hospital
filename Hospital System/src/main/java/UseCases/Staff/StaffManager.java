@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 // This is based on PatientManager with changes that would modify the class, so that Staff can use it
-public class StaffManager {
+public class StaffManager implements StaffManaging {
 
     StaffData sessionData = new StaffData();
 
     public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, Double fixedSalary) {
-        StaffBuilder sm =new StaffBuilder();
+        StaffBuilder sm = new StaffBuilder();
         sm.setName(name);
         sm.setGender(gender);
         sm.setWorkingTime(workingTime);
@@ -23,14 +23,14 @@ public class StaffManager {
     }
 
     public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary) {
-        StaffBuilder sm =new StaffBuilder();
+        StaffBuilder sm = new StaffBuilder();
         sm.setName(name);
         sm.setGender(gender);
         sm.setWorkingTime(workingTime);
         sm.setId(ID);
         sm.setPwd(pwd);
         sm.setSalary(fixedSalary);
-        Staff s= sm.getResult();
+        Staff s = sm.getResult();
         sessionData.add_or_modify_Staff(s);
         saveSession();
     }
