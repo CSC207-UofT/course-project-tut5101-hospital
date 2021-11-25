@@ -1,11 +1,7 @@
 package Entity.Patients;
 
-import Entity.Operations.Operation;
 import Entity.Operations.OperationList;
-import Schedule.Schedule;
-
-import java.util.ArrayList;
-import java.util.List;
+import Entity.Schedule.Schedule;
 
 /**
  * This file contains the class Patient and is used to get the patient information
@@ -25,12 +21,8 @@ public class Patient implements java.io.Serializable {
 //    add a variable for collection of previous appointments
 
     //    Constructs a patient class instant.
-    public Patient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
-        this.name = name;
-        this.gender = gender;
-        this.contactNum = contactNum;
-        this.healthCardNum = healthCardNum;
-        this.pwd = pwd;
+    public Patient() {
+
     }
 
     public String getPatientInfo() {
@@ -40,12 +32,13 @@ public class Patient implements java.io.Serializable {
                 "Health Card Number: " + this.healthCardNum;
     }//add get healthcardid since we need to use healthcardnum as keys in patients database.
 
+    //getter setters
     public int getHealthCardNum() {
         return this.healthCardNum;
     }
 
-    public boolean checkPwd(String ipt_pwd) {
-        return pwd.equals(ipt_pwd);
+    public boolean checkPwd(String iptPwd) {
+        return pwd.equals(iptPwd);
     }
 
     public Schedule getSchedule() {
@@ -64,8 +57,27 @@ public class Patient implements java.io.Serializable {
         return scdldOps;
     }
 
-    public void addFee(int new_fee) {
-        fee += new_fee;
+    public void addFee(int newFee) {
+        fee += newFee;
     }
 
+    public void setName(String n) {
+        this.name = n;
+    }
+
+    public void setGender(String n) {
+        this.gender=n;
+    }
+
+    public void setContactNum(int contactNum) {
+        this.contactNum = contactNum;
+    }
+
+    public void setHealthCardNum(int healthCardNum) {
+        this.healthCardNum = healthCardNum;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

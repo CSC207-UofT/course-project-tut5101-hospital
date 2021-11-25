@@ -1,13 +1,10 @@
 package Entity.Staff;
 
-import Entity.Operations.OperationList;
-import Schedule.Schedule;
+import Entity.Schedule.Schedule;
 
-/** This file contains the class Entity.Staff and is used to input the staff information
- *
- */
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * This file contains the class Entity.Staff and is used to get the Entity.Staff information
@@ -22,6 +19,10 @@ public class Staff implements Serializable {
     private Schedule scdl = new Schedule();
     private double salary;
 
+    public Staff() {
+
+    }
+
     public void setScdl(Schedule scdl) {
         this.scdl = scdl;
     }
@@ -34,14 +35,31 @@ public class Staff implements Serializable {
     /**
      * Construct a Entity.Staff, giving them a name, gender, worktime and ID.
      */
-    public Staff(String name, String gender, Integer id, Schedule workingTime, String pwd, int base_salary) {
 
+
+    //setters
+    public void setName(String name) {
         this.name = name;
-        this.gender = gender;
-        this.ID = id;
-        this.workingTime = workingTime;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public void setPwd(String pwd) {
         this.pwd = pwd;
-        this.salary = base_salary;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public void setWorkingTime(Schedule workingTime) {
+        this.workingTime = workingTime;
     }
 
     //This method get the information of the Entity.Staff in a string
@@ -59,8 +77,8 @@ public class Staff implements Serializable {
 
 
     //This method checks to ensure the entered password is the same as the set password
-    public Boolean checkPwd(String ipt_pwd) {
-        return this.pwd == ipt_pwd;
+    public Boolean checkPwd(String iptPwd) {
+        return Objects.equals(this.pwd, iptPwd);
     }
 
     public Schedule getSchedule() {
