@@ -14,7 +14,7 @@ public class CheckIfExists {
      */
     public boolean checkPatExists(int hcn) {
         PatientManaging patientManaging = new PatientManager();
-        return patientManaging.checkIfPateintExist(hcn);
+        return patientManaging.checkIfPatientExist(hcn);
     }
 
     /**

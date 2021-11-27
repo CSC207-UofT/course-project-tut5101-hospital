@@ -5,8 +5,14 @@ package Entity.Staff;
 import Entity.Schedule.Schedule;
 
 public class StaffBuilder {
+    /**
+     * Staff builder for staff.
+     */
     Staff s;
 
+    /**
+     * Constructor for staff builder
+     */
     public StaffBuilder() {
         this.s = new Staff();
     }

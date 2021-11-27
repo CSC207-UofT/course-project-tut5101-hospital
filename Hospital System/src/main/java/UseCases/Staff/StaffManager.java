@@ -8,9 +8,21 @@ import java.util.List;
 
 // This is based on PatientManager with changes that would modify the class, so that Staff can use it
 public class StaffManager implements StaffManaging {
-
+    /**
+     * Staff manager use case
+     */
     StaffData sessionData = new StaffData();
 
+    /**
+     * New staff
+     * @param name
+     * @param gender
+     * @param ID
+     * @param workingTime
+     * @param pwd
+     * @param fixedSalary
+     * @return
+     */
     public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, Double fixedSalary) {
         StaffBuilder sm = new StaffBuilder();
         sm.setName(name);
@@ -22,6 +34,15 @@ public class StaffManager implements StaffManaging {
         return sm.getResult();
     }
 
+    /**
+     * Add staff
+     * @param name
+     * @param gender
+     * @param ID
+     * @param workingTime
+     * @param pwd
+     * @param fixedSalary
+     */
     public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary) {
         StaffBuilder sm = new StaffBuilder();
         sm.setName(name);
@@ -67,7 +88,11 @@ public class StaffManager implements StaffManaging {
         return sessionData.getAllStaffId();
     }
 
-    //return different types of staffs
+
+    /**
+     * Return all doctor id
+     * @return
+     */
     public List<Integer> getAllDoctorId() {
         List<Staff> staffs = getAllStaff();
         List<Integer> doctors = new ArrayList<Integer>();
@@ -79,6 +104,10 @@ public class StaffManager implements StaffManaging {
         return doctors;
     }
 
+    /**
+     * Return all Nurse id
+     * @return
+     */
     public List<Integer> getAllNurseId() {
         List<Staff> staffs = getAllStaff();
         List<Integer> nurses = new ArrayList<Integer>();
@@ -90,6 +119,10 @@ public class StaffManager implements StaffManaging {
         return nurses;
     }
 
+    /**
+     * Return all other staff id
+     * @return
+     */
     public List<Integer> getAllOtherId() {
         List<Staff> staffs = getAllStaff();
         List<Integer> others = new ArrayList<Integer>();

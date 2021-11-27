@@ -1,7 +1,9 @@
 package Entity.Patients;
 
-//builder for patient entity
 public class PatientBuilder {
+    /**
+     * Builder for patient entity
+     */
     private Patient p;
 
     public PatientBuilder() {
@@ -17,7 +19,7 @@ public class PatientBuilder {
     }
 
     //set contact number
-    public void setCtctn(int c) {
+    public void setContactNumber(int c) {
         p.setContactNum(c);
     }
 

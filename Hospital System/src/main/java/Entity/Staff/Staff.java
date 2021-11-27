@@ -11,6 +11,9 @@ import java.util.Objects;
  */
 
 public class Staff implements Serializable {
+    /**
+     * Staff entity
+     */
     private String name;
     private String gender;
     private Integer ID;

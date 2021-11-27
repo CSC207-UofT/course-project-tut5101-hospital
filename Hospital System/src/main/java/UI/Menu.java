@@ -12,6 +12,9 @@ import Controllers.LoginSignUp.LoginSignup;
 import Presenters.*;
 
 public class Menu {
+    /**
+     * Menu UI
+     */
     Scanner scanner = new Scanner(System.in);
     int hcn;
     int id;
@@ -25,6 +28,9 @@ public class Menu {
         System.out.println("Welcome to RealFakeHospital");
     }
 
+    /**
+     * Login sign up for patient
+     */
     public void loginSignupForPatient() {
         int healthCardNumber = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
@@ -38,6 +44,9 @@ public class Menu {
         this.hcn = healthCardNumber;
     }
 
+    /**
+     * Sign up for patient
+     */
     public void signupPatient() {
         System.out.println("Input name");
         String name = scanner.nextLine();
@@ -55,6 +64,10 @@ public class Menu {
         System.out.println("Patient account successfully created");
     }
 
+    /**
+     * login for patient
+     * @param c
+     */
     public void loginPatient(String c) {
         boolean success = false;
         do {
@@ -92,6 +105,9 @@ public class Menu {
     }
 
 
+    /**
+     * login sign up for staff
+     */
     public void loginSignupForStaff() {
         int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
@@ -106,6 +122,9 @@ public class Menu {
         this.id = id;
     }
 
+    /**
+     * Signup for staff
+     */
     public void signupStaff() {
         System.out.println("Input name");
         String name = scanner.nextLine();
@@ -125,6 +144,10 @@ public class Menu {
         System.out.println("Staff account successfully created");
     }
 
+    /**
+     * Login for staff
+     * @param c
+     */
     public void loginStaff(String c) {
         boolean success = false;
 
@@ -162,6 +185,9 @@ public class Menu {
         } while (!success);
     }
 
+    /**
+     * Make activities
+     */
     public void activities() {
         //System.out.println(ls.checkIfPatientExists(hcn));
         String c = "1";
@@ -175,6 +201,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Make appointment
+     */
     private void makeAppointment() {
         System.out.println(loginSignup.checkIfPatientExists(hcn));
         ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
@@ -195,12 +224,18 @@ public class Menu {
 
     }
 
+    /**
+     * View appointment
+     */
     private void viewAppointment() {
         ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
         System.out.println(sm.getScheduleString());
     }
 
 
+    /**
+     * Check staff schedule
+     */
     public void checkSchedule() {
         int choice = 4;
 

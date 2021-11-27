@@ -15,23 +15,38 @@ import Exceptions.StuffNotFoundException;
 import Entity.Schedule.Schedule;
 
 public class ScheduleManager {
+    /**
+     * Schedule manager use case
+     */
     Schedule s;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     PatientData sessionData;
 
-    //fuzzy overloaded constructor: can accept staff or patient and accept their schedules
+
+    /**
+     * Constructor for schedule manager when input is schedule
+     * @param s
+     */
     public ScheduleManager(Schedule s) {
         sessionData = new PatientData();
         this.s = s;
 
     }
 
+    /**
+     * Constructor for schedule manager when input is patient
+     * @param p
+     */
     public ScheduleManager(Patient p) {
         sessionData = new PatientData();
         this.s = p.getSchedule();
 
     }
 
+    /**
+     * Constructor for schedule manager when input is staff
+     * @param st
+     */
     public ScheduleManager(Staff st) {
         sessionData = new PatientData();
         this.s = st.getScdl();
@@ -43,6 +58,13 @@ public class ScheduleManager {
         return this.s;
     }
 
+    /**
+     * Add or modify event
+     * @param event
+     * @param start
+     * @param end
+     * @throws InvalidInputException
+     */
     public void addOrModifyEvent(String event, String start, String end) throws InvalidInputException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
@@ -54,6 +76,12 @@ public class ScheduleManager {
         }
     }
 
+    /**
+     * Remove event
+     * @param start
+     * @param end
+     * @throws StuffNotFoundException
+     */
     public void removeEvent(String start, String end) throws StuffNotFoundException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
@@ -62,6 +90,10 @@ public class ScheduleManager {
         saveSchedule();
     }
 
+    /**
+     * Get schedule string
+     * @return
+     */
     public String getScheduleString() {
         if (s == null) {
             return "You have no appointments for now.";
@@ -69,6 +101,9 @@ public class ScheduleManager {
         return s.getScheduleString();
     }
 
+    /**
+     * Save schedule
+     */
     private void saveSchedule() {
         sessionData.saveData();
     }
