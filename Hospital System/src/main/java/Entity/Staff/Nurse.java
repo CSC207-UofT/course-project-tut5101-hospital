@@ -6,6 +6,9 @@ import Entity.Patients.Patient;
 import java.util.*;
 
 public class Nurse extends Staff {
+    /**
+     * Nurse Entity
+     */
     private ArrayList<Patient> patients;
 
     public Nurse() {

@@ -12,7 +12,7 @@ public interface PatientManaging {
 
     public ScheduleManager getPatientSm(int healthCardNum);
 
-    public boolean checkIfPateintExist(int hcn);
+    public boolean checkIfPatientExist(int hcn);
 
     public boolean checkLoginInfo(int hcn, String pwd);
 }

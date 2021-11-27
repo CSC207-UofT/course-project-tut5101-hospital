@@ -6,6 +6,11 @@ import Entity.Staff.Staff;
 import java.util.List;
 
 public interface StaffManaging {
+    /**
+     * Staff managing interface
+     */
+
+
     public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, Double fixedSalary);
 
     public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary);

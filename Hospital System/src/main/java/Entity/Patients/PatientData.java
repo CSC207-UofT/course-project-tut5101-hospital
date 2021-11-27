@@ -7,21 +7,34 @@ import Exceptions.StuffNotFoundException;
 import java.io.*;
 
 public class PatientData implements java.io.Serializable {
+    /**
+     * Patient data entity
+     */
     private HashMap<Integer, Patient> patients;
 
-    // init
+    /**
+     * Constructor for patient data, load data from ser file
+     */
     public PatientData() {
         patients = new HashMap<>();
         loadData();
     }
 
-    // add, modify, remove Entity.Patients
+    /**
+     * Add, modify, remove Entity.Patients. Add the patient if it is not already in, modify it if it is already in
+     * the database.
+     *
+     * @param patient
+     */
     public void addOrModifyPatient(Patient patient) {
-        // add the patient if it is not already in, modify it if it is already in
-        // the database.
         patients.put(patient.getHealthCardNum(), patient);
     }
 
+    /**
+     * Remove patient
+     * @param patient
+     * @throws StuffNotFoundException
+     */
     public void removePatient(Patient patient) throws StuffNotFoundException {
         if (patients.containsKey(patient.getHealthCardNum())) {
             patients.remove(patient.getHealthCardNum());
@@ -30,7 +43,11 @@ public class PatientData implements java.io.Serializable {
         }
     }
 
-    // view and search patients
+    /**
+     * view and search patients
+     * @param patient
+     * @return
+     */
     public String viewPatient(Patient patient) {
         if (patients.containsKey(patient.getHealthCardNum())) {
             return patients.get(patient.getHealthCardNum()).getPatientInfo();
@@ -39,7 +56,12 @@ public class PatientData implements java.io.Serializable {
         }
     }
 
-    public Patient searchHCN(int healthCardNum) {
+    /**
+     * Return patient by search health card number
+     * @param healthCardNum
+     * @return
+     */
+    public Patient searchHealthCardNumber(int healthCardNum) {
         if (patients.containsKey(healthCardNum)) {
             return patients.get(healthCardNum);
         } else {
@@ -47,6 +69,11 @@ public class PatientData implements java.io.Serializable {
         }
     }
 
+    /**
+     * Check if patient exist or not.
+     * @param healthCardNum
+     * @return
+     */
     public boolean patientExist(int healthCardNum) {
         if (patients.containsKey(healthCardNum)) {
             return true;
@@ -54,7 +81,10 @@ public class PatientData implements java.io.Serializable {
         return false;
     }
 
-    // load and save data
+
+    /**
+     * load data
+     */
     public void saveData() {
         try {
             FileOutputStream fileOut = new FileOutputStream("patients.ser");
@@ -67,6 +97,9 @@ public class PatientData implements java.io.Serializable {
         }
     }
 
+    /**
+     * Save data
+     */
     private void loadData() {
         File file = new File("patients.ser");
         if (!file.exists() || file.length() == 0) {

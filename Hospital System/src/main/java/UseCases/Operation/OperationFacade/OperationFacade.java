@@ -6,6 +6,9 @@ import Entity.Patients.Patient;
 import Entity.Staff.Doctor;
 
 public class OperationFacade {
+    /**
+     * Operation Facada
+     */
     Patient p;
     Doctor d;
     Operation op;
@@ -13,6 +16,12 @@ public class OperationFacade {
     OperationBonusCalculator opbc;
     OperationLogger opl;
 
+    /**
+     * Constructor for Operation Facada
+     * @param p
+     * @param d
+     * @param op
+     */
     public OperationFacade(Patient p, Doctor d, Operation op) {
         this.p = p;
         this.d = d;
@@ -22,12 +31,18 @@ public class OperationFacade {
 
     }
 
+    /**
+     * Finish operation
+     */
     public void finishOperation() {
         opfc.finish();
         opbc.finish();
         opl.finishOperation();
     }
 
+    /**
+     * Schedule operation
+     */
     public void scheduleOperation() {
         opl.scheduleOperation();
     }
