@@ -3,12 +3,9 @@ package UI;
 import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
-import Presenters.Schedule.ViewDoctorSchedules;
-import Presenters.Schedule.ViewNurseSchedules;
-import Presenters.Schedule.ViewOtherStaffSchedules;
-import UseCases.Schedule.ScheduleManager;
-import UseCases.Schedule.ScheduleManager;
+import UseCases.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
+
 import Presenters.*;
 
 public class Menu {
@@ -16,17 +13,17 @@ public class Menu {
      * Menu UI
      */
     Scanner scanner = new Scanner(System.in);
+
+ 
     int hcn;
-    int id;
-    LoginSignup loginSignup = new LoginSignup();
-
-    public Menu() {
-    }
-
-    //For greeter
-    public void greeter() {
+    LoginSignup ls = new LoginSignup();
+    public Menu(){
+        
+    }public void greeter(){
         System.out.println("Welcome to RealFakeHospital");
     }
+    public void loginSignup(){
+
 
     /**
      * Login sign up for patient
@@ -163,9 +160,23 @@ public class Menu {
                 if (k == 1) {
                     c = "1";
                     break;
+
                 }
-            }
+            }while(!success);
+
+        }if(c.equals("1")){
+            System.out.println("Input name");
+            String name = s.nextLine();
+            System.out.println("Input gender");
+            String gender = s.nextLine();
+            System.out.println("Input contact number");
+            int ctctNum = s.nextInt();
+            s.nextLine();
+            System.out.println("Input health card number");
+            hcn = s.nextInt();
+            s.nextLine();
             System.out.println("Input password");
+
             String ipt_pwd = scanner.nextLine();
             success = loginSignup.LoginForStaffs(id, ipt_pwd);
             while (!success) {
@@ -195,26 +206,39 @@ public class Menu {
         c = scanner.nextLine();
         if (c.equals("1")) {
             makeAppointment();
+
         }
-        if (c.equals("2")) {
-            viewAppointment();
+        this.hcn=hcn;
+
+    }public void activities(){
+            //System.out.println(ls.check_if_patient_exists(hcn));
+            String c="1";
+            System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
+            c = s.nextLine();
+            if(c.equals("1")){
+                makeAppointment();
+            }if(c.equals("2")){
+                viewAppointment();
+            }
         }
+
     }
 
     /**
      * Make appointment
      */
+
     private void makeAppointment() {
-        System.out.println(loginSignup.checkIfPatientExists(hcn));
-        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
+        System.out.println(ls.check_if_patient_exists(hcn));
+        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
         System.out.println("Input event");
-        String event = scanner.nextLine();
+        String event = s.nextLine();
         System.out.println("Input start time yyyy-MM-dd HH:mm");
-        String start = scanner.nextLine();
+        String start = s.nextLine();
         System.out.println("Input end time yyyy-MM-dd HH:mm");
-        String end = scanner.nextLine();
+        String end = s.nextLine();
         try {
-            sm.addOrModifyEvent(event, start, end);
+            sm.add_or_modify_Event(event, start, end);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
@@ -262,5 +286,6 @@ public class Menu {
         }
 
     }
+
 
 }
