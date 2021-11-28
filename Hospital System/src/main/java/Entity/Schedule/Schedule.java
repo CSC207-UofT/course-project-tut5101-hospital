@@ -32,7 +32,27 @@ public class Schedule implements java.io.Serializable {
 
 
     /**
+     * Return schedule total Time In Minutes
+     *
+     * @return
+     */
+    public int totalTimeInMinutes() {
+        int startTime;
+        int endTime;
+        int sum = 0;
+
+        for (HashMap.Entry<Event, String> set : schedule.entrySet()) {
+            startTime = set.getKey().getStartTime().getMinute();
+            endTime = set.getKey().getEndTime().getMinute();
+            sum = sum + (endTime - startTime);
+        }
+        return sum;
+    }
+
+
+    /**
      * Add or modify event
+     *
      * @param event
      * @param dates
      * @throws InvalidInputException
@@ -47,6 +67,7 @@ public class Schedule implements java.io.Serializable {
 
     /**
      * Remove event
+     *
      * @param dates
      * @throws StuffNotFoundException
      */
@@ -69,6 +90,7 @@ public class Schedule implements java.io.Serializable {
 
     /**
      * Get string represent of schedule
+     *
      * @return
      */
     public String getScheduleString() {
@@ -92,9 +114,11 @@ public class Schedule implements java.io.Serializable {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
 
 }
 

@@ -25,6 +25,14 @@ public interface StaffManaging {
 
     public String getStaffInfo(int id);
 
+    public int getBestStaffByTime();
+
+    public int getBestStaffByNumberOfOperation();
+
+    public int getHospitalProfit();
+
+    public int getBestStaffByMostOperationIncome();
+
     public List<Integer> getAllStaffID();
 
     public List<Integer> getAllNurseId();

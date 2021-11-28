@@ -12,7 +12,7 @@ public class OperationList {
     /**
      * Remove an operation
      *
-     * @param op
+     * @param op an operation
      */
     public void removeOperation(Operation op) {
         Operations.remove(op);
@@ -21,9 +21,18 @@ public class OperationList {
     /**
      * Add an operation
      *
-     * @param op
+     * @param op an operation
      */
     public void addOperation(Operation op) {
         Operations.add(op);
+    }
+
+
+    public List<Operation> getOperations() {
+        return Operations;
+    }
+
+    public void setOperations(List<Operation> operations) {
+        Operations = operations;
     }
 }
