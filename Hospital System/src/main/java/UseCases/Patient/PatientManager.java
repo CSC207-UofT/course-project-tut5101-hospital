@@ -7,12 +7,12 @@ import UseCases.Schedule.ScheduleManager;
 public class PatientManager {
     PatientData sessionData = new PatientData();
 
-    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
-        return new Patient(name, gender, contactNum, healthCardNum, pwd);
+    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+        return new Patient(name, gender, contactNum, healthCardNum, pwd, fee);
     }
 
-    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
-        Patient p = new Patient(name, gender, contactNum, healthCardNum, pwd);
+    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+        Patient p = new Patient(name, gender, contactNum, healthCardNum, pwd, fee);
         sessionData.addOrModifyPatient(p);
         saveSession();
     }

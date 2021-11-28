@@ -1,9 +1,9 @@
 package Controllers.LoginSignUp;
 import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
-import UseCases.PatientManager;
+import UseCases.Patient.PatientManager;
 import Entity.Patients.Patient;
-import UseCases.StaffManager;
+import UseCases.Staff.StaffManager;
 
 
 public class LoginSignup {
@@ -30,8 +30,8 @@ public class LoginSignup {
         return sm.checkLoginInfo(id, ipt_pwd);
     }
 
-    public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd){
-        pm.addPatient(name, gender, contactNum, healthCardNum, pwd);
+    public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee){
+        pm.addPatient(name, gender, contactNum, healthCardNum, pwd, fee);
     }
 
     public void signUpForStaffs(String name, String gender, Integer id, Schedule  workingTime, String pwd, int baseSalary){

@@ -48,10 +48,7 @@ public class PatientData implements java.io.Serializable {
     }
 
     public boolean patientExist(int healthCardNum) {
-        if (patients.containsKey(healthCardNum)) {
-            return true;
-        }
-        return false;
+        return patients.containsKey(healthCardNum);
     }
 
     // load and save data

@@ -2,10 +2,12 @@ package UI;
 
 import java.util.Scanner;
 
+import Entity.Patients.Patient;
 import Exceptions.InvalidInputException;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
 import Presenters.Schedule.ViewOtherStaffSchedules;
+import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Schedule.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
@@ -51,7 +53,10 @@ public class Menu {
         scanner.nextLine();
         System.out.println("Input password");
         String pwd = scanner.nextLine();
-        loginSignup.signUpForPatients(name, gender, ctctNum, hcn, pwd);
+        System.out.println("How much money do you want to put into your account");
+        int fee = scanner.nextInt();
+        scanner.nextLine();
+        loginSignup.signUpForPatients(name, gender, ctctNum, hcn, pwd, fee);
         System.out.println("Patient account successfully created");
     }
 
@@ -165,7 +170,7 @@ public class Menu {
 
     public void activities() {
         //System.out.println(ls.checkIfPatientExists(hcn));
-        String c = "1";
+        String c;
         System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
         c = scanner.nextLine();
         if (c.equals("1")) {
@@ -177,10 +182,16 @@ public class Menu {
     }
 
     private void makeAppointment() {
+        Patient patient = loginSignup.initPatient(hcn);
         System.out.println(loginSignup.checkIfPatientExists(hcn));
-        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
+        ScheduleManager sm = new ScheduleManager(patient.getSchedule());
         System.out.println("Input event");
         String event = scanner.nextLine();
+        System.out.println("You need to pay $50");
+        while (patient.getFee() < 50){
+            payBookingFee(patient.getHealthCardNum());
+        }
+        patient.payFee(50);
         System.out.println("Input start time yyyy-MM-dd HH:mm");
         String start = scanner.nextLine();
         System.out.println("Input end time yyyy-MM-dd HH:mm");
@@ -228,4 +239,22 @@ public class Menu {
         }
     }
 
+    public void payBookingFee(int hcn){
+        PatientManager pm = new PatientManager();
+        Patient patient = pm.getPatient(hcn);
+        System.out.println("This is the money in your account");
+        patient.getFee();
+        System.out.println("Do you want to add money (Type 1 to add, Type 2 to not add)");
+        String c;
+        c = scanner.nextLine();
+        if (c.equals("1")){
+            System.out.println("How much do you want to add");
+            int addFee = scanner.nextInt();
+            patient.addFee(addFee);
+            System.out.println("Move on to the appointment");
+        }
+        else if (c.equals("2")){
+            System.out.println("Move on to the appointment");
+        }
+    }
 }
