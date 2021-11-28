@@ -2,7 +2,10 @@ package UI;
 
 import java.util.Scanner;
 
+import Controllers.Appointment.AppointmentMaker;
 import Entity.Patients.Patient;
+import Entity.Schedule.Schedule;
+import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
@@ -98,7 +101,7 @@ public class Menu {
 
 
 
-    public void loginSignupForStaff() {
+    public void loginSignupForStaff() throws InvalidInputException {
         int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
@@ -112,7 +115,7 @@ public class Menu {
         this.id = id;
     }
 
-    public void signupStaff(){
+    public void signupStaff() throws InvalidInputException {
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -124,10 +127,11 @@ public class Menu {
         String pwd = scanner.nextLine();
         System.out.println("Input base salary");
         int salary = scanner.nextInt();
-            /*This is not done yet
-            TODO: Find a way to add in Working time
-             */
-        //ls.signUpForStaffs(name, gender, id, pwd, salary);
+        System.out.println("What event do you do (Ill, Fever, Heart, Eye, Bone)");
+        String event = scanner.nextLine();
+        AppointmentMaker am = new AppointmentMaker();
+        Schedule workingTime = am.makeWorkingTime(event);
+        loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
         System.out.println("Staff account successfully created");
     }
 
@@ -185,7 +189,7 @@ public class Menu {
         Patient patient = loginSignup.initPatient(hcn);
         System.out.println(loginSignup.checkIfPatientExists(hcn));
         ScheduleManager sm = new ScheduleManager(patient.getSchedule());
-        System.out.println("Input event");
+        System.out.println("Input event (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         System.out.println("You need to pay $50");
         while (patient.getFee() < 50){

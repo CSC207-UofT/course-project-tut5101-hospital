@@ -1,10 +1,12 @@
 package Controllers.Appointment;
 
+import Entity.Schedule.Schedule;
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 
-import Exceptions.StuffNotFoundException;
+import Exceptions.StaffNotFoundException;
 import Exceptions.InvalidInputException;
+import UseCases.Staff.StaffManager;
 
 /**
  * This file contains the main system for the hospital and is used to make appointments for patients
@@ -12,11 +14,19 @@ import Exceptions.InvalidInputException;
 
 public class AppointmentMaker {
     PatientManager pm;
+    StaffManager stm;
     ScheduleManager sm;
+    ScheduleManager sms;
 
-    public AppointmentMaker(int hcn) {
+    public AppointmentMaker(int hcnOrId) {
         this.pm = new PatientManager();
-        this.sm = pm.getPatientSm(hcn);
+        this.stm = new StaffManager();
+        this.sms = stm.getStaffSm(hcnOrId);
+        this.sm = pm.getPatientSm(hcnOrId);
+    }
+
+    public AppointmentMaker(){
+
     }
 
     public String getSchedule() {
@@ -27,7 +37,11 @@ public class AppointmentMaker {
         sm.addOrModifyEvent(event, start, end);
     }
 
-    public void deleteEvent(String start, String end) throws StuffNotFoundException {
+    public Schedule makeWorkingTime(String event) throws InvalidInputException {
+        return sms.staffSchedule(event);
+    }
+
+    public void deleteEvent(String start, String end) throws StaffNotFoundException {
         sm.removeEvent(start, end);
     }
 }
