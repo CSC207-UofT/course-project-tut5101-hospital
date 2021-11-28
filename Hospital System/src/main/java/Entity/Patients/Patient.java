@@ -1,6 +1,7 @@
 package Entity.Patients;
 
 import Entity.Operations.OperationList;
+import Entity.PatientRecords.PatientRecordList;
 import Entity.Schedule.Schedule;
 
 /**
@@ -20,6 +21,7 @@ public class Patient implements java.io.Serializable {
     private OperationList scdldOps = new OperationList();
     private OperationList fnshdOps = new OperationList();
     private int fee;
+    private PatientRecordList PRL = new PatientRecordList();
 
 //    add a variable for collection of previous appointments
 
@@ -96,5 +98,9 @@ public class Patient implements java.io.Serializable {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public PatientRecordList getPRL() {
+        return PRL;
     }
 }
