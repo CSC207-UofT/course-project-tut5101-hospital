@@ -61,6 +61,10 @@ public class Staff implements Serializable {
         this.salary = salary;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
     public void setWorkingTime(Schedule workingTime) {
         this.workingTime = workingTime;
     }

@@ -4,6 +4,9 @@ import Entity.Operations.Operation;
 import Entity.Operations.OperationList;
 import Entity.Patients.Patient;
 import Entity.Staff.Doctor;
+import Entity.Staff.Staff;
+
+import java.util.List;
 
 public class OperationManager {
     /**
@@ -15,7 +18,7 @@ public class OperationManager {
 
     /**
      * Constructor for operation Manager, reads in a patient or a doctor and manage scheduled and finished operations
-     * @param p
+     * @param p 
      */
     public OperationManager(Patient p) {
         this.scdlOps = p.getScdldOps();
@@ -46,6 +49,20 @@ public class OperationManager {
     public void finishOp(Operation op) {
         scdlOps.removeOperation(op);
         fnshOps.addOperation(op);
+    }
+
+    /**
+     * Return the total cost of finished operations.
+     * @return
+     */
+    public int totalCostOfFinishedOps(){
+        List<Operation> Operations = fnshOps.getOperations();
+        int totalCost = 0;
+        for (Operation operation: Operations){
+            totalCost = totalCost + operation.getCost();
+
+        }
+        return totalCost;
     }
 
     //Getters
