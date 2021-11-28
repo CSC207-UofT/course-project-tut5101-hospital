@@ -6,10 +6,17 @@ import UseCases.Staff.StaffManager;
 
 
 public class ViewDoctorSchedules implements Printable {
+    /**
+     * Doctor schedule viewer presenter
+     */
     StaffManager sm = new StaffManager();
     ScheduleManager scm;
     String str;
 
+    /**
+     * See all Doctor schedule
+     * @return
+     */
     @Override
     public String print() {
         for (int id : sm.getAllDoctorId()) {

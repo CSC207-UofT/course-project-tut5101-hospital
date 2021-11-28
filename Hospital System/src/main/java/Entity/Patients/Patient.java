@@ -8,6 +8,9 @@ import Entity.Schedule.Schedule;
  */
 
 public class Patient implements java.io.Serializable {
+    /**
+     * Patient entity class, store all information about a patient
+     */
     private String name;
     private String gender;
     private int contactNum;
@@ -25,20 +28,34 @@ public class Patient implements java.io.Serializable {
 
     }
 
+    /**
+     * Return a string of patient information
+     *
+     * @return
+     */
     public String getPatientInfo() {
         return "Patient Name: " + this.name + "\n" +
                 "Gender: " + this.gender + "\n" +
                 "Contact Number: " + this.contactNum + "\n" +
                 "Health Card Number: " + this.healthCardNum;
-    }//add get healthcardid since we need to use healthcardnum as keys in patients database.
-
-    //getter setters
-    public int getHealthCardNum() {
-        return this.healthCardNum;
     }
 
+    /**
+     * Check password correct or not
+     *
+     * @param iptPwd
+     * @return
+     */
     public boolean checkPwd(String iptPwd) {
         return pwd.equals(iptPwd);
+    }
+
+    /**
+     * Getters and setters
+     * @return
+     */
+    public int getHealthCardNum() {
+        return this.healthCardNum;
     }
 
     public Schedule getSchedule() {

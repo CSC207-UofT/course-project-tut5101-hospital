@@ -4,11 +4,22 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Operation {
+    /**
+     * Entity for operation
+     */
     private int cost;
     private String name;
     private String description;
     private final List<LocalDateTime> time;
 
+    /**
+     * Constructor for operation
+     *
+     * @param cost
+     * @param name
+     * @param description
+     * @param time
+     */
     public Operation(int cost, String name, String description, List<LocalDateTime> time) {
         this.cost = cost;
         this.name = name;

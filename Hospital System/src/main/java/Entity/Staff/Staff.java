@@ -11,6 +11,9 @@ import java.util.Objects;
  */
 
 public class Staff implements Serializable {
+    /**
+     * Staff entity
+     */
     private String name;
     private String gender;
     private Integer ID;
@@ -56,6 +59,10 @@ public class Staff implements Serializable {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 
     public void setWorkingTime(Schedule workingTime) {

@@ -8,7 +8,9 @@ import Entity.Schedule.Schedule;
  */
 
 public class Doctor extends Staff {
-
+    /**
+     * Doctor Entity
+     */
     private OperationList scdldOps = new OperationList();
     private OperationList fnshdOps = new OperationList();
 
