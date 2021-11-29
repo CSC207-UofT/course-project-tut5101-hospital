@@ -18,7 +18,7 @@ public class OperationManager {
 
     /**
      * Constructor for operation Manager, reads in a patient or a doctor and manage scheduled and finished operations
-     * @param p 
+     * @param p
      */
     public OperationManager(Patient p) {
         this.scdlOps = p.getScdldOps();
