@@ -61,6 +61,12 @@ public class StaffManager implements StaffManaging {
         sessionData.saveData();
     }
 
+    //getter setters
+    @Override
+    public double getSalary(int id) {
+        return getStaff(id).getSalary();
+    }
+
     public Staff getStaff(Integer ID) {
         return sessionData.searchID(ID);
     }
@@ -178,6 +184,7 @@ public class StaffManager implements StaffManaging {
     }
 
 
+    //iterating and get all kinds of ids
     /**
      * Return all doctor id
      * @return
@@ -222,6 +229,9 @@ public class StaffManager implements StaffManaging {
         }
         return others;
     }
+
+
+
 }
 
 
