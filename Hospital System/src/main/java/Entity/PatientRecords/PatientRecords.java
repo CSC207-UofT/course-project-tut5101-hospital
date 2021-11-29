@@ -1,35 +1,45 @@
 package Entity.PatientRecords;
-import Entity.Operations.Operation;
-import Entity.Operations.OperationList;
-
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class PatientRecords {
-    private String physicianName;
-    private Operation operation;
-    private String bloodPressure;
-    private String pulse;
-    private String temperature;
-    private List<String> currentMedications;
-    private String diagnosis;
-    private String treatment;
-    private List<InputStream> medicalImage;
+    private Float height;
+    private Float weight;
+    private String sex;
+    private List<String> allergies;
+    private List<String> vaccinations;
 
-    public PatientRecords(String physicianName, String bloodPressure, String pulse, String temperature,
-                          List<String> currentMedications, String diagnosis, String treatment,
-                          Operation operation, List<InputStream> medicalImage) {
-        this.physicianName = physicianName;
-        this.bloodPressure = bloodPressure;
-        this.pulse = pulse;
-        this.temperature = temperature;
-        this.currentMedications = currentMedications;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
-        this.operation = operation;
-        this.medicalImage = medicalImage;
+    public PatientRecords(Float height, Float weight, String sex, List<String> allergies, List<String> vaccinations) {
 
+        this.allergies = allergies;
+        this.vaccinations = vaccinations;
+        this.height = height;
+        this.weight = weight;
+        this.sex = sex;
+
+    }
+
+    public String getPatientRecord() {
+        return "Patient height: " + this.height + "\n" +
+                "Patient weight: " + this.height + "\n" +
+                "Gender: " + this.sex + "\n" +
+                "Allergies: " + this.allergies + "\n" +
+                "Vaccinations: " + this.vaccinations;
+    }
+
+    public void addVaccination(String vaccine) {
+        this.vaccinations.add(vaccine);
+    }
+
+    public void addAllergy(String allergy) {
+        this.allergies.add(allergy);
+    }
+
+    public void changeWeight(Float weight) {
+        this.weight = weight;
+    }
+
+    public void changeHeight(Float height) {
+        this.height = height;
     }
 }
