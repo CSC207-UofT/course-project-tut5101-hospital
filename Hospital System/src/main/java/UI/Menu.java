@@ -3,10 +3,9 @@ package UI;
 import java.util.Scanner;
 
 import Exceptions.InvalidInputException;
-import UseCases.ScheduleManager;
+import Presenters.Schedule.ViewDoctorSchedules;
+import UseCases.Schedule.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
-
-import Presenters.*;
 
 public class Menu {
     /**
@@ -14,15 +13,20 @@ public class Menu {
      */
     Scanner scanner = new Scanner(System.in);
 
- 
+
     int hcn;
-    LoginSignup ls = new LoginSignup();
-    public Menu(){
-        
-    }public void greeter(){
+    LoginSignup loginSignup = new LoginSignup();
+
+    public Menu() {
+
+    }
+
+    public void greeter() {
         System.out.println("Welcome to RealFakeHospital");
     }
-    public void loginSignup(){
+
+    public void loginSignup() {
+    }
 
 
     /**
@@ -63,6 +67,7 @@ public class Menu {
 
     /**
      * login for patient
+     *
      * @param c
      */
     public void loginPatient(String c) {
@@ -143,6 +148,7 @@ public class Menu {
 
     /**
      * Login for staff
+     *
      * @param c
      */
     public void loginStaff(String c) {
@@ -162,9 +168,10 @@ public class Menu {
                     break;
 
                 }
-            }while(!success);
+            }
+            while (!success) ;
 
-        }if(c.equals("1")){
+        } if (c.equals("1")) {
             System.out.println("Input name");
             String name = s.nextLine();
             System.out.println("Input gender");
@@ -193,7 +200,8 @@ public class Menu {
                     System.out.println("You will be notified by management in the next 48 hours to retrieve your password.");
                 }
             }
-        } while (!success);
+        }
+        while (!success) ;
     }
 
     /**
@@ -208,29 +216,32 @@ public class Menu {
             makeAppointment();
 
         }
-        this.hcn=hcn;
-
-    }public void activities(){
-            //System.out.println(ls.check_if_patient_exists(hcn));
-            String c="1";
-            System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
-            c = s.nextLine();
-            if(c.equals("1")){
-                makeAppointment();
-            }if(c.equals("2")){
-                viewAppointment();
-            }
-        }
+        this.hcn = hcn;
 
     }
+
+    public void activities() {
+        //System.out.println(ls.check_if_patient_exists(hcn));
+        String c = "1";
+        System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
+        c = s.nextLine();
+        if (c.equals("1")) {
+            makeAppointment();
+        }
+        if (c.equals("2")) {
+            viewAppointment();
+        }
+    }
+
+}
 
     /**
      * Make appointment
      */
 
     private void makeAppointment() {
-        System.out.println(ls.check_if_patient_exists(hcn));
-        ScheduleManager sm = new ScheduleManager(ls.initPatient(hcn).getSchedule());
+        System.out.println(loginSignup.check_if_patient_exists(hcn));
+        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
         System.out.println("Input event");
         String event = s.nextLine();
         System.out.println("Input start time yyyy-MM-dd HH:mm");
