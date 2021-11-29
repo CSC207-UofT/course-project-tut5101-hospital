@@ -81,7 +81,7 @@ public class ScheduleManager {
         Schedule s = new Schedule();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
-        LocalDateTime e = LocalDateTime.parse("2021-12-31 11:00", formatter);
+        LocalDateTime e = LocalDateTime.parse("2021-12-15 11:00", formatter);
         while (st.isBefore(e)){
             if (!st.isBefore(e)) {
                 throw new InvalidInputException("");

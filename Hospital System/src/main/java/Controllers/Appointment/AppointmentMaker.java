@@ -25,10 +25,6 @@ public class AppointmentMaker {
         this.sm = pm.getPatientSm(hcnOrId);
     }
 
-    public AppointmentMaker(){
-
-    }
-
     public String getSchedule() {
         return sm.getScheduleString();
     }

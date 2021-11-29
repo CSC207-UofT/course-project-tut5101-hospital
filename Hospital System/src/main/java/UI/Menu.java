@@ -7,6 +7,7 @@ import Entity.Patients.Patient;
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
+import Exceptions.StaffNotFoundException;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
 import Presenters.Schedule.ViewOtherStaffSchedules;
@@ -15,6 +16,7 @@ import UseCases.Schedule.ScheduleManager;
 import UseCases.Schedule.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
 import Presenters.*;
+import UseCases.Staff.StaffManager;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
@@ -101,7 +103,7 @@ public class Menu {
 
 
 
-    public void loginSignupForStaff() throws InvalidInputException {
+    public void loginSignupForStaff(){
         int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
@@ -115,7 +117,7 @@ public class Menu {
         this.id = id;
     }
 
-    public void signupStaff() throws InvalidInputException {
+    public void signupStaff(){
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -129,9 +131,14 @@ public class Menu {
         int salary = scanner.nextInt();
         System.out.println("What event do you do (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
-        AppointmentMaker am = new AppointmentMaker();
-        Schedule workingTime = am.makeWorkingTime(event);
-        loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
+        AppointmentMaker am = new AppointmentMaker(id);
+        Schedule workingTime;
+        try {
+            workingTime = am.makeWorkingTime(event);
+            loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
+        } catch (InvalidInputException e) {
+            System.out.println("Input is invalid");
+        }
         System.out.println("Staff account successfully created");
     }
 
@@ -172,7 +179,7 @@ public class Menu {
         } while (!success);
     }
 
-    public void activities() {
+    public void activitiesForPatients() {
         //System.out.println(ls.checkIfPatientExists(hcn));
         String c;
         System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
@@ -196,14 +203,29 @@ public class Menu {
             payBookingFee(patient.getHealthCardNum());
         }
         patient.payFee(50);
-        System.out.println("Input start time yyyy-MM-dd HH:mm");
+        checkSchedule();
+        System.out.println("Which Staff would you like");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        StaffManager sfm = new StaffManager();
+        Staff staff = sfm.getStaff(id);
+        ScheduleManager sms = new ScheduleManager(staff.getSchedule());
+        if (sfm.checkIfStaffExist(id)){
+            sfm.getStaffSm(id);
+        }
+        System.out.println("Input start time yyyy-MM-dd HH:mm.  Booking time start at 2021-12-01 01:00");
         String start = scanner.nextLine();
-        System.out.println("Input end time yyyy-MM-dd HH:mm");
+        System.out.println("Input end time yyyy-MM-dd HH:mm.    Booking time finishes at 2021-12-15 11:00");
         String end = scanner.nextLine();
         try {
             sm.addOrModifyEvent(event, start, end);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
+        }
+        try {
+            sms.removeEvent(start, end);
+        } catch (StaffNotFoundException s) {
+            System.out.println("Staff Not Found");
         }
         if (sm.getScheduleString() != null) {
             System.out.println("You have successfully booked an appointment");
@@ -216,6 +238,36 @@ public class Menu {
         System.out.println(sm.getScheduleString());
     }
 
+    public void activitiesForStaffs() {
+        String c;
+        System.out.println("confirm patient appointment or view schedule or assigned patient record(Type 1 to confirm patient appointment;" +
+                " Type 2 to view schedule; Type 3 to check assigned patient record)");
+        c = scanner.nextLine();
+        if (c.equals("1")) {
+            confirmAppointment();
+        }
+        if (c.equals("2")) {
+            viewStaffSchedule();
+        }
+        if (c.equals("3")) {
+            checkAssignedPatientRecord();
+        }
+    }
+
+    private void confirmAppointment(){
+        Staff staff = loginSignup.initStaff(id);
+        System.out.println(loginSignup.checkIfStaffExists(id));
+        ScheduleManager sm = new ScheduleManager(staff.getSchedule());
+    }
+
+    private void viewStaffSchedule(){
+        ScheduleManager sm = new ScheduleManager(loginSignup.initStaff(id).getSchedule());
+        System.out.println(sm.getScheduleString());
+    }
+
+    private void checkAssignedPatientRecord(){
+
+    }
 
     public void checkSchedule() {
         int choice = 4;
