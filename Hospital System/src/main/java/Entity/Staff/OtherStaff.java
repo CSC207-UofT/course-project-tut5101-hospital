@@ -1,6 +1,9 @@
 package Entity.Staff;
 
+import Entity.Patients.Patient;
 import Entity.Schedule.Schedule;
+
+import java.util.ArrayList;
 
 
 /*
@@ -14,13 +17,15 @@ public class OtherStaff extends Staff {
     /**
      * Construct a Entity.Staff that is not a doctor or nurse, giving them a name, gender, role, ID, and working time.
      */
-    public OtherStaff(String name, String gender, Integer id, Schedule workingTime, String pwd, int fixedSalary, String role) {
-        super(name, gender, id, workingTime, pwd, fixedSalary);
+    public OtherStaff(){}
+
+    //This method sets the role of the OtherStaff
+    public void setRole(String role) {
         this.role = role;
     }
 
     //This method gets the role of the OtherStaff
-    public String getrole() {
+    public String getRole() {
         return this.role;
     }
 
