@@ -20,13 +20,14 @@ public class PatientManager implements PatientManaging {
      * @param pwd
      * @return
      */
-    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
+    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
         PatientBuilder pm = new PatientBuilder();
         pm.setContactNumber(contactNum);
         pm.setGender(gender);
         pm.setHcn(healthCardNum);
         pm.setPwd(pwd);
         pm.setName(name);
+        pm.setFee(fee);
         return pm.getPatient();
     }
 
@@ -38,13 +39,14 @@ public class PatientManager implements PatientManaging {
      * @param healthCardNum
      * @param pwd
      */
-    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd) {
+    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
         PatientBuilder pm = new PatientBuilder();
         pm.setContactNumber(contactNum);
         pm.setGender(gender);
         pm.setHcn(healthCardNum);
         pm.setPwd(pwd);
         pm.setName(name);
+        pm.setFee(fee);
         Patient p = pm.getPatient();
         sessionData.addOrModifyPatient(p);
         saveSession();
@@ -63,7 +65,7 @@ public class PatientManager implements PatientManaging {
      * @return
      */
     public Patient getPatient(int healthCardNum) {
-        return sessionData.searchHealthCardNumber(healthCardNum);
+        return sessionData.searchHCN(healthCardNum);
     }
 
     /**
@@ -72,7 +74,7 @@ public class PatientManager implements PatientManaging {
      * @return
      */
     public ScheduleManager getPatientSm(int healthCardNum) {
-        return new ScheduleManager(sessionData.searchHealthCardNumber(healthCardNum));
+        return new ScheduleManager(sessionData.searchHCN(healthCardNum));
     }
 
     /**
@@ -81,7 +83,7 @@ public class PatientManager implements PatientManaging {
      * @return
      */
     public boolean checkIfPatientExist(int hcn) {
-        return (sessionData.searchHealthCardNumber(hcn) != null);
+        return (sessionData.searchHCN(hcn) != null);
     }
 
     /**
@@ -91,8 +93,8 @@ public class PatientManager implements PatientManaging {
      * @return
      */
     public boolean checkLoginInfo(int healthCardNumber, String pwd) {
-        if (sessionData.searchHealthCardNumber(healthCardNumber) != null) {
-            return sessionData.searchHealthCardNumber(healthCardNumber).checkPwd(pwd);
+        if (sessionData.searchHCN(healthCardNumber) != null) {
+            return sessionData.searchHCN(healthCardNumber).checkPwd(pwd);
         }
         return false;
 

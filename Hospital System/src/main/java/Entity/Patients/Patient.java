@@ -1,6 +1,7 @@
 package Entity.Patients;
 
 import Entity.Operations.OperationList;
+import Entity.PatientRecords.PatientRecordList;
 import Entity.Schedule.Schedule;
 
 /**
@@ -29,6 +30,10 @@ public class Patient implements java.io.Serializable {
         this.healthCardNum = healthCardNum;
         this.pwd = pwd;
         this.fee = fee;
+    }
+
+    public Patient() {
+
     }
 
     /**
@@ -80,6 +85,10 @@ public class Patient implements java.io.Serializable {
 
     public int getFee() {
         return fee;
+    }
+
+    public void setFee(int fee){
+        this.fee = fee;
     }
 
     public void addFee(int newFee) {

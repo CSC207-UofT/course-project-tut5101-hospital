@@ -74,8 +74,8 @@ public class LoginSignup {
      * @param healthCardNum
      * @param pwd
      */
-    public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd) {
-        pm.addPatient(name, gender, contactNum, healthCardNum, pwd);
+    public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+        pm.addPatient(name, gender, contactNum, healthCardNum, pwd, fee);
     }
 
     /**

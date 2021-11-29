@@ -66,14 +66,13 @@ public class Schedule implements java.io.Serializable {
         }
     }
 
-    public void removeEvent(Event dates) throws StaffNotFoundException {
     /**
      * Remove event
      *
      * @param dates
      * @throws StaffNotFoundException
      */
-    public void removeEvent(Event dates) throws StaffNotFoundException{
+    public void removeEvent(Event dates) throws StaffNotFoundException {
         boolean ex = true;
         for (Event key : schedule.keySet()) {
             if ((key.getEndTime() == dates.getEndTime()) && (key.getStartTime() == dates.getStartTime())) {
@@ -142,9 +141,4 @@ public class Schedule implements java.io.Serializable {
             return localDateTimes;
         }
     }
-
-
-}
-
-
 }

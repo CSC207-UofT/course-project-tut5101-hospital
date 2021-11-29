@@ -31,6 +31,10 @@ public class PatientBuilder {
         p.setPwd(pwd);
     }
 
+    public void setFee(int fee){
+        p.setFee(fee);
+    }
+
     public Patient getPatient() {
         return p;
     }
