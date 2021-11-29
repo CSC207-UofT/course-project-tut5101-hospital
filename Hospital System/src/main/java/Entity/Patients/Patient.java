@@ -13,10 +13,11 @@ public class Patient implements java.io.Serializable {
     private int contactNum;
     private int healthCardNum;
     private String pwd;
-    private int fee;
     private Schedule scdl = new Schedule();
     private OperationList scdldOps = new OperationList();
     private OperationList fnshdOps = new OperationList();
+    private int fee;
+    private PatientRecordList PRL = new PatientRecordList();
 
 //    add a variable for collection of previous appointments
 
@@ -30,20 +31,35 @@ public class Patient implements java.io.Serializable {
         this.fee = fee;
     }
 
+    /**
+     * Return a string of patient information
+     *
+     * @return
+     */
     public String getPatientInfo() {
         return "Patient Name: " + this.name + "\n" +
                 "Gender: " + this.gender + "\n" +
                 "Contact Number: " + this.contactNum + "\n" +
                 "Health Card Number: " + this.healthCardNum +
                 "Money In Account: " + this.fee;
-    }//add get healthcardid since we need to use healthcardnum as keys in patients database.
-
-    public int getHealthCardNum() {
-        return this.healthCardNum;
     }
 
+    /**
+     * Check password correct or not
+     *
+     * @param iptPwd
+     * @return
+     */
     public boolean checkPwd(String iptPwd) {
         return pwd.equals(iptPwd);
+    }
+
+    /**
+     * Getters and setters
+     * @return
+     */
+    public int getHealthCardNum() {
+        return this.healthCardNum;
     }
 
     public Schedule getSchedule() {
@@ -74,4 +90,27 @@ public class Patient implements java.io.Serializable {
         fee -= payFee;
     }
 
+    public void setName(String n) {
+        this.name = n;
+    }
+
+    public void setGender(String n) {
+        this.gender = n;
+    }
+
+    public void setContactNum(int contactNum) {
+        this.contactNum = contactNum;
+    }
+
+    public void setHealthCardNum(int healthCardNum) {
+        this.healthCardNum = healthCardNum;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public PatientRecordList getPRL() {
+        return PRL;
+    }
 }

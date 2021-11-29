@@ -4,12 +4,18 @@ import Presenters.Printable;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.StaffManager;
 
-//View schedules of all staffs
 public class StaffScheduleViewer implements Printable {
+    /**
+     * Staff schedule viewer presenter
+     */
     StaffManager sm = new StaffManager();
     ScheduleManager scm;
     String str;
 
+    /**
+     * See all staff schedule
+     * @return
+     */
     @Override
     public String print() {
         for (int id : sm.getAllStaffID()) {
