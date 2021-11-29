@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import Exceptions.InvalidInputException;
-import Exceptions.StuffNotFoundException;
+import Exceptions.StaffNotFoundException;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -36,7 +36,7 @@ public class Schedule implements java.io.Serializable {
     }
     //private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E");
 
-    public void add_or_modify_Event(String event, Event dates) throws InvalidInputException {
+    public void addOrModifyEvent(String event, Event dates) throws InvalidInputException {
         if (!schedule.containsKey(dates)) {
             this.schedule.put(dates, event);
         } else {
@@ -44,7 +44,7 @@ public class Schedule implements java.io.Serializable {
         }
     }
 
-    public void removeEvent(Event dates) throws StuffNotFoundException {
+    public void removeEvent(Event dates) throws StaffNotFoundException {
         boolean ex = true;
         for (Event key : schedule.keySet()) {
             if ((key.getEndTime() == dates.getEndTime()) && (key.getStartTime() == dates.getStartTime())) {
@@ -53,7 +53,7 @@ public class Schedule implements java.io.Serializable {
             }
         }
         if (ex) {
-            throw new StuffNotFoundException("");
+            throw new StaffNotFoundException("");
         }
     }
 
@@ -101,41 +101,3 @@ public class Schedule implements java.io.Serializable {
         }
     }
 }
-
-/*      //Room for the doctor
-    private String room;
-    //The two D array of schedule.
-    private Boolean[][] timetable = new Boolean[24][7];
-
-
-    //The default schedule is people work from 9AM to 9PM
-    public Entity.Schedule(String room) {
-        this.room = room;
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 7; j++) {
-                timetable[i][j] = true;
-            }
-        }
-
-        for (int i = 12; i < 24; i++) {
-            for (int j = 0; j < 7; j++) {
-                timetable[i][j] = false;
-            }
-        }
-    }
-
-
-    //Print the schedule
-    public void printTimeTable(){
-        List<String> list = List.of("9AM ","10AM","11AM","12AM","1PM ","2PM ","3PM ","4PM ","5PM ","6PM ","7PM ","8PM "
-                ,"9PM ","10PM","11PM","12PM","1AM ","2AM ","3AM ","4AM ","5AM ","6AM ","7AM ","8AM ","9AM ");
-        System.out.println("            Mon \tTues\tWedn\tThur\t"+"Fri "+"\t"+"Sat "+"\tSun ");
-        for (int i = 0; i < 24; i++) {
-            System.out.print(list.get(i)+"--"+list.get(i+1)+"\t");
-            for (int j = 0; j < 7; j++) {
-                System.out.print(timetable[i][j] + "\t");
-            }
-            System.out.println();
-        }
-    } */
-

@@ -2,7 +2,7 @@ package Entity.Patients;
 
 import java.util.HashMap;
 
-import Exceptions.StuffNotFoundException;
+import Exceptions.StaffNotFoundException;
 
 import java.io.*;
 
@@ -22,11 +22,11 @@ public class PatientData implements java.io.Serializable {
         patients.put(patient.getHealthCardNum(), patient);
     }
 
-    public void removePatient(Patient patient) throws StuffNotFoundException {
+    public void removePatient(Patient patient) throws StaffNotFoundException {
         if (patients.containsKey(patient.getHealthCardNum())) {
             patients.remove(patient.getHealthCardNum());
         } else {
-            throw new StuffNotFoundException("");
+            throw new StaffNotFoundException("");
         }
     }
 

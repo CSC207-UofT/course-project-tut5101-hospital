@@ -2,6 +2,7 @@ package UseCases.Staff;
 
 import Entity.Staff.*;
 import Entity.Schedule.Schedule;
+import UseCases.Schedule.ScheduleManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,10 @@ public class StaffManager {
         }
         return false;
 
+    }
+
+    public ScheduleManager getStaffSm(int id) {
+        return new ScheduleManager(sessionData.searchID(id));
     }
 
     public List<Staff> getAllStaff() {
