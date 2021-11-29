@@ -3,7 +3,7 @@ package Entity.Staff;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Exceptions.StuffNotFoundException;
+import Exceptions.StaffNotFoundException;
 
 import java.io.*;
 import java.util.List;
@@ -33,11 +33,11 @@ public class StaffData implements java.io.Serializable {
         }
     }
 
-    public void removeStaff(Staff staff) throws StuffNotFoundException {
+    public void removeStaff(Staff staff) throws StaffNotFoundException {
         if (!allstaff.containsKey(staff.getStaffID())) {
             allstaff.remove(staff.getStaffID());
         } else {
-            throw new StuffNotFoundException("");
+            throw new StaffNotFoundException("");
         }
     }
 

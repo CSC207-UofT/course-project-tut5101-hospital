@@ -9,9 +9,6 @@ import Entity.Schedule.Schedule;
  */
 
 public class Patient implements java.io.Serializable {
-    /**
-     * Patient entity class, store all information about a patient
-     */
     private String name;
     private String gender;
     private int contactNum;
@@ -26,6 +23,15 @@ public class Patient implements java.io.Serializable {
 //    add a variable for collection of previous appointments
 
     //    Constructs a patient class instant.
+    public Patient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+        this.name = name;
+        this.gender = gender;
+        this.contactNum = contactNum;
+        this.healthCardNum = healthCardNum;
+        this.pwd = pwd;
+        this.fee = fee;
+    }
+
     public Patient() {
 
     }
@@ -39,7 +45,8 @@ public class Patient implements java.io.Serializable {
         return "Patient Name: " + this.name + "\n" +
                 "Gender: " + this.gender + "\n" +
                 "Contact Number: " + this.contactNum + "\n" +
-                "Health Card Number: " + this.healthCardNum;
+                "Health Card Number: " + this.healthCardNum +
+                "Money In Account: " + this.fee;
     }
 
     /**
@@ -76,8 +83,20 @@ public class Patient implements java.io.Serializable {
         return scdldOps;
     }
 
+    public int getFee() {
+        return fee;
+    }
+
+    public void setFee(int fee){
+        this.fee = fee;
+    }
+
     public void addFee(int newFee) {
         fee += newFee;
+    }
+
+    public void payFee(int payFee) {
+        fee -= payFee;
     }
 
     public void setName(String n) {
