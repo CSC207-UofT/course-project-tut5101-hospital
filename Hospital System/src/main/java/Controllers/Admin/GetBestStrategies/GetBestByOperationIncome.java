@@ -1,2 +1,4 @@
-package Controllers.Admin.GetBestStrategies;public class GetbestByOperationIncome {
+package Controllers.Admin.GetBestStrategies;
+
+public class GetbestByOperationIncome {
 }
