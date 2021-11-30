@@ -1,44 +1,16 @@
 package Controllers.Admin;
 
 
+import Controllers.Admin.GetBestStrategies.GetBestStrategy;
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;
 
 public class FindBestStaff {
-    /**
-     * Controller that find the best staff
-     */
-    StaffManaging manager;
+    private GetBestStrategy st;
 
-    /**
-     * Constructor for this controller
-     */
-    public FindBestStaff() {
-        StaffManaging manager = new StaffManager();
-    }
-
-    /**
-     * Find the staff who worked longest in hospital
-     * @return
-     */
-    public int findBestStaffByTime(){
-        return manager.getBestStaffByTime();
-    }
-
-    /**
-     * Find the staff who did most operations
-     * @return
-     */
-    public int findBestStaffByOperations(){
-        return manager.getBestStaffByNumberOfOperation();
-    }
-
-
-    /**
-     * Find the staff who earn most operations income
-     * @return
-     */
-    public int findBestStaffByOperationsIncome(){
-        return manager.getBestStaffByMostOperationIncome();
+    public void setStrategy(GetBestStrategy st) {
+        this.st = st;
+    }public int execute(){
+        return st.findBest();
     }
 }

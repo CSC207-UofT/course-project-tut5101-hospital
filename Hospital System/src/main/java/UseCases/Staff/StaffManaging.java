@@ -38,4 +38,6 @@ public interface StaffManaging {
     public List<Integer> getAllNurseId();
 
     public List<Integer> getAllOtherId();
+
+    public double getSalary(int id);
 }
