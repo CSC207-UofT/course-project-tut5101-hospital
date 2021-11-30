@@ -119,26 +119,5 @@ public class Schedule implements java.io.Serializable {
             this.id = id;
         }
 
-        @Converter(autoApply = true)
-    public static class DateListConverter implements AttributeConverter<Event, String> {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        private static final String SPLIT_CHAR = ";";
 
-
-        @Override
-        public String convertToDatabaseColumn(Event attribute) {
-            return attribute.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")) + SPLIT_CHAR + attribute.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E"));
-        }
-
-        @Override
-        public Event convertToEntityAttribute(String string) {
-            Event localDateTimes = new Event(null, null);
-            if (!string.isEmpty()) {
-                List<String> list_s = Arrays.asList(string.split(SPLIT_CHAR));
-                localDateTimes.setStartTime(LocalDateTime.parse(list_s.get(0), formatter));
-                localDateTimes.setEndTime(LocalDateTime.parse(list_s.get(1), formatter));
-            }
-            return localDateTimes;
-        }
-    }
 }
