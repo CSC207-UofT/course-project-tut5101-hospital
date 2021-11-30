@@ -1,4 +1,4 @@
-package Controllers.Admin;
+package Controllers.Accountant;
 
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;

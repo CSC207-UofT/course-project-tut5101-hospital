@@ -8,14 +8,14 @@ import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
+import Presenters.PatientRecords.PatientMedicalRecordViewer;
+import Presenters.PatientRecords.PatientRecordViewer;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
 import Presenters.Schedule.ViewOtherStaffSchedules;
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
-import UseCases.Schedule.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
-import Presenters.*;
 import UseCases.Staff.StaffManager;
 
 public class Menu {
@@ -45,7 +45,7 @@ public class Menu {
         this.hcn = healthCardNumber;
     }
 
-    public void signupPatient(){
+    public void signupPatient() {
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -65,7 +65,7 @@ public class Menu {
         System.out.println("Patient account successfully created");
     }
 
-    public void loginPatient(String c){
+    public void loginPatient(String c) {
         boolean success = false;
         do {
             System.out.println("Input HealthCardNumber");
@@ -102,8 +102,7 @@ public class Menu {
     }
 
 
-
-    public void loginSignupForStaff(){
+    public void loginSignupForStaff() {
         int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
@@ -117,7 +116,7 @@ public class Menu {
         this.id = id;
     }
 
-    public void signupStaff(){
+    public void signupStaff() {
         System.out.println("Input name");
         String name = scanner.nextLine();
         System.out.println("Input gender");
@@ -142,7 +141,7 @@ public class Menu {
         System.out.println("Staff account successfully created");
     }
 
-    public void loginStaff(String c){
+    public void loginStaff(String c) {
         boolean success = false;
 
         do {
@@ -199,7 +198,7 @@ public class Menu {
         System.out.println("Input event (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         System.out.println("You need to pay $50");
-        while (patient.getFee() < 50){
+        while (patient.getFee() < 50) {
             payBookingFee(patient.getHealthCardNum());
         }
         patient.payFee(50);
@@ -210,7 +209,7 @@ public class Menu {
         StaffManager sfm = new StaffManager();
         Staff staff = sfm.getStaff(id);
         ScheduleManager sms = new ScheduleManager(staff.getSchedule());
-        if (sfm.checkIfStaffExist(id)){
+        if (sfm.checkIfStaffExist(id)) {
             sfm.getStaffSm(id);
         }
         System.out.println("Input start time yyyy-MM-dd HH:mm.  Booking time start at 2021-12-01 01:00");
@@ -254,21 +253,24 @@ public class Menu {
         }
     }
 
-    private void confirmAppointment(){
+    private void confirmAppointment() {
         Staff staff = loginSignup.initStaff(id);
         System.out.println(loginSignup.checkIfStaffExists(id));
         ScheduleManager sm = new ScheduleManager(staff.getSchedule());
     }
 
-    private void viewStaffSchedule(){
+    private void viewStaffSchedule() {
         ScheduleManager sm = new ScheduleManager(loginSignup.initStaff(id).getSchedule());
         System.out.println(sm.getScheduleString());
     }
 
-    private void checkAssignedPatientRecord(){
+    private void checkAssignedPatientRecord() {
 
     }
 
+    /**
+     * Check schedule is only for Admin, other staff cannot call this.
+     */
     public void checkSchedule() {
         int choice = 4;
 
@@ -295,7 +297,41 @@ public class Menu {
         }
     }
 
-    public void payBookingFee(int hcn){
+
+    /**
+     * View patient record by input a patient health card number
+     */
+    public void viewPatientRecord() {
+        int choice = 4;
+        int healthCardNumber = 0;
+        System.out.println("Please input the health card number of the patient to see her/his record.");
+        try {
+            healthCardNumber = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Input is invalid, please try again");
+        }
+
+        while (choice != 1 || choice != 2) {
+            System.out.println("Which kind of record you want to check for this patient?");
+            System.out.println("1: Record");
+            System.out.println("2: Medical Record");
+            try {
+                choice = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Input is invalid, please try again");
+            }
+        }
+        if (choice == 1) {
+            PatientMedicalRecordViewer patientMedicalRecordViewer = new PatientMedicalRecordViewer();
+            patientMedicalRecordViewer.print(healthCardNumber);
+        } else if (choice == 2) {
+            PatientRecordViewer patientRecordViewer = new PatientRecordViewer();
+            patientRecordViewer.print(healthCardNumber);
+        }
+    }
+
+
+    public void payBookingFee(int hcn) {
         PatientManager pm = new PatientManager();
         Patient patient = pm.getPatient(hcn);
         System.out.println("This is the money in your account");
@@ -303,13 +339,12 @@ public class Menu {
         System.out.println("Do you want to add money (Type 1 to add, Type 2 to not add)");
         String c;
         c = scanner.nextLine();
-        if (c.equals("1")){
+        if (c.equals("1")) {
             System.out.println("How much do you want to add");
             int addFee = scanner.nextInt();
             patient.addFee(addFee);
             System.out.println("Move on to the appointment");
-        }
-        else if (c.equals("2")){
+        } else if (c.equals("2")) {
             System.out.println("Move on to the appointment");
         }
     }

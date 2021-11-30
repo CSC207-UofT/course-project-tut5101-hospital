@@ -4,6 +4,7 @@ package Exceptions;
 public class InvalidInputException extends Exception {
     /**
      * Exceptions
+     *
      * @param e
      */
     public InvalidInputException(String e) {

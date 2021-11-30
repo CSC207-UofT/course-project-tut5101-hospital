@@ -14,6 +14,7 @@ public class OperationFeeCalculator {
 
     /**
      * Constructor for operation fee calculator
+     *
      * @param p
      * @param op
      */
@@ -24,6 +25,7 @@ public class OperationFeeCalculator {
 
     /**
      * Finish
+     *
      * @return
      */
     public double finish() {

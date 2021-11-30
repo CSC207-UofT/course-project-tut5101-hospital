@@ -27,6 +27,7 @@ public class ScheduleManager {
 
     /**
      * Constructor for schedule manager when input is schedule
+     *
      * @param s
      */
     public ScheduleManager(Schedule s) {
@@ -37,6 +38,7 @@ public class ScheduleManager {
 
     /**
      * Constructor for schedule manager when input is patient
+     *
      * @param p
      */
     public ScheduleManager(Patient p) {
@@ -47,6 +49,7 @@ public class ScheduleManager {
 
     /**
      * Constructor for schedule manager when input is staff
+     *
      * @param st
      */
     public ScheduleManager(Staff st) {
@@ -62,6 +65,7 @@ public class ScheduleManager {
 
     /**
      * Add or modify event
+     *
      * @param event
      * @param start
      * @param end
@@ -73,13 +77,14 @@ public class ScheduleManager {
         if (!st.isBefore(e)) {
             throw new InvalidInputException("");
         } else {
-            s.addOrModifyEvent(event, new Event(st,e));
+            s.addOrModifyEvent(event, new Event(st, e));
             saveSchedule();
         }
     }
 
     /**
      * Remove event
+     *
      * @param start
      * @param end
      * @throws StaffNotFoundException
@@ -94,6 +99,7 @@ public class ScheduleManager {
 
     /**
      * Get schedule string
+     *
      * @return
      */
     public String getScheduleString() {
@@ -110,7 +116,7 @@ public class ScheduleManager {
         sessionData.saveData();
     }
 
-    private void saveStaffSchedule(){
+    private void saveStaffSchedule() {
         staffData.saveData();
     }
 
@@ -119,7 +125,7 @@ public class ScheduleManager {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
         LocalDateTime e = LocalDateTime.parse("2021-12-15 11:00", formatter);
-        while (st.isBefore(e)){
+        while (st.isBefore(e)) {
             if (!st.isBefore(e)) {
                 throw new InvalidInputException("");
             } else {

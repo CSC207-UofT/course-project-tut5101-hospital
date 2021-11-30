@@ -18,6 +18,7 @@ public class OperationLogger {
 
     /**
      * Constructor for operation logger
+     *
      * @param p
      * @param d
      * @param op

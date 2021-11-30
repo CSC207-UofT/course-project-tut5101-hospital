@@ -17,6 +17,7 @@ public class StaffManager implements StaffManaging {
 
     /**
      * New staff
+     *
      * @param name
      * @param gender
      * @param ID
@@ -38,6 +39,7 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Add staff
+     *
      * @param name
      * @param gender
      * @param ID
@@ -96,6 +98,7 @@ public class StaffManager implements StaffManaging {
         return getStaff(id).getStaffInfo();
     }
 
+    @Override
     public List<Integer> getAllStaffID() {
         return sessionData.getAllStaffId();
     }
@@ -103,18 +106,19 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return the staff who work the longest
+     *
      * @return
      */
-    public int getBestStaffByTime(){
+    public int getBestStaffByTime() {
 
         List<Staff> staffList = getAllStaff();
         int time = staffList.get(0).getSchedule().totalTimeInMinutes();
         int id = staffList.get(0).getStaffID();
 
-        for (Staff people: staffList){
-            if (people.getSchedule().totalTimeInMinutes()>=time){
+        for (Staff people : staffList) {
+            if (people.getSchedule().totalTimeInMinutes() >= time) {
                 time = people.getSchedule().totalTimeInMinutes();
-                id  = people.getStaffID();
+                id = people.getStaffID();
             }
         }
         return id;
@@ -122,18 +126,19 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return the staff who did most operations
+     *
      * @return
      */
-    public int getBestStaffByNumberOfOperation(){
+    public int getBestStaffByNumberOfOperation() {
         List<Staff> staffList = getAllStaff();
         int numberOperation = 0;
         int id = 0;
 
-        for (Staff people: staffList){
-            if (people instanceof Doctor){
-                if (((Doctor) people).getFnshdOps().getOperations().size()>=numberOperation){
+        for (Staff people : staffList) {
+            if (people instanceof Doctor) {
+                if (((Doctor) people).getFnshdOps().getOperations().size() >= numberOperation) {
                     numberOperation = ((Doctor) people).getFnshdOps().getOperations().size();
-                    id  = people.getStaffID();
+                    id = people.getStaffID();
                 }
             }
         }
@@ -142,18 +147,20 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return the staff who earn most money for hospital
+     *
      * @return
      */
-    public int getBestStaffByMostOperationIncome(){
+    @Override
+    public int getBestStaffByMostOperationIncome() {
 
         List<Staff> staffList = getAllStaff();
         int income = 0;
         int id = 0;
 
-        for (Staff people: staffList){
-            if (people instanceof Doctor){
+        for (Staff people : staffList) {
+            if (people instanceof Doctor) {
                 OperationManager operationManager = new OperationManager((Doctor) people);
-                if (operationManager.totalCostOfFinishedOps()>=income){
+                if (operationManager.totalCostOfFinishedOps() >= income) {
                     income = operationManager.totalCostOfFinishedOps();
                     id = people.getStaffID();
                 }
@@ -165,33 +172,37 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return the total hospital profit, can be negative number
+     *
      * @return
      */
-    public int getHospitalProfit(){
+    @Override
+    public int getHospitalProfit() {
         double totalCost = 0;
         double totalRevenue = 0;
 
         List<Staff> staffList = getAllStaff();
-        for (Staff people: staffList){
+        for (Staff people : staffList) {
             totalCost += people.getSalary();
-            if (people instanceof Doctor){
+            if (people instanceof Doctor) {
                 ((Doctor) people).getFnshdOps();
             }
         }
-        for (Staff people: staffList){
-            if (people instanceof Doctor){
+        for (Staff people : staffList) {
+            if (people instanceof Doctor) {
                 OperationManager operationManager = new OperationManager((Doctor) people);
-                totalRevenue+= operationManager.totalCostOfFinishedOps();
+                totalRevenue += operationManager.totalCostOfFinishedOps();
             }
         }
 
-        return (int)(totalCost - totalRevenue);
+        return (int) (totalCost - totalRevenue);
     }
 
 
     //iterating and get all kinds of ids
+
     /**
      * Return all doctor id
+     *
      * @return
      */
     public List<Integer> getAllDoctorId() {
@@ -207,8 +218,10 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return all Nurse id
+     *
      * @return
      */
+    @Override
     public List<Integer> getAllNurseId() {
         List<Staff> staffs = getAllStaff();
         List<Integer> nurses = new ArrayList<Integer>();
@@ -222,6 +235,7 @@ public class StaffManager implements StaffManaging {
 
     /**
      * Return all other staff id
+     *
      * @return
      */
     public List<Integer> getAllOtherId() {
@@ -234,7 +248,6 @@ public class StaffManager implements StaffManaging {
         }
         return others;
     }
-
 
 
 }

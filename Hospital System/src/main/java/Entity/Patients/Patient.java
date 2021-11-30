@@ -61,6 +61,7 @@ public class Patient implements java.io.Serializable {
 
     /**
      * Getters and setters
+     *
      * @return
      */
     public int getHealthCardNum() {
@@ -87,7 +88,7 @@ public class Patient implements java.io.Serializable {
         return fee;
     }
 
-    public void setFee(int fee){
+    public void setFee(int fee) {
         this.fee = fee;
     }
 

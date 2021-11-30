@@ -2,5 +2,5 @@ package Controllers.Operation;
 
 import Presenters.Printable;
 
-public class OperationScheduler  {
+public class OperationScheduler {
 }

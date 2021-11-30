@@ -13,6 +13,7 @@ public class OperationBonusCalculator {
 
     /**
      * Constructor for Operation bonus calculator
+     *
      * @param d
      * @param op
      */
@@ -23,6 +24,7 @@ public class OperationBonusCalculator {
 
     /**
      * Doctor get bonus
+     *
      * @return
      */
     public double finish() {

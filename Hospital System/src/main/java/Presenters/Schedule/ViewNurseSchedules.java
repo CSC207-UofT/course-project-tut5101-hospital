@@ -15,6 +15,7 @@ public class ViewNurseSchedules implements Printable {
 
     /**
      * See all Nurse schedule
+     *
      * @return
      */
     @Override

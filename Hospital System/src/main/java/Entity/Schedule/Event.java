@@ -13,6 +13,7 @@ public class Event {
 
     /**
      * Constructor for event
+     *
      * @param start_time
      * @param end_time
      */
@@ -27,6 +28,7 @@ public class Event {
 
     /**
      * Getter and setter
+     *
      * @return
      */
     public LocalDateTime getStartTime() {

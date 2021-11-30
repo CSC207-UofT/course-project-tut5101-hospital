@@ -4,6 +4,7 @@ package Exceptions;
 public class StaffNotFoundException extends Exception {
     /**
      * Exceptions
+     *
      * @param e
      */
     public StaffNotFoundException(String e) {

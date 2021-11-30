@@ -31,7 +31,7 @@ public class PatientBuilder {
         p.setPwd(pwd);
     }
 
-    public void setFee(int fee){
+    public void setFee(int fee) {
         p.setFee(fee);
     }
 

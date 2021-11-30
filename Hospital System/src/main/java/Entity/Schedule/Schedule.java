@@ -49,7 +49,7 @@ public class Schedule implements java.io.Serializable {
         return sum;
     }
     //private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E");
-    
+
 
     /**
      * Add or modify event
@@ -111,13 +111,14 @@ public class Schedule implements java.io.Serializable {
         return s.toString();
     }
 
-        //Getters and setters
-        public Long getId() {
-            return id;
-        }
-        public void setId(Long id) {
-            this.id = id;
-        }
+    //Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 
 }

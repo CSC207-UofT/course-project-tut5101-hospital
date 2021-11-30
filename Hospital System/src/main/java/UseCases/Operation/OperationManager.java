@@ -18,6 +18,7 @@ public class OperationManager {
 
     /**
      * Constructor for operation Manager, reads in a patient or a doctor and manage scheduled and finished operations
+     *
      * @param p
      */
     public OperationManager(Patient p) {
@@ -27,6 +28,7 @@ public class OperationManager {
 
     /**
      * Constructor for operation Manager, reads in a patient or a doctor and manage scheduled and finished operations
+     *
      * @param d
      */
     public OperationManager(Doctor d) {
@@ -36,6 +38,7 @@ public class OperationManager {
 
     /**
      * Schedule new operation
+     *
      * @param op
      */
     public void scheduleNewOp(Operation op) {
@@ -44,6 +47,7 @@ public class OperationManager {
 
     /**
      * Finish operation
+     *
      * @param op
      */
     public void finishOp(Operation op) {
@@ -53,12 +57,13 @@ public class OperationManager {
 
     /**
      * Return the total cost of finished operations.
+     *
      * @return
      */
-    public int totalCostOfFinishedOps(){
+    public int totalCostOfFinishedOps() {
         List<Operation> Operations = fnshOps.getOperations();
         int totalCost = 0;
-        for (Operation operation: Operations){
+        for (Operation operation : Operations) {
             totalCost = totalCost + operation.getCost();
 
         }

@@ -22,7 +22,7 @@ public class AppointmentMaker {
         this.pm = new PatientManager();
         this.stm = new StaffManager();
         this.sms = stm.getStaffSm(hcnOrId);
-        this.sm = pm.getPatientSm(hcnOrId);
+        this.sm = pm.getPatientScheduleManager(hcnOrId);
     }
 
     public String getSchedule() {

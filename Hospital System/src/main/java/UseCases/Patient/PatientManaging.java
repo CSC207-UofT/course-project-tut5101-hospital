@@ -10,7 +10,7 @@ public interface PatientManaging {
 
     public Patient getPatient(int healthCardNum);
 
-    public ScheduleManager getPatientSm(int healthCardNum);
+    public ScheduleManager getPatientScheduleManager(int healthCardNum);
 
     public boolean checkIfPatientExist(int hcn);
 

@@ -10,7 +10,9 @@ public class FindBestStaff {
 
     public void setStrategy(GetBestStrategy st) {
         this.st = st;
-    }public int execute(){
+    }
+
+    public int execute() {
         return st.findBest();
     }
 }
