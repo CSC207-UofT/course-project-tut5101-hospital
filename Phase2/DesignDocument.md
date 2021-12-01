@@ -1,13 +1,24 @@
 # Design Document
 
-## Specification
+## SOLID
+1. Single Responsibility Principle:  
+   In general we have strived to make sure classes are only responsible for one stakeholder. This is best demonstrated with the Facade classes for operations in the usecases. In order to have the class not simultaneously responsible for multiple stakeholders we have made it so that it calls methods from different "component" classes that are only responsible for one actor and thus have only one source of change. `OperationFeeCalculator` for patients and `OperationBonusCalculator` for doctors. 
+2. Open-closed principle.  
+   We have followed this principle by making sure that new features can be added without modifying large part of the source code. For example strategy pattern is used to make sure that adding a new way to find a best employee is easy and can be done without modifying other part of the code. 
+3. Liskov Substitution Principle
+   This principle is pretty much enforced by Java, but we have made sure the all methods in a superclass are present in subclasses, thus the subtypes could always be substitutable for the super types.
+4. Interface Segregation Principle
+   We have made sure that no classes inherit methods that it does not need by checking through the inheritance. We al split interfaces up and have differentiate classes with somewhat similar architecture but still inherently different, like `Patient` and `Staff` where they share some properties but have different methods and functions. We choose our inheritance cautiously and did not abuse OOP.
+5. Dependency Inversion Principle
+   In major boundaries like from usecases to controller we have interfaces of the lower level that both the higher level classes and the lower level implementation depend upon. Since we identified the usecases-databse part as most likely subjects of change we have decided to eliminate direct dependency from upper level classes by making both the higher level and the lower level object depend on the abstraction instead so the upper level object does not need to be modified when the lower level object is changed. We do not have interfaces for every layer because according to the prof, there would be too many interfaces.
 
-## Design Decisions
 
 ## Clean Architecture
-1. 
-## Packaging Strategies
-Files are packaged by layer and then by feature. This packaging reminds group members to follow clean architecture and keeps the packages small and manageable.
+1. UML diagram  
+2. Scenario Walkthrough:  
+   
+
+
 ## Design Patterns
  1. Facade Design pattern in `UseCases.OpertionFacade` package: [x]  
     * implemented in `finished operation facade` commit. 
@@ -22,7 +33,7 @@ Files are packaged by layer and then by feature. This packaging reminds group me
     contained in the superclass so we would not need to change the same code twice if we have to change something.
  4. Dependency Injection Pattern []  
     In UI class where injectors inject a controller, presenter and lower level classes.
- 5. Command Design Pattern []
+ 5. Command Design Pattern [x]  
     Implemented in `Presenter` classes as they all import a `Printable` interface and implement an execute method.
     This way the methods would be made into stand-alone objects which would make injecting the methods bundled
     with other objects easier and would help if we are to add a feature where the user could see past presenters called.
@@ -30,5 +41,17 @@ Files are packaged by layer and then by feature. This packaging reminds group me
     Implemented in `Controllers.Admin.FindBestStaff` where 3 different concrete strategies of finding the
     best staff inherits an interface which is called in a context class with a `setStrategy()` function and 
     a `execute()` function that executes the said strategy. This way it would be easier to switch from one strategy to another at runtime.
+## Use of GitHub Features
+   We have used the [Github project feature](https://github.com/CSC207-UofT/course-project-tut5101-hospital/projects/1) to 
+   track the works shared and we uses issues to highlight the fetures we want to work on. We also linked the issues to corresponding pull request where the feture is implemented. We havew set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
+## Code Style and Documentation
+## Testing
+## Refactoring
+## Code Organization
+   ~ Packging Strategy: Files are packaged by layer and then by feature. This packaging reminds group members to follow clean architecture and keeps the packages small and manageable.
+## Functionality
+
+The scope of this project is pretty adequate for a group of 4 people. Since the member count dropped to 4 we had to make adjustments and forego some of the progress we made when we have more members, which also took some time and resources. Overall it the members of this group all put effort into the project and the workload is fair.  
+The program can persist(store, read, update) entities including patients, staffs and operations and such. 
 ## Progress Report
 
