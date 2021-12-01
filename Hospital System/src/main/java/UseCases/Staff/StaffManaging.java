@@ -11,33 +11,33 @@ public interface StaffManaging {
      */
 
 
-    public Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, Double fixedSalary);
+    Staff newStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, Double fixedSalary);
 
-    public void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary);
+    void addStaff(String name, String gender, Integer ID, Schedule workingTime, String pwd, int fixedSalary);
 
-    public Staff getStaff(Integer ID);
+    Staff getStaff(Integer ID);
 
-    public boolean checkIfStaffExist(Integer ID);
+    boolean checkIfStaffExist(Integer ID);
 
-    public boolean checkLoginInfo(Integer ID, String pwd);
+    boolean checkLoginInfo(Integer ID, String pwd);
 
-    public List<Staff> getAllStaff();
+    List<Staff> getAllStaff();
 
-    public String getStaffInfo(int id);
+    String getStaffInfo(int id);
 
-    public int getBestStaffByTime();
+    int getBestStaffByTime();
 
-    public int getBestStaffByNumberOfOperation();
+    int getBestStaffByNumberOfOperation();
 
-    public int getHospitalProfit();
+    int getHospitalProfit();
 
-    public int getBestStaffByMostOperationIncome();
+    int getBestStaffByMostOperationIncome();
 
-    public List<Integer> getAllStaffID();
+    List<Integer> getAllStaffID();
 
-    public List<Integer> getAllNurseId();
+    List<Integer> getAllNurseId();
 
-    public List<Integer> getAllOtherId();
+    List<Integer> getAllOtherId();
 
-    public double getSalary(int id);
+    double getSalary(int id);
 }

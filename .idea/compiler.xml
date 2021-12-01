@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="Hospital_System" target="11" />
+      <module name="Hospital_System.main" target="11" />
+      <module name="Hospital_System.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="course-project-tut5101-hospital" options="--add-modules java.base" />

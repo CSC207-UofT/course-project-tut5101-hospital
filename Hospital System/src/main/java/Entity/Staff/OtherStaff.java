@@ -1,9 +1,5 @@
 package Entity.Staff;
 
-import Entity.Patients.Patient;
-import Entity.Schedule.Schedule;
-
-import java.util.ArrayList;
 
 
 /*
@@ -11,7 +7,7 @@ This class contains the information for other staffs.
 e.g. Cleaning staff, Management, Security...
  */
 
-public class OtherStaff extends Staff {
+public class OtherStaff extends Staff implements java.io.Serializable {
     private String role;
 
     /**

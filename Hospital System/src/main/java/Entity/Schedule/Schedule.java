@@ -1,34 +1,22 @@
 package Entity.Schedule;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map.Entry;
 
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
-
-import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-@Entity
 public class Schedule implements java.io.Serializable {
     /**
      * Schedule entity
      */
-    @Id
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "room")
     private String room;
 
 
-    @ElementCollection
-    @JoinColumn(name = "event")
-
-    private HashMap<Event, String> schedule = new HashMap<Event, String>();
+    private final HashMap<Event, String> schedule = new HashMap<Event, String>();
 
 
     /**

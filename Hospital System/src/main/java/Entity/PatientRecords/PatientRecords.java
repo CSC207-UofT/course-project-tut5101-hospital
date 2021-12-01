@@ -3,12 +3,12 @@ package Entity.PatientRecords;
 import java.util.List;
 
 
-public class PatientRecords {
+public class PatientRecords implements java.io.Serializable{
     private Float height;
     private Float weight;
-    private String sex;
-    private List<String> allergies;
-    private List<String> vaccinations;
+    private final String sex;
+    private final List<String> allergies;
+    private final List<String> vaccinations;
 
     public PatientRecords(Float height, Float weight, String sex, List<String> allergies, List<String> vaccinations) {
 

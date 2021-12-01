@@ -1,10 +1,8 @@
 package Entity.Schedule;
 
-import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
 
-@Embeddable
-public class Event {
+public class Event implements java.io.Serializable {
     /**
      * Event entity class
      */

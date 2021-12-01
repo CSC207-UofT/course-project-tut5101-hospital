@@ -4,7 +4,7 @@ public class PatientBuilder {
     /**
      * Builder for patient entity
      */
-    private Patient p;
+    private final Patient p;
 
     public PatientBuilder() {
         this.p = new Patient();

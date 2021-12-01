@@ -3,7 +3,7 @@ package Entity.Operations;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Operation {
+public class Operation implements java.io.Serializable{
     /**
      * Entity for operation
      */

@@ -1,9 +1,10 @@
 package Entity.Operations;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperationList {
+public class OperationList implements Serializable {
     /**
      * List of operations
      */

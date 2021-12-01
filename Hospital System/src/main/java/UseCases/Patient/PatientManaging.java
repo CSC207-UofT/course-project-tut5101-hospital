@@ -4,19 +4,19 @@ import Entity.Patients.Patient;
 import UseCases.Schedule.ScheduleManager;
 
 public interface PatientManaging {
-    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee);
+    Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee);
 
-    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee);
+    void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee);
 
-    public Patient getPatient(int healthCardNum);
+    Patient getPatient(int healthCardNum);
 
-    public ScheduleManager getPatientScheduleManager(int healthCardNum);
+    ScheduleManager getPatientScheduleManager(int healthCardNum);
 
-    public boolean checkIfPatientExist(int hcn);
+    boolean checkIfPatientExist(int hcn);
 
-    public boolean checkLoginInfo(int hcn, String pwd);
+    boolean checkLoginInfo(int hcn, String pwd);
 
-    public String getPatientMedicalRecord(int healthCardNumber);
+    String getPatientMedicalRecord(int healthCardNumber);
 
-    public String getPatientRecord(int healthCardNumber);
+    String getPatientRecord(int healthCardNumber);
 }

@@ -15,10 +15,10 @@ public class Patient implements java.io.Serializable {
     private int healthCardNum;
     private String pwd;
     private Schedule scdl = new Schedule();
-    private OperationList scdldOps = new OperationList();
-    private OperationList fnshdOps = new OperationList();
+    private final OperationList scdldOps = new OperationList();
+    private final OperationList fnshdOps = new OperationList();
     private int fee;
-    private PatientRecordList PRL = new PatientRecordList();
+    private final PatientRecordList PRL = new PatientRecordList();
 
 //    add a variable for collection of previous appointments
 

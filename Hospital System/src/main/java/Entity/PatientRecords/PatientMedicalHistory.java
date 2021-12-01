@@ -5,16 +5,16 @@ import Entity.Operations.Operation;
 import java.io.InputStream;
 import java.util.List;
 
-public class PatientMedicalHistory {
-    private String physicianName;
-    private Operation operation;
-    private String bloodPressure;
-    private String pulse;
-    private String temperature;
-    private List<String> currentMedications;
-    private String diagnosis;
-    private String treatment;
-    private List<InputStream> medicalImage;
+public class PatientMedicalHistory implements java.io.Serializable{
+    private final String physicianName;
+    private final Operation operation;
+    private final String bloodPressure;
+    private final String pulse;
+    private final String temperature;
+    private final List<String> currentMedications;
+    private final String diagnosis;
+    private final String treatment;
+    private final List<InputStream> medicalImage;
 
     public PatientMedicalHistory(String physicianName, String bloodPressure, String pulse, String temperature,
                                  List<String> currentMedications, String diagnosis, String treatment,

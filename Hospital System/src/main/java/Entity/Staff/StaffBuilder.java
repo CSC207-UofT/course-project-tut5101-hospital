@@ -4,7 +4,7 @@ package Entity.Staff;
 
 import Entity.Schedule.Schedule;
 
-public class StaffBuilder {
+public class StaffBuilder implements java.io.Serializable {
     /**
      * Staff builder for staff.
      */

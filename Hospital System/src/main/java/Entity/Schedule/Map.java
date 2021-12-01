@@ -20,9 +20,9 @@ package Entity.Schedule;
 import java.util.*;
 
 
-public class Map {
-    private HashMap<String, String> PatientRooms;
-    private HashMap<String, String> Rooms;
+public class Map implements java.io.Serializable {
+    private final HashMap<String, String> PatientRooms;
+    private final HashMap<String, String> Rooms;
 
     public Map(HashMap<String, String> rooms, HashMap<String, String> patientRooms) {
         this.Rooms = rooms;
