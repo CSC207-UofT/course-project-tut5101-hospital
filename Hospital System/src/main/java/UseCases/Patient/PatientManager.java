@@ -10,7 +10,7 @@ import UseCases.Schedule.ScheduleManager;
 
 import java.util.Map;
 
-public class PatientManager implements PatientManaging {
+public class PatientManager implements PatientManaging, java.io.Serializable {
     /**
      * Patient manager
      */

@@ -15,4 +15,8 @@ public interface PatientManaging {
     public boolean checkIfPatientExist(int hcn);
 
     public boolean checkLoginInfo(int hcn, String pwd);
+
+    public String getPatientMedicalRecord(int healthCardNumber);
+
+    public String getPatientRecord(int healthCardNumber);
 }

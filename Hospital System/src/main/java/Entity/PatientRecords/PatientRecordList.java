@@ -2,7 +2,7 @@ package Entity.PatientRecords;
 
 import java.util.HashMap;
 
-public class PatientRecordList {
+public class PatientRecordList implements java.io.Serializable {
     private HashMap<String, Object> patientRecords = new HashMap<String, Object>() {
     };  //takes in a list of all patient records and medical history
 
