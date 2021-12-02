@@ -2,9 +2,12 @@ package Controllers.LoginSignUp;
 
 import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
+import Exceptions.InvalidInputException;
 import UseCases.Patient.PatientManager;
 import Entity.Patients.Patient;
 import UseCases.Patient.PatientManaging;
+import UseCases.Schedule.ScheduleManager;
+import UseCases.Schedule.ScheduleManaging;
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;
 
@@ -15,6 +18,7 @@ public class LoginSignup {
      */
     PatientManaging pm;
     StaffManaging sm;
+    ScheduleManaging sms;
 
     /**
      * Constructor for login sign up
@@ -91,6 +95,11 @@ public class LoginSignup {
      */
     public void signUpForStaffs(String name, String gender, Integer id, Schedule workingTime, String pwd, int baseSalary) {
         sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);
+    }
+
+
+    public Schedule makeWorkingTime(String event) throws InvalidInputException {
+        return sms.staffSchedule(event);
     }
 
     /**

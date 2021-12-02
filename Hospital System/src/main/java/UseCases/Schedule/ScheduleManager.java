@@ -1,8 +1,6 @@
 package UseCases.Schedule;
 // import java.time.format.DateTimeFormatter;
 
-import java.util.Arrays;
-import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,7 +13,7 @@ import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
 import Entity.Schedule.Schedule;
 
-public class ScheduleManager {
+public class ScheduleManager implements ScheduleManaging {
     /**
      * Schedule manager use case
      */
@@ -59,6 +57,7 @@ public class ScheduleManager {
     }
 
 
+    @Override
     public Schedule getSchedule() {
         return this.s;
     }
@@ -71,6 +70,7 @@ public class ScheduleManager {
      * @param end
      * @throws InvalidInputException
      */
+    @Override
     public void addOrModifyEvent(String event, String start, String end) throws InvalidInputException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
@@ -89,6 +89,7 @@ public class ScheduleManager {
      * @param end
      * @throws StaffNotFoundException
      */
+    @Override
     public void removeEvent(String start, String end) throws StaffNotFoundException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
@@ -102,6 +103,7 @@ public class ScheduleManager {
      *
      * @return
      */
+    @Override
     public String getScheduleString() {
         if (s == null) {
             return "You have no appointments for now.";
@@ -120,6 +122,7 @@ public class ScheduleManager {
         staffData.saveData();
     }
 
+    @Override
     public Schedule staffSchedule(String event) throws InvalidInputException {
         Schedule s = new Schedule();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

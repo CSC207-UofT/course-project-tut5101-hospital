@@ -45,10 +45,9 @@ public class MenuForStaff {
         int salary = scanner.nextInt();
         System.out.println("What event do you do (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
-        AppointmentMaker am = new AppointmentMaker(id);
         Schedule workingTime;
         try {
-            workingTime = am.makeWorkingTime(event);
+            workingTime = loginSignup.makeWorkingTime(event);
             loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");

@@ -33,10 +33,6 @@ public class AppointmentMaker {
         sm.addOrModifyEvent(event, start, end);
     }
 
-    public Schedule makeWorkingTime(String event) throws InvalidInputException {
-        return sms.staffSchedule(event);
-    }
-
     public void deleteEvent(String start, String end) throws StaffNotFoundException {
         sm.removeEvent(start, end);
     }
