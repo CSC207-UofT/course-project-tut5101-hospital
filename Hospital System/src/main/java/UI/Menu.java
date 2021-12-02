@@ -20,8 +20,8 @@ import UseCases.Staff.StaffManager;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
-    int hcn;
-    int id;
+    private int hcn;
+    private int id;
     LoginSignup loginSignup = new LoginSignup();
 
     public Menu() {
@@ -33,7 +33,6 @@ public class Menu {
     }
 
     public void loginSignupForPatient() {
-        int healthCardNumber = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
         if (c.equals("2")) {
@@ -42,7 +41,6 @@ public class Menu {
         if (c.equals("1")) {
             signupPatient();
         }
-        this.hcn = healthCardNumber;
     }
 
     public void signupPatient() {
@@ -82,8 +80,8 @@ public class Menu {
                 }
             }
             System.out.println("Input password");
-            String ipt_pwd = scanner.nextLine();
-            success = loginSignup.LoginForPatients(hcn, ipt_pwd);
+            String iptPwd = scanner.nextLine();
+            success = loginSignup.LoginForPatients(hcn, iptPwd);
             while (!success) {
                 System.out.println("Login failed due to incorrect password, please enter 2 to try again. If you forgot your password, enter 3");
                 int k = scanner.nextInt();
@@ -103,7 +101,6 @@ public class Menu {
 
 
     public void loginSignupForStaff() {
-        int id = 0;
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
 
@@ -113,7 +110,6 @@ public class Menu {
         if (c.equals("1")) {
             signupStaff();
         }
-        this.id = id;
     }
 
     public void signupStaff() {
@@ -193,15 +189,23 @@ public class Menu {
 
     private void makeAppointment() {
         Patient patient = loginSignup.initPatient(hcn);
-        System.out.println(loginSignup.checkIfPatientExists(hcn));
-        ScheduleManager sm = new ScheduleManager(patient.getSchedule());
+        System.out.println("Patient Signed in " + loginSignup.checkIfPatientExists(hcn));
+        ScheduleManager sm = new ScheduleManager(patient);
         System.out.println("Input event (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         System.out.println("You need to pay $50");
+        int c = 0;
+        System.out.println("Press 1 to view your money");
+        c = scanner.nextInt();
+        scanner.nextLine();
+        if (c==1){
+            System.out.println("Your Account Have $ " + patient.getFee());
+        }
         while (patient.getFee() < 50) {
             payBookingFee(patient.getHealthCardNum());
         }
         patient.payFee(50);
+        System.out.println("Fee Paid");
         checkSchedule();
         System.out.println("Which Staff would you like");
         int id = scanner.nextInt();
@@ -274,7 +278,7 @@ public class Menu {
     public void checkSchedule() {
         int choice = 4;
 
-        while (choice != 1 || choice != 2 || choice != 3) {
+        do {
             System.out.println("Which kind of staff you want to check the schedule?");
             System.out.println("1: Doctor");
             System.out.println("2: Nurse");
@@ -284,17 +288,19 @@ public class Menu {
             } catch (Exception e) {
                 System.out.println("Input is invalid, please try again");
             }
+
+            if (choice == 1) {
+                ViewDoctorSchedules SSV = new ViewDoctorSchedules();
+                SSV.print();
+            } else if (choice == 2) {
+                ViewNurseSchedules VNS = new ViewNurseSchedules();
+                VNS.print();
+            } else {
+                ViewOtherStaffSchedules VOSS = new ViewOtherStaffSchedules();
+                VOSS.print();
+            }
         }
-        if (choice == 1) {
-            ViewDoctorSchedules SSV = new ViewDoctorSchedules();
-            SSV.print();
-        } else if (choice == 2) {
-            ViewNurseSchedules VNS = new ViewNurseSchedules();
-            VNS.print();
-        } else {
-            ViewOtherStaffSchedules VOSS = new ViewOtherStaffSchedules();
-            VOSS.print();
-        }
+        while (true);
     }
 
 

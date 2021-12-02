@@ -39,7 +39,6 @@ public class Patient implements java.io.Serializable {
     /**
      * Return a string of patient information
      *
-     * @return
      */
     public String getPatientInfo() {
         return "Patient Name: " + this.name + "\n" +
@@ -53,7 +52,6 @@ public class Patient implements java.io.Serializable {
      * Check password correct or not
      *
      * @param iptPwd
-     * @return
      */
     public boolean checkPwd(String iptPwd) {
         return pwd.equals(iptPwd);
@@ -62,7 +60,6 @@ public class Patient implements java.io.Serializable {
     /**
      * Getters and setters
      *
-     * @return
      */
     public int getHealthCardNum() {
         return this.healthCardNum;

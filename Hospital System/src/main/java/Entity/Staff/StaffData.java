@@ -25,7 +25,7 @@ public class StaffData implements java.io.Serializable {
 
 
     //add, modify, remove Entity.Staff
-    public void add_or_modify_Staff(Staff staff) {
+    public void addOrModifyStaff(Staff staff) {
         // add the patient if it is not already in, modify it if it is already in
         //the database.
         if (!allstaff.containsKey(staff.getStaffID())) {
@@ -83,17 +83,20 @@ public class StaffData implements java.io.Serializable {
     }
 
     private void loadData() {
-        StaffData pd = null;
+        StaffData pd;
+        File file = new File("staff.ser");
         try {
-            FileInputStream fileIn = new FileInputStream("staff.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            pd = (StaffData) in.readObject();
-            in.close();
-            fileIn.close();
-            this.allstaff = pd.allstaff;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+            if (!file.exists() || file.length() == 0) {
+                System.out.println("File not available");
+            } else {
+                FileInputStream fileIn = new FileInputStream("staff.ser");
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                pd = (StaffData) in.readObject();
+                in.close();
+                fileIn.close();
+                this.allstaff = pd.allstaff;
+            }
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

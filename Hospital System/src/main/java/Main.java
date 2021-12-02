@@ -8,7 +8,6 @@ public class Main {
         menu.activitiesForPatients();
 //        menu.loginSignupForStaff();
 //        menu.checkSchedule();
-        //menu.activitiesForPatients();
     }
 
 }

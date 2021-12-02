@@ -56,7 +56,7 @@ public class StaffManager implements StaffManaging {
         sm.setPwd(pwd);
         sm.setSalary(fixedSalary);
         Staff s = sm.getResult();
-        sessionData.add_or_modify_Staff(s);
+        sessionData.addOrModifyStaff(s);
         saveSession();
     }
 

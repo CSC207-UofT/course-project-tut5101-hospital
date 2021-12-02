@@ -40,11 +40,7 @@ public class PatientData implements java.io.Serializable {
     }
 
     public Patient searchHCN(int healthCardNum) {
-        if (patients.containsKey(healthCardNum)) {
-            return patients.get(healthCardNum);
-        } else {
-            return null;
-        }
+        return patients.getOrDefault(healthCardNum, null);
     }
 
     public boolean patientExist(int healthCardNum) {
@@ -67,9 +63,9 @@ public class PatientData implements java.io.Serializable {
     private void loadData() {
         File file = new File("patients.ser");
         if (!file.exists() || file.length() == 0) {
-
+            System.out.println("File not available");
         } else {
-            PatientData pd = null;
+            PatientData pd;
             try {
                 FileInputStream fileIn = new FileInputStream("patients.ser");
                 ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -77,9 +73,7 @@ public class PatientData implements java.io.Serializable {
                 in.close();
                 fileIn.close();
                 this.patients = pd.patients;
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
