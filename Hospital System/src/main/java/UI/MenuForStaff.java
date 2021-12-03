@@ -24,7 +24,7 @@ public class MenuForStaff {
         String c = scanner.nextLine();
 
         if (c.equals("2")) {
-            loginStaff(c);
+            loginStaff();
         }
         if (c.equals("1")) {
             signupStaff();
@@ -43,6 +43,7 @@ public class MenuForStaff {
         String pwd = scanner.nextLine();
         System.out.println("Input base salary");
         int salary = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("What event do you do (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         Schedule workingTime;
@@ -55,20 +56,20 @@ public class MenuForStaff {
         System.out.println("Staff account successfully created");
     }
 
-    public void loginStaff(String c) {
+    public void loginStaff() {
         boolean success = false;
 
         do {
             System.out.println("Input id");
             id = scanner.nextInt();
-            if (loginSignup.checkIfPatientExists(id)) {
+            if (loginSignup.checkIfStaffExists(id)) {
                 scanner.nextLine();
             } else {
                 System.out.println("You do not have an account, enter 1 to switch to sign up instead");
                 int k = scanner.nextInt();
                 scanner.nextLine();
                 if (k == 1) {
-                    c = "1";
+                    signupStaff();
                     break;
                 }
             }
@@ -80,7 +81,7 @@ public class MenuForStaff {
                 int k = scanner.nextInt();
                 scanner.nextLine();
                 if (k == 2) {
-                    c = "2";
+                    loginSignupForStaff();
                     break;
                 }
                 if (k == 3) {

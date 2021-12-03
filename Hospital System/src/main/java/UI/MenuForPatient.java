@@ -32,7 +32,7 @@ public class MenuForPatient {
         System.out.println("Sign up or login (Type 1 for sign up; Type 2 for login)");
         String c = scanner.nextLine();
         if (c.equals("2")) {
-            loginPatient(c);
+            loginPatient();
         }
         if (c.equals("1")) {
             signupPatient();
@@ -59,7 +59,7 @@ public class MenuForPatient {
         System.out.println("Patient account successfully created");
     }
 
-    public void loginPatient(String c) {
+    public void loginPatient() {
         boolean success = false;
         do {
             System.out.println("Input HealthCardNumber");
@@ -71,7 +71,7 @@ public class MenuForPatient {
                 int k = scanner.nextInt();
                 scanner.nextLine();
                 if (k == 1) {
-                    c = "1";
+                    signupPatient();
                     break;
                 }
             }
@@ -83,7 +83,7 @@ public class MenuForPatient {
                 int k = scanner.nextInt();
                 scanner.nextLine();
                 if (k == 2) {
-                    c = "2";
+                    loginPatient();
                     break;
                 }
                 if (k == 3) {
@@ -128,7 +128,7 @@ public class MenuForPatient {
         patient.payFee(50);
         System.out.println("Fee Paid");
         checkSchedule();
-        System.out.println("Which Staff would you like");
+        System.out.println("Which Staff would you like, enter id");
         int id = scanner.nextInt();
         scanner.nextLine();
         StaffManager sfm = new StaffManager();
@@ -192,7 +192,7 @@ public class MenuForPatient {
                 VOSS.print();
             }
         }
-        while (true);
+        while (choice != 1 && choice != 2 && choice != 3);
     }
 
 

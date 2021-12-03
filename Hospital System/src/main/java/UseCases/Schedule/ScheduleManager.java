@@ -30,6 +30,7 @@ public class ScheduleManager implements ScheduleManaging {
      */
     public ScheduleManager(Schedule s) {
         sessionData = new PatientData();
+        staffData = new StaffData();
         this.s = s;
 
     }
@@ -124,7 +125,6 @@ public class ScheduleManager implements ScheduleManaging {
 
     @Override
     public Schedule staffSchedule(String event) throws InvalidInputException {
-        Schedule s = new Schedule();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
         LocalDateTime e = LocalDateTime.parse("2021-12-15 11:00", formatter);
