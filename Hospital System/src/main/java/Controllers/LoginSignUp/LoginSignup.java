@@ -26,6 +26,7 @@ public class LoginSignup {
     public LoginSignup() {
         this.pm = new PatientManager();
         this.sm = new StaffManager();
+        this.sms = new ScheduleManager(new Schedule());
     }
 
     /**

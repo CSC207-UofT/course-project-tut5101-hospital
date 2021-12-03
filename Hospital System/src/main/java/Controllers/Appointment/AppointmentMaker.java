@@ -16,12 +16,10 @@ public class AppointmentMaker {
     PatientManager pm;
     StaffManager stm;
     ScheduleManager sm;
-    ScheduleManager sms;
 
     public AppointmentMaker(int hcnOrId) {
         this.pm = new PatientManager();
         this.stm = new StaffManager();
-        this.sms = stm.getStaffSm(hcnOrId);
         this.sm = pm.getPatientScheduleManager(hcnOrId);
     }
 
