@@ -109,7 +109,7 @@ public class MenuForStaff {
         } while (!success);
     }
 
-    public void activitiesForStaffs() {
+    public void activitiesForStaffs(){
         String c;
         System.out.println("confirm patient appointment or view schedule or assigned patient record(Type 1 to confirm patient appointment;" +
                 " Type 2 to view schedule; Type 3 to check assigned patient record)");
@@ -136,7 +136,7 @@ public class MenuForStaff {
         System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
-    private void checkAssignedPatientRecord(){
+    private void checkAssignedPatientRecord() {
         String c;
         System.out.println("confirm patient appointment or view schedule or assigned patient record(Type 1 to confirm patient appointment;" +
                 " Type 2 to view schedule; Type 3 to check assigned patient record)");
@@ -199,7 +199,7 @@ public class MenuForStaff {
         try {
             healthCardNumber = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Invalid Input");
+            System.out.println("Input is invalid");
         }
 
         while (choice != 1 && choice != 2) {
@@ -209,7 +209,7 @@ public class MenuForStaff {
             try {
                 choice = scanner.nextInt();
             } catch (Exception e) {
-                System.out.println("Invalid Input");
+                System.out.println("Input is invalid");
             }
         }
         if (choice == 1) {
@@ -257,8 +257,8 @@ public class MenuForStaff {
                 try {
                     InputStream imageFile = new FileInputStream(imagePath);
                     medicalImages.add(imageFile);
-                } catch (FileNotFoundException f) {
-                    System.out.println("File Not Found");
+                } catch (Exception e) {
+                    System.out.println("Image file not found");
                 }
             }
         }
@@ -273,7 +273,7 @@ public class MenuForStaff {
         try {
             healthCardNumber = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Invalid Input");
+            System.out.println("Input is invalid");
         }
 
         PatientManager patientManager = new PatientManager();
