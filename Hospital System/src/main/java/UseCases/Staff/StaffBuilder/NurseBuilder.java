@@ -1,2 +1,4 @@
-package UseCases.Staff.StaffBuilder;public class NurseBuilder {
+package UseCases.Staff.StaffBuilder;
+
+public class NurseBuilder {
 }

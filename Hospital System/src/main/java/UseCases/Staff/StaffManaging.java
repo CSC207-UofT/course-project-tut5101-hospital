@@ -40,4 +40,6 @@ public interface StaffManaging {
     List<Integer> getAllOtherId();
 
     double getSalary(int id);
+
+    String getStaffType(int id);
 }

@@ -1,8 +1,9 @@
-package Entity.Staff;
+package Entity.Staff.Builders;
 
 //build/initialize staff
 
 import Entity.Schedule.Schedule;
+import Entity.Staff.Staff;
 
 public class StaffBuilder implements java.io.Serializable {
     /**

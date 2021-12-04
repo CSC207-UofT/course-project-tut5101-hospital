@@ -1,6 +1,8 @@
-package Entity.Staff;
+package Entity.Staff.Builders;
 
 import Entity.Patients.Patient;
+import Entity.Staff.Builders.StaffBuilder;
+import Entity.Staff.Nurse;
 
 import java.util.ArrayList;
 

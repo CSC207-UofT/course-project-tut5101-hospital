@@ -46,14 +46,16 @@ public class LoginSignup {
      * @return if the staff with the id exist
      */
     public Boolean checkIfStaffExists(int id) {
-        return (sm.checkIfStaffExist(id));
+
+        this.sm = new StaffManager();
+        return this.sm.checkIfStaffExist(id);
     }
 
     /**
      * Login for patients
      *
      * @param healthCardNumber health card number of the patient
-     * @param iptPwd password of the patient
+     * @param iptPwd           password of the patient
      * @return if the login for this patient is successful
      */
     public boolean LoginForPatients(int healthCardNumber, String iptPwd) {
@@ -63,7 +65,7 @@ public class LoginSignup {
     /**
      * Login for staff
      *
-     * @param id id of the staff
+     * @param id      id of the staff
      * @param ipt_pwd password of the staff
      * @return if the login for this staff is successful
      */
@@ -74,11 +76,11 @@ public class LoginSignup {
     /**
      * Sign up for patients
      *
-     * @param name Name of the Patient
-     * @param gender Gender of the Patient
-     * @param contactNum contactNum of the Patient
+     * @param name          Name of the Patient
+     * @param gender        Gender of the Patient
+     * @param contactNum    contactNum of the Patient
      * @param healthCardNum healthCardNum of the Patient
-     * @param pwd password of the Patient
+     * @param pwd           password of the Patient
      */
     public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
         pm.addPatient(name, gender, contactNum, healthCardNum, pwd, fee);
@@ -87,12 +89,12 @@ public class LoginSignup {
     /**
      * Sign up for staff
      *
-     * @param name Name of the Staff
-     * @param gender Gender of the Staff
-     * @param id id of the staff
+     * @param name        Name of the Staff
+     * @param gender      Gender of the Staff
+     * @param id          id of the staff
      * @param workingTime working schedule of the staff
-     * @param pwd password of the staff
-     * @param baseSalary base salary of the staff
+     * @param pwd         password of the staff
+     * @param baseSalary  base salary of the staff
      */
     public void signUpForStaffs(String name, String gender, Integer id, Schedule workingTime, String pwd, int baseSalary) {
         sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);

@@ -1,2 +1,4 @@
-package Controllers.LoginSignUp.SignUp;public class DoctorSignUp {
+package Controllers.LoginSignUp.StaffSignUp;
+
+public class DoctorSignUp {
 }

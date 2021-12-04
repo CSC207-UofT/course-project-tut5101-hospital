@@ -1,2 +1,4 @@
-package Entity.Staff.Builders;public class AdminBuilder {
+package Entity.Staff.Builders;
+
+public class AdminBuilder {
 }
