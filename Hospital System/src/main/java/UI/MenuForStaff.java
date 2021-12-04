@@ -1,13 +1,20 @@
 package UI;
 
+import Controllers.Accountant.FindHospitalProfit;
+import Controllers.Admin.GetBestStrategies.GetBestByOperationIncome;
+import Controllers.Admin.GetBestStrategies.GetBestByOperations;
+import Controllers.Admin.GetBestStrategies.GetBestByTime;
 import Controllers.Appointment.AppointmentMaker;
 import Controllers.LoginSignUp.LoginSignup;
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
+import Presenters.Functions.FindBestStaffPresenter;
+import Presenters.Functions.FindHospitalProfitPresenter;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UseCases.Schedule.ScheduleManager;
+import UseCases.Staff.StaffManager;
 
 import java.util.Scanner;
 
@@ -17,6 +24,7 @@ public class MenuForStaff {
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForStaff() {
+
     }
 
     public void loginSignupForStaff() {
@@ -125,28 +133,67 @@ public class MenuForStaff {
 
     }
 
+    /**
+     * Only Admin can call this function to find the best staff function.
+     * @throws InvalidInputException
+     */
+    public void findBestStaff() throws InvalidInputException {
+        int choice = 4;
+        long id;
+        FindBestStaffPresenter findBestStaffPresenter = new FindBestStaffPresenter();
+        StaffManager staffManager = new StaffManager();
+
+        do {
+            findBestStaffPresenter.print();
+            try {
+                choice = scanner.nextInt();
+            } catch (Exception e) {
+                throw new InvalidInputException("");
+            }
+
+            if (choice == 1) {
+                id = new GetBestByTime().findBest();
+            } else if (choice == 2) {
+                id = new GetBestByOperations().findBest();
+            } else if (choice == 3) {
+                id = new GetBestByOperationIncome().findBest();
+            } else {
+                throw new InvalidInputException("");
+            }
+        } while (choice != 1 && choice != 2 && choice != 3);
+
+        findBestStaffPresenter.print(staffManager.getStaff(id).getName());
+    }
+
+    /**
+     * Find hospital profit, only account staff can use this.
+     */
+    public void findHospitalProfit(){
+        FindHospitalProfit findHospitalProfit = new FindHospitalProfit();
+        new FindHospitalProfitPresenter().print(findHospitalProfit.totalProfit());
+    }
 
     /**
      * View patient record by input a patient health card number
      */
-    public void viewPatientRecord() {
+    public void viewPatientRecord() throws InvalidInputException {
         int choice = 4;
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Input is invalid, please try again");
+            throw new InvalidInputException("");
         }
 
-        while (choice != 1 || choice != 2) {
+        while (choice != 1 && choice != 2) {
             System.out.println("Which kind of record you want to check for this patient?");
             System.out.println("1: Record");
             System.out.println("2: Medical Record");
             try {
                 choice = scanner.nextInt();
             } catch (Exception e) {
-                System.out.println("Input is invalid, please try again");
+                throw new InvalidInputException("");
             }
         }
         if (choice == 1) {

@@ -20,4 +20,6 @@ public class Doctor extends Staff implements java.io.Serializable {
     public OperationList getScdldOps() {
         return scdldOps;
     }
+
+
 }
