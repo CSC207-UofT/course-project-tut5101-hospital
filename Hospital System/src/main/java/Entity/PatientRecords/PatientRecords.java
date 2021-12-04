@@ -10,22 +10,55 @@ public class PatientRecords implements java.io.Serializable{
     private final List<String> allergies;
     private final List<String> vaccinations;
 
+    /**
+     * Entity class to create patient record
+     *
+     * @param height Height of that patient
+     * @param weight Weight of that patient
+     * @param sex Sex (gender at birth) of that patient
+     * @param allergies Allergies of that patient
+     * @param vaccinations Vaccinations of that patient
+     */
     public PatientRecords(Float height, Float weight, String sex, List<String> allergies, List<String> vaccinations) {
-
         this.allergies = allergies;
         this.vaccinations = vaccinations;
         this.height = height;
         this.weight = weight;
         this.sex = sex;
-
     }
 
+    /**
+     * Return a string of patient record information
+     *
+     */
     public String getPatientRecord() {
         return "Patient height: " + this.height + "\n" +
                 "Patient weight: " + this.height + "\n" +
                 "Gender: " + this.sex + "\n" +
-                "Allergies: " + this.allergies + "\n" +
-                "Vaccinations: " + this.vaccinations;
+                "Allergies: " + getAllergies() + "\n" +
+                "Vaccinations: " + getVaccinations();
+    }
+
+    /**
+     * Getters and setters
+     *
+     */
+    public String getVaccinations() {
+        StringBuilder allVaccinations = new StringBuilder();
+        for (String vaccine: this.vaccinations) {
+            allVaccinations.append(vaccine);
+            allVaccinations.append(", ");
+        }
+        return allVaccinations.toString();
+    }
+
+    public String getAllergies() {
+        StringBuilder allAllergies = new StringBuilder();
+        for (String allergy: this.allergies) {
+            allAllergies.append(allergy);
+            allAllergies.append(", ");
+        }
+        return allAllergies.toString();
     }
 
     public void addVaccination(String vaccine) {

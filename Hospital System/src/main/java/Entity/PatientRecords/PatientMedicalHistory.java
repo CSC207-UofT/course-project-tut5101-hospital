@@ -34,6 +34,10 @@ public class PatientMedicalHistory implements java.io.Serializable{
         this.medicalImage = medicalImage;
     }
 
+    /**
+     * Return a string of patient medical history information
+     *
+     */
     public String getPatientMH() {
         return "Physician Name: " + this.physicianName + "\n" +
                 "Blood pressure: " + this.bloodPressure + "\n" +
@@ -45,6 +49,10 @@ public class PatientMedicalHistory implements java.io.Serializable{
                 "Operation: " + this.operation.getName();
     }
 
+    /**
+     * Getters
+     *
+     */
     public List<BufferedImage> getMedicalImage() throws IOException {
         List<BufferedImage> images = new ArrayList<>();
         for (int i = 0; i < this.medicalImage.size(); i++) {
