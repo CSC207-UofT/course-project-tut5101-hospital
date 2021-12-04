@@ -2,6 +2,7 @@ package UseCases.Staff;
 
 import Entity.Staff.*;
 import Entity.Schedule.Schedule;
+import Entity.Staff.Builders.StaffBuilder;
 import UseCases.Operation.OperationManager;
 import UseCases.Schedule.ScheduleManager;
 
@@ -247,6 +248,19 @@ public class StaffManager implements StaffManaging {
             }
         }
         return others;
+    }public String getStaffType(int id){
+        Staff s = getStaff(id);
+        if(s instanceof Doctor){
+            return "Doctor";
+        }if(s instanceof Nurse){
+            return "Nurse";
+        }if(s instanceof Accountant){
+            return "Accountant";
+        }if(s instanceof Admin){
+            return "Admin";
+        }else{
+            return "OtherStaff";
+        }
     }
 
 

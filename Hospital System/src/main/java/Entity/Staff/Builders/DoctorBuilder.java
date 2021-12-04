@@ -1,4 +1,6 @@
-package Entity.Staff;
+package Entity.Staff.Builders;
+
+import Entity.Staff.Doctor;
 
 //build doctor, uses staffbuilders methods and return a doctor
 public class DoctorBuilder extends StaffBuilder {

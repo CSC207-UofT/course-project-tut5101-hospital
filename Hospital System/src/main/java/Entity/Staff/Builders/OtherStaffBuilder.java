@@ -1,8 +1,7 @@
-package Entity.Staff;
+package Entity.Staff.Builders;
 
-import Entity.Patients.Patient;
-
-import java.util.ArrayList;
+import Entity.Staff.Builders.StaffBuilder;
+import Entity.Staff.OtherStaff;
 
 public class OtherStaffBuilder extends StaffBuilder {
     /**
