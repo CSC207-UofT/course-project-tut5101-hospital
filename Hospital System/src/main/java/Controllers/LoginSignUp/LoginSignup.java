@@ -94,8 +94,8 @@ public class LoginSignup {
      * @param pwd password of the staff
      * @param baseSalary base salary of the staff
      */
-    public void signUpForStaffs(String name, String gender, long id, Schedule workingTime, String pwd, int baseSalary) {
-        sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);
+    public void signUpForDoctors(String name, String gender, long id, Schedule workingTime, String pwd, int baseSalary) {
+        sm.addDoctor(name, gender, id, workingTime, pwd, baseSalary);
     }
 
 

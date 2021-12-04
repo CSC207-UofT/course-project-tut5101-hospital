@@ -2,9 +2,10 @@ package UseCases.Staff;
 
 import Entity.Staff.*;
 import Entity.Schedule.Schedule;
-import Entity.Staff.Builders.StaffBuilder;
+import UseCases.Staff.Builders.StaffBuilder;
 import UseCases.Operation.OperationManager;
 import UseCases.Schedule.ScheduleManager;
+import UseCases.Staff.MethodsForStaffManager.NewStaffs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +28,7 @@ public class StaffManager implements StaffManaging {
      * @param fixedSalary
      * @return
      */
-    public Staff newStaff(String name, String gender, long ID, Schedule workingTime, String pwd, Double fixedSalary) {
-        StaffBuilder sm = new StaffBuilder();
-        sm.setName(name);
-        sm.setGender(gender);
-        sm.setWorkingTime(workingTime);
-        sm.setId(ID);
-        sm.setPwd(pwd);
-        sm.setSalary(fixedSalary);
-        return sm.getResult();
-    }
+
 
     /**
      * Add staff
@@ -48,15 +40,23 @@ public class StaffManager implements StaffManaging {
      * @param pwd
      * @param fixedSalary
      */
-    public void addStaff(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
-        StaffBuilder sm = new StaffBuilder();
-        sm.setName(name);
-        sm.setGender(gender);
-        sm.setWorkingTime(workingTime);
-        sm.setId(ID);
-        sm.setPwd(pwd);
-        sm.setSalary(fixedSalary);
-        Staff s = sm.getResult();
+    public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+        Staff s =new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
+        sessionData.addOrModifyStaff(s);
+        saveSession();
+    }
+    public void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+        Staff s =new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
+        sessionData.addOrModifyStaff(s);
+        saveSession();
+    }
+    public void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+        Staff s =new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
+        sessionData.addOrModifyStaff(s);
+        saveSession();
+    }
+    public void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+        Staff s =new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
