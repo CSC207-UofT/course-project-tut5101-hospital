@@ -6,8 +6,8 @@ import java.util.List;
  * This file contains the class Patient Record and is used to get the patient record
  */
 public class PatientRecords implements java.io.Serializable{
-    private Float height;
-    private Float weight;
+    private String height;
+    private String weight;
     private final String sex;
     private final List<String> allergies;
     private final List<String> vaccinations;
@@ -21,7 +21,7 @@ public class PatientRecords implements java.io.Serializable{
      * @param allergies Allergies of that patient
      * @param vaccinations Vaccinations of that patient
      */
-    public PatientRecords(Float height, Float weight, String sex, List<String> allergies, List<String> vaccinations) {
+    public PatientRecords(String height, String weight, String sex, List<String> allergies, List<String> vaccinations) {
         this.allergies = allergies;
         this.vaccinations = vaccinations;
         this.height = height;
@@ -73,11 +73,11 @@ public class PatientRecords implements java.io.Serializable{
         this.allergies.add(allergy);
     }
 
-    public void changeWeight(Float weight) {
+    public void changeWeight(String weight) {
         this.weight = weight;
     }
 
-    public void changeHeight(Float height) {
+    public void changeHeight(String height) {
         this.height = height;
     }
 }
