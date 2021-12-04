@@ -26,7 +26,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param pwd           Password of the patient
      * @return A patient
      */
-    public Patient newPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+    public Patient newPatient(String name, String gender, long contactNum, long healthCardNum, String pwd, int fee) {
         PatientBuilder pm = new PatientBuilder();
         pm.setContactNumber(contactNum);
         pm.setGender(gender);
@@ -46,7 +46,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNum Health card number of the patient
      * @param pwd           Password of the patient
      */
-    public void addPatient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+    public void addPatient(String name, String gender, long contactNum, long healthCardNum, String pwd, int fee) {
         PatientBuilder pm = new PatientBuilder();
         pm.setContactNumber(contactNum);
         pm.setGender(gender);
@@ -72,7 +72,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNum health card number
      * @return A patient
      */
-    public Patient getPatient(int healthCardNum) {
+    public Patient getPatient(long healthCardNum) {
         return sessionData.searchHCN(healthCardNum);
     }
 
@@ -82,7 +82,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNum health card number
      * @return ScheduleManager
      */
-    public ScheduleManager getPatientScheduleManager(int healthCardNum) {
+    public ScheduleManager getPatientScheduleManager(long healthCardNum) {
         return new ScheduleManager(sessionData.searchHCN(healthCardNum));
     }
 
@@ -92,7 +92,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNumber health card number
      * @return Boolean
      */
-    public boolean checkIfPatientExist(int healthCardNumber) {
+    public boolean checkIfPatientExist(long healthCardNumber) {
         return (sessionData.searchHCN(healthCardNumber) != null);
     }
 
@@ -103,7 +103,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param password         Password
      * @return Boolean
      */
-    public boolean checkLoginInfo(int healthCardNumber, String password) {
+    public boolean checkLoginInfo(long healthCardNumber, String password) {
         if (sessionData.searchHCN(healthCardNumber) != null) {
             return sessionData.searchHCN(healthCardNumber).checkPwd(password);
         }
@@ -117,7 +117,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNumber Healthcard number for that patient
      * @return A string
      */
-    public String getPatientMedicalRecord(int healthCardNumber) {
+    public String getPatientMedicalRecord(long healthCardNumber) {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
         StringBuilder list = new StringBuilder();
@@ -135,7 +135,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @param healthCardNumber Healthcard number for that patient
      * @return A string
      */
-    public String getPatientRecord(int healthCardNumber) {
+    public String getPatientRecord(long healthCardNumber) {
         StringBuilder list = new StringBuilder();
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();

@@ -19,7 +19,7 @@ public class StaffScheduleViewer implements Printable {
      */
     @Override
     public String print() {
-        for (int id : sm.getAllStaffID()) {
+        for (long id : sm.getAllStaffID()) {
             scm = new ScheduleManager(sm.getStaff(id));
             str += (sm.getStaffInfo(id) + "\t" + scm.getScheduleString());
         }

@@ -17,7 +17,7 @@ public class PatientMedicalRecordViewer {
      * @param healthCardNumber Health card number of that patient
      * @return A string
      */
-    public String print(int healthCardNumber) {
+    public String print(long healthCardNumber) {
         return patientManager.getPatientMedicalRecord(healthCardNumber);
 
     }

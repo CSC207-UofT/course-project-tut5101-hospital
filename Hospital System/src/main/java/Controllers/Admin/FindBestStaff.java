@@ -10,7 +10,7 @@ public class FindBestStaff {
         this.st = st;
     }
 
-    public int execute() {
+    public long execute() {
         return st.findBest();
     }
 }

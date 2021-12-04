@@ -11,8 +11,8 @@ import Entity.Schedule.Schedule;
 public class Patient implements java.io.Serializable {
     private String name;
     private String gender;
-    private int contactNum;
-    private int healthCardNum;
+    private long contactNum;
+    private long healthCardNum;
     private String pwd;
     private Schedule scdl = new Schedule();
     private final OperationList scdldOps = new OperationList();
@@ -23,7 +23,7 @@ public class Patient implements java.io.Serializable {
 //    add a variable for collection of previous appointments
 
     //    Constructs a patient class instant.
-    public Patient(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+    public Patient(String name, String gender, long contactNum, long healthCardNum, String pwd, int fee) {
         this.name = name;
         this.gender = gender;
         this.contactNum = contactNum;
@@ -61,7 +61,7 @@ public class Patient implements java.io.Serializable {
      * Getters and setters
      *
      */
-    public int getHealthCardNum() {
+    public long getHealthCardNum() {
         return this.healthCardNum;
     }
 
@@ -105,11 +105,11 @@ public class Patient implements java.io.Serializable {
         this.gender = n;
     }
 
-    public void setContactNum(int contactNum) {
+    public void setContactNum(long contactNum) {
         this.contactNum = contactNum;
     }
 
-    public void setHealthCardNum(int healthCardNum) {
+    public void setHealthCardNum(long healthCardNum) {
         this.healthCardNum = healthCardNum;
     }
 

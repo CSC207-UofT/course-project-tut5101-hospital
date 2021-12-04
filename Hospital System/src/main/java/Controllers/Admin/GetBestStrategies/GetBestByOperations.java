@@ -7,7 +7,7 @@ public class GetBestByOperations implements GetBestStrategy {
     StaffManaging sm = new StaffManager();
 
     @Override
-    public int findBest() {
+    public long findBest() {
         return sm.getBestStaffByNumberOfOperation();
     }
 }

@@ -6,5 +6,5 @@ import UseCases.Staff.StaffManaging;
 public interface GetBestStrategy {
     StaffManaging sm = new StaffManager();
 
-    int findBest();
+    long findBest();
 }

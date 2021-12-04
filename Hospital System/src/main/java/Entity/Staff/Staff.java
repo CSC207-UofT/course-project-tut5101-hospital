@@ -16,7 +16,7 @@ public class Staff implements Serializable {
      */
     private String name;
     private String gender;
-    private Integer ID;
+    private Long ID;
     private String pwd;
     private Schedule workingTime;
     private Schedule scdl = new Schedule();
@@ -45,7 +45,7 @@ public class Staff implements Serializable {
         this.name = name;
     }
 
-    public void setID(Integer ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 
@@ -78,7 +78,7 @@ public class Staff implements Serializable {
 
 
     //This method gets the name of the ID of Entity.Staff
-    public Integer getStaffID() {
+    public long getStaffID() {
         return this.ID;
     }
 
