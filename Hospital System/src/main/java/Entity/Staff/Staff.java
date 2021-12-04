@@ -49,6 +49,30 @@ public class Staff implements Serializable {
         this.ID = ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public Long getID() {
+        return ID;
+    }
+
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public Schedule getWorkingTime() {
+        return workingTime;
+    }
+
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
