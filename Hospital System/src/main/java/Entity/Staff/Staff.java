@@ -31,7 +31,7 @@ public class Staff implements Serializable {
     }
 
     public Schedule getScdl() {
-        return scdl;
+        return workingTime;
     }
 //    add a variable for collection of previous appointments
 
