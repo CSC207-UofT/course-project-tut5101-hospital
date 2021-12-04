@@ -83,7 +83,7 @@ public class Schedule implements java.io.Serializable {
      * @return
      */
     public String getScheduleString() {
-        if (schedule == null || schedule.isEmpty()) {
+        if (schedule.isEmpty()) {
             return "You have no appointments";
         }
         StringBuilder s = new StringBuilder();

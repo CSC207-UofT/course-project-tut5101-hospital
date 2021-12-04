@@ -2,9 +2,12 @@ package Controllers.LoginSignUp;
 
 import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
+import Exceptions.InvalidInputException;
 import UseCases.Patient.PatientManager;
 import Entity.Patients.Patient;
 import UseCases.Patient.PatientManaging;
+import UseCases.Schedule.ScheduleManager;
+import UseCases.Schedule.ScheduleManaging;
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;
 
@@ -15,6 +18,7 @@ public class LoginSignup {
      */
     PatientManaging pm;
     StaffManaging sm;
+    ScheduleManaging sms;
 
     /**
      * Constructor for login sign up
@@ -22,13 +26,14 @@ public class LoginSignup {
     public LoginSignup() {
         this.pm = new PatientManager();
         this.sm = new StaffManager();
+        this.sms = new ScheduleManager(new Schedule());
     }
 
     /**
      * Return boolean indicate if patient exists or not
      *
-     * @param healthCardNumber
-     * @return
+     * @param healthCardNumber health card number of the patient
+     * @return if the patient with the healthCardNumber exist
      */
     public Boolean checkIfPatientExists(int healthCardNumber) {
         return (pm.checkIfPatientExist(healthCardNumber));
@@ -37,19 +42,19 @@ public class LoginSignup {
     /**
      * Return boolean indicate if staff exists or not
      *
-     * @param id
-     * @return
+     * @param id id of the staff
+     * @return if the staff with the id exist
      */
-    public Boolean checkIfStaffExists(int id) {
+    public Boolean checkIfStaffExists(Integer id) {
         return (sm.checkIfStaffExist(id));
     }
 
     /**
      * Login for patients
      *
-     * @param healthCardNumber
-     * @param iptPwd
-     * @return
+     * @param healthCardNumber health card number of the patient
+     * @param iptPwd password of the patient
+     * @return if the login for this patient is successful
      */
     public boolean LoginForPatients(int healthCardNumber, String iptPwd) {
         return pm.checkLoginInfo(healthCardNumber, iptPwd);
@@ -58,22 +63,22 @@ public class LoginSignup {
     /**
      * Login for staff
      *
-     * @param id
-     * @param ipt_pwd
-     * @return
+     * @param id id of the staff
+     * @param ipt_pwd password of the staff
+     * @return if the login for this staff is successful
      */
-    public boolean LoginForStaffs(int id, String ipt_pwd) {
+    public boolean LoginForStaffs(Integer id, String ipt_pwd) {
         return sm.checkLoginInfo(id, ipt_pwd);
     }
 
     /**
      * Sign up for patients
      *
-     * @param name
-     * @param gender
-     * @param contactNum
-     * @param healthCardNum
-     * @param pwd
+     * @param name Name of the Patient
+     * @param gender Gender of the Patient
+     * @param contactNum contactNum of the Patient
+     * @param healthCardNum healthCardNum of the Patient
+     * @param pwd password of the Patient
      */
     public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
         pm.addPatient(name, gender, contactNum, healthCardNum, pwd, fee);
@@ -82,22 +87,27 @@ public class LoginSignup {
     /**
      * Sign up for staff
      *
-     * @param name
-     * @param gender
-     * @param id
-     * @param workingTime
-     * @param pwd
-     * @param baseSalary
+     * @param name Name of the Staff
+     * @param gender Gender of the Staff
+     * @param id id of the staff
+     * @param workingTime working schedule of the staff
+     * @param pwd password of the staff
+     * @param baseSalary base salary of the staff
      */
     public void signUpForStaffs(String name, String gender, Integer id, Schedule workingTime, String pwd, int baseSalary) {
         sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);
     }
 
+
+    public Schedule makeWorkingTime(String event) throws InvalidInputException {
+        return sms.staffSchedule(event);
+    }
+
     /**
      * Return a patient by given a health card number
      *
-     * @param healthCardNumber
-     * @return
+     * @param healthCardNumber healthCardNumber of the patient
+     * @return a patient with the healthcard number
      */
     public Patient initPatient(int healthCardNumber) {
         return pm.getPatient(healthCardNumber);
@@ -106,8 +116,8 @@ public class LoginSignup {
     /**
      * Return a staff by given a stuff id
      *
-     * @param id
-     * @return
+     * @param id id of the staff
+     * @return a staff with that id
      */
     public Staff initStaff(int id) {
         return sm.getStaff(id);

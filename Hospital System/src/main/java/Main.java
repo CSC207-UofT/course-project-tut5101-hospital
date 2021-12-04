@@ -1,13 +1,11 @@
-import UI.Menu;
+import Exceptions.InvalidInputException;
+import UI.MenuChooseStaffOrPatient;
+import UI.MenuForPatient;
 
 public class Main {
-    public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.greeter();
-        menu.loginSignupForPatient();
-        menu.activitiesForPatients();
-//        menu.loginSignupForStaff();
-//        menu.checkSchedule();
+    public static void main(String[] args){
+        MenuChooseStaffOrPatient menuChooseStaffOrPatient = new MenuChooseStaffOrPatient();
+        menuChooseStaffOrPatient.choosePatientOrStaff();
     }
 
 }

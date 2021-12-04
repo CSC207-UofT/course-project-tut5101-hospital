@@ -1,6 +1,7 @@
 package Controllers.Appointment;
 
 import Entity.Schedule.Schedule;
+import Entity.Staff.Staff;
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 
@@ -15,26 +16,31 @@ import UseCases.Staff.StaffManager;
 public class AppointmentMaker {
     PatientManager pm;
     StaffManager stm;
-    ScheduleManager sm;
-    ScheduleManager sms;
+    ScheduleManager sm, stms;
 
     public AppointmentMaker(int hcnOrId) {
         this.pm = new PatientManager();
         this.stm = new StaffManager();
-        this.sms = stm.getStaffSm(hcnOrId);
         this.sm = pm.getPatientScheduleManager(hcnOrId);
+    }
+
+    public AppointmentMaker(Integer id){
+        this.stm = new StaffManager();
+        Staff staff = stm.getStaff(id);
+        this.stms = new ScheduleManager(staff);
     }
 
     public String getSchedule() {
         return sm.getScheduleString();
     }
 
-    public void makeAppointment(String event, String start, String end) throws InvalidInputException {
-        sm.addOrModifyEvent(event, start, end);
+
+    public String checkStaffSchedule(){
+        return stms.getScheduleString();
     }
 
-    public Schedule makeWorkingTime(String event) throws InvalidInputException {
-        return sms.staffSchedule(event);
+    public void makeAppointment(String event, String start, String end) throws InvalidInputException {
+        sm.addOrModifyEvent(event, start, end);
     }
 
     public void deleteEvent(String start, String end) throws StaffNotFoundException {
