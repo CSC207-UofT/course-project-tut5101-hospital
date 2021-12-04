@@ -74,6 +74,7 @@ public class PatientMedicalHistory implements java.io.Serializable{
             allMedications.append(medication);
             allMedications.append(", ");
         }
+        allMedications.delete(allMedications.length() - 3, allMedications.length());
         return allMedications.toString();
     }
 

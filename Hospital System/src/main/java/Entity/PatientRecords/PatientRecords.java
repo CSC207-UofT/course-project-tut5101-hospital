@@ -36,7 +36,7 @@ public class PatientRecords implements java.io.Serializable{
     public String getPatientRecord() {
         return "Patient height: " + this.height + "\n" +
                 "Patient weight: " + this.weight + "\n" +
-                "Gender: " + this.sex + "\n" +
+                "Sex: " + this.sex + "\n" +
                 "Allergies: " + getAllergies() + "\n" +
                 "Vaccinations: " + getVaccinations();
     }
@@ -51,6 +51,7 @@ public class PatientRecords implements java.io.Serializable{
             allVaccinations.append(vaccine);
             allVaccinations.append(", ");
         }
+        allVaccinations.delete(allVaccinations.length() - 3, allVaccinations.length());
         return allVaccinations.toString();
     }
 
@@ -60,6 +61,7 @@ public class PatientRecords implements java.io.Serializable{
             allAllergies.append(allergy);
             allAllergies.append(", ");
         }
+        allAllergies.delete(allAllergies.length() - 3, allAllergies.length());
         return allAllergies.toString();
     }
 

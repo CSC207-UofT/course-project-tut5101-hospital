@@ -30,4 +30,9 @@ public class TestPatentMedicalRecord {
                 "Treatment given: Given  1 does of tylenol" + "\n" + "Operation: " + this.operation.getName());
     }
 
+    @Test
+    public void TestgetCurrentMeds() {
+        Assert.assertEquals(patientMedicalHistory.getCurrentMedications(), "Reactin");
+    }
+
 }
