@@ -14,6 +14,7 @@ import Presenters.Functions.FindBestStaffPresenter;
 import Presenters.Functions.FindHospitalProfitPresenter;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
+import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.StaffManager;
 
@@ -258,7 +259,10 @@ public class MenuForStaff {
             }
         }
         PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
-        System.out.println("Patient account successfully created");
+        System.out.println("Patient medical record successfully created");
+
+        System.out.println("Input time of diagnosis: yyyy-MM-dd HH:mm");
+        String date = scanner.nextLine();
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
@@ -267,4 +271,9 @@ public class MenuForStaff {
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
+
+        PatientManager patientManager = new PatientManager();
+        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
+    }
+
 }
