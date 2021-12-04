@@ -21,7 +21,7 @@ public class StaffBuilder implements java.io.Serializable {
         s.setName(name);
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         s.setID(id);
     }
 

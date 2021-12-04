@@ -7,7 +7,7 @@ import Exceptions.StaffNotFoundException;
 import java.io.*;
 
 public class PatientData implements java.io.Serializable {
-    private HashMap<Integer, Patient> patients;
+    private HashMap<Long, Patient> patients;
 
     // init
     public PatientData() {
@@ -39,11 +39,11 @@ public class PatientData implements java.io.Serializable {
         }
     }
 
-    public Patient searchHCN(int healthCardNum) {
+    public Patient searchHCN(long healthCardNum) {
         return patients.getOrDefault(healthCardNum, null);
     }
 
-    public boolean patientExist(int healthCardNum) {
+    public boolean patientExist(long healthCardNum) {
         return patients.containsKey(healthCardNum);
     }
 

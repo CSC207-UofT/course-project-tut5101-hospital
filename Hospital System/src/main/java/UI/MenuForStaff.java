@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class MenuForStaff {
     Scanner scanner = new Scanner(System.in);
-    private Integer id;
+    private long id;
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForStaff() {
@@ -32,16 +32,16 @@ public class MenuForStaff {
     }
 
     public void signupStaff() {
-        System.out.println("Input name");
+        System.out.println("Input name (Input String)");
         String name = scanner.nextLine();
-        System.out.println("Input gender");
+        System.out.println("Input gender (Input Male or Female)");
         String gender = scanner.nextLine();
-        System.out.println("Input id");
-        id = scanner.nextInt();
+        System.out.println("Input id (Input Integer)");
+        id = scanner.nextLong();
         scanner.nextLine();
-        System.out.println("Input password");
+        System.out.println("Input password (Input String)");
         String pwd = scanner.nextLine();
-        System.out.println("Input base salary");
+        System.out.println("Input base salary (Input Integer)");
         int salary = scanner.nextInt();
         scanner.nextLine();
         System.out.println("What event do you do (Choose among Ill, Fever, Heart, Eye, Bone)");
@@ -61,8 +61,8 @@ public class MenuForStaff {
         boolean success = false;
 
         do {
-            System.out.println("Input id");
-            id = scanner.nextInt();
+            System.out.println("Input id (Input id you put in when you did sign up for staff)");
+            id = scanner.nextLong();
             if (loginSignup.checkIfStaffExists(id)) {
                 scanner.nextLine();
             } else {
@@ -74,7 +74,7 @@ public class MenuForStaff {
                     break;
                 }
             }
-            System.out.println("Input password");
+            System.out.println("Input password (Input String)");
             String ipt_pwd = scanner.nextLine();
             success = loginSignup.LoginForStaffs(id, ipt_pwd);
             while (!success) {
@@ -86,8 +86,8 @@ public class MenuForStaff {
                     break;
                 }
                 if (k == 3) {
-                    System.out.println("Input id");
-                    int idForRetrieve = scanner.nextInt();
+                    System.out.println("Input id (Input integer)");
+                    long idForRetrieve = scanner.nextLong();
                     System.out.println("You will be notified by management in the next 48 hours to retrieve your password.");
                 }
             }
@@ -135,7 +135,7 @@ public class MenuForStaff {
      */
     public void viewPatientRecord() {
         int choice = 4;
-        int healthCardNumber = 0;
+        long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();

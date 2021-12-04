@@ -35,7 +35,7 @@ public class LoginSignup {
      * @param healthCardNumber health card number of the patient
      * @return if the patient with the healthCardNumber exist
      */
-    public Boolean checkIfPatientExists(int healthCardNumber) {
+    public Boolean checkIfPatientExists(long healthCardNumber) {
         return (pm.checkIfPatientExist(healthCardNumber));
     }
 
@@ -45,7 +45,7 @@ public class LoginSignup {
      * @param id id of the staff
      * @return if the staff with the id exist
      */
-    public Boolean checkIfStaffExists(Integer id) {
+    public Boolean checkIfStaffExists(Long id) {
         return (sm.checkIfStaffExist(id));
     }
 
@@ -56,7 +56,7 @@ public class LoginSignup {
      * @param iptPwd password of the patient
      * @return if the login for this patient is successful
      */
-    public boolean LoginForPatients(int healthCardNumber, String iptPwd) {
+    public boolean LoginForPatients(long healthCardNumber, String iptPwd) {
         return pm.checkLoginInfo(healthCardNumber, iptPwd);
     }
 
@@ -67,7 +67,7 @@ public class LoginSignup {
      * @param ipt_pwd password of the staff
      * @return if the login for this staff is successful
      */
-    public boolean LoginForStaffs(Integer id, String ipt_pwd) {
+    public boolean LoginForStaffs(long id, String ipt_pwd) {
         return sm.checkLoginInfo(id, ipt_pwd);
     }
 
@@ -80,7 +80,7 @@ public class LoginSignup {
      * @param healthCardNum healthCardNum of the Patient
      * @param pwd password of the Patient
      */
-    public void signUpForPatients(String name, String gender, int contactNum, int healthCardNum, String pwd, int fee) {
+    public void signUpForPatients(String name, String gender, long contactNum, long healthCardNum, String pwd, int fee) {
         pm.addPatient(name, gender, contactNum, healthCardNum, pwd, fee);
     }
 
@@ -94,7 +94,7 @@ public class LoginSignup {
      * @param pwd password of the staff
      * @param baseSalary base salary of the staff
      */
-    public void signUpForStaffs(String name, String gender, Integer id, Schedule workingTime, String pwd, int baseSalary) {
+    public void signUpForStaffs(String name, String gender, long id, Schedule workingTime, String pwd, int baseSalary) {
         sm.addStaff(name, gender, id, workingTime, pwd, baseSalary);
     }
 
@@ -109,7 +109,7 @@ public class LoginSignup {
      * @param healthCardNumber healthCardNumber of the patient
      * @return a patient with the healthcard number
      */
-    public Patient initPatient(int healthCardNumber) {
+    public Patient initPatient(long healthCardNumber) {
         return pm.getPatient(healthCardNumber);
     }
 
@@ -119,7 +119,7 @@ public class LoginSignup {
      * @param id id of the staff
      * @return a staff with that id
      */
-    public Staff initStaff(int id) {
+    public Staff initStaff(long id) {
         return sm.getStaff(id);
     }
 }

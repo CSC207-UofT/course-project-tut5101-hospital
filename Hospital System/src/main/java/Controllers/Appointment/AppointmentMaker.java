@@ -18,13 +18,13 @@ public class AppointmentMaker {
     StaffManager stm;
     ScheduleManager sm, stms;
 
-    public AppointmentMaker(int hcnOrId) {
+    public AppointmentMaker(long hcnOrId) {
         this.pm = new PatientManager();
         this.stm = new StaffManager();
         this.sm = pm.getPatientScheduleManager(hcnOrId);
     }
 
-    public AppointmentMaker(Integer id){
+    public AppointmentMaker(Long id){
         this.stm = new StaffManager();
         Staff staff = stm.getStaff(id);
         this.stms = new ScheduleManager(staff);

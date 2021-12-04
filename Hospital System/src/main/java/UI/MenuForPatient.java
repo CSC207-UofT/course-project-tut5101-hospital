@@ -20,8 +20,8 @@ import UseCases.Staff.StaffManager;
 
 public class MenuForPatient {
     Scanner scanner = new Scanner(System.in);
-    private int hcn;
-    private int id;
+    private long hcn;
+    private long id;
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForPatient() {
@@ -40,19 +40,19 @@ public class MenuForPatient {
     }
 
     public void signupPatient() {
-        System.out.println("Input name");
+        System.out.println("Input name (Input String)");
         String name = scanner.nextLine();
-        System.out.println("Input gender");
+        System.out.println("Input gender (Input Male or Female)");
         String gender = scanner.nextLine();
-        System.out.println("Input contact number");
-        int ctctNum = scanner.nextInt();
+        System.out.println("Input contact number (Use integer)");
+        long ctctNum = scanner.nextLong();
         scanner.nextLine();
-        System.out.println("Input health card number");
-        hcn = scanner.nextInt();
+        System.out.println("Input health card number (Use integer)");
+        hcn = scanner.nextLong();
         scanner.nextLine();
-        System.out.println("Input password");
+        System.out.println("Input password (Use String)");
         String pwd = scanner.nextLine();
-        System.out.println("How much money do you want to put into your account");
+        System.out.println("How much money do you want to put into your account (Use integer)");
         int fee = scanner.nextInt();
         scanner.nextLine();
         loginSignup.signUpForPatients(name, gender, ctctNum, hcn, pwd, fee);
@@ -62,8 +62,8 @@ public class MenuForPatient {
     public void loginPatient() {
         boolean success = false;
         do {
-            System.out.println("Input HealthCardNumber");
-            hcn = scanner.nextInt();
+            System.out.println("Input HealthCardNumber (Use the health card number you signed up with)");
+            hcn = scanner.nextLong();
             if (loginSignup.checkIfPatientExists(hcn)) {
                 scanner.nextLine();
             } else {
@@ -75,7 +75,7 @@ public class MenuForPatient {
                     break;
                 }
             }
-            System.out.println("Input password");
+            System.out.println("Input password (Use integer)");
             String iptPwd = scanner.nextLine();
             success = loginSignup.LoginForPatients(hcn, iptPwd);
             while (!success) {
@@ -87,7 +87,7 @@ public class MenuForPatient {
                     break;
                 }
                 if (k == 3) {
-                    System.out.println("Input contact number");
+                    System.out.println("Input contact number (Use integer)");
                     int contactNum = scanner.nextInt();
                     System.out.println("You will be contacted by a staff in the next 48 hours to retrieve your password.");
                 }
@@ -115,7 +115,7 @@ public class MenuForPatient {
         System.out.println("Input event (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         System.out.println("You need to pay $50");
-        int c = 0;
+        int c;
         System.out.println("Press 1 to view your money");
         c = scanner.nextInt();
         scanner.nextLine();
@@ -129,7 +129,7 @@ public class MenuForPatient {
         System.out.println("Fee Paid");
         checkSchedule();
         System.out.println("Which Staff would you like, enter id");
-        int id = scanner.nextInt();
+        long id = scanner.nextLong();
         scanner.nextLine();
         StaffManager sfm = new StaffManager();
         Staff staff = sfm.getStaff(id);

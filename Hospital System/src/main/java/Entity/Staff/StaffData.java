@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.List;
 
 public class StaffData implements java.io.Serializable {
-    private HashMap<Integer, Staff> allstaff;
+    private HashMap<Long, Staff> allstaff;
 
     //init
     public StaffData() {
@@ -51,7 +51,7 @@ public class StaffData implements java.io.Serializable {
         }
     }
 
-    public Staff searchID(Integer ID) {
+    public Staff searchID(Long ID) {
         return allstaff.getOrDefault(ID, null);
     }
 
@@ -60,8 +60,8 @@ public class StaffData implements java.io.Serializable {
         return new ArrayList<Staff>(allstaff.values());
     }
 
-    public List<Integer> getAllStaffId() {
-        return new ArrayList<Integer>(allstaff.keySet());
+    public List<Long> getAllStaffId() {
+        return new ArrayList<Long>(allstaff.keySet());
     }
 
     //load and save data

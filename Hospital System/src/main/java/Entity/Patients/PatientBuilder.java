@@ -19,11 +19,11 @@ public class PatientBuilder {
     }
 
     //set contact number
-    public void setContactNumber(int c) {
+    public void setContactNumber(long c) {
         p.setContactNum(c);
     }
 
-    public void setHcn(int h) {
+    public void setHcn(long h) {
         p.setHealthCardNum(h);
     }
 
