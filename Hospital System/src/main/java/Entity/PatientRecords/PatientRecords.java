@@ -2,7 +2,9 @@ package Entity.PatientRecords;
 
 import java.util.List;
 
-
+/**
+ * This file contains the class Patient Record and is used to get the patient record
+ */
 public class PatientRecords implements java.io.Serializable{
     private Float height;
     private Float weight;
@@ -33,7 +35,7 @@ public class PatientRecords implements java.io.Serializable{
      */
     public String getPatientRecord() {
         return "Patient height: " + this.height + "\n" +
-                "Patient weight: " + this.height + "\n" +
+                "Patient weight: " + this.weight + "\n" +
                 "Gender: " + this.sex + "\n" +
                 "Allergies: " + getAllergies() + "\n" +
                 "Vaccinations: " + getVaccinations();

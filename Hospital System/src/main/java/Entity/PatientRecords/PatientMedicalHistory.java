@@ -9,6 +9,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This file contains the class PatientMedicalHistory and is used to make a patient medical history with
+ * information from the patient's visit to the hospital
+ */
+
 public class PatientMedicalHistory implements java.io.Serializable{
     private final String physicianName;
     private final Operation operation;
@@ -20,6 +25,7 @@ public class PatientMedicalHistory implements java.io.Serializable{
     private final String treatment;
     private final List<InputStream> medicalImage;
 
+    //    Constructs a patient medical history class instant.
     public PatientMedicalHistory(String physicianName, String bloodPressure, String pulse, String temperature,
                                  List<String> currentMedications, String diagnosis, String treatment,
                                  Operation operation, List<InputStream> medicalImage) {
