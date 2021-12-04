@@ -2,7 +2,11 @@ package Entity.PatientRecords;
 
 import Entity.Operations.Operation;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PatientMedicalHistory implements java.io.Serializable{
@@ -35,11 +39,28 @@ public class PatientMedicalHistory implements java.io.Serializable{
                 "Blood pressure: " + this.bloodPressure + "\n" +
                 "BPM: " + this.pulse + "\n" +
                 "Temperature: " + this.temperature + "\n" +
-                "Current Medications: " + this.currentMedications + "\n" +
+                "Current Medications: " + getCurrentMedications() + "\n" +
                 "Physician Diagnosis: " + this.diagnosis + "\n" +
                 "Treatment given: " + this.treatment + "\n" +
-                "Operation: " + this.operation + "\n" +
-                "Medical Images: " + this.medicalImage;
+                "Operation: " + this.operation.getName();
+    }
+
+    public List<BufferedImage> getMedicalImage() throws IOException {
+        List<BufferedImage> images = new ArrayList<>();
+        for (int i = 0; i < this.medicalImage.size(); i++) {
+            BufferedImage image = ImageIO.read(this.medicalImage.get(i));
+            images.add(image);
+        }
+        return images;
+    }
+
+    public String getCurrentMedications() {
+        StringBuilder allMedications = new StringBuilder();
+        for (String medication: this.currentMedications) {
+            allMedications.append(medication);
+            allMedications.append(", ");
+        }
+        return allMedications.toString();
     }
 
 }
