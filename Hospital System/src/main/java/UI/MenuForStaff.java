@@ -136,7 +136,7 @@ public class MenuForStaff {
         System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
-    private void checkAssignedPatientRecord() throws InvalidInputException {
+    private void checkAssignedPatientRecord(){
         String c;
         System.out.println("confirm patient appointment or view schedule or assigned patient record(Type 1 to confirm patient appointment;" +
                 " Type 2 to view schedule; Type 3 to check assigned patient record)");
@@ -192,14 +192,14 @@ public class MenuForStaff {
     /**
      * View patient record by input a patient health card number
      */
-    public void viewPatientRecord() throws InvalidInputException {
+    public void viewPatientRecord() {
         int choice = 4;
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            System.out.println("Invalid Input");
         }
 
         while (choice != 1 && choice != 2) {
@@ -209,7 +209,7 @@ public class MenuForStaff {
             try {
                 choice = scanner.nextInt();
             } catch (Exception e) {
-                throw new InvalidInputException("");
+                System.out.println("Invalid Input");
             }
         }
         if (choice == 1) {
@@ -221,7 +221,7 @@ public class MenuForStaff {
         }
     }
 
-    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
+    public void addPatientMH() {
         int choice = 5;
         List<String> currentMedications = new ArrayList<>();
         List<InputStream> medicalImages = new ArrayList<>();
@@ -254,8 +254,12 @@ public class MenuForStaff {
             if (imagePath.equals("complete")) {
                 done = "complete";
             } else {
-                InputStream imageFile = new FileInputStream(imagePath);
-                medicalImages.add(imageFile);
+                try {
+                    InputStream imageFile = new FileInputStream(imagePath);
+                    medicalImages.add(imageFile);
+                } catch (FileNotFoundException f) {
+                    System.out.println("File Not Found");
+                }
             }
         }
         PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
@@ -269,7 +273,7 @@ public class MenuForStaff {
         try {
             healthCardNumber = scanner.nextInt();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            System.out.println("Invalid Input");
         }
 
         PatientManager patientManager = new PatientManager();
