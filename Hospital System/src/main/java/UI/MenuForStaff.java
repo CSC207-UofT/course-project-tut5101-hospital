@@ -126,6 +126,10 @@ public class MenuForStaff {
     }
 
 
+    public void findBestStaff(){
+
+    }
+
     /**
      * View patient record by input a patient health card number
      */
