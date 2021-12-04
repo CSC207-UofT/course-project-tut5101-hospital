@@ -1,11 +1,11 @@
-package Entity.Staff.Builders;
+package UseCases.Staff.Builders;
 
 //build/initialize staff
 
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 
-public class StaffBuilder implements java.io.Serializable {
+public abstract class StaffBuilder implements StaffBuilding{
     /**
      * Staff builder for staff.
      */

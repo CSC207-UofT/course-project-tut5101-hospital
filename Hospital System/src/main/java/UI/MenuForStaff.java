@@ -57,7 +57,7 @@ public class MenuForStaff {
         Schedule workingTime;
         try {
             workingTime = loginSignup.makeWorkingTime(event);
-            loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
+            loginSignup.signUpForDoctors(name, gender, id, workingTime, pwd, salary);
             System.out.println("Staff account successfully created");
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");

@@ -1,5 +1,7 @@
 package Controllers.LoginSignUp.StaffSignUp;
 
+import Entity.Schedule.Schedule;
+
 public interface StaffSignUp {
-    void signUp();
+    void signUp(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary);
 }
