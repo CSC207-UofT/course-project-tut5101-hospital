@@ -16,7 +16,6 @@ import java.util.List;
 
 public class PatientMedicalHistory implements java.io.Serializable{
     private final String physicianName;
-    private final Operation operation;
     private final String bloodPressure;
     private final String pulse;
     private final String temperature;
@@ -28,7 +27,7 @@ public class PatientMedicalHistory implements java.io.Serializable{
     //    Constructs a patient medical history class instant.
     public PatientMedicalHistory(String physicianName, String bloodPressure, String pulse, String temperature,
                                  List<String> currentMedications, String diagnosis, String treatment,
-                                 Operation operation, List<InputStream> medicalImage) {
+                                 List<InputStream> medicalImage) {
         this.physicianName = physicianName;
         this.bloodPressure = bloodPressure;
         this.pulse = pulse;
@@ -36,7 +35,6 @@ public class PatientMedicalHistory implements java.io.Serializable{
         this.currentMedications = currentMedications;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
-        this.operation = operation;
         this.medicalImage = medicalImage;
     }
 
@@ -51,8 +49,7 @@ public class PatientMedicalHistory implements java.io.Serializable{
                 "Temperature: " + this.temperature + "\n" +
                 "Current Medications: " + getCurrentMedications() + "\n" +
                 "Physician Diagnosis: " + this.diagnosis + "\n" +
-                "Treatment given: " + this.treatment + "\n" +
-                "Operation: " + this.operation.getName();
+                "Treatment given: " + this.treatment;
     }
 
     /**

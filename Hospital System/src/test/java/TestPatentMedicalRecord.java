@@ -10,7 +10,6 @@ import java.util.List;
 
 public class TestPatentMedicalRecord {
     private PatientMedicalHistory patientMedicalHistory;
-    private Operation operation;
     private List<InputStream> medicalImages;
 
     @Before
@@ -19,7 +18,7 @@ public class TestPatentMedicalRecord {
         currentMedications.add("Reactin");
         patientMedicalHistory = new PatientMedicalHistory("John", "120/80", "80",
                 "40 degrees celcius", currentMedications, "Slight fever",
-                "Given  1 does of tylenol", operation, medicalImages);
+                "Given  1 does of tylenol", medicalImages);
     }
 
     @Test
@@ -27,7 +26,7 @@ public class TestPatentMedicalRecord {
         Assert.assertEquals(patientMedicalHistory.getPatientMH(), "Physician Name: John" + "\n" +
                 "Blood pressure: 120/80" + "\n" + "BPM: 80" + "\n" + "Temperature: 40 degrees celcius" + "\n" +
                 "Current Medications: Reactin" + "\n" + "Physician Diagnosis: Slight fever" + "\n" +
-                "Treatment given: Given  1 does of tylenol" + "\n" + "Operation: " + this.operation.getName());
+                "Treatment given: Given  1 does of tylenol");
     }
 
     @Test

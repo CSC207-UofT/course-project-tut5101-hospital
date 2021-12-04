@@ -6,6 +6,7 @@ import Controllers.Admin.GetBestStrategies.GetBestByOperations;
 import Controllers.Admin.GetBestStrategies.GetBestByTime;
 import Controllers.Appointment.AppointmentMaker;
 import Controllers.LoginSignUp.LoginSignup;
+import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
@@ -16,6 +17,11 @@ import Presenters.PatientRecords.PatientRecordViewer;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.StaffManager;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuForStaff {
@@ -129,8 +135,17 @@ public class MenuForStaff {
         System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
-    private void checkAssignedPatientRecord() {
-
+    private void checkAssignedPatientRecord() throws InvalidInputException {
+        String c;
+        System.out.println("confirm patient appointment or view schedule or assigned patient record(Type 1 to confirm patient appointment;" +
+                " Type 2 to view schedule; Type 3 to check assigned patient record)");
+        c = scanner.nextLine();
+        if (c.equals("4")) {
+            viewPatientRecord();
+        }
+        if (c.equals("5")) {
+            addPatientMH();
+        }
     }
 
     /**
@@ -204,4 +219,52 @@ public class MenuForStaff {
             patientRecordViewer.print(healthCardNumber);
         }
     }
+
+    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
+        int choice = 5;
+        List<String> currentMedications = new ArrayList<>();
+        List<InputStream> medicalImages = new ArrayList<>();
+        String done = "";
+
+        System.out.println("Input your name (Input String)");
+        String name = scanner.nextLine();
+        System.out.println("Input patient blood pressure (Input String systolic/diastolic)");
+        String bp = scanner.nextLine();
+        System.out.println("Input patient pulse (Input String)");
+        String pulse = scanner.nextLine();
+        System.out.println("Input patient temperature (Input String)");
+        String temperature = scanner.nextLine();
+        System.out.println("Input current medications in use for patient (Use String and type done when input completed)");
+        while (done.equals("")) {
+            String currentMeds = scanner.nextLine();
+            if (currentMeds.equals("done")) {
+                done = "done";
+            } else {
+                currentMedications.add(currentMeds);
+            }
+        }
+        System.out.println("Input diagnosis (Use String)");
+        String diagnosis = scanner.nextLine();
+        System.out.println("Input treatment methods (Use String)");
+        String treatment = scanner.nextLine();
+        System.out.println("Upload medical images taken (Input image file path and type complete when input completed)");
+        while (done.equals("done")) {
+            String imagePath = scanner.nextLine();
+            if (imagePath.equals("complete")) {
+                done = "complete";
+            } else {
+                InputStream imageFile = new FileInputStream(imagePath);
+                medicalImages.add(imageFile);
+            }
+        }
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
+        System.out.println("Patient account successfully created");
+
+        long healthCardNumber = 0;
+        System.out.println("Please input the health card number of the patient to add to her/his record.");
+        try {
+            healthCardNumber = scanner.nextInt();
+        } catch (Exception e) {
+            throw new InvalidInputException("");
+        }
 }
