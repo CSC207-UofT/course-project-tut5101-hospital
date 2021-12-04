@@ -18,7 +18,7 @@ public class LoginSignup {
      */
     PatientManaging pm;
     StaffManaging sm;
-    ScheduleManaging sms, stms;
+    ScheduleManaging sms;
 
     /**
      * Constructor for login sign up
@@ -45,7 +45,7 @@ public class LoginSignup {
      * @param id id of the staff
      * @return if the staff with the id exist
      */
-    public Boolean checkIfStaffExists(int id) {
+    public Boolean checkIfStaffExists(Integer id) {
         return (sm.checkIfStaffExist(id));
     }
 
@@ -67,7 +67,7 @@ public class LoginSignup {
      * @param ipt_pwd password of the staff
      * @return if the login for this staff is successful
      */
-    public boolean LoginForStaffs(int id, String ipt_pwd) {
+    public boolean LoginForStaffs(Integer id, String ipt_pwd) {
         return sm.checkLoginInfo(id, ipt_pwd);
     }
 

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class MenuForStaff {
     Scanner scanner = new Scanner(System.in);
-    private int id;
+    private Integer id;
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForStaff() {
@@ -44,7 +44,7 @@ public class MenuForStaff {
         System.out.println("Input base salary");
         int salary = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("What event do you do (Ill, Fever, Heart, Eye, Bone)");
+        System.out.println("What event do you do (Choose among Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         Schedule workingTime;
         try {
@@ -118,7 +118,7 @@ public class MenuForStaff {
 
     private void viewStaffSchedule() {
         AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        appointmentMaker.checkStaffSchedule();
+        System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
     private void checkAssignedPatientRecord() {

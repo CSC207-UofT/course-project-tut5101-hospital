@@ -52,11 +52,7 @@ public class StaffData implements java.io.Serializable {
     }
 
     public Staff searchID(Integer ID) {
-        if (!allstaff.containsKey(ID)) {
-            return allstaff.get(ID);
-        } else {
-            return null;
-        }
+        return allstaff.getOrDefault(ID, null);
     }
 
     //get all Staffs

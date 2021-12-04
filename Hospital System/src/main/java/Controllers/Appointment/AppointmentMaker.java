@@ -22,7 +22,11 @@ public class AppointmentMaker {
         this.pm = new PatientManager();
         this.stm = new StaffManager();
         this.sm = pm.getPatientScheduleManager(hcnOrId);
-        Staff staff = stm.getStaff(hcnOrId);
+    }
+
+    public AppointmentMaker(Integer id){
+        this.stm = new StaffManager();
+        Staff staff = stm.getStaff(id);
         this.stms = new ScheduleManager(staff);
     }
 
