@@ -18,7 +18,7 @@ public class LoginSignup {
      */
     PatientManaging pm;
     StaffManaging sm;
-    ScheduleManaging sms;
+    ScheduleManaging sms, stms;
 
     /**
      * Constructor for login sign up

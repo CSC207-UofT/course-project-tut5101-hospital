@@ -50,10 +50,11 @@ public class MenuForStaff {
         try {
             workingTime = loginSignup.makeWorkingTime(event);
             loginSignup.signUpForStaffs(name, gender, id, workingTime, pwd, salary);
+            System.out.println("Staff account successfully created");
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
-        System.out.println("Staff account successfully created");
+        System.out.println(loginSignup.checkIfStaffExists(id));
     }
 
     public void loginStaff() {
@@ -116,8 +117,8 @@ public class MenuForStaff {
     }
 
     private void viewStaffSchedule() {
-        ScheduleManager sm = new ScheduleManager(loginSignup.initStaff(id).getSchedule());
-        System.out.println(sm.getScheduleString());
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        appointmentMaker.checkStaffSchedule();
     }
 
     private void checkAssignedPatientRecord() {
