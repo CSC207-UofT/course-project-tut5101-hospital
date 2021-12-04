@@ -160,7 +160,7 @@ public class MenuForStaff {
             } else {
                 throw new InvalidInputException("");
             }
-        } while (choice != 1 || choice != 2 || choice != 3);
+        } while (choice != 1 && choice != 2 && choice != 3);
 
         findBestStaffPresenter.print(staffManager.getStaff(id).getName());
     }

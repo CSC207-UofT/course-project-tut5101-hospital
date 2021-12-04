@@ -191,8 +191,7 @@ public class MenuForPatient {
                 ViewOtherStaffSchedules VOSS = new ViewOtherStaffSchedules();
                 VOSS.print();
             }
-        }
-        while (choice != 1 && choice != 2 && choice != 3);
+        } while (choice != 1 && choice != 2 && choice != 3);
     }
 
 
