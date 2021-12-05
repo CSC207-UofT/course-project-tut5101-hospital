@@ -1,5 +1,7 @@
 package UI;
 
+import Exceptions.InvalidInputException;
+
 import java.util.Scanner;
 
 public class MenuChooseStaffOrPatient {
@@ -13,7 +15,7 @@ public class MenuChooseStaffOrPatient {
     }
 
     // Choose if you are a patient or a staff
-    public void choosePatientOrStaff (){
+    public void choosePatientOrStaff () throws InvalidInputException {
         greeter();
         System.out.println("Choose 1 if you are patient, choose 2 if you are a staff");
         String c = scanner.nextLine();
@@ -24,8 +26,7 @@ public class MenuChooseStaffOrPatient {
         }
         else if (c.equals("2")){
             MenuForStaff menuForStaff = new MenuForStaff();
-            menuForStaff.loginSignupForStaff();
-            menuForStaff.activitiesForStaffs();
+            menuForStaff.doThings();
         }
     }
 }

@@ -41,4 +41,5 @@ public interface StaffManaging {
     List<Long> getAllOtherId();
 
     double getSalary(long id);
+    String getStaffType(long id);
 }
