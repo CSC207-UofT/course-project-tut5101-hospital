@@ -12,7 +12,7 @@ public class CheckIfExists {
      * @param hcn
      * @return
      */
-    public boolean checkPatExists(int hcn) {
+    public boolean checkPatExists(Long hcn) {
         PatientManaging patientManaging = new PatientManager();
         return patientManaging.checkIfPatientExist(hcn);
     }
@@ -23,7 +23,7 @@ public class CheckIfExists {
      * @param id
      * @return
      */
-    public boolean checkStaffExists(int id) {
+    public boolean checkStaffExists(Long id) {
         return new StaffManager().checkIfStaffExist(id);
     }
 }
