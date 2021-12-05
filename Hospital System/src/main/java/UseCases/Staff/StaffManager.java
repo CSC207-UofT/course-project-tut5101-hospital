@@ -74,7 +74,7 @@ public class StaffManager implements StaffManaging {
         return sessionData.searchID(ID);
     }
 
-    public boolean checkIfStaffExist(long ID) {
+    public boolean checkIfStaffExist(Long ID) {
         return (sessionData.searchID(ID) != null);
     }
 

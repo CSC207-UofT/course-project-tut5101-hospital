@@ -18,7 +18,7 @@ public interface StaffManaging {
 
     Staff getStaff(long ID);
 
-    boolean checkIfStaffExist(long ID);
+    boolean checkIfStaffExist(Long ID);
 
     boolean checkLoginInfo(long ID, String pwd);
 
