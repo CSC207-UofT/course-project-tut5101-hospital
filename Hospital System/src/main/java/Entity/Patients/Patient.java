@@ -38,7 +38,6 @@ public class Patient implements java.io.Serializable {
 
     /**
      * Return a string of patient information
-     *
      */
     public String getPatientInfo() {
         return "Patient Name: " + this.name + "\n" +
@@ -59,7 +58,6 @@ public class Patient implements java.io.Serializable {
 
     /**
      * Getters and setters
-     *
      */
     public long getHealthCardNum() {
         return this.healthCardNum;

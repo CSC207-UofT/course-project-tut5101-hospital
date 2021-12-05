@@ -15,10 +15,9 @@ public class FindHospitalProfitPresenter implements Printable {
 
     /**
      * Print out profit
-     * @param profit
-     * Profit of hospital
-     * @return
-     * A line
+     *
+     * @param profit Profit of hospital
+     * @return A line
      */
     public String print(int profit) {
         return "Total profit for our hospital is: " + profit;

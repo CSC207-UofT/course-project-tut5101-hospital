@@ -29,6 +29,7 @@ public class NewStaffs {
         setProperties(adm, name, gender, ID, workingTime, pwd, fixedSalary);
         return adm.getResult();
     }
+
     //set properties of the new staff
     public void setProperties(StaffBuilder sm, String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         sm.setName(name);

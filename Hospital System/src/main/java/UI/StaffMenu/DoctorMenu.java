@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorMenu extends StaffMenu{
+public class DoctorMenu extends StaffMenu {
     @Override
     public void activity() {
 

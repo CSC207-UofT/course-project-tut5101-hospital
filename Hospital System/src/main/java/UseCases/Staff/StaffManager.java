@@ -40,22 +40,25 @@ public class StaffManager implements StaffManaging {
      * @param fixedSalary
      */
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
-        Staff s =new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
+        Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
+
     public void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
-        Staff s =new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
+        Staff s = new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
+
     public void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
-        Staff s =new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
+        Staff s = new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
+
     public void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
-        Staff s =new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
+        Staff s = new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
@@ -246,17 +249,20 @@ public class StaffManager implements StaffManaging {
         return others;
     }
 
-    public String getStaffType(long id){
+    public String getStaffType(long id) {
         Staff s = getStaff(id);
-        if(s instanceof Doctor){
+        if (s instanceof Doctor) {
             return "Doctor";
-        }if(s instanceof Nurse){
+        }
+        if (s instanceof Nurse) {
             return "Nurse";
-        }if(s instanceof Accountant){
+        }
+        if (s instanceof Accountant) {
             return "Accountant";
-        }if(s instanceof Admin){
+        }
+        if (s instanceof Admin) {
             return "Admin";
-        }else{
+        } else {
             return "OtherStaff";
         }
     }

@@ -17,11 +17,11 @@ public class StaffLogInSignUpMenu implements Menu {
     Scanner scanner = new Scanner(System.in);
     public long id;
     LoginSignup loginSignup = new LoginSignup();
-    public String type="Doctor";
+    public String type = "Doctor";
     MenuForStaff context;
 
     public StaffLogInSignUpMenu(MenuForStaff context) {
-        this.context=context;
+        this.context = context;
     }
 
     public void loginSignupForStaff() throws InvalidInputException {
@@ -45,7 +45,7 @@ public class StaffLogInSignUpMenu implements Menu {
             System.out.println("Input id (Input id you put in when you did sign up for staff)");
             id = scanner.nextLong();
             if (loginSignup.checkIfStaffExists(id)) {
-                this.type=new CheckStaffType().checkType(id);
+                this.type = new CheckStaffType().checkType(id);
                 scanner.nextLine();
             } else {
                 System.out.println("You do not have an account, enter 1 to switch to sign up instead");
@@ -80,7 +80,7 @@ public class StaffLogInSignUpMenu implements Menu {
 
     public void signupStaff() throws InvalidInputException {
         System.out.println("SignUp as what type: Doctor/Nurse/Admin/Accountant");
-        String type= scanner.nextLine();
+        String type = scanner.nextLine();
         System.out.println("Input name (Input String)");
         String name = scanner.nextLine();
         System.out.println("Input gender (Input Male or Female)");
@@ -100,7 +100,7 @@ public class StaffLogInSignUpMenu implements Menu {
             workingTime = loginSignup.makeWorkingTime(event);
 
 
-            switch (type){
+            switch (type) {
                 case "Doctor":
                     new DoctorSignUp().signUp(name, gender, id, workingTime, pwd, salary);
                 case "Admin":
@@ -116,7 +116,7 @@ public class StaffLogInSignUpMenu implements Menu {
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
-        System.out.println("sign up  "+ loginSignup.checkIfStaffExists(id));
+        System.out.println("sign up  " + loginSignup.checkIfStaffExists(id));
         toState(type);
     }
 
@@ -129,7 +129,7 @@ public class StaffLogInSignUpMenu implements Menu {
     //based on input staff type transfer to that type's menu
     @Override
     public void toState(String type) throws InvalidInputException {
-        switch (type){
+        switch (type) {
             case "Doctor":
                 context.setState(new DoctorMenu());
             case "Admin":
@@ -138,6 +138,7 @@ public class StaffLogInSignUpMenu implements Menu {
                 context.setState(new AccountantMenu());
             case "Nurse":
                 context.setState(new NurseMenu());
-        }context.doThings();
+        }
+        context.doThings();
     }
 }

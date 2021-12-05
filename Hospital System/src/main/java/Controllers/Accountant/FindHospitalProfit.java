@@ -7,19 +7,13 @@ public class FindHospitalProfit {
     /**
      * Controller that find the hospital profit
      */
-    StaffManaging manager;
-
-    /**
-     * Constructor for this controller
-     */
-    public FindHospitalProfit() {
-        StaffManaging manager = new StaffManager();
-    }
+    StaffManaging manager = new StaffManager();
 
     /**
      * Find total profit of this hospital
      *
      * @return
+     * Total profit in int
      */
     public int totalProfit() {
         return manager.getHospitalProfit();

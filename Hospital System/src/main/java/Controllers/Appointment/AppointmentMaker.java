@@ -34,7 +34,7 @@ public class AppointmentMaker {
      *
      * @param id Staff id
      */
-    public AppointmentMaker(Long id){
+    public AppointmentMaker(Long id) {
         this.stm = new StaffManager();
         Staff staff = stm.getStaff(id);
         this.stms = new ScheduleManager(staff);
@@ -54,7 +54,7 @@ public class AppointmentMaker {
      *
      * @return A string of appointment event names and time and date of events
      */
-    public String checkStaffSchedule(){
+    public String checkStaffSchedule() {
         return stms.getScheduleString();
     }
 
@@ -63,7 +63,7 @@ public class AppointmentMaker {
      *
      * @param event String name of event
      * @param start Start time and date
-     * @param end End time and date
+     * @param end   End time and date
      */
     public void makeAppointment(String event, String start, String end) throws InvalidInputException {
         sm.addOrModifyEvent(event, start, end);
@@ -73,7 +73,7 @@ public class AppointmentMaker {
      * Deletes an appointment for start time and day until end time and day
      *
      * @param start Start time and date
-     * @param end End time and date
+     * @param end   End time and date
      */
     public void deleteEvent(String start, String end) throws StaffNotFoundException {
         sm.removeEvent(start, end);

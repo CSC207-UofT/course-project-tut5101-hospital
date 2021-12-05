@@ -2,7 +2,7 @@ package UseCases.Staff.Builders;
 
 import Entity.Staff.Admin;
 
-public class AdminBuilder extends StaffBuilder{
+public class AdminBuilder extends StaffBuilder {
 
     public AdminBuilder() {
         this.s = new Admin();

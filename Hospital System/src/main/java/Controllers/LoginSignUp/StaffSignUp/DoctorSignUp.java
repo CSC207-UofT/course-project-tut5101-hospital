@@ -4,7 +4,7 @@ import Entity.Schedule.Schedule;
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;
 
-public class DoctorSignUp implements StaffSignUp{
+public class DoctorSignUp implements StaffSignUp {
 
 
     @Override

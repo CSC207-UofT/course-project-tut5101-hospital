@@ -7,12 +7,15 @@ import Exceptions.InvalidInputException;
 import Presenters.Functions.FindBestStaffPresenter;
 import UseCases.Staff.StaffManager;
 
-public class AdminMenu extends StaffMenu{
+public class AdminMenu extends StaffMenu {
     @Override
     public void activity() throws InvalidInputException {
-            findBestStaff();
-    }/**
+        findBestStaff();
+    }
+
+    /**
      * Only Admin can call this function to find the best staff function.
+     *
      * @throws InvalidInputException
      */
     public void findBestStaff() throws InvalidInputException {

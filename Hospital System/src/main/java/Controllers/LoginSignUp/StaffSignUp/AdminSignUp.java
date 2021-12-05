@@ -4,7 +4,7 @@ import Entity.Schedule.Schedule;
 import UseCases.Staff.StaffManager;
 import UseCases.Staff.StaffManaging;
 
-public class AdminSignUp implements StaffSignUp{
+public class AdminSignUp implements StaffSignUp {
 
     @Override
     public void signUp(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {

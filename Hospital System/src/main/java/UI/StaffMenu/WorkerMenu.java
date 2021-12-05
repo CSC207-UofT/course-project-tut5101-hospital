@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkerMenu extends StaffMenu{
+public class WorkerMenu extends StaffMenu {
 
 
     public void activitiesForStaffs() throws InvalidInputException, FileNotFoundException {
@@ -56,8 +56,6 @@ public class WorkerMenu extends StaffMenu{
             addPatientMH();
         }
     }
-
-
 
 
     /**

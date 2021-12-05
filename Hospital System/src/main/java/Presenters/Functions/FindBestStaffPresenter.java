@@ -2,7 +2,7 @@ package Presenters.Functions;
 
 import Presenters.Printable;
 
-public class FindBestStaffPresenter implements Printable{
+public class FindBestStaffPresenter implements Printable {
 
     @Override
     public String print() {
@@ -12,7 +12,7 @@ public class FindBestStaffPresenter implements Printable{
                 "3: Find best staff by total income from operations he/she did.";
     }
 
-    public String print(String string){
+    public String print(String string) {
         return "The best staff is: ";
     }
 }
