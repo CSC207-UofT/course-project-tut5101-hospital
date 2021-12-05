@@ -127,13 +127,15 @@ public class ScheduleManager implements ScheduleManaging {
     public Schedule staffSchedule(String event) throws InvalidInputException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
+        LocalDateTime stEnd = LocalDateTime.parse("2021-12-01 02:00", formatter);
         LocalDateTime e = LocalDateTime.parse("2021-12-15 11:00", formatter);
         while (st.isBefore(e)) {
             if (!st.isBefore(e)) {
                 throw new InvalidInputException("");
             } else {
-                Event eventStaff = new Event(st, e);
+                Event eventStaff = new Event(st, stEnd);
                 s.addOrModifyEvent(event, eventStaff);
+                stEnd = stEnd.plusHours(1);
                 st = st.plusHours(1);
             }
         }

@@ -89,13 +89,17 @@ public class Schedule implements java.io.Serializable {
         }
         StringBuilder s = new StringBuilder();
         for (Entry<Event, String> entry : schedule.entrySet()) {
-            s.append("Start-End:\t");
+            s.append("Start:\t");
 
             s.append(entry.getKey().getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
             s.append("\t");
 
+            s.append(entry.getKey().getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
+            s.append("\t");
+
             s.append("\tEvent:");
             s.append(entry.getValue());
+            s.append("\n");
         }
         return s.toString();
     }
