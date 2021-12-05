@@ -137,12 +137,8 @@ public class WorkerMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextLong();
-            scanner.nextLine();
-        } catch (Exception e) {
-            throw new InvalidInputException("Invalid input");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
