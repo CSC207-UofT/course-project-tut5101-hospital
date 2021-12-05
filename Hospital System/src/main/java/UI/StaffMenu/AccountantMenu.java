@@ -2,10 +2,15 @@ package UI.StaffMenu;
 
 import Controllers.Accountant.FindHospitalProfit;
 import Presenters.Functions.FindHospitalProfitPresenter;
+import UI.MenuForStaff;
 
 public class AccountantMenu extends StaffMenu{
+    public AccountantMenu(MenuForStaff context) {
+        super(context);
+    }
+
     @Override
-    public void activity() {
+    public void doStuff() {
         findHospitalProfit();
     }/**
      * Find hospital profit, only account staff can use this.

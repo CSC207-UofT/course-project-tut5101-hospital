@@ -131,13 +131,13 @@ public class StaffLogInSignUpMenu implements Menu {
     public void toState(String type) throws InvalidInputException {
         switch (type){
             case "Doctor":
-                context.setState(new DoctorMenu());
+                context.setState(new DoctorMenu(context));
             case "Admin":
-                context.setState(new AdminMenu());
+                context.setState(new AdminMenu(context));
             case "Accountant":
-                context.setState(new AccountantMenu());
+                context.setState(new AccountantMenu(context));
             case "Nurse":
-                context.setState(new NurseMenu());
+                context.setState(new NurseMenu(context));
         }context.doThings();
     }
 }

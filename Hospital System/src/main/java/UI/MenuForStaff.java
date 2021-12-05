@@ -10,10 +10,13 @@ public class MenuForStaff {
     public MenuForStaff() throws InvalidInputException {
         doThings();
     }
+
     //state design pattern
     public void setState(Menu state) {
         this.state = state;
-    }public void doThings() throws InvalidInputException {
+    }
+
+    public void doThings() throws InvalidInputException {
         state.activity();
         /*
          * TODO: Additional method should be added here from workerMenu
