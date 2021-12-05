@@ -39,7 +39,6 @@ public abstract class StaffMenu implements Menu {
         if(!c.equals("q")){
             context.setState(new StaffLogInSignUpMenu(context));
         }
-        quit();
     }
 
 }

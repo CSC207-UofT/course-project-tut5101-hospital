@@ -14,7 +14,7 @@ import java.util.List;
  * information from the patient's visit to the hospital
  */
 
-public class PatientMedicalHistory implements java.io.Serializable{
+public class PatientMedicalHistory implements java.io.Serializable {
     private final String physicianName;
     private final String bloodPressure;
     private final String pulse;
@@ -40,7 +40,6 @@ public class PatientMedicalHistory implements java.io.Serializable{
 
     /**
      * Return a string of patient medical history information
-     *
      */
     public String getPatientMH() {
         return "Physician Name: " + this.physicianName + "\n" +
@@ -54,7 +53,6 @@ public class PatientMedicalHistory implements java.io.Serializable{
 
     /**
      * Getters
-     *
      */
     public List<BufferedImage> getMedicalImage() throws IOException {
         List<BufferedImage> images = new ArrayList<>();
@@ -67,7 +65,7 @@ public class PatientMedicalHistory implements java.io.Serializable{
 
     public String getCurrentMedications() {
         StringBuilder allMedications = new StringBuilder();
-        for (String medication: this.currentMedications) {
+        for (String medication : this.currentMedications) {
             allMedications.append(medication);
             allMedications.append(", ");
         }

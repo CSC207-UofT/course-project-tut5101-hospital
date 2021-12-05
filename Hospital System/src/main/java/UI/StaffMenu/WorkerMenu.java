@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkerMenu extends StaffMenu{
+public class WorkerMenu extends StaffMenu {
 
 
     public WorkerMenu(MenuForStaff context) {
@@ -61,8 +61,6 @@ public class WorkerMenu extends StaffMenu{
             addPatientMH();
         }
     }
-
-
 
 
     /**

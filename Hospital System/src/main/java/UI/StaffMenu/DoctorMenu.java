@@ -22,7 +22,7 @@ public class DoctorMenu extends StaffMenu{
 
     @Override
     public void doStuff() {
-
+        System.out.println("hhhh");
     }
 
 }

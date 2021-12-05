@@ -119,7 +119,7 @@ public class MenuForPatient {
         System.out.println("Press 1 to view your money");
         c = scanner.nextInt();
         scanner.nextLine();
-        if (c==1){
+        if (c == 1) {
             System.out.println("Your Account Have $ " + patient.getFee());
         }
         while (patient.getFee() < 50) {

@@ -5,7 +5,7 @@ package UseCases.Staff.Builders;
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 
-public abstract class StaffBuilder implements StaffBuilding{
+public abstract class StaffBuilder implements StaffBuilding {
     /**
      * Staff builder for staff.
      */

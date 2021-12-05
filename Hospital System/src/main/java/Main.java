@@ -8,6 +8,7 @@ import UseCases.Staff.StaffManager;
 
 public class Main {
     Menu state;
+
     public static void main(String[] args) throws InvalidInputException {
         MenuChooseStaffOrPatient menuChooseStaffOrPatient = new MenuChooseStaffOrPatient();
         menuChooseStaffOrPatient.choosePatientOrStaff();

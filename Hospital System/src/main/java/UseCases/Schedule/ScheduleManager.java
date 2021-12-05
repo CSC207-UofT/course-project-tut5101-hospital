@@ -68,7 +68,7 @@ public class ScheduleManager implements ScheduleManaging {
      *
      * @param event String name of event
      * @param start Start time and date
-     * @param end End time and date
+     * @param end   End time and date
      * @throws InvalidInputException
      */
     @Override
@@ -87,7 +87,7 @@ public class ScheduleManager implements ScheduleManaging {
      * Remove event
      *
      * @param start Start time and date
-     * @param end End time and date
+     * @param end   End time and date
      * @throws StaffNotFoundException
      */
     @Override

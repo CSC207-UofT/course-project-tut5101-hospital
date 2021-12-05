@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * This file contains the class Patient Record and is used to get the patient record
  */
-public class PatientRecords implements java.io.Serializable{
+public class PatientRecords implements java.io.Serializable {
     private String height;
     private String weight;
     private final String sex;
@@ -15,10 +15,10 @@ public class PatientRecords implements java.io.Serializable{
     /**
      * Entity class to create patient record
      *
-     * @param height Height of that patient
-     * @param weight Weight of that patient
-     * @param sex Sex (gender at birth) of that patient
-     * @param allergies Allergies of that patient
+     * @param height       Height of that patient
+     * @param weight       Weight of that patient
+     * @param sex          Sex (gender at birth) of that patient
+     * @param allergies    Allergies of that patient
      * @param vaccinations Vaccinations of that patient
      */
     public PatientRecords(String height, String weight, String sex, List<String> allergies, List<String> vaccinations) {
@@ -49,7 +49,7 @@ public class PatientRecords implements java.io.Serializable{
      */
     public String getVaccinations() {
         StringBuilder allVaccinations = new StringBuilder();
-        for (String vaccine: this.vaccinations) {
+        for (String vaccine : this.vaccinations) {
             allVaccinations.append(vaccine);
             allVaccinations.append(", ");
         }
@@ -64,7 +64,7 @@ public class PatientRecords implements java.io.Serializable{
      */
     public String getAllergies() {
         StringBuilder allAllergies = new StringBuilder();
-        for (String allergy: this.allergies) {
+        for (String allergy : this.allergies) {
             allAllergies.append(allergy);
             allAllergies.append(", ");
         }
