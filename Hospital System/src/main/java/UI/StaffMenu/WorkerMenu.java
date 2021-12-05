@@ -207,6 +207,9 @@ public class WorkerMenu extends StaffMenu {
                 throw new InvalidInputException("");
             }
         }
+        if (choice == 7) {
+            makePatientRecord();
+        }
     }
 
     public void makePatientRecord() throws InvalidInputException {
