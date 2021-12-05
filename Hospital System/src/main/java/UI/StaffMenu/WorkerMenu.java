@@ -79,6 +79,7 @@ public class WorkerMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
@@ -89,6 +90,7 @@ public class WorkerMenu extends StaffMenu {
             System.out.println("2: Medical Record");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }
@@ -137,6 +139,7 @@ public class WorkerMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
             healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
         } catch (Exception e) {
             throw new InvalidInputException("Invalid input");
         }
@@ -153,8 +156,12 @@ public class WorkerMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        healthCardNumber = scanner.nextLong();
-
+        try {
+            healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
+        } catch (Exception e) {
+            throw new InvalidInputException("Invalid input");
+        }
 
         PatientManager patientManager = PatientManager.getInstance();
         PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();

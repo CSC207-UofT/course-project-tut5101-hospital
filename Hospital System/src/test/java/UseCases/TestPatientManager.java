@@ -22,7 +22,7 @@ public class TestPatientManager {
     private PatientRecords patientRecords;
     private PatientMedicalHistory patientMedicalHistory;
     private PatientMedicalHistory patientMH;
-    private Map H = new HashMap<>();
+    private Map<String, Object> H = new HashMap<>();
 
     @Before
     public void setUp() throws Exception {
@@ -49,7 +49,9 @@ public class TestPatientManager {
                 "35 degrees celcius", cm, "Ill",
                 "Given  1 does of tylenol");
         pRL.addHistory(patientMH, "2003-06-14 16:49");
-
+        H.put("2000-03-25 11:36", patientRecords);
+        H.put("2000-03-25 12:19", patientMedicalHistory);
+        H.put("2003-06-14 16:49", patientMH);
     }
 
     @Test
@@ -69,7 +71,7 @@ public class TestPatientManager {
 
 
     @Test
-    public void TestEmptyRecord() {
+    public void TestContainsRecords() {
         Assert.assertEquals(patient.getPRL().getPatientRecords(), H);
     }
 
