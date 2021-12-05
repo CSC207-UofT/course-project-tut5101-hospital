@@ -22,7 +22,7 @@ public class ViewDoctorSchedules implements Printable {
     public String print() {
         for (long id : sm.getAllDoctorId()) {
             scm = new ScheduleManager(sm.getStaff(id));
-            str += (sm.getStaffInfo(id) + "\t" + scm.getScheduleString());
+            str += (sm.getStaffInfo(id) + "\t" + scm.getScheduleString() + "\n");
         }
         return str;
     }

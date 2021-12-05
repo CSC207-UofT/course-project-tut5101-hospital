@@ -9,6 +9,6 @@ public class StaffNotFoundException extends Exception {
      */
     public StaffNotFoundException(String e) {
         super(e);
-        System.out.println("some stuff is missing, make sure it is created.");
+        System.out.println("This staff is missing, make sure it is created.");
     }
 }
