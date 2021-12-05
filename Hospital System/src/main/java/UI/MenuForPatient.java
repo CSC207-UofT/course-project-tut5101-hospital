@@ -131,26 +131,18 @@ public class MenuForPatient {
         System.out.println("Which Staff would you like, enter id");
         long id = scanner.nextLong();
         scanner.nextLine();
-        StaffManager sfm = StaffManager.getInstance();
-        Staff staff = sfm.getStaff(id);
-        ScheduleManager sms = new ScheduleManager(staff.getSchedule());
-        if (sfm.checkIfStaffExist(id)) {
-            sfm.getStaffSm(id);
-        }
+//        StaffManager sfm = StaffManager.getInstance();
+//        if (sfm.checkIfStaffExist(id)) {
+//            sfm.getStaffSm(id);
+//        }
+        System.out.println("Choose a time that is not in the staff's schedule");
         AppointmentMaker am = new AppointmentMaker(hcn);
-        System.out.println("Input start time yyyy-MM-dd HH:mm.  Booking time start at 2021-12-01 01:00");
-        String start = scanner.nextLine();
-        System.out.println("Input end time yyyy-MM-dd HH:mm.    Booking time finishes at 2021-12-15 11:00");
-        String end = scanner.nextLine();
         try {
-            am.makeAppointment(event, start, end);
+            am.viewChoices();
+            String d = scanner.nextLine();
+            am.makeAppointment(d, event, id);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
-        }
-        try {
-            am.deleteEvent(start, end);
-        } catch (StaffNotFoundException e) {
-            System.out.println("Staff Not Found");
         }
         if (sm.getScheduleString() != null) {
             System.out.println("You have successfully booked an appointment");
