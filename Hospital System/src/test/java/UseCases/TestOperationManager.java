@@ -18,6 +18,10 @@ import java.time.format.DateTimeFormatter;
 
 public class TestOperationManager {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    OperationBonusCalculator opBonus;
+    OperationFeeCalculator opFee;
+    OperationManager opPatient;
+    OperationManager opDoctor;
 
     @Before
     public void setUp() throws Exception {
@@ -31,22 +35,21 @@ public class TestOperationManager {
         Schedule scheduleDoc = new Schedule();
         loginSignup.signUpForDoctors("Jill", "Male", 10, scheduleDoc, "cuts", 40);
         Operation operation = new Operation(100, "Appendicitis", "Appendix removal", optTime);
-        OperationBonusCalculator opBonus = new OperationBonusCalculator((Doctor) loginSignup.initStaff(10), operation);
-        OperationFeeCalculator opFee = new OperationFeeCalculator(loginSignup.initPatient(2), operation);
-
-        OperationManager opPatient = new OperationManager(loginSignup.initPatient(2));
-        OperationManager opDoctor = new OperationManager((Doctor) loginSignup.initStaff(10));
+        opBonus = new OperationBonusCalculator((Doctor) loginSignup.initStaff(10), operation);
+        opFee = new OperationFeeCalculator(loginSignup.initPatient(2), operation);
+        opPatient = new OperationManager(loginSignup.initPatient(2));
+        opDoctor = new OperationManager((Doctor) loginSignup.initStaff(10));
     }
 
-    //    @Test
-    //    public void TestOperationFeeCalculator() {
-    //        Assert.assertEquals(opFee.finish(), 100);
-//     }
+    @Test
+    public void TestOperationFeeCalculator() {
+        Assert.assertEquals(100, opFee.finish());
+    }
 
-  //  @Test
-//    public void TestOperationBonusCalculator() {
-//         Assert.assertEquals(opBonus.finish(), 20);
-    //    }
+    @Test
+    public void TestOperationBonusCalculator() {
+        Assert.assertEquals(20, opBonus.finish());
+    }
 
 
 }
