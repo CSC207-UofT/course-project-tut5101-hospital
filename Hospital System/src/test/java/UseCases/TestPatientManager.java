@@ -19,7 +19,7 @@ public class TestPatientManager {
     private Patient patient;
     private PatientRecords patientRecords;
     private PatientMedicalHistory patientMedicalHistory;
-    private List<InputStream> medicalImages;
+    private PatientMedicalHistory patientMH;
 
     @Before
     public void setUp() throws Exception {
@@ -37,14 +37,14 @@ public class TestPatientManager {
         currentMedications.add("Reactin");
         patientMedicalHistory = new PatientMedicalHistory("John", "120/80", "80",
                 "40 degrees celcius", currentMedications, "Slight fever",
-                "Given  1 does of tylenol", medicalImages);
+                "Given  1 does of tylenol");
         patient.getPRL().addHistory(patientMedicalHistory, "2000-03-25 12:19");
         List<String> cm = new ArrayList<>();
         cm.add("None");
-        patientMedicalHistory = new PatientMedicalHistory("John", "120/80", "80",
-                "40 degrees celcius", cm, "Ill",
-                "Given  1 does of tylenol", medicalImages);
-        patient.getPRL().addHistory(patientMedicalHistory, "2003-06-14 16:49");
+        patientMH = new PatientMedicalHistory("John", "120/80", "80",
+                "35 degrees celcius", cm, "Ill",
+                "Given  1 does of tylenol");
+        patient.getPRL().addHistory(patientMH, "2003-06-14 16:49");
     }
 
     @Test
@@ -62,14 +62,13 @@ public class TestPatientManager {
         Assert.assertTrue(pm.checkLoginInfo(453, "growl"));
     }
 
-//    @Test
- //   public void TestgetPatientMedicalRecord() {
- //       Assert.assertEquals(pm.checkLoginInfo(453, "growl"));
-//    }
+    @Test
+    public void TestgetPatientMedicalRecord() {
+       Assert.assertEquals(patientMedicalHistory.getPatientMH() + patientMH.getPatientMH(), pm.getPatientMedicalRecord(453));
+    }
 
- //   @Test
-  //  public void TestgetPatientRecord() {
-//        Assert.assertTrue(pm.checkLoginInfo(453, "growl"));
- //   }
-
+    @Test
+    public void TestgetPatientRecord() {
+        Assert.assertEquals(patientRecords.getPatientRecord(), pm.getPatientRecord(435));
+    }
 }

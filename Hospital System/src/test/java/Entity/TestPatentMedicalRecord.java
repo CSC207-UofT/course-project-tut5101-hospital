@@ -11,7 +11,6 @@ import java.util.List;
 
 public class TestPatentMedicalRecord {
     private PatientMedicalHistory patientMedicalHistory;
-    private List<InputStream> medicalImages;
 
     @Before
     public void setUp() throws Exception {
@@ -19,7 +18,7 @@ public class TestPatentMedicalRecord {
         currentMedications.add("Reactin");
         patientMedicalHistory = new PatientMedicalHistory("John", "120/80", "80",
                 "40 degrees celcius", currentMedications, "Slight fever",
-                "Given  1 does of tylenol", medicalImages);
+                "Given  1 does of tylenol");
     }
 
     @Test

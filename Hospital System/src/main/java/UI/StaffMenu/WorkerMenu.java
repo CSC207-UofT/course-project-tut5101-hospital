@@ -128,17 +128,7 @@ public class WorkerMenu extends StaffMenu {
         String diagnosis = scanner.nextLine();
         System.out.println("Input treatment methods (Use String)");
         String treatment = scanner.nextLine();
-        System.out.println("Upload medical images taken (Input image file path and type complete when input completed)");
-        while (done.equals("done")) {
-            String imagePath = scanner.nextLine();
-            if (imagePath.equals("complete")) {
-                done = "complete";
-            } else {
-                InputStream imageFile = new FileInputStream(imagePath);
-                medicalImages.add(imageFile);
-            }
-        }
-        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment);
         System.out.println("Patient Medical History successfully created");
 
         System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
