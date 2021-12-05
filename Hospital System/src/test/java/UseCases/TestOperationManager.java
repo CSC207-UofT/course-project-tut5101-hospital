@@ -1,7 +1,10 @@
 package UseCases;
 
+import Controllers.LoginSignUp.LoginSignup;
+import Controllers.LoginSignUp.StaffSignUp.DoctorSignUp;
 import Entity.Operations.Operation;
 import Entity.Patients.Patient;
+import Entity.Schedule.Schedule;
 import Entity.Staff.Doctor;
 import UseCases.Operation.OperationFacade.OperationBonusCalculator;
 import UseCases.Operation.OperationFacade.OperationFeeCalculator;
@@ -25,14 +28,15 @@ public class TestOperationManager {
         optTime.add(start);
         LocalDateTime end = LocalDateTime.parse("2021-10-01 12:00", formatter);
         optTime.add(end);
-        Doctor doctor = new Doctor();
-        Patient patient = new Patient();
+        LoginSignup loginSignup = new LoginSignup();
+        loginSignup.signUpForPatients("Harry", "Male", 1, 2, "3", 0);
+        Schedule scheduleDoc = new Schedule();
+        loginSignup.signUpForDoctors("Jill", "Male", 10, scheduleDoc, "cuts", 40);
         Operation operation = new Operation(100, "Appendicitis", "Appendix removal", optTime);
-        OperationManager opPatient = new OperationManager(patient);
-        OperationManager opDoctor = new OperationManager(doctor);
-        OperationBonusCalculator opBonus = new OperationBonusCalculator(doctor, operation);
-        OperationFeeCalculator opFee = new OperationFeeCalculator(patient, operation);
-
+        OperationManager opPatient = new OperationManager(loginSignup.initPatient(2));
+        OperationManager opDoctor = new OperationManager((Doctor) loginSignup.initStaff(10));
+        OperationBonusCalculator opBonus = new OperationBonusCalculator((Doctor) loginSignup.initStaff(10), operation);
+        OperationFeeCalculator opFee = new OperationFeeCalculator(loginSignup.initPatient(2), operation);
     }
 
     @Test
