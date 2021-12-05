@@ -13,12 +13,23 @@ public class TestPatientManager {
 
     @Before
     public void setUp() throws Exception {
+        pm.addPatient("Claire", "Female", 5, 453, "growl", 0);
         patient = pm.newPatient("Claire", "Female", 5, 453, "growl", 0);
     }
 
     @Test
     public void TestNewPatient() {
-        Assert.assertEquals(patient ,pm.getPatient(453));
+        Assert.assertEquals(patient, pm.getPatient(453));
+    }
+
+    @Test
+    public void TestcheckifPatientexist() {
+        Assert.assertTrue(pm.checkIfPatientExist(453));
+    }
+
+    @Test
+    public void TestcheckLoginInfo() {
+        Assert.assertTrue(pm.checkLoginInfo(453, "growl"));
     }
 
 
