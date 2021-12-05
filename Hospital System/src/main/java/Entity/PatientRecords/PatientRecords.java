@@ -30,8 +30,9 @@ public class PatientRecords implements java.io.Serializable{
     }
 
     /**
-     * Return a string of patient record information
+     * Get patient record information.
      *
+     * @return A string of patient record information
      */
     public String getPatientRecord() {
         return "Patient height: " + this.height + "\n" +
@@ -42,8 +43,9 @@ public class PatientRecords implements java.io.Serializable{
     }
 
     /**
-     * Getters and setters
+     * Get vaccination information.
      *
+     * @return A string of all vaccines taken by patient
      */
     public String getVaccinations() {
         StringBuilder allVaccinations = new StringBuilder();
@@ -55,6 +57,11 @@ public class PatientRecords implements java.io.Serializable{
         return allVaccinations.toString();
     }
 
+    /**
+     * Get patient allergy information.
+     *
+     * @return A string of all patient allergies
+     */
     public String getAllergies() {
         StringBuilder allAllergies = new StringBuilder();
         for (String allergy: this.allergies) {

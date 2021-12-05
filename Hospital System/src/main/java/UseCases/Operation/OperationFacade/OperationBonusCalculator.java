@@ -25,7 +25,7 @@ public class OperationBonusCalculator {
     /**
      * Doctor get bonus
      *
-     * @return
+     * @return amount of bonus pay given to doctor
      */
     public double finish() {
         d.addBonus(.20 * op.getCost());
