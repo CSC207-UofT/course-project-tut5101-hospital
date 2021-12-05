@@ -149,7 +149,7 @@ public class MenuForPatient {
         }
         try {
             am.deleteEvent(start, end);
-        } catch (StaffNotFoundException s) {
+        } catch (StaffNotFoundException e) {
             System.out.println("Staff Not Found");
         }
         if (sm.getScheduleString() != null) {
@@ -159,7 +159,7 @@ public class MenuForPatient {
     }
 
     private void viewAppointment() {
-        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn).getSchedule());
+        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn));
         System.out.println(sm.getScheduleString());
     }
 
