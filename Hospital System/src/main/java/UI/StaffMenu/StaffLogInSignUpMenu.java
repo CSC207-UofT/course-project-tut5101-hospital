@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class StaffLogInSignUpMenu implements Menu {
     Scanner scanner = new Scanner(System.in);
-    public long id;
+    public Long id;
     LoginSignup loginSignup = new LoginSignup();
     public String type="Doctor";
     MenuForStaff context;
@@ -44,6 +44,7 @@ public class StaffLogInSignUpMenu implements Menu {
         do {
             System.out.println("Input id (Input id you put in when you did sign up for staff)");
             id = scanner.nextLong();
+            id = Long.valueOf(id);
             if (loginSignup.checkIfStaffExists(id)) {
                 this.type=new CheckStaffType().checkType(id);
                 scanner.nextLine();
@@ -71,6 +72,7 @@ public class StaffLogInSignUpMenu implements Menu {
                     System.out.println("Input id (Input integer)");
                     long idForRetrieve = scanner.nextLong();
                     System.out.println("You will be notified by management in the next 48 hours to retrieve your password.");
+                    success = true;
                 }
             }
         } while (!success);
@@ -87,6 +89,7 @@ public class StaffLogInSignUpMenu implements Menu {
         String gender = scanner.nextLine();
         System.out.println("Input id (Input Integer)");
         id = scanner.nextLong();
+        id = Long.valueOf(id);
         scanner.nextLine();
         System.out.println("Input password (Input String)");
         String pwd = scanner.nextLine();
@@ -116,7 +119,7 @@ public class StaffLogInSignUpMenu implements Menu {
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
-        System.out.println("sign up  "+ loginSignup.checkIfStaffExists(id));
+        System.out.println("sign up  " + loginSignup.checkIfStaffExists(id));
         toState(type);
     }
 

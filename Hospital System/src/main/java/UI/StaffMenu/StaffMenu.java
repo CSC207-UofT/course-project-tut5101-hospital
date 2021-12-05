@@ -22,8 +22,8 @@ public abstract class StaffMenu implements Menu {
         doStuff();
         quit();
         //in case a log out feature is implemented, this would be filled out
-        toState("not implemented");
-        context.doThings();
+//        toState("not implemented");
+//        context.doThings();
     }
 
     @Override
@@ -36,9 +36,10 @@ public abstract class StaffMenu implements Menu {
     }public void quit(){
         System.out.println("press q to quit, other to continue");
         String c = scanner.nextLine();
-        if(c!="q"){
+        if(!c.equals("q")){
             context.setState(new StaffLogInSignUpMenu(context));
         }
+        quit();
     }
 
 }
