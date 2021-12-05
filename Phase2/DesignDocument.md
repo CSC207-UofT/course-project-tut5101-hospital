@@ -16,7 +16,7 @@
 ## Clean Architecture
 1. UML diagram  
 2. Scenario Walkthrough:  
-   
+   Say the management staff wants to look for the best staff in the hospital. They would first interact with the UI which upon receiving an input will call a presenter that 
 
 
 ## Design Patterns

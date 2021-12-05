@@ -7,7 +7,7 @@ public interface GetBestStrategy {
     /**
      * Interface for GetBestStrategy
      */
-    StaffManaging sm = new StaffManager();
+    StaffManaging sm = StaffManager.getInstance();
 
     /**
      * Find best staff id

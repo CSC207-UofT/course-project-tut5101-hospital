@@ -8,7 +8,7 @@ public class StaffScheduleViewer implements Printable {
     /**
      * Staff schedule viewer presenter
      */
-    StaffManager sm = new StaffManager();
+    StaffManager sm = StaffManager.getInstance();
     ScheduleManager scm;
     String str;
 

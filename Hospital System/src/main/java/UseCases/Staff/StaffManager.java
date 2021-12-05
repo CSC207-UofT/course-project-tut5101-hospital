@@ -3,6 +3,7 @@ package UseCases.Staff;
 import Entity.Staff.*;
 import Entity.Schedule.Schedule;
 import UseCases.Operation.OperationManager;
+import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.MethodsForStaffManager.NewStaffs;
 
@@ -15,6 +16,18 @@ public class StaffManager implements StaffManaging {
      * Staff manager use case
      */
     StaffData sessionData = new StaffData();
+
+    //singleton design pattern
+    private static StaffManager pm =null;
+
+    private StaffManager(){
+
+    }
+    public static StaffManager getInstance() {
+        if(pm == null){
+            pm = new StaffManager();
+        }return pm;
+    }
 
     /**
      * New staff

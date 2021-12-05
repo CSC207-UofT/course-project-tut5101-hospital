@@ -7,7 +7,7 @@ public class FindHospitalProfit {
     /**
      * Controller that find the hospital profit
      */
-    StaffManaging manager = new StaffManager();
+    StaffManaging manager = StaffManager.getInstance();
 
     /**
      * Find total profit of this hospital

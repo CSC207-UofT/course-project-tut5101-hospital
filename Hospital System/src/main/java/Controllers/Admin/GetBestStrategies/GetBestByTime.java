@@ -7,7 +7,7 @@ public class GetBestByTime implements GetBestStrategy {
     /**
      * Get Best By Time
      */
-    StaffManaging sm = new StaffManager();
+    StaffManaging sm = StaffManager.getInstance();
 
     /**
      * Find Best By Time

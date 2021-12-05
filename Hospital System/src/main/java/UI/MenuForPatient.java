@@ -131,7 +131,7 @@ public class MenuForPatient {
         System.out.println("Which Staff would you like, enter id");
         long id = scanner.nextLong();
         scanner.nextLine();
-        StaffManager sfm = new StaffManager();
+        StaffManager sfm = StaffManager.getInstance();
         Staff staff = sfm.getStaff(id);
         ScheduleManager sms = new ScheduleManager(staff.getSchedule());
         if (sfm.checkIfStaffExist(id)) {

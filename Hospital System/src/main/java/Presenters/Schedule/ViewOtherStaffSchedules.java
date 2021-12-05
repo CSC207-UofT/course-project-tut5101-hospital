@@ -9,7 +9,7 @@ public class ViewOtherStaffSchedules implements Printable {
     /**
      * Other staff schedule viewer presenter
      */
-    StaffManager sm = new StaffManager();
+    StaffManager sm = StaffManager.getInstance();
     ScheduleManager scm;
     String str;
 

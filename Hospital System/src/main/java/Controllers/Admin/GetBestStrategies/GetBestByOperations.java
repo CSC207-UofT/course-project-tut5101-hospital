@@ -7,7 +7,7 @@ public class GetBestByOperations implements GetBestStrategy {
     /**
      * Get Best By Operations
      */
-    StaffManaging sm = new StaffManager();
+    StaffManaging sm = StaffManager.getInstance();
 
     /**
      * Find Best By Operations

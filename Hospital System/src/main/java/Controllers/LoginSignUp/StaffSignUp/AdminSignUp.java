@@ -19,7 +19,7 @@ public class AdminSignUp implements StaffSignUp {
      */
     @Override
     public void signUp(String name, String gender, long ID, Schedule workingTime, String password, int fixedSalary) {
-        StaffManaging sm = new StaffManager();
+        StaffManaging sm = StaffManager.getInstance();
         sm.addAdmin(name, gender, ID, workingTime, password, fixedSalary);
     }
 }

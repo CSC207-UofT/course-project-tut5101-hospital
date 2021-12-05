@@ -15,6 +15,17 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * Patient manager
      */
     PatientData sessionData = new PatientData();
+    private static PatientManager pm =null;
+
+    private PatientManager(){
+
+    }
+    public static PatientManager getInstance() {
+        if(pm == null){
+            pm = new PatientManager();
+        }return pm;
+    }
+
 
     /**
      * For new patient

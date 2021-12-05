@@ -9,7 +9,7 @@ public class PatientMedicalRecordViewer {
      * Presenter to view patient medical record
      */
 
-    PatientManager patientManager = new PatientManager();
+    PatientManager patientManager =PatientManager.getInstance();
 
     /**
      * Call use case to return patient medical record

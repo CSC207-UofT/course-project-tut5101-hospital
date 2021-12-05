@@ -26,8 +26,8 @@ public class LoginSignup {
      * Constructor for login sign up
      */
     public LoginSignup() {
-        this.pm = new PatientManager();
-        this.sm = new StaffManager();
+        this.pm =PatientManager.getInstance();
+        this.sm = StaffManager.getInstance();
         this.sms = new ScheduleManager(new Schedule());
     }
 
@@ -48,7 +48,7 @@ public class LoginSignup {
      * @return if the staff with the id exist
      */
     public Boolean checkIfStaffExists(Long id) {
-        return (sm.checkIfStaffExist(id));
+         return (sm.checkIfStaffExist(id));
     }
 
     /**

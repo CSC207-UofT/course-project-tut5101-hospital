@@ -26,8 +26,8 @@ public class AppointmentMaker {
      * @param hcnOrId Patient health card number or Staff id
      */
     public AppointmentMaker(long hcnOrId) {
-        this.pm = new PatientManager();
-        this.stm = new StaffManager();
+        this.pm  =PatientManager.getInstance();
+        this.stm = StaffManager.getInstance();
         this.sm = pm.getPatientScheduleManager(hcnOrId);
     }
 
@@ -37,7 +37,7 @@ public class AppointmentMaker {
      * @param id Staff id
      */
     public AppointmentMaker(Long id) {
-        this.stm = new StaffManager();
+        this.stm = StaffManager.getInstance();
         this.stms = new ScheduleManager(stm.getStaff(id));
     }
 

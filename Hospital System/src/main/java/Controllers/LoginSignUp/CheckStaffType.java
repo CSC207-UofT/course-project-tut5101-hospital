@@ -11,7 +11,7 @@ public class CheckStaffType {
      * @return string for staff type
      */
     public String checkType(long id) {
-        StaffManaging sm = new StaffManager();
+        StaffManaging sm = StaffManager.getInstance();
         return sm.getStaffType(id);
     }
 }

@@ -7,7 +7,7 @@ public class GetBestByOperationIncome implements GetBestStrategy {
     /**
      * Get best by operating income
      */
-    StaffManaging sm = new StaffManager();
+    StaffManaging sm = StaffManager.getInstance();
 
     /**
      * Find best by operating income
