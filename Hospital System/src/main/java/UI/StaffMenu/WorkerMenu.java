@@ -2,6 +2,8 @@ package UI.StaffMenu;
 
 import Controllers.Appointment.AppointmentMaker;
 import Entity.PatientRecords.PatientMedicalHistory;
+import Entity.PatientRecords.PatientRecordList;
+import Entity.PatientRecords.PatientRecords;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
@@ -15,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class WorkerMenu extends StaffMenu {
 
@@ -60,6 +63,9 @@ public class WorkerMenu extends StaffMenu {
         }
         if (c.equals("5")) {
             addPatientMH();
+        }
+        if (c.equals("6")) {
+            editPatientRecord();
         }
     }
 
@@ -150,7 +156,56 @@ public class WorkerMenu extends StaffMenu {
         patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
     }
 
-    public void editPatientRecord() {
+    public void editPatientRecord() throws InvalidInputException {
+        int choice = 6;
+        String c = "";
+        String change = "";
+        String result = "No patient record";
+        long healthCardNumber = 0;
+        System.out.println("Please input the health card number of the patient to add to her/his record.");
+        try {
+            healthCardNumber = scanner.nextInt();
+        } catch (Exception e) {
+            throw new InvalidInputException("");
+        }
 
+        PatientManager patientManager = PatientManager.getInstance();
+        PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
+        for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
+            if (entry.getValue() instanceof PatientRecords) {
+                System.out.println("Patient has an existing patient record, what would you like to update?" +
+                        "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
+                result = "patient record exists";
+                c = scanner.nextLine();
+                if (c.equals("1")) {
+                    System.out.println("Input the patient's new height (Use String)");
+                    change = scanner.nextLine();
+                    ((PatientRecords) entry.getValue()).changeHeight(change);
+                }
+                if (c.equals("2")) {
+                    System.out.println("Input the patient's new weight (Use String)");
+                    change = scanner.nextLine();
+                    ((PatientRecords) entry.getValue()).changeWeight(change);
+                }
+                if (c.equals("3")) {
+                    System.out.println("Input the patient's new allergy (Use String)");
+                    change = scanner.nextLine();
+                    ((PatientRecords) entry.getValue()).addAllergy(change);;
+                }
+                if (c.equals("4")) {
+                    System.out.println("Input the vaccine given to patient (Use String)");
+                    change = scanner.nextLine();
+                    ((PatientRecords) entry.getValue()).addVaccination(change);
+                }
+            }
+        }
+        if (result.equals("No patient record")) {
+            System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
+            try {
+                choice = scanner.nextInt();
+            } catch (Exception e) {
+                throw new InvalidInputException("");
+            }
+        }
     }
 }
