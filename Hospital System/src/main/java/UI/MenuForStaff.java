@@ -18,9 +18,5 @@ public class MenuForStaff {
 
     public void doThings() throws InvalidInputException {
         state.activity();
-        /*
-         * TODO: Additional method should be added here from workerMenu
-         *
-         */
     }
 }
