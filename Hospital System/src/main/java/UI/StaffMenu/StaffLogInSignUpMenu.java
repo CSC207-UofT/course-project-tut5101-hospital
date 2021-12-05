@@ -44,6 +44,7 @@ public class StaffLogInSignUpMenu implements Menu {
         do {
             System.out.println("Input id (Input id you put in when you did sign up for staff)");
             id = scanner.nextLong();
+            id = Long.valueOf(id);
             if (loginSignup.checkIfStaffExists(id)) {
                 this.type=new CheckStaffType().checkType(id);
                 scanner.nextLine();
@@ -88,6 +89,7 @@ public class StaffLogInSignUpMenu implements Menu {
         String gender = scanner.nextLine();
         System.out.println("Input id (Input Integer)");
         id = scanner.nextLong();
+        id = Long.valueOf(id);
         scanner.nextLine();
         System.out.println("Input password (Input String)");
         String pwd = scanner.nextLine();
