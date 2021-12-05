@@ -11,8 +11,8 @@ public class GetBestByOperationIncome implements GetBestStrategy {
 
     /**
      * Find best by operating income
-     * @return
-     * Staff ID
+     *
+     * @return Staff ID
      */
     @Override
     public long findBest() {

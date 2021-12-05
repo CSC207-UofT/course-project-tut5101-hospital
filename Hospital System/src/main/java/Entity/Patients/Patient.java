@@ -5,7 +5,6 @@ import Entity.PatientRecords.PatientRecordList;
 import Entity.Schedule.Schedule;
 
 
-
 public class Patient implements java.io.Serializable {
     /**
      * This file contains the class Patient and is used to get the patient information

@@ -11,8 +11,8 @@ public class GetBestByTime implements GetBestStrategy {
 
     /**
      * Find Best By Time
-     * @return
-     * Staff ID
+     *
+     * @return Staff ID
      */
     @Override
     public long findBest() {

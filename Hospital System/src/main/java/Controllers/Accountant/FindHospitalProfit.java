@@ -12,8 +12,7 @@ public class FindHospitalProfit {
     /**
      * Find total profit of this hospital
      *
-     * @return
-     * Total profit in int
+     * @return Total profit in int
      */
     public int totalProfit() {
         return manager.getHospitalProfit();

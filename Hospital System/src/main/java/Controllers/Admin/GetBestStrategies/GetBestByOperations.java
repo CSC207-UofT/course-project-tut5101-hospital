@@ -11,8 +11,8 @@ public class GetBestByOperations implements GetBestStrategy {
 
     /**
      * Find Best By Operations
-     * @return
-     * Staff ID
+     *
+     * @return Staff ID
      */
     @Override
     public long findBest() {

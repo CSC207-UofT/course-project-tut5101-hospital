@@ -10,7 +10,6 @@ public class FindBestStaff {
     private GetBestStrategy strategy;
 
     /**
-     *
      * @param strategy what kind of strategy you want
      */
     public void setStrategy(GetBestStrategy strategy) {
@@ -19,6 +18,7 @@ public class FindBestStaff {
 
     /**
      * Find best staff based on strategy
+     *
      * @return id
      */
     public long execute() {

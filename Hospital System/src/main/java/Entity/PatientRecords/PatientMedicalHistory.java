@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class PatientMedicalHistory implements java.io.Serializable {
     /**
      * This file contains the class PatientMedicalHistory and is used to make a patient medical history with

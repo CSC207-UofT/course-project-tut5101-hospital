@@ -165,7 +165,7 @@ public class MenuForPatient {
 
 
     /**
-     * Check schedule is only for Admin, other staff cannot call this.
+     * Check schedule.
      */
     public void checkSchedule() {
         int choice = 4;

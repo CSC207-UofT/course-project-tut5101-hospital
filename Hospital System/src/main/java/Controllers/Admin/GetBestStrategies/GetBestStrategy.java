@@ -11,6 +11,7 @@ public interface GetBestStrategy {
 
     /**
      * Find best staff id
+     *
      * @return staff id
      */
     long findBest();
