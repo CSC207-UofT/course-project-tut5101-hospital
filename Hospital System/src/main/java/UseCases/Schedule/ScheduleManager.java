@@ -26,7 +26,7 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Constructor for schedule manager when input is schedule
      *
-     * @param s
+     * @param s Schedule
      */
     public ScheduleManager(Schedule s) {
         sessionData = new PatientData();
@@ -38,7 +38,7 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Constructor for schedule manager when input is patient
      *
-     * @param p
+     * @param p patient
      */
     public ScheduleManager(Patient p) {
         sessionData = new PatientData();
@@ -49,7 +49,7 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Constructor for schedule manager when input is staff
      *
-     * @param st
+     * @param st staff
      */
     public ScheduleManager(Staff st) {
         staffData = new StaffData();
@@ -66,9 +66,9 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Add or modify event
      *
-     * @param event
-     * @param start
-     * @param end
+     * @param event String name of event
+     * @param start Start time and date
+     * @param end End time and date
      * @throws InvalidInputException
      */
     @Override
@@ -86,8 +86,8 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Remove event
      *
-     * @param start
-     * @param end
+     * @param start Start time and date
+     * @param end End time and date
      * @throws StaffNotFoundException
      */
     @Override
@@ -102,7 +102,7 @@ public class ScheduleManager implements ScheduleManaging {
     /**
      * Get schedule string
      *
-     * @return
+     * @return String of appointment event names and time and date of events
      */
     @Override
     public String getScheduleString() {

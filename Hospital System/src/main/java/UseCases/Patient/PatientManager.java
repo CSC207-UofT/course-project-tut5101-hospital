@@ -114,7 +114,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
     /**
      * Get patient medical record
      *
-     * @param healthCardNumber Healthcard number for that patient
+     * @param healthCardNumber Health card number for that patient
      * @return A string
      */
     public String getPatientMedicalRecord(long healthCardNumber) {
@@ -132,7 +132,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
     /**
      * Get patient record
      *
-     * @param healthCardNumber Healthcard number for that patient
+     * @param healthCardNumber Health card number for that patient
      * @return A string
      */
     public String getPatientRecord(long healthCardNumber) {
