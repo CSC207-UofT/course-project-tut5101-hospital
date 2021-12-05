@@ -29,15 +29,8 @@
 
 1. UML diagram
 2. Scenario Walkthrough:  
-   Say the management staff(Admin) wants to look for the best staff in the hospital. They would first interact with
-   the `Menu.Ui`
-   which upon receiving an input will call a presenter `AdminMenuPresenter` which prints out the options. If the ui
-   detects a choice that requires interacting with lower level classes such as `find best staff` it then calls a
-   presenter and controller, in this case `FindBestStaff` and `FindBestStaffPresenter`. The controller then calls
-   the `UseCases.GetBestStrategy` interface which has 3 concrete implementations that calls a method to find the best
-   staff in `Usecases.ScheduleManager`. The schedule manager then interacts with the database to find the best staff.
-   After controller passes the `ID` of the best staff to `UI` the `Menu` then calls the presenter to return a string
-   description of the best staff, which `Menu` prints out to the user.
+   Say the management staff wants to look for the best staff in the hospital. They would first interact with the UI
+   which upon receiving an input will call a presenter that
 
 ## Design Patterns
 
@@ -84,14 +77,6 @@ code. We also created an empty wiki page on GitHub.
 
 ## Refactoring
 
-In phase 2 we tried to eliminate code smells and apply design patterns to our work.  
-The pull request [setting up builder patterns](https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/10)
-sees us implementing builder patterns for creating entity objects to get rid of the long parameter list in higher level
-functions that used to call the constructors with 5 parameters.  
-The pull request [add interfaces for DIP](https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/20) has us
-refactoring the code to follow the dependency inversion principle by adding abstraction interfaces that both the
-usecases `PatientManager` and `StaffManager` and upper level classes depend upon.
-
 ## Code Organization
 
 ~ Packging Strategy: Files are packaged by layer and then by feature. This packaging reminds group members to follow
@@ -106,18 +91,27 @@ The program can persist(store, read, update) entities including patients, staffs
 
 ## Progress Report
 
-Chiatzen:   
-Phase 0: Usecases and schedule class, responsible for controllers of making appointments and view appointments,
-made `PatientManager`
-`StaffManager`(usecases), custom exceptions, serialization for the program and a basic cli.  
-Phase 1: tried to implement a webUI with `h2`, `SpringBoot` and `React.js`, abandoned since we would not finish the
-program in time with now just 4 people. Added more features like `logInSignUp`.    
-Phase 2: Responsible for implementing design
-patterns [(example)](https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/10)
-, [commit example](https://github.com/CSC207-UofT/course-project-tut5101-hospital/commit/f7da84f7da3fe3957dc37e0f1ccfb175c4f0b844)
-.   
-Added `Operation`.  
-General debugging and fixing stuff.  
-Writing the design document.  
-Implemented feature: sign up and log in as different type
-staffs. [Commit](https://github.com/CSC207-UofT/course-project-tut5101-hospital/commit/b59bbe3a270f59c2d90deb735769fbdb76727f3a)   
+1. Tom: Doing features about admin and accountant staff, admin can check doctor's schedule and find the best staff.
+   Account can find the total hospital profit. Link to pull
+   request: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/33. This is important because this is
+   major part of the staff features in our hospital. Also it shows some example to the rest of group member how to
+   implement Clean Architecture because I created new UI, UseCase, Controllers and Presenters to implement those
+   features.
+2. Fion:
+3. Jeremy:
+4. Chiatzen:   
+   Phase 0: Usecases and schedule class, responsible for controllers of making appointments and view appointments,
+   made `PatientManager`
+   `StaffManager`(usecases), custom exceptions, serialization for the program and a basic cli.  
+   Phase 1: tried to implement a webUI with `h2`, `SpringBoot` and `React.js`, abandoned since we would not finish the
+   program in time with now just 4 people. Added more features like `logInSignUp`.    
+   Phase 2: Responsible for implementing design
+   patterns [(example)](https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/10)
+   , [commit example](https://github.com/CSC207-UofT/course-project-tut5101-hospital/commit/f7da84f7da3fe3957dc37e0f1ccfb175c4f0b844)
+   .   
+   Added `Operation`.  
+   General debugging and fixing stuff.  
+   Writing the design document.  
+   Implemented feature: sign up and log in as different type
+   staffs. [Commit](https://github.com/CSC207-UofT/course-project-tut5101-hospital/commit/b59bbe3a270f59c2d90deb735769fbdb76727f3a)   
+
