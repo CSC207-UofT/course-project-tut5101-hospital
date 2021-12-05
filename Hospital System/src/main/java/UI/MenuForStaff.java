@@ -27,7 +27,7 @@ import java.util.Scanner;
 
 public class MenuForStaff {
     Scanner scanner = new Scanner(System.in);
-    private long id;
+    private Long id;
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForStaff() {
