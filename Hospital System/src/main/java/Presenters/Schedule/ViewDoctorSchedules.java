@@ -16,7 +16,7 @@ public class ViewDoctorSchedules implements Printable {
     /**
      * See all Doctor schedule
      *
-     * @return
+     * @return String
      */
     @Override
     public String print() {

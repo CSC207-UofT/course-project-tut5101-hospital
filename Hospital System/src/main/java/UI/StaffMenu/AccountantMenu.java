@@ -5,12 +5,14 @@ import Presenters.Functions.FindHospitalProfitPresenter;
 import UI.MenuForStaff;
 
 public class AccountantMenu extends StaffMenu{
+    // Menu for accountant staff
     public AccountantMenu(MenuForStaff context) {
         super(context);
     }
 
     @Override
     public void doStuff() {
+
         findHospitalProfit();
     }
     /**

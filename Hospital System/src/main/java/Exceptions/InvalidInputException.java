@@ -5,7 +5,7 @@ public class InvalidInputException extends Exception {
     /**
      * Exceptions
      *
-     * @param e
+     * @param e exceptions
      */
     public InvalidInputException(String e) {
         super(e);

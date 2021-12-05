@@ -16,7 +16,7 @@ public class AdminMenu extends StaffMenu{
 
     @Override
     public void doStuff() throws InvalidInputException {
-            findBestStaff();
+        findBestStaff();
     }
 
 
@@ -28,12 +28,12 @@ public class AdminMenu extends StaffMenu{
         int choice = 4;
         long id;
         FindBestStaffPresenter findBestStaffPresenter = new FindBestStaffPresenter();
-        StaffManager staffManager = new StaffManager();
         FindBestStaff findBestStaff = new FindBestStaff();
         do {
-            findBestStaffPresenter.print();
+            System.out.print(findBestStaffPresenter.print());
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }
@@ -50,7 +50,7 @@ public class AdminMenu extends StaffMenu{
             id = findBestStaff.execute();
         } while (choice != 1 && choice != 2 && choice != 3);
 
-        findBestStaffPresenter.print(staffManager.getStaff(id).getName());
+        System.out.println(findBestStaffPresenter.print(((int) id)));
     }
 
 }
