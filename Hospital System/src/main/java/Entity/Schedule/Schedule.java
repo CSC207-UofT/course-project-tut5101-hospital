@@ -94,6 +94,7 @@ public class Schedule implements java.io.Serializable {
             s.append(entry.getKey().getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
             s.append("\t");
 
+            s.append("End:\t");
             s.append(entry.getKey().getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E")));
             s.append("\t");
 

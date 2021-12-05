@@ -39,25 +39,25 @@ public class StaffManager implements StaffManaging {
      * @param pwd
      * @param fixedSalary
      */
-    public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+    public void addNurse(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
 
-    public void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+    public void addAdmin(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
 
-    public void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+    public void addAccountant(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();
     }
 
-    public void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
+    public void addDoctor(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
         saveSession();

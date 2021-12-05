@@ -22,7 +22,7 @@ public abstract class StaffBuilder implements StaffBuilding {
         s.setName(name);
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         s.setID(id);
     }
 

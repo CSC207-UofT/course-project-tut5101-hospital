@@ -11,13 +11,13 @@ public interface StaffManaging {
      */
 
 
-    void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary);
+    void addAccountant(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary);
 
-    void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary);
+    void addAdmin(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary);
 
-    void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary);
+    void addNurse(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary);
 
-    void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary);
+    void addDoctor(String name, String gender, Long ID, Schedule workingTime, String pwd, int fixedSalary);
 
     Staff getStaff(long ID);
 

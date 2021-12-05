@@ -8,7 +8,7 @@ public interface StaffBuilding {
 
     void setName(String name);
 
-    void setId(long id);
+    void setId(Long id);
 
     void setGender(String g);
 

@@ -131,24 +131,25 @@ public class MenuForPatient {
         System.out.println("Which Staff would you like, enter id");
         long id = scanner.nextLong();
         scanner.nextLine();
+        AppointmentMaker amStaff = new AppointmentMaker(id);
         StaffManager sfm = new StaffManager();
         Staff staff = sfm.getStaff(id);
         ScheduleManager sms = new ScheduleManager(staff.getSchedule());
-        if (sfm.checkIfStaffExist(id)) {
+        if (loginSignup.checkIfStaffExists(id)) {
             sfm.getStaffSm(id);
         }
-        AppointmentMaker am = new AppointmentMaker(hcn);
+        AppointmentMaker amPatient = new AppointmentMaker(hcn);
         System.out.println("Input start time yyyy-MM-dd HH:mm.  Booking time start at 2021-12-01 01:00");
         String start = scanner.nextLine();
         System.out.println("Input end time yyyy-MM-dd HH:mm.    Booking time finishes at 2021-12-15 11:00");
         String end = scanner.nextLine();
         try {
-            am.makeAppointment(event, start, end);
+            amPatient.makeAppointment(event, start, end);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
         try {
-            am.deleteEvent(start, end);
+            amStaff.deleteEvent(start, end);
         } catch (StaffNotFoundException s) {
             System.out.println("Staff Not Found");
         }

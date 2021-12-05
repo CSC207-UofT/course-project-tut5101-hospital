@@ -45,7 +45,7 @@ public class Staff implements Serializable {
         this.name = name;
     }
 
-    public void setID(long ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 
@@ -59,10 +59,6 @@ public class Staff implements Serializable {
 
     public Long getID() {
         return ID;
-    }
-
-    public void setID(Long ID) {
-        this.ID = ID;
     }
 
     public String getPwd() {
@@ -102,7 +98,7 @@ public class Staff implements Serializable {
 
 
     //This method gets the name of the ID of Entity.Staff
-    public long getStaffID() {
+    public Long getStaffID() {
         return this.ID;
     }
 
