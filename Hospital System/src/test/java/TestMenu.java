@@ -56,7 +56,7 @@
 //    }
 //
 //    @Test
-//    public void TestPatient() {
+//    public void Entity.TestPatient() {
 //        Assert.assertEquals("Patient class creates a patient", 7,
 //                patient.getHealthCardNum());
 //    }
