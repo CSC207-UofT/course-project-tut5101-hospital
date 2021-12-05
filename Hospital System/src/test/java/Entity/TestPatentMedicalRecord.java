@@ -1,3 +1,5 @@
+package Entity;
+
 import Entity.PatientRecords.PatientMedicalHistory;
 import org.junit.Assert;
 

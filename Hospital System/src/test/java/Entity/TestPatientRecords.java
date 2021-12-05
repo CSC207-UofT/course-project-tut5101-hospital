@@ -1,3 +1,5 @@
+package Entity;
+
 import Entity.PatientRecords.PatientRecords;
 import org.junit.Assert;
 import org.junit.Before;
