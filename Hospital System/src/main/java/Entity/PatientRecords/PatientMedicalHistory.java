@@ -20,12 +20,10 @@ public class PatientMedicalHistory implements java.io.Serializable {
     private final List<String> currentMedications;
     private final String diagnosis;
     private final String treatment;
-    private final List<InputStream> medicalImage;
 
     //    Constructs a patient medical history class instant.
     public PatientMedicalHistory(String physicianName, String bloodPressure, String pulse, String temperature,
-                                 List<String> currentMedications, String diagnosis, String treatment,
-                                 List<InputStream> medicalImage) {
+                                 List<String> currentMedications, String diagnosis, String treatment) {
         this.physicianName = physicianName;
         this.bloodPressure = bloodPressure;
         this.pulse = pulse;
@@ -33,7 +31,6 @@ public class PatientMedicalHistory implements java.io.Serializable {
         this.currentMedications = currentMedications;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
-        this.medicalImage = medicalImage;
     }
 
     /**
@@ -52,15 +49,6 @@ public class PatientMedicalHistory implements java.io.Serializable {
     /**
      * Getters
      */
-    public List<BufferedImage> getMedicalImage() throws IOException {
-        List<BufferedImage> images = new ArrayList<>();
-        for (InputStream inputStream : this.medicalImage) {
-            BufferedImage image = ImageIO.read(inputStream);
-            images.add(image);
-        }
-        return images;
-    }
-
     public String getCurrentMedications() {
         StringBuilder allMedications = new StringBuilder();
         for (String medication : this.currentMedications) {
