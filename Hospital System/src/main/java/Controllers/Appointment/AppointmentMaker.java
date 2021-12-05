@@ -1,7 +1,6 @@
 package Controllers.Appointment;
 
-import Entity.Schedule.Schedule;
-import Entity.Staff.Staff;
+
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 
@@ -36,8 +35,7 @@ public class AppointmentMaker {
      */
     public AppointmentMaker(Long id){
         this.stm = new StaffManager();
-        Staff staff = stm.getStaff(id);
-        this.stms = new ScheduleManager(staff);
+        this.stms = new ScheduleManager(stm.getStaff(id));
     }
 
     /**

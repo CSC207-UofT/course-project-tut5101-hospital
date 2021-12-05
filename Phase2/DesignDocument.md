@@ -31,8 +31,9 @@
     In ```LoginSignUp``` where two subclasses `PatientSignUp` and `StaffSignUp` inherit a skeleton abstract class `SignUp`
     And enrich and differ it by overriding and adding new steps to the main method. this way duplicate codes are 
     contained in the superclass so we would not need to change the same code twice if we have to change something.
- 4. Dependency Injection Pattern []  
-    In UI class where injectors inject a controller, presenter and lower level classes.
+ 4. State Pattern []  
+    In `UI.MenuForStaff` we have a state design pattern where the `MenuForStaff` class acts as the context class with other sub menus for each type of staffs as the states.
+    This way it would be easier to add new staff types thus following the open-closed principle and would be easier to switch from state to state at run time.
  5. Command Design Pattern [x]  
     Implemented in `Presenter` classes as they all import a `Printable` interface and implement an execute method.
     This way the methods would be made into stand-alone objects which would make injecting the methods bundled
@@ -43,7 +44,7 @@
     a `execute()` function that executes the said strategy. This way it would be easier to switch from one strategy to another at runtime.
 ## Use of GitHub Features
    We have used the [Github project feature](https://github.com/CSC207-UofT/course-project-tut5101-hospital/projects/1) to 
-   track the works shared and we uses issues to highlight the fetures we want to work on. We also linked the issues to corresponding pull request where the feture is implemented. We havew set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
+   track the works shared and we uses issues to highlight the features we want to work on. We also linked the issues to corresponding pull request where the feture is implemented. We havew set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
 ## Code Style and Documentation
 ## Testing
 ## Refactoring
