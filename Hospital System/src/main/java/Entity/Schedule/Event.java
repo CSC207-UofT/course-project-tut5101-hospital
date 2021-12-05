@@ -12,8 +12,8 @@ public class Event implements java.io.Serializable {
     /**
      * Constructor for event
      *
-     * @param start_time
-     * @param end_time
+     * @param start_time start time
+     * @param end_time end time
      */
     public Event(LocalDateTime start_time, LocalDateTime end_time) {
         this.startTime = start_time;
@@ -24,11 +24,7 @@ public class Event implements java.io.Serializable {
 
     }
 
-    /**
-     * Getter and setter
-     *
-     * @return
-     */
+    //Getter and setter
     public LocalDateTime getStartTime() {
         return startTime;
     }

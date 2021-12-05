@@ -1,5 +1,6 @@
 package UI.StaffMenu;
 
+import Controllers.Admin.FindBestStaff;
 import Controllers.Admin.GetBestStrategies.GetBestByOperationIncome;
 import Controllers.Admin.GetBestStrategies.GetBestByOperations;
 import Controllers.Admin.GetBestStrategies.GetBestByTime;
@@ -16,7 +17,10 @@ public class AdminMenu extends StaffMenu{
     @Override
     public void doStuff() throws InvalidInputException {
             findBestStaff();
-    }/**
+    }
+
+
+    /**
      * Only Admin can call this function to find the best staff function.
      * @throws InvalidInputException
      */
@@ -25,7 +29,7 @@ public class AdminMenu extends StaffMenu{
         long id;
         FindBestStaffPresenter findBestStaffPresenter = new FindBestStaffPresenter();
         StaffManager staffManager = new StaffManager();
-
+        FindBestStaff findBestStaff = new FindBestStaff();
         do {
             findBestStaffPresenter.print();
             try {
@@ -35,14 +39,15 @@ public class AdminMenu extends StaffMenu{
             }
 
             if (choice == 1) {
-                id = new GetBestByTime().findBest();
+                findBestStaff.setStrategy(new GetBestByTime());
             } else if (choice == 2) {
-                id = new GetBestByOperations().findBest();
+                findBestStaff.setStrategy(new GetBestByOperations());
             } else if (choice == 3) {
-                id = new GetBestByOperationIncome().findBest();
+                findBestStaff.setStrategy(new GetBestByOperationIncome());
             } else {
                 throw new InvalidInputException("");
             }
+            id = findBestStaff.execute();
         } while (choice != 1 && choice != 2 && choice != 3);
 
         findBestStaffPresenter.print(staffManager.getStaff(id).getName());

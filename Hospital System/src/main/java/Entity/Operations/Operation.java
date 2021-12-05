@@ -15,10 +15,10 @@ public class Operation implements java.io.Serializable {
     /**
      * Constructor for operation
      *
-     * @param cost
-     * @param name
-     * @param description
-     * @param time
+     * @param cost cost of operation
+     * @param name name of operation
+     * @param description description of operation
+     * @param time time of operation
      */
     public Operation(int cost, String name, String description, List<LocalDateTime> time) {
         this.cost = cost;
@@ -27,6 +27,7 @@ public class Operation implements java.io.Serializable {
         this.time = time;
     }
 
+    //Getters and Setters
     public int getCost() {
         return cost;
     }
@@ -54,4 +55,6 @@ public class Operation implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

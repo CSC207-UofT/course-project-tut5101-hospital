@@ -1,6 +1,6 @@
 package Controllers.Appointment;
 
-import Entity.Schedule.Schedule;
+// Avoid Clean Ar
 import Entity.Staff.Staff;
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
@@ -9,11 +9,11 @@ import Exceptions.StaffNotFoundException;
 import Exceptions.InvalidInputException;
 import UseCases.Staff.StaffManager;
 
-/**
- * This file contains the main system for the hospital and is used to make appointments for patients
- */
 
 public class AppointmentMaker {
+    /**
+     * This file contains the main system for the hospital and is used to make appointments for patients
+     */
     PatientManager pm;
     StaffManager stm;
     ScheduleManager sm, stms;

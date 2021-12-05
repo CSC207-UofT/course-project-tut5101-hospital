@@ -4,13 +4,24 @@ package Controllers.Admin;
 import Controllers.Admin.GetBestStrategies.GetBestStrategy;
 
 public class FindBestStaff {
-    private GetBestStrategy st;
+    /**
+     * Find best staff strategy
+     */
+    private GetBestStrategy strategy;
 
-    public void setStrategy(GetBestStrategy st) {
-        this.st = st;
+    /**
+     *
+     * @param strategy what kind of strategy you want
+     */
+    public void setStrategy(GetBestStrategy strategy) {
+        this.strategy = strategy;
     }
 
+    /**
+     * Find best staff based on strategy
+     * @return id
+     */
     public long execute() {
-        return st.findBest();
+        return strategy.findBest();
     }
 }
