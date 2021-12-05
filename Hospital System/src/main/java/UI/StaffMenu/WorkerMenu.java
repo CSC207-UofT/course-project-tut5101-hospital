@@ -102,8 +102,9 @@ public class WorkerMenu extends StaffMenu {
         }
     }
 
-    public void addPatientMH() throws InvalidInputException {
+    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
         List<String> currentMedications = new ArrayList<>();
+        List<InputStream> medicalImages = new ArrayList<>();
         String done = "";
 
         System.out.println("Input your name (Input String)");
@@ -136,9 +137,9 @@ public class WorkerMenu extends StaffMenu {
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
-            healthCardNumber = scanner.nextInt();
+            healthCardNumber = scanner.nextLong();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            throw new InvalidInputException("Invalid input");
         }
 
         PatientManager patientManager = PatientManager.getInstance();
@@ -150,13 +151,13 @@ public class WorkerMenu extends StaffMenu {
         String c = "";
         String change = "";
         String result = "No patient record";
+
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
-            healthCardNumber = scanner.nextInt();
-            scanner.nextLine();
+            healthCardNumber = scanner.nextLong();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            throw new InvalidInputException("Invalid input");
         }
 
         PatientManager patientManager = PatientManager.getInstance();
@@ -193,7 +194,6 @@ public class WorkerMenu extends StaffMenu {
             System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
             try {
                 choice = scanner.nextInt();
-                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }
