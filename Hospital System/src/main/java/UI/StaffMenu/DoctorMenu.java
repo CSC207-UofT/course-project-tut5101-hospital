@@ -53,6 +53,7 @@ public class DoctorMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
@@ -63,6 +64,7 @@ public class DoctorMenu extends StaffMenu {
             System.out.println("2: Medical Record");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }

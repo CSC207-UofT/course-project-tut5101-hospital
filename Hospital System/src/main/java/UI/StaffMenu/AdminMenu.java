@@ -96,6 +96,7 @@ public class AdminMenu extends StaffMenu {
             System.out.println("3: OtherStaff");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 System.out.println("Input is invalid, please try again");
             }
