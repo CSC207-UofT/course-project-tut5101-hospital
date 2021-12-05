@@ -7,6 +7,7 @@ import Exceptions.InvalidInputException;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
+import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 
 import java.io.FileInputStream;
@@ -133,7 +134,10 @@ public class WorkerMenu extends StaffMenu {
             }
         }
         PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
-        System.out.println("Patient account successfully created");
+        System.out.println("Patient Medical History successfully created");
+
+        System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
+        String date = scanner.nextLine();
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
@@ -142,6 +146,10 @@ public class WorkerMenu extends StaffMenu {
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
+
+        PatientManager patientManager = PatientManager.getInstance();
+        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
+
     }
 
 }
