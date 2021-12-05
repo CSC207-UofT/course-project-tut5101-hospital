@@ -19,7 +19,7 @@ public class TestPatientManager {
 
     @Test
     public void TestNewPatient() {
-        Assert.assertEquals(patient, pm.getPatient(453));
+        Assert.assertEquals(patient.getPatientInfo(), pm.getPatient(453).getPatientInfo());
     }
 
     @Test
