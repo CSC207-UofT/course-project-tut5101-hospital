@@ -36,7 +36,7 @@ public abstract class StaffMenu implements Menu {
     }public void quit(){
         System.out.println("press q to quit, other to continue");
         String c = scanner.nextLine();
-        if(!c.equals("q")){
+        if(c.equals("q")){
             context.setState(new StaffLogInSignUpMenu(context));
         }
     }

@@ -38,7 +38,7 @@ public class StaffLogInSignUpMenu implements Menu {
 
 
     // return a string representing the type of the staff
-    public String loginStaff() throws InvalidInputException {
+    public void loginStaff() throws InvalidInputException {
         boolean success = false;
 
         do {
@@ -76,7 +76,7 @@ public class StaffLogInSignUpMenu implements Menu {
                 }
             }
         } while (!success);
-        return type;
+        toState(type);
     }
 
 
