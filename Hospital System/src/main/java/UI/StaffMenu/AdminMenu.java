@@ -5,17 +5,19 @@ import Controllers.Admin.GetBestStrategies.GetBestByOperations;
 import Controllers.Admin.GetBestStrategies.GetBestByTime;
 import Exceptions.InvalidInputException;
 import Presenters.Functions.FindBestStaffPresenter;
+import UI.MenuForStaff;
 import UseCases.Staff.StaffManager;
 
-public class AdminMenu extends StaffMenu {
-    @Override
-    public void activity() throws InvalidInputException {
-        findBestStaff();
+public class AdminMenu extends StaffMenu{
+    public AdminMenu(MenuForStaff context) {
+        super(context);
     }
 
-    /**
+    @Override
+    public void doStuff() throws InvalidInputException {
+            findBestStaff();
+    }/**
      * Only Admin can call this function to find the best staff function.
-     *
      * @throws InvalidInputException
      */
     public void findBestStaff() throws InvalidInputException {

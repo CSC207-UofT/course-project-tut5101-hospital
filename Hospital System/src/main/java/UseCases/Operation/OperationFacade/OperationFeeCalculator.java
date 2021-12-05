@@ -26,7 +26,7 @@ public class OperationFeeCalculator {
     /**
      * Finish
      *
-     * @return
+     * @return cost of operation
      */
     public double finish() {
         p.addFee(op.getCost());

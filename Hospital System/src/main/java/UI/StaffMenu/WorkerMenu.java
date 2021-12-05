@@ -6,6 +6,7 @@ import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
+import UI.MenuForStaff;
 import UseCases.Schedule.ScheduleManager;
 
 import java.io.FileInputStream;
@@ -16,6 +17,10 @@ import java.util.List;
 
 public class WorkerMenu extends StaffMenu {
 
+
+    public WorkerMenu(MenuForStaff context) {
+        super(context);
+    }
 
     public void activitiesForStaffs() throws InvalidInputException, FileNotFoundException {
         String c;

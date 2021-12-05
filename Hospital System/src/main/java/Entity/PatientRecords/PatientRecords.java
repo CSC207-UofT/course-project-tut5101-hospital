@@ -53,7 +53,7 @@ public class PatientRecords implements java.io.Serializable {
             allVaccinations.append(vaccine);
             allVaccinations.append(", ");
         }
-        allVaccinations.delete(allVaccinations.length() - 3, allVaccinations.length());
+        allVaccinations.delete(allVaccinations.length() - 2, allVaccinations.length());
         return allVaccinations.toString();
     }
 
@@ -68,7 +68,7 @@ public class PatientRecords implements java.io.Serializable {
             allAllergies.append(allergy);
             allAllergies.append(", ");
         }
-        allAllergies.delete(allAllergies.length() - 3, allAllergies.length());
+        allAllergies.delete(allAllergies.length() - 2, allAllergies.length());
         return allAllergies.toString();
     }
 

@@ -1,8 +1,14 @@
 package UI.StaffMenu;
 
-public class NurseMenu extends StaffMenu {
+import UI.MenuForStaff;
+
+public class NurseMenu extends StaffMenu{
+    public NurseMenu(MenuForStaff context) {
+        super(context);
+    }
+
     @Override
-    public void activity() {
+    public void doStuff() {
 
     }
 }
