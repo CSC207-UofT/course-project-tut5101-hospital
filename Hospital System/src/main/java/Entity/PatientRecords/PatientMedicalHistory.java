@@ -1,7 +1,5 @@
 package Entity.PatientRecords;
 
-import Entity.Operations.Operation;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -9,12 +7,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This file contains the class PatientMedicalHistory and is used to make a patient medical history with
- * information from the patient's visit to the hospital
- */
+
 
 public class PatientMedicalHistory implements java.io.Serializable {
+    /**
+     * This file contains the class PatientMedicalHistory and is used to make a patient medical history with
+     * information from the patient's visit to the hospital
+     */
     private final String physicianName;
     private final String bloodPressure;
     private final String pulse;
@@ -56,8 +55,8 @@ public class PatientMedicalHistory implements java.io.Serializable {
      */
     public List<BufferedImage> getMedicalImage() throws IOException {
         List<BufferedImage> images = new ArrayList<>();
-        for (int i = 0; i < this.medicalImage.size(); i++) {
-            BufferedImage image = ImageIO.read(this.medicalImage.get(i));
+        for (InputStream inputStream : this.medicalImage) {
+            BufferedImage image = ImageIO.read(inputStream);
             images.add(image);
         }
         return images;

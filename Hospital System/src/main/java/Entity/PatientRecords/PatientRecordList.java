@@ -2,11 +2,12 @@ package Entity.PatientRecords;
 
 import java.util.HashMap;
 
-/**
- * This file contains the class Patient Record List and is used to get a hashmap of all
- * patient medical history and patient records.
- */
+
 public class PatientRecordList implements java.io.Serializable {
+    /**
+     * This file contains the class Patient Record List and is used to get a hashmap of all
+     * patient medical history and patient records.
+     */
 
     transient private HashMap<String, Object> patientRecords = new HashMap<String, Object>() {
     };

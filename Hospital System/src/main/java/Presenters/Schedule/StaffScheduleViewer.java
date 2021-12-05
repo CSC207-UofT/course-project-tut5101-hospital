@@ -15,7 +15,7 @@ public class StaffScheduleViewer implements Printable {
     /**
      * See all staff schedule
      *
-     * @return
+     * @return String
      */
     @Override
     public String print() {

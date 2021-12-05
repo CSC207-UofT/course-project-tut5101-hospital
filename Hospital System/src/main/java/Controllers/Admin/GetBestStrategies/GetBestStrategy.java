@@ -9,5 +9,9 @@ public interface GetBestStrategy {
      */
     StaffManaging sm = new StaffManager();
 
+    /**
+     * Find best staff id
+     * @return staff id
+     */
     long findBest();
 }

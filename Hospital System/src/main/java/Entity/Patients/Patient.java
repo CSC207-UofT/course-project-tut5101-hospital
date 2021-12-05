@@ -4,11 +4,12 @@ import Entity.Operations.OperationList;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.Schedule.Schedule;
 
-/**
- * This file contains the class Patient and is used to get the patient information
- */
+
 
 public class Patient implements java.io.Serializable {
+    /**
+     * This file contains the class Patient and is used to get the patient information
+     */
     private String name;
     private String gender;
     private long contactNum;
@@ -50,7 +51,7 @@ public class Patient implements java.io.Serializable {
     /**
      * Check password correct or not
      *
-     * @param iptPwd
+     * @param iptPwd password
      */
     public boolean checkPwd(String iptPwd) {
         return pwd.equals(iptPwd);

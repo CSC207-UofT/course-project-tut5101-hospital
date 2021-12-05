@@ -1,5 +1,7 @@
 package Controllers.LoginSignUp;
 
+// Avoid Clean Ar
+
 import Entity.Staff.Staff;
 import Entity.Schedule.Schedule;
 import Exceptions.InvalidInputException;
@@ -107,7 +109,7 @@ public class LoginSignup {
      * Return a patient by given a health card number
      *
      * @param healthCardNumber healthCardNumber of the patient
-     * @return a patient with the healthcard number
+     * @return a patient with the healthcare number
      */
     public Patient initPatient(long healthCardNumber) {
         return pm.getPatient(healthCardNumber);

@@ -5,7 +5,7 @@ public class StaffNotFoundException extends Exception {
     /**
      * Exceptions
      *
-     * @param e
+     * @param e exception
      */
     public StaffNotFoundException(String e) {
         super(e);

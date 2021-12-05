@@ -10,7 +10,7 @@ public class FindHospitalProfitPresenter implements Printable {
 
     @Override
     public String print() {
-        return null;
+        return "1: Find Hospital profit";
     }
 
     /**
