@@ -31,7 +31,7 @@
     In ```LoginSignUp``` where two subclasses `PatientSignUp` and `StaffSignUp` inherit a skeleton abstract class `SignUp`
     And enrich and differ it by overriding and adding new steps to the main method. this way duplicate codes are 
     contained in the superclass so we would not need to change the same code twice if we have to change something.
- 4. State Pattern []  
+ 4. State Pattern [x]  
     In `UI.MenuForStaff` we have a state design pattern where the `MenuForStaff` class acts as the context class with other sub menus for each type of staffs as the states.
     This way it would be easier to add new staff types thus following the open-closed principle and would be easier to switch from state to state at run time.
  5. Command Design Pattern [x]  
@@ -42,6 +42,9 @@
     Implemented in `Controllers.Admin.FindBestStaff` where 3 different concrete strategies of finding the
     best staff inherits an interface which is called in a context class with a `setStrategy()` function and 
     a `execute()` function that executes the said strategy. This way it would be easier to switch from one strategy to another at runtime.
+ 7. Singleton Design pattern[x]:
+    Singleton Design pattern is used to provide access to a single instance of `PatientManager` and `StaffManager`
+    for the program. This way we can avoid more of the lengthy initialization of these two classes and makes it easier to manage the data in them.
 ## Use of GitHub Features
    We have used the [Github project feature](https://github.com/CSC207-UofT/course-project-tut5101-hospital/projects/1) to 
    track the works shared and we uses issues to highlight the features we want to work on. We also linked the issues to corresponding pull request where the feture is implemented. We havew set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
