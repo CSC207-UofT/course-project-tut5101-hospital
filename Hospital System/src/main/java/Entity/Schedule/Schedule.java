@@ -22,7 +22,7 @@ public class Schedule implements java.io.Serializable {
     /**
      * Return schedule total Time In Minutes
      *
-     * @return
+     * @return sum
      */
     public int totalTimeInMinutes() {
         int startTime;
@@ -42,8 +42,8 @@ public class Schedule implements java.io.Serializable {
     /**
      * Add or modify event
      *
-     * @param event
-     * @param dates
+     * @param event String name of event
+     * @param dates Event start and end time and date
      * @throws InvalidInputException
      */
     public void addOrModifyEvent(String event, Event dates) throws InvalidInputException {
@@ -57,7 +57,7 @@ public class Schedule implements java.io.Serializable {
     /**
      * Remove event
      *
-     * @param dates
+     * @param dates Event start and end time and date
      * @throws StaffNotFoundException
      */
     public void removeEvent(Event dates) throws StaffNotFoundException {
@@ -80,7 +80,7 @@ public class Schedule implements java.io.Serializable {
     /**
      * Get string represent of schedule
      *
-     * @return
+     * @return String of appointment event names and time and date of events
      */
     public String getScheduleString() {
         if (schedule.isEmpty()) {
