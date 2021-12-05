@@ -116,14 +116,14 @@ public class StaffLogInSignUpMenu implements Menu {
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }
-        System.out.println("sign up  "+loginSignup.checkIfStaffExists(id));
+        System.out.println("sign up  "+ loginSignup.checkIfStaffExists(id));
         toState(type);
     }
 
 
     @Override
     public void activity() throws InvalidInputException {
-
+        loginSignupForStaff();
     }
 
     //based on input staff type transfer to that type's menu

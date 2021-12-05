@@ -40,8 +40,7 @@ public interface StaffManaging {
 
     List<Long> getAllOtherId();
 
-    public String getStaffType(int id);
+    public String getStaffType(long id);
 
     double getSalary(long id);
-    String getStaffType(long id);
 }

@@ -247,7 +247,9 @@ public class StaffManager implements StaffManaging {
             }
         }
         return others;
-    }public String getStaffType(long id){
+    }
+
+    public String getStaffType(long id){
         Staff s = getStaff(id);
         if(s instanceof Doctor){
             return "Doctor";
