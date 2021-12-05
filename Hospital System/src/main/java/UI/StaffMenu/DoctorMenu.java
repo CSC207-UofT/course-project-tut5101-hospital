@@ -40,7 +40,7 @@ public class DoctorMenu extends StaffMenu {
             if (choice == 1) {
                 viewPatientRecord();
             } else if (choice == 2) {
-
+                addPatientMH();
             } else if (choice == 3) {
                 editPatientRecord();
             } else if (choice == 4) {
@@ -86,61 +86,49 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
+    public void addPatientMH() throws InvalidInputException {
+        List<String> currentMedications = new ArrayList<>();
+        String done = "";
 
+        System.out.println("Input your name (Input String)");
+        String name = scanner.nextLine();
+        System.out.println("Input patient blood pressure (Input String systolic/diastolic)");
+        String bp = scanner.nextLine();
+        System.out.println("Input patient pulse (Input String)");
+        String pulse = scanner.nextLine();
+        System.out.println("Input patient temperature (Input String)");
+        String temperature = scanner.nextLine();
+        System.out.println("Input current medications in use for patient (Use String and type done when input completed)");
+        while (done.equals("")) {
+            String currentMeds = scanner.nextLine();
+            if (currentMeds.equals("done")) {
+                done = "done";
+            } else {
+                currentMedications.add(currentMeds);
+            }
+        }
+        System.out.println("Input diagnosis (Use String)");
+        String diagnosis = scanner.nextLine();
+        System.out.println("Input treatment methods (Use String)");
+        String treatment = scanner.nextLine();
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment);
+        System.out.println("Patient Medical History successfully created");
 
-//    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
-//        List<String> currentMedications = new ArrayList<>();
-//        List<InputStream> medicalImages = new ArrayList<>();
-//        String done = "";
-//
-//        System.out.println("Input your name (Input String)");
-//        String name = scanner.nextLine();
-//        System.out.println("Input patient blood pressure (Input String systolic/diastolic)");
-//        String bp = scanner.nextLine();
-//        System.out.println("Input patient pulse (Input String)");
-//        String pulse = scanner.nextLine();
-//        System.out.println("Input patient temperature (Input String)");
-//        String temperature = scanner.nextLine();
-//        System.out.println("Input current medications in use for patient (Use String and type done when input completed)");
-//        while (done.equals("")) {
-//            String currentMeds = scanner.nextLine();
-//            if (currentMeds.equals("done")) {
-//                done = "done";
-//            } else {
-//                currentMedications.add(currentMeds);
-//            }
-//        }
-//        System.out.println("Input diagnosis (Use String)");
-//        String diagnosis = scanner.nextLine();
-//        System.out.println("Input treatment methods (Use String)");
-//        String treatment = scanner.nextLine();
-//        System.out.println("Upload medical images taken (Input image file path and type complete when input completed)");
-//        while (done.equals("done")) {
-//            String imagePath = scanner.nextLine();
-//            if (imagePath.equals("complete")) {
-//                done = "complete";
-//            } else {
-//                InputStream imageFile = new FileInputStream(imagePath);
-//                medicalImages.add(imageFile);
-//            }
-//        }
-//        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
-//        System.out.println("Patient Medical History successfully created");
-//
-//        System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
-//        String date = scanner.nextLine();
-//
-//        long healthCardNumber = 0;
-//        System.out.println("Please input the health card number of the patient to add to her/his record.");
-//        try {
-//            healthCardNumber = scanner.nextInt();
-//        } catch (Exception e) {
-//            throw new InvalidInputException("");
-//        }
-//
-//        PatientManager patientManager = PatientManager.getInstance();
-//        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
-//    }
+        System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
+        String date = scanner.nextLine();
+
+        long healthCardNumber = 0;
+        System.out.println("Please input the health card number of the patient to add to her/his record.");
+        try {
+            healthCardNumber = scanner.nextLong();
+
+        } catch (Exception e) {
+            throw new InvalidInputException("");
+        }
+
+        PatientManager patientManager = PatientManager.getInstance();
+        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
+    }
 
     public void editPatientRecord() throws InvalidInputException {
         int choice = 6;
@@ -150,7 +138,7 @@ public class DoctorMenu extends StaffMenu {
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
-            healthCardNumber = scanner.nextInt();
+            healthCardNumber = scanner.nextLong();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
