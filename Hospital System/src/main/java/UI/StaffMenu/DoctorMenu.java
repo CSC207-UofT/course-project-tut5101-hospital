@@ -37,10 +37,14 @@ public class DoctorMenu extends StaffMenu {
                 viewPatientRecord();
             } else if (choice == 2) {
 
+            } else if (choice == 3) {
+
+            } else if (choice == 4) {
+
             } else {
                 throw new InvalidInputException("");
             }
-        } while (choice != 1 && choice != 2);
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
     }
 

@@ -56,4 +56,7 @@
 The scope of this project is pretty adequate for a group of 4 people. Since the member count dropped to 4 we had to make adjustments and forego some of the progress we made when we have more members, which also took some time and resources. Overall it the members of this group all put effort into the project and the workload is fair.  
 The program can persist(store, read, update) entities including patients, staffs and operations and such. 
 ## Progress Report
-
+1. Tom:
+2. Fion:
+3. Jeremy:
+4. Chiatzen:
