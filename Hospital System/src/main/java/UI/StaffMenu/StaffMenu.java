@@ -20,6 +20,7 @@ public abstract class StaffMenu implements Menu {
     @Override
     public void activity() throws InvalidInputException {
         doStuff();
+        quit();
         //in case a log out feature is implemented, this would be filled out
         toState("not implemented");
         context.doThings();
@@ -32,6 +33,12 @@ public abstract class StaffMenu implements Menu {
 
     public void doStuff() throws InvalidInputException {
 
+    }public void quit(){
+        System.out.println("press q to quit, other to continue");
+        String c = scanner.nextLine();
+        if(c!="q"){
+            context.setState(new StaffLogInSignUpMenu(context));
+        }
     }
 
 }

@@ -132,12 +132,16 @@ public class StaffLogInSignUpMenu implements Menu {
         switch (type){
             case "Doctor":
                 context.setState(new DoctorMenu(context));
+                break;
             case "Admin":
                 context.setState(new AdminMenu(context));
+                break;
             case "Accountant":
                 context.setState(new AccountantMenu(context));
+                break;
             case "Nurse":
                 context.setState(new NurseMenu(context));
+                break;
         }context.doThings();
     }
 }
