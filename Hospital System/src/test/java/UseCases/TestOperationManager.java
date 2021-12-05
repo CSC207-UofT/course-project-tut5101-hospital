@@ -37,12 +37,12 @@ public class TestOperationManager {
 
     @Test
     public void TestOperationFeeCalculator() {
-    //    Assert.assertEquals(opFee.finish(), 100);
+        Assert.assertEquals(opFee.finish(), 100);
     }
 
     @Test
     public void TestOperationBonusCalculator() {
-     //   Assert.assertEquals(opBonus.finish(), 20);
+        Assert.assertEquals(opBonus.finish(), 20);
     }
 
 
