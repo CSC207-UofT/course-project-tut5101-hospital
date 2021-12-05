@@ -183,9 +183,6 @@ public class StaffManager implements StaffManaging {
         List<Staff> staffList = getAllStaff();
         for (Staff people : staffList) {
             totalCost += people.getSalary();
-            if (people instanceof Doctor) {
-                ((Doctor) people).getFnshdOps();
-            }
         }
         for (Staff people : staffList) {
             if (people instanceof Doctor) {

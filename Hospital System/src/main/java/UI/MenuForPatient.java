@@ -182,14 +182,14 @@ public class MenuForPatient {
             }
 
             if (choice == 1) {
-                ViewDoctorSchedules SSV = new ViewDoctorSchedules();
-                SSV.print();
+                ViewDoctorSchedules viewDoctorSchedules = new ViewDoctorSchedules();
+                System.out.println(viewDoctorSchedules.print());
             } else if (choice == 2) {
-                ViewNurseSchedules VNS = new ViewNurseSchedules();
-                VNS.print();
+                ViewNurseSchedules viewNurseSchedules = new ViewNurseSchedules();
+                System.out.println(viewNurseSchedules.print());
             } else {
-                ViewOtherStaffSchedules VOSS = new ViewOtherStaffSchedules();
-                VOSS.print();
+                ViewOtherStaffSchedules viewOtherStaffSchedules = new ViewOtherStaffSchedules();
+                System.out.println(viewOtherStaffSchedules.print());
             }
         } while (choice != 1 && choice != 2 && choice != 3);
     }
