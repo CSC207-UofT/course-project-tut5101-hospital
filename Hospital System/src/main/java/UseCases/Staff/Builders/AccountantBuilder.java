@@ -9,7 +9,8 @@ public class AccountantBuilder extends StaffBuilder{
     }
 
 
-    public Admin getResult() {
-        return (Admin) s;
+    @Override
+    public Accountant getResult() {
+        return (Accountant) s;
     }
 }
