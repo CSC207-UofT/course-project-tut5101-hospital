@@ -23,17 +23,14 @@
  1. Facade Design pattern in `UseCases.OpertionFacade` package: [x]  
     * implemented in `finished operation facade` commit. 
     * Uses facade design pattern to calculate fees and salaries for patients and doctors so that 
-    there is a single class for each stakeholders. (Single responsibility rule)
+    there is a single class for each stakeholders. (Single responsibility rule). The facade class creates new classes like a logger, a fee calculator and a bonus calculator to use. 
  2. Builder Design Pattern in ```Entity``` packages: [x]  
     * `PatientBuilder`, `StaffBuilder` and other builders for different types of staffs are used to 
-    eliminate the long parameter list used to initialize the entities.
- 3. Template Method Design Pattern [x]  
-    In ```LoginSignUp``` where two subclasses `PatientSignUp` and `StaffSignUp` inherit a skeleton abstract class `SignUp`
-    And enrich and differ it by overriding and adding new steps to the main method. this way duplicate codes are 
-    contained in the superclass so we would not need to change the same code twice if we have to change something.
+    eliminate the long parameter list used to initialize the entities. The two classes are inited with information by constructing a new builder object and calling the setters in the builders and then the `getResult()` method which returns the object.
  4. State Pattern [x]  
     In `UI.MenuForStaff` we have a state design pattern where the `MenuForStaff` class acts as the context class with other sub menus for each type of staffs as the states.
     This way it would be easier to add new staff types thus following the open-closed principle and would be easier to switch from state to state at run time.
+    It uses `MenuForStaff` as context instead which there is a `Menu` state whose execution method could set the state for context and call its execution method, which in turn will call the states' execution method.
  5. Command Design Pattern [x]  
     Implemented in `Presenter` classes as they all import a `Printable` interface and implement an execute method.
     This way the methods would be made into stand-alone objects which would make injecting the methods bundled
@@ -45,9 +42,10 @@
  7. Singleton Design pattern[x]:
     Singleton Design pattern is used to provide access to a single instance of `PatientManager` and `StaffManager`
     for the program. This way we can avoid more of the lengthy initialization of these two classes and makes it easier to manage the data in them.
+    The classes are called by calling a public static `getInstance()` method which calls a private constructor. This way we could make sure all calls to get a new object of the class refers to the same object in heap.
 ## Use of GitHub Features
    We have used the [Github project feature](https://github.com/CSC207-UofT/course-project-tut5101-hospital/projects/1) to 
-   track the works shared and we uses issues to highlight the features we want to work on. We also linked the issues to corresponding pull request where the feture is implemented. We havew set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
+   track the works shared and we uses issues to highlight the features we want to work on. We also linked the issues to corresponding pull request where the feature is implemented. We have set up a CodeQL workflow action to analysis our code. We also created an empty wiki page on GitHub.
 ## Code Style and Documentation
 ## Testing
 ## Refactoring
