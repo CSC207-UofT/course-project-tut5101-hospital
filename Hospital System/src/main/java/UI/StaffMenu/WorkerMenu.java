@@ -148,7 +148,9 @@ public class WorkerMenu extends StaffMenu {
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
-
     }
 
+    public void editPatientRecord() {
+
+    }
 }
