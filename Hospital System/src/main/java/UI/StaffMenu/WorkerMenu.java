@@ -97,7 +97,6 @@ public class WorkerMenu extends StaffMenu {
     }
 
     public void addPatientMH() throws InvalidInputException, FileNotFoundException {
-        int choice = 5;
         List<String> currentMedications = new ArrayList<>();
         List<InputStream> medicalImages = new ArrayList<>();
         String done = "";
