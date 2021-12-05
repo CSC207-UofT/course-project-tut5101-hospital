@@ -165,6 +165,7 @@ public class WorkerMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
@@ -203,6 +204,7 @@ public class WorkerMenu extends StaffMenu {
             System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }

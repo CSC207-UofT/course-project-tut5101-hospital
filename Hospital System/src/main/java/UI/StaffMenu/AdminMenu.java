@@ -23,7 +23,7 @@ public class AdminMenu extends StaffMenu {
 
     //Stuff admin can do in admin menu
     @Override
-    public void doStuff() throws InvalidInputException {
+    public void doStuff() throws InvalidInputException{
         AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter();
 
         int choice = 4;
