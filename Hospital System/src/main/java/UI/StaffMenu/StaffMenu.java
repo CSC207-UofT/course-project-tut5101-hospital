@@ -19,7 +19,7 @@ public abstract class StaffMenu implements Menu {
     }
 
     @Override
-    public void activity() throws InvalidInputException, FileNotFoundException {
+    public void activity() throws InvalidInputException {
         doStuff();
         quit();
         //in case a log out feature is implemented, this would be filled out
@@ -32,7 +32,7 @@ public abstract class StaffMenu implements Menu {
         context.setState(this);
     }
 
-    public void doStuff() throws InvalidInputException, FileNotFoundException {
+    public void doStuff() throws InvalidInputException {
 
     }
 

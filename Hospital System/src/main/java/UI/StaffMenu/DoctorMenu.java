@@ -21,7 +21,7 @@ public class DoctorMenu extends StaffMenu {
     }
 
     @Override
-    public void doStuff() throws InvalidInputException, FileNotFoundException {
+    public void doStuff() throws InvalidInputException {
         DoctorMenuPresenter doctorMenuPresenter = new DoctorMenuPresenter();
         int choice = 4;
         do {
@@ -36,7 +36,7 @@ public class DoctorMenu extends StaffMenu {
             if (choice == 1) {
                 viewPatientRecord();
             } else if (choice == 2) {
-                addPatientMH();
+
             } else {
                 throw new InvalidInputException("");
             }
@@ -76,53 +76,4 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
-
-    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
-        int choice = 5;
-        List<String> currentMedications = new ArrayList<>();
-        List<InputStream> medicalImages = new ArrayList<>();
-        String done = "";
-
-        System.out.println("Input your name (Input String)");
-        String name = scanner.nextLine();
-        System.out.println("Input patient blood pressure (Input String systolic/diastolic)");
-        String bp = scanner.nextLine();
-        System.out.println("Input patient pulse (Input String)");
-        String pulse = scanner.nextLine();
-        System.out.println("Input patient temperature (Input String)");
-        String temperature = scanner.nextLine();
-        System.out.println("Input current medications in use for patient (Use String and type done when input completed)");
-        while (done.equals("")) {
-            String currentMeds = scanner.nextLine();
-            if (currentMeds.equals("done")) {
-                done = "done";
-            } else {
-                currentMedications.add(currentMeds);
-            }
-        }
-        System.out.println("Input diagnosis (Use String)");
-        String diagnosis = scanner.nextLine();
-        System.out.println("Input treatment methods (Use String)");
-        String treatment = scanner.nextLine();
-        System.out.println("Upload medical images taken (Input image file path and type complete when input completed)");
-        while (done.equals("done")) {
-            String imagePath = scanner.nextLine();
-            if (imagePath.equals("complete")) {
-                done = "complete";
-            } else {
-                InputStream imageFile = new FileInputStream(imagePath);
-                medicalImages.add(imageFile);
-            }
-        }
-        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
-        System.out.println("Patient account successfully created");
-
-        long healthCardNumber = 0;
-        System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextInt();
-        } catch (Exception e) {
-            throw new InvalidInputException("");
-        }
-    }
 }
