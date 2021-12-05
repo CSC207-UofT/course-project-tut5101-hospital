@@ -56,7 +56,7 @@
 The scope of this project is pretty adequate for a group of 4 people. Since the member count dropped to 4 we had to make adjustments and forego some of the progress we made when we have more members, which also took some time and resources. Overall it the members of this group all put effort into the project and the workload is fair.  
 The program can persist(store, read, update) entities including patients, staffs and operations and such. 
 ## Progress Report
-1. Tom:
+1. Tom: Doing features about admin and accountant staff, admin can check doctor's schedule and find the best staff. Account can find the total hospital profit. Link to pull request: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/33. This is important because this is major part of the staff features in our hospital. Also it shows some example to the rest of group member how to implement Clean Architecture because I created new UI, UseCase, Controllers and Presenters to implement those features.
 2. Fion:
 3. Jeremy:
 4. Chiatzen:

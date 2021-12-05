@@ -121,9 +121,9 @@ public class DoctorMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
             healthCardNumber = scanner.nextLong();
-
+            scanner.nextLine();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            throw new InvalidInputException("Invalid input");
         }
 
         PatientManager patientManager = PatientManager.getInstance();
@@ -135,12 +135,13 @@ public class DoctorMenu extends StaffMenu {
         String c = "";
         String change = "";
         String result = "No patient record";
+
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
             healthCardNumber = scanner.nextLong();
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            throw new InvalidInputException("Invalid input");
         }
 
         PatientManager patientManager = PatientManager.getInstance();
