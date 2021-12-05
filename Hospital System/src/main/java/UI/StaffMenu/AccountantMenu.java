@@ -12,7 +12,8 @@ public class AccountantMenu extends StaffMenu{
     @Override
     public void doStuff() {
         findHospitalProfit();
-    }/**
+    }
+    /**
      * Find hospital profit, only account staff can use this.
      */
     public void findHospitalProfit(){
