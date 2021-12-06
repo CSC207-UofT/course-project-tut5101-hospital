@@ -23,7 +23,7 @@ public class AppointmentMaker {
     /**
      * Constructor for appointment maker
      *
-     * @param hcnOrId Patient health card number or Staff id
+     * @param hcnOrId        Patient health card number or Staff id
      * @param chooseWhatType choose if you are going to use hcn or id
      */
     public AppointmentMaker(long hcnOrId, String chooseWhatType) {
@@ -31,8 +31,7 @@ public class AppointmentMaker {
         this.stm = StaffManager.getInstance();
         if (chooseWhatType.equals("hcn")) {
             this.sm = pm.getPatientScheduleManager(hcnOrId);
-        }
-        else if (chooseWhatType.equals("id")){
+        } else if (chooseWhatType.equals("id")) {
             this.stms = stm.getStaffSm(hcnOrId);
         }
     }
@@ -59,9 +58,9 @@ public class AppointmentMaker {
     /**
      * Makes an appointment for event at start time and day until end time and day
      *
-     * @param c User input choice
+     * @param c     User input choice
      * @param event String name of event
-     * @param id   id of staff
+     * @param id    id of staff
      */
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
         sm.makeAppointment(c, event, id, hcn);
@@ -69,7 +68,7 @@ public class AppointmentMaker {
         smStaff.makeAppointment(c, event, id, hcn);
     }
 
-    public void viewChoices(){
+    public void viewChoices() {
         sm.viewScheduleChoices();
     }
 
@@ -87,7 +86,6 @@ public class AppointmentMaker {
 
     /**
      * Deletes all appointments
-
      */
     public void deleteAllEvent() throws StaffNotFoundException {
         stms.removeEvent("2021-12-01 08:00", "2021-12-01 09:00");

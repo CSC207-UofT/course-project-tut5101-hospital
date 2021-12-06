@@ -17,15 +17,17 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * Patient manager
      */
     PatientData sessionData = new PatientData();
-    private static PatientManager pm =null;
+    private static PatientManager pm = null;
 
-    private PatientManager(){
+    private PatientManager() {
 
     }
+
     public static PatientManager getInstance() {
-        if(pm == null){
+        if (pm == null) {
             pm = new PatientManager();
-        }return pm;
+        }
+        return pm;
     }
 
 
@@ -144,14 +146,13 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
         String record = "";
-        HashMap<String, Object> patientRecords =  patientRecordList.getPatientRecords();
+        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
 
-        for (Object value: patientRecords.values()) {
+        for (Object value : patientRecords.values()) {
             if (value instanceof PatientMedicalHistory) {
-                record+=(((PatientMedicalHistory) value).getPatientMH());
+                record += (((PatientMedicalHistory) value).getPatientMH());
             }
         }
-        System.out.println(patientRecords.size()==0);
         return record;
     }
 
@@ -162,15 +163,16 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @return A string
      */
     public String getPatientRecord(long healthCardNumber) {
-        StringBuilder list = new StringBuilder();
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
-        for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
-            if (entry.getValue() instanceof PatientRecords) {
-                list.append(((PatientRecords) entry.getValue()).getPatientRecord());
+        String record = "";
+        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
+        for (Object value : patientRecords.values()) {
+            if (value instanceof PatientRecords) {
+                record += (((PatientRecords) value).getPatientRecord());
             }
         }
-        return list.toString();
+        return record;
     }
 
 

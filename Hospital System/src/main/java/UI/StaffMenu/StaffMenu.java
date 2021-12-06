@@ -50,6 +50,7 @@ public abstract class StaffMenu implements Menu {
             context.doThings();
         }
     }
+
     //actually quits the program
     public void exit() {
         SaveEveryThing sv = new SaveEveryThing();

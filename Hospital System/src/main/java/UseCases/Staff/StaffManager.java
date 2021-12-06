@@ -17,15 +17,17 @@ public class StaffManager implements StaffManaging {
     StaffData sessionData = new StaffData();
 
     //singleton design pattern
-    private static StaffManager sm =null;
+    private static StaffManager sm = null;
 
-    private StaffManager(){
+    private StaffManager() {
 
     }
+
     public static StaffManager getInstance() {
-        if(sm == null){
+        if (sm == null) {
             sm = new StaffManager();
-        }return sm;
+        }
+        return sm;
     }
 
     /**
@@ -206,7 +208,8 @@ public class StaffManager implements StaffManaging {
             }
         }
 
-        return (int) (totalCost - totalRevenue);
+
+        return (int) (totalRevenue - totalCost);
     }
 
 

@@ -23,7 +23,9 @@ public class PatientRecordListManager {
         this.patientRecordList = p.getPRL();
     }
 
-    public PatientRecordList getPatientRecordList() {return this.patientRecordList;}
+    public PatientRecordList getPatientRecordList() {
+        return this.patientRecordList;
+    }
 
     private void savePatientRecordList() {
         sessionData.saveData();
@@ -39,7 +41,7 @@ public class PatientRecordListManager {
         savePatientRecordList();
     }
 
-    public void editRecord(String num, String input){
+    public void editRecord(String num, String input) {
         for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
                 if (num.equals("1")) {

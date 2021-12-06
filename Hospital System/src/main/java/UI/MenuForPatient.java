@@ -104,7 +104,7 @@ public class MenuForPatient {
             if (c.equals("q")) {
                 quit();
             }
-        }while(true);
+        } while (true);
     }
 
     private void makeAppointment() {
@@ -180,7 +180,7 @@ public class MenuForPatient {
     }
 
 
-    public void quit(){
+    public void quit() {
         SaveEveryThing sv = new SaveEveryThing();
         sv.save();
         System.exit(0);

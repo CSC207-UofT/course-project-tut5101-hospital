@@ -10,7 +10,7 @@ public class PayFee {
 
     PatientManager pm;
 
-    public PayFee(){
+    public PayFee() {
         this.pm = PatientManager.getInstance();
     }
 
@@ -31,10 +31,11 @@ public class PayFee {
     }
 
     /**
-     *  See some of the options and the money in the account
+     * See some of the options and the money in the account
+     *
      * @param hcn health card number
      */
-    public void view(long hcn){
+    public void view(long hcn) {
         System.out.println("This is the money in your account: $ " + pm.getPatient(hcn).getFee());
         System.out.println("Do you want to add money (Type 1 to add, Type 2 to not add)");
     }
