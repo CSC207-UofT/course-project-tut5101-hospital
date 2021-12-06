@@ -133,7 +133,6 @@ public class ScheduleManager implements ScheduleManaging {
     }
 
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String st = "";
         String e = "";
         switch (c) {
@@ -204,18 +203,40 @@ public class ScheduleManager implements ScheduleManaging {
                 "End:2021-12-01 16:00 (Enter 8 to choose this)");
     }
 
-    @Override
-    public Schedule staffSchedule(String event) throws InvalidInputException {
+    public void appointStaffSchedule(String event, int input) throws InvalidInputException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
-        LocalDateTime stEnd = LocalDateTime.parse("2021-12-01 02:00", formatter);
-        LocalDateTime e = LocalDateTime.parse("2021-12-15 11:00", formatter);
+        LocalDateTime st = LocalDateTime.parse("2021-12-01 08:00", formatter);
+        LocalDateTime stEnd = LocalDateTime.parse("2021-12-01 09:00", formatter);
+        LocalDateTime e = LocalDateTime.parse("2021-12-01 16:00", formatter);
+        int choice = 0;
         while (st.isBefore(e)) {
             if (!st.isBefore(e)) {
                 throw new InvalidInputException("");
             } else {
                 Event eventStaff = new Event(st, stEnd);
                 s.addOrModifyEvent(event, eventStaff);
+                if (choice == input) {
+                    addOrModifyEvent(event, st.toString(), stEnd.toString());
+                    saveSchedule();
+                    saveStaffSchedule();
+                }
+                stEnd = stEnd.plusHours(1);
+                st = st.plusHours(1);
+            }
+        }
+    }
+
+    public Schedule addNurseSchedule() throws InvalidInputException{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime st = LocalDateTime.parse("2021-12-01 08:00", formatter);
+        LocalDateTime stEnd = LocalDateTime.parse("2021-12-01 09:00", formatter);
+        LocalDateTime e = LocalDateTime.parse("2021-12-01 16:00", formatter);
+        while (st.isBefore(e)) {
+            if (!st.isBefore(e)) {
+                throw new InvalidInputException("");
+            } else {
+                Event eventStaff = new Event(st, stEnd);
+                s.addOrModifyEvent("all", eventStaff);
                 stEnd = stEnd.plusHours(1);
                 st = st.plusHours(1);
             }
@@ -223,4 +244,5 @@ public class ScheduleManager implements ScheduleManaging {
         saveStaffSchedule();
         return s;
     }
+
 }

@@ -1,15 +1,18 @@
 package UI.StaffMenu;
 
 
+import Controllers.Appointment.AppointmentMaker;
 import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
 import Exceptions.InvalidInputException;
+import Exceptions.StaffNotFoundException;
 import Presenters.MenuPresenter.DoctorMenuPresenter;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
 import UseCases.Patient.PatientManager;
+import UseCases.PatientRecordListManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +28,7 @@ public class DoctorMenu extends StaffMenu {
     @Override
     public void doStuff() throws InvalidInputException {
         DoctorMenuPresenter doctorMenuPresenter = new DoctorMenuPresenter();
-        int choice = 4;
+        int choice = 7;
         do {
             System.out.println(doctorMenuPresenter.print());
             try {
@@ -43,10 +46,14 @@ public class DoctorMenu extends StaffMenu {
                 editPatientRecord();
             } else if (choice == 4) {
                 makePatientRecord();
+            } else if (choice == 5) {
+                confirmAppointment();
+            } else if (choice == 6) {
+                viewStaffSchedule();
             } else {
                 throw new InvalidInputException("");
             }
-        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice !=5 && choice != 6);
 
     }
 
@@ -117,11 +124,49 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        healthCardNumber = scanner.nextLong();
-        scanner.nextLine();
+        try {
+            healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
+        } catch (Exception e) {
+            throw new InvalidInputException("Invalid input");
+        }
 
         PatientManager patientManager = PatientManager.getInstance();
-        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
+        pRLmanager.addHistory(patientMedicalHistory, date);
+        System.out.println("Patient history successfully added to patient record list");
+    }
+
+    private void confirmAppointment() {
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        if (appointmentMaker.checkStaffSchedule() != null){
+            viewStaffSchedule();
+            System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
+            String c = scanner.nextLine();
+            if (c.equals("1")){
+                System.out.println("Schedule confirmed");
+            }
+            else if (c.equals("2")){
+                try {
+//                    appointmentMaker.deleteAllEvent();
+                    System.out.println("Write down the patient's health card number whom you cant to cancel");
+                    long hcn = scanner.nextLong();
+                    scanner.nextLine();
+                    System.out.println("Choose Your Time (start and end) to cancel in this kind of format: yyyy-MM-dd HH:mm");
+                    String st = scanner.nextLine();
+                    String e = scanner.nextLine();
+                    appointmentMaker.deleteEvent(st, e, id, hcn);
+                    System.out.println("This Schedule canceled");
+                } catch (StaffNotFoundException e) {
+                    System.out.println("Staff Not Found");
+                }
+            }
+        }
+    }
+
+    private void viewStaffSchedule() {
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
     public void editPatientRecord() throws InvalidInputException {
@@ -140,33 +185,33 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
+        PatientRecordList PRL = pRLmanager.getPatientRecordList();
         for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
                 System.out.println("Patient has an existing patient record, what would you like to update?" +
                         "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
-                result = "patient record exists";
+                result = "Patient record exist";
                 c = scanner.nextLine();
                 if (c.equals("1")) {
                     System.out.println("Input the patient's new height (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).changeHeight(change);
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("2")) {
                     System.out.println("Input the patient's new weight (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).changeWeight(change);
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("3")) {
                     System.out.println("Input the patient's new allergy (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).addAllergy(change);
-                    ;
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("4")) {
                     System.out.println("Input the vaccine given to patient (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).addVaccination(change);
+                    pRLmanager.editRecord(c, change);
                 }
             }
         }
@@ -229,7 +274,8 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
+        pRLmanager.addRecord(patientRecords, date);
         System.out.println("Patient record successfully added to patient record list");
     }
 }
