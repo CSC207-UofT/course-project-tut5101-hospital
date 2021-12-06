@@ -105,6 +105,7 @@ public class DoctorMenu extends StaffMenu {
 
     /**
      * Add patient medical history
+     *
      * @throws InvalidInputException
      */
     public void addPatientMH() throws InvalidInputException {
@@ -199,6 +200,7 @@ public class DoctorMenu extends StaffMenu {
 
     /**
      * Edit patient record
+     *
      * @throws InvalidInputException
      */
     public void editPatientRecord() throws InvalidInputException {
@@ -262,6 +264,7 @@ public class DoctorMenu extends StaffMenu {
 
     /**
      * Make patient record
+     *
      * @throws InvalidInputException
      */
     public void makePatientRecord() throws InvalidInputException {
