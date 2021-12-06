@@ -80,10 +80,10 @@ public class DoctorMenu extends StaffMenu {
         }
         if (choice == 1) {
             PatientMedicalRecordViewer patientMedicalRecordViewer = new PatientMedicalRecordViewer();
-            patientMedicalRecordViewer.print(healthCardNumber);
+            System.out.println(patientMedicalRecordViewer.print(healthCardNumber));
         } else if (choice == 2) {
             PatientRecordViewer patientRecordViewer = new PatientRecordViewer();
-            patientRecordViewer.print(healthCardNumber);
+            System.out.println(patientRecordViewer.print(healthCardNumber));
         }
     }
 
@@ -120,12 +120,8 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextLong();
-            scanner.nextLine();
-        } catch (Exception e) {
-            throw new InvalidInputException("Invalid input");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
@@ -139,11 +135,8 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextLong();
-        } catch (Exception e) {
-            throw new InvalidInputException("Invalid input");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
@@ -188,7 +181,7 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
-    public void makePatientRecord() throws InvalidInputException {
+    public void makePatientRecord() {
         List<String> allergies = new ArrayList<>();
         List<String> vaccinations = new ArrayList<>();
         String done = "";
@@ -226,14 +219,15 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextLong();
-        } catch (Exception e) {
-            throw new InvalidInputException("");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
-        patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);
+        if (patientManager.getPatient(healthCardNumber).getPRL() == null) {
+            HashMap<String, Object> pRecords = new HashMap<>();
+            pRecords.put(date, patientRecords);
+            patientManager.getPatient(healthCardNumber).getPRL().setPatientRecords(pRecords);
+        }
         System.out.println("Patient record successfully added to patient record list");
     }
 }
