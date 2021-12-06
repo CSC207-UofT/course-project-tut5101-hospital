@@ -107,7 +107,7 @@ comments***.
 ## Testing
 Most basic part of our system are tested such as Entity and UseCases layer. But due to our design, some part of code such as UI and 
 presenters are very hard to test. So we just decide to leave it without test. And for controller, it just called usecases, so if usecases works, 
-controllers will works too.
+controllers will works too. That is why we have fewer tests fot controller.
 ## Refactoring
 
 In phase 2 we tried to eliminate code smells and apply design patterns to our work.
