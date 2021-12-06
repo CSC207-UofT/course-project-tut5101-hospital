@@ -55,6 +55,8 @@ prof, there would be too many interfaces.
    After controller passes the `ID` of the best staff to `UI` the `Menu` then calls the presenter to return a string
    description of the best staff, which `Menu` prints out to the user.
 
+3. Some part of the code is avoiding Clean Architecture such that `DoctorMenu` and we don't have time to fix it before . 
+   presentation. 
 ## Design Patterns
 
 1. ***Facade Design pattern*** in `UseCases.OpertionFacade` package: [x]
