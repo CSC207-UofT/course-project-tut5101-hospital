@@ -76,7 +76,7 @@ public class DoctorMenu extends StaffMenu {
         while (choice != 1 && choice != 2) {
             System.out.println("Which kind of record you want to check for this patient?");
             System.out.println("1: Record");
-            System.out.println("2: Medical Record");
+            System.out.println("2: Medical History");
             try {
                 choice = scanner.nextInt();
                 scanner.nextLine();
@@ -86,10 +86,20 @@ public class DoctorMenu extends StaffMenu {
         }
         if (choice == 1) {
             PatientRecordViewer patientRecordViewer = new PatientRecordViewer();
-            System.out.println(patientRecordViewer.print(healthCardNumber));
+            String record = patientRecordViewer.print(healthCardNumber);
+            if (record == ""){
+                System.out.println("There is no record for this patient");
+            }else{
+                System.out.println(record);
+            }
         } else if (choice == 2) {
             PatientMedicalRecordViewer patientMedicalRecordViewer = new PatientMedicalRecordViewer();
-            System.out.println(patientMedicalRecordViewer.print(healthCardNumber));
+            String record = patientMedicalRecordViewer.print(healthCardNumber);
+            if (record == ""){
+                System.out.println("There is no Medical History for this patient");
+            }else{
+                System.out.println(record);
+            }
         }
     }
 
