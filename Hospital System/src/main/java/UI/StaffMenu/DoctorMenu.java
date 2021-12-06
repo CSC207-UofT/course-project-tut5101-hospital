@@ -132,7 +132,7 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
         pRLmanager.addHistory(patientMedicalHistory, date);
         System.out.println("Patient history successfully added to patient record list");
     }
@@ -191,7 +191,7 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
         PatientRecordList PRL = pRLmanager.getPatientRecordList();
         for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
@@ -280,7 +280,7 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
         pRLmanager.addRecord(patientRecords, date);
         System.out.println("Patient record successfully added to patient record list");
     }
