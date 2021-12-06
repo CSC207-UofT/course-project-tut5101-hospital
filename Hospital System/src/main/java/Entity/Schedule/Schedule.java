@@ -1,5 +1,6 @@
 package Entity.Schedule;
 
+import java.time.LocalDateTime;
 import java.util.Map.Entry;
 
 import Exceptions.InvalidInputException;
@@ -53,6 +54,23 @@ public class Schedule implements java.io.Serializable {
         } else {
             throw new InvalidInputException("");
         }
+    }
+
+    /**
+     * Add or modify event
+     *
+     * @param event String name of event
+     * @param dates Event start and end time and date
+     * @throws InvalidInputException
+     * @return return a schedule
+     */
+    public Schedule addOrModifyEventForStaff(String event, Event dates) throws InvalidInputException {
+        if (!schedule.containsKey(dates)) {
+            this.schedule.put(dates, event);
+        } else {
+            throw new InvalidInputException("");
+        }
+        return this;
     }
 
     /**

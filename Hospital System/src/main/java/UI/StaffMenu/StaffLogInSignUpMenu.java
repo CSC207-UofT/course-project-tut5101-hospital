@@ -44,7 +44,6 @@ public class StaffLogInSignUpMenu implements Menu {
         do {
             System.out.println("Input id (Input id you put in when you did sign up for staff)");
             id = scanner.nextLong();
-            id = Long.valueOf(id);
             if (loginSignup.checkIfStaffExists(id)) {
                 this.type = new CheckStaffType().checkType(id);
                 scanner.nextLine();
@@ -89,20 +88,15 @@ public class StaffLogInSignUpMenu implements Menu {
         String gender = scanner.nextLine();
         System.out.println("Input id (Input Integer)");
         id = scanner.nextLong();
-        id = Long.valueOf(id);
         scanner.nextLine();
         System.out.println("Input password (Input String)");
         String pwd = scanner.nextLine();
         System.out.println("Input base salary (Input Integer)");
         int salary = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("What event do you do (Choose among Ill, Fever, Heart, Eye, Bone)");
-        String event = scanner.nextLine();
         Schedule workingTime;
         try {
-            workingTime = loginSignup.makeWorkingTime(event);
-
-
+            workingTime = loginSignup.makeWorkingTime();
             switch (type) {
                 case "Doctor":
                     new DoctorSignUp().signUp(name, gender, id, workingTime, pwd, salary);
