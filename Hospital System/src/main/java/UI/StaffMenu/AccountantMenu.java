@@ -47,6 +47,6 @@ public class AccountantMenu extends StaffMenu {
      */
     public void findHospitalProfit() {
         FindHospitalProfit findHospitalProfit = new FindHospitalProfit();
-        new FindHospitalProfitPresenter().print(findHospitalProfit.totalProfit());
+        System.out.println(new FindHospitalProfitPresenter().print(findHospitalProfit.totalProfit()));
     }
 }
