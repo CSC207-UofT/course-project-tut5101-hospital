@@ -10,11 +10,11 @@ public class Doctor extends Staff implements java.io.Serializable {
     /**
      * Doctor Entity
      */
-    private OperationList scdldOps = new OperationList();
-    private final OperationList fnshdOps = new OperationList();
+    private final OperationList scdldOps = new OperationList();
+    private OperationList fnshdOps = new OperationList();
 
-    public void setOp(OperationList scdldOps){
-        this.scdldOps = scdldOps;
+    public void setOp(OperationList fnshdOps){
+        this.fnshdOps = fnshdOps;
     }
 
     public OperationList getFnshdOps() {
