@@ -170,13 +170,12 @@ request: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/33.
 part of the staff features in our hospital. Also it shows some example to the rest of group member how to implement
 Clean Architecture because I created new UI, UseCase, Controllers and Presenters to implement those features.
 
-### Fion: In charge of Patient Medical Record, Patient Record and Patient Record list entity classes (Made the classes,
-
-made the tests and implemented them into menu). Used to create a patient record and patient medical record while storing
+### Fion: In charge of Patient Medical Record, Patient Record and Patient Record list entity classes and PatientRecordListManager use case
+(Made the classes, made the tests and implemented them into menu). Create a patient record and patient medical record while storing
 them by date created into patient record list. Created tests for UseCases. Filled out the Accessibility Report. I did
-not really use pull requests as I had a lot of trouble with it during phase 1. Instead we divided up tasks in Github
-tracker and opened and assigned issues. Link to pull request from phase
-1: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/1
+not really use pull requests as I had a lot of trouble with it during phase 1. Instead, we divided up tasks in Github
+tracker and opened and assigned issues. Link to pull request from phase 1: 
+https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/1
 
 ### Jeremy: Making sign up and login for staff and patient up to date. Patient can make appointment and staff can confirm/ cancel the appointment
 Made the tests for entity package. Since we have changed our program's base quit often. I don't have a pull request that
