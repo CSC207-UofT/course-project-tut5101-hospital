@@ -65,4 +65,18 @@ public class TestStaffManager {
                 "ID Number: 444", sm.getStaffInfo(IDadmin));
     }
 
+    @Test
+    public void TestgetStaffTypeAdmin() {
+        Assert.assertEquals("Admin", sm.getStaffType(IDadmin));
+    }
+
+    @Test
+    public void TestgetStaffTypeDoctor() {
+        Assert.assertEquals("Doctor", sm.getStaffType(IDdoctor));
+    }
+
+    @Test
+    public void TestgetStaffTypeNurse() {
+        Assert.assertEquals("Nurse", sm.getStaffType(IDnurse));
+    }
 }
