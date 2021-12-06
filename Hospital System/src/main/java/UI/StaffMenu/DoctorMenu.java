@@ -10,6 +10,7 @@ import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
 import UseCases.Patient.PatientManager;
+import UseCases.PatientRecordListManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,11 +118,17 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        healthCardNumber = scanner.nextLong();
-        scanner.nextLine();
+        try {
+            healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
+        } catch (Exception e) {
+            throw new InvalidInputException("Invalid input");
+        }
 
         PatientManager patientManager = PatientManager.getInstance();
-        patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
+        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        pRLmanager.addHistory(patientMedicalHistory, date);
+        System.out.println("Patient history successfully added to patient record list");
     }
 
     public void editPatientRecord() throws InvalidInputException {
@@ -140,33 +147,33 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
+        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        PatientRecordList PRL = pRLmanager.getPatientRecordList();
         for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
                 System.out.println("Patient has an existing patient record, what would you like to update?" +
                         "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
-                result = "patient record exists";
+                result = "Patient record exist";
                 c = scanner.nextLine();
                 if (c.equals("1")) {
                     System.out.println("Input the patient's new height (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).changeHeight(change);
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("2")) {
                     System.out.println("Input the patient's new weight (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).changeWeight(change);
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("3")) {
                     System.out.println("Input the patient's new allergy (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).addAllergy(change);
-                    ;
+                    pRLmanager.editRecord(c, change);
                 }
                 if (c.equals("4")) {
                     System.out.println("Input the vaccine given to patient (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).addVaccination(change);
+                    pRLmanager.editRecord(c, change);
                 }
             }
         }
@@ -229,7 +236,8 @@ public class DoctorMenu extends StaffMenu {
         }
 
         PatientManager patientManager = PatientManager.getInstance();
-        patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);
+        PatientRecordListManager pRLmanager = new PatientRecordListManager(patientManager.getPatient(healthCardNumber));
+        pRLmanager.addRecord(patientRecords, date);
         System.out.println("Patient record successfully added to patient record list");
     }
 }

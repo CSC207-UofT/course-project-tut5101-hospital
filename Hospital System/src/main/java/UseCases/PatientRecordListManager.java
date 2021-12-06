@@ -7,6 +7,8 @@ import Entity.Patients.Patient;
 import Entity.Patients.PatientData;
 import Entity.Staff.StaffData;
 
+import java.util.Map;
+
 public class PatientRecordListManager {
     PatientRecordList patientRecordList;
     PatientData sessionData;
@@ -36,4 +38,28 @@ public class PatientRecordListManager {
         patientRecordList.addHistory(history, date);
         savePatientRecordList();
     }
+
+    public void editRecord(String num, String input){
+        for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
+            if (entry.getValue() instanceof PatientRecords) {
+                if (num.equals("1")) {
+                    ((PatientRecords) entry.getValue()).changeHeight(input);
+                    savePatientRecordList();
+                }
+                if (num.equals("2")) {
+                    ((PatientRecords) entry.getValue()).changeWeight(input);
+                    savePatientRecordList();
+                }
+                if (num.equals("3")) {
+                    ((PatientRecords) entry.getValue()).addAllergy(input);
+                    savePatientRecordList();
+                }
+                if (num.equals("4")) {
+                    ((PatientRecords) entry.getValue()).addVaccination(input);
+                    savePatientRecordList();
+                }
+            }
+        }
+    }
+
 }
