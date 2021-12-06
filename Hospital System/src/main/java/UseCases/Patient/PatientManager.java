@@ -17,15 +17,17 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * Patient manager
      */
     PatientData sessionData = new PatientData();
-    private static PatientManager pm =null;
+    private static PatientManager pm = null;
 
-    private PatientManager(){
+    private PatientManager() {
 
     }
+
     public static PatientManager getInstance() {
-        if(pm == null){
+        if (pm == null) {
             pm = new PatientManager();
-        }return pm;
+        }
+        return pm;
     }
 
 
@@ -144,11 +146,11 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
         String record = "";
-        HashMap<String, Object> patientRecords =  patientRecordList.getPatientRecords();
+        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
 
-        for (Object value: patientRecords.values()) {
+        for (Object value : patientRecords.values()) {
             if (value instanceof PatientMedicalHistory) {
-                record+=(((PatientMedicalHistory) value).getPatientMH());
+                record += (((PatientMedicalHistory) value).getPatientMH());
             }
         }
         return record;
@@ -164,10 +166,10 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
         String record = "";
-        HashMap<String, Object> patientRecords =  patientRecordList.getPatientRecords();
-        for (Object value: patientRecords.values()) {
+        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
+        for (Object value : patientRecords.values()) {
             if (value instanceof PatientRecords) {
-                record+=(((PatientRecords) value).getPatientRecord());
+                record += (((PatientRecords) value).getPatientRecord());
             }
         }
         return record;

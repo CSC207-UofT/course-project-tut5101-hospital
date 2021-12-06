@@ -13,7 +13,7 @@ public class CheckIfExists {
      * @return
      */
     public boolean checkPatExists(Long hcn) {
-        PatientManaging patientManaging =PatientManager.getInstance();
+        PatientManaging patientManaging = PatientManager.getInstance();
         return patientManaging.checkIfPatientExist(hcn);
     }
 

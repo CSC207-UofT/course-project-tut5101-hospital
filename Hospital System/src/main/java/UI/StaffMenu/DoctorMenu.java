@@ -55,7 +55,7 @@ public class DoctorMenu extends StaffMenu {
             } else {
                 throw new InvalidInputException("");
             }
-        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice !=5 && choice != 6);
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6);
 
     }
 
@@ -65,7 +65,7 @@ public class DoctorMenu extends StaffMenu {
     public void viewPatientRecord() throws InvalidInputException {
         int choice = 4;
         long healthCardNumber = 0;
-        System.out.println("Please input the health card number of the patient to see her/his record.");
+        System.out.println("Please input the health card number of the patient to the record.");
         try {
             healthCardNumber = scanner.nextInt();
             scanner.nextLine();
@@ -87,22 +87,26 @@ public class DoctorMenu extends StaffMenu {
         if (choice == 1) {
             PatientRecordViewer patientRecordViewer = new PatientRecordViewer();
             String record = patientRecordViewer.print(healthCardNumber);
-            if (record == ""){
+            if (record == "") {
                 System.out.println("There is no record for this patient");
-            }else{
+            } else {
                 System.out.println(record);
             }
         } else if (choice == 2) {
             PatientMedicalRecordViewer patientMedicalRecordViewer = new PatientMedicalRecordViewer();
             String record = patientMedicalRecordViewer.print(healthCardNumber);
-            if (record == ""){
+            if (record == "") {
                 System.out.println("There is no Medical History for this patient");
-            }else{
+            } else {
                 System.out.println(record);
             }
         }
     }
 
+    /**
+     * Add patient medical history
+     * @throws InvalidInputException
+     */
     public void addPatientMH() throws InvalidInputException {
         List<String> currentMedications = new ArrayList<>();
         String done = "";
@@ -149,19 +153,21 @@ public class DoctorMenu extends StaffMenu {
         System.out.println("Patient history successfully added to patient record list");
     }
 
+    /**
+     * Confirm appointment for doctor
+     */
     private void confirmAppointment() {
         System.out.println("Enter your id");
         id = scanner.nextLong();
         scanner.nextLine();
         AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
         System.out.println(appointmentMaker.getStaffSchedule());
-        if (appointmentMaker.getStaffSchedule() != null){
+        if (appointmentMaker.getStaffSchedule() != null) {
             System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
             String c = scanner.nextLine();
-            if (c.equals("1")){
+            if (c.equals("1")) {
                 System.out.println("Schedule confirmed");
-            }
-            else if (c.equals("2")){
+            } else if (c.equals("2")) {
                 try {
                     System.out.println("Write down the patient's health card number whom you cant to cancel");
                     long hcn = scanner.nextLong();
@@ -179,6 +185,9 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
+    /**
+     * View staff schedule
+     */
     private void viewStaffSchedule() {
         System.out.println("Enter your id");
         id = scanner.nextLong();
@@ -187,6 +196,11 @@ public class DoctorMenu extends StaffMenu {
         System.out.println(appointmentMaker.getStaffSchedule());
     }
 
+
+    /**
+     * Edit patient record
+     * @throws InvalidInputException
+     */
     public void editPatientRecord() throws InvalidInputException {
         int choice = 6;
         String c = "";
@@ -246,6 +260,10 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
+    /**
+     * Make patient record
+     * @throws InvalidInputException
+     */
     public void makePatientRecord() throws InvalidInputException {
         List<String> allergies = new ArrayList<>();
         List<String> vaccinations = new ArrayList<>();

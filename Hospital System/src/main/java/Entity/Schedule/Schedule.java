@@ -60,7 +60,7 @@ public class Schedule implements java.io.Serializable {
      *
      * @param event String name of event
      * @param dates Event start and end time and date
-     * @param hcn health card number of patient
+     * @param hcn   health card number of patient
      * @throws InvalidInputException
      */
     public void addOrModifyEvent(String event, Event dates, Long hcn) throws InvalidInputException {
