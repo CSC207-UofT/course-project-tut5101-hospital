@@ -1,5 +1,4 @@
 import Exceptions.InvalidInputException;
-import Exceptions.StaffNotFoundException;
 import UI.MenuChooseStaffOrPatient;
 
 public class Main {
