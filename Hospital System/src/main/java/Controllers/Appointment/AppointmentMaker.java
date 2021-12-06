@@ -60,6 +60,7 @@ public class AppointmentMaker {
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
         sm.makeAppointment(c, event, id, hcn);
         ScheduleManager smStaff = new ScheduleManager(stm.getStaff(id));
+        smStaff.makeAppointment(c, event, id, hcn);
     }
 
     public void viewChoices(){

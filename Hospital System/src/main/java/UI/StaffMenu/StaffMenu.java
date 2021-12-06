@@ -1,6 +1,7 @@
 package UI.StaffMenu;
 
 import Controllers.LoginSignUp.LoginSignup;
+import Controllers.SaveEveryThing;
 import Exceptions.InvalidInputException;
 import UI.Menu;
 import UI.MenuForStaff;
@@ -13,6 +14,7 @@ public abstract class StaffMenu implements Menu {
     long id;
     LoginSignup loginSignup = new LoginSignup();
     MenuForStaff context;
+    public String type;
 
     public StaffMenu(MenuForStaff context) {
         this.context = context;
@@ -23,8 +25,6 @@ public abstract class StaffMenu implements Menu {
         doStuff();
         quit();
         //in case a log out feature is implemented, this would be filled out
-//        toState("not implemented");
-//        context.doThings();
     }
 
     @Override
@@ -36,12 +36,21 @@ public abstract class StaffMenu implements Menu {
 
     }
 
+    //asks for input to quit
     public void quit() {
         System.out.println("press q to quit, other to continue");
         String c = scanner.nextLine();
         if (c.equals("q")) {
-            context.setState(new StaffLogInSignUpMenu(context));
+            exit();
+        }else{
+            toState(this.type);
         }
+    }
+    //actually quits the program
+    public void exit() {
+        SaveEveryThing sv = new SaveEveryThing();
+        sv.save();
+        System.exit(0);
     }
 
 }

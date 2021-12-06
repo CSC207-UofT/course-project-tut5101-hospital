@@ -15,6 +15,7 @@ import UI.MenuForStaff;
 public class AdminMenu extends StaffMenu {
     public AdminMenu(MenuForStaff context) {
         super(context);
+        type = "Admin";
     }
 
     //Stuff admin can do in admin menu
