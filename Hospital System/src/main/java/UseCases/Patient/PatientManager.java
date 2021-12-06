@@ -8,6 +8,7 @@ import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
 import UseCases.Schedule.ScheduleManager;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class PatientManager implements PatientManaging, java.io.Serializable {
@@ -131,13 +132,16 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
     public String getPatientMedicalRecord(long healthCardNumber) {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
-        StringBuilder list = new StringBuilder();
-        for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
-            if (entry.getValue() instanceof PatientMedicalHistory) {
-                list.append(((PatientMedicalHistory) entry.getValue()).getPatientMH());
+        String record = "";
+        HashMap<String, Object> patientRecords =  patientRecordList.getPatientRecords();
+
+        for (Object value: patientRecords.values()) {
+            if (value instanceof PatientMedicalHistory) {
+                record+=(((PatientMedicalHistory) value).getPatientMH());
             }
         }
-        return list.toString();
+        System.out.println(patientRecords.size()==0);
+        return record;
     }
 
     /**
