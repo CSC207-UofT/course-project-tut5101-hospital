@@ -29,6 +29,7 @@ public class AppointmentMaker {
         this.pm = PatientManager.getInstance();
         this.stm = StaffManager.getInstance();
         this.sm = pm.getPatientScheduleManager(hcnOrId);
+        this.stms = stm.getStaffSm(hcnOrId);
     }
 
 
@@ -75,5 +76,20 @@ public class AppointmentMaker {
      */
     public void deleteEvent(String start, String end) throws StaffNotFoundException {
         sm.removeEvent(start, end);
+    }
+
+    /**
+     * Deletes all appointments
+
+     */
+    public void deleteAllEvent() throws StaffNotFoundException {
+        sm.removeEvent("2021-12-01 08:00", "2021-12-01 09:00");
+        sm.removeEvent("2021-12-01 09:00", "2021-12-01 10:00");
+        sm.removeEvent("2021-12-01 10:00", "2021-12-01 11:00");
+        sm.removeEvent("2021-12-01 11:00", "2021-12-01 12:00");
+        sm.removeEvent("2021-12-01 12:00", "2021-12-01 13:00");
+        sm.removeEvent("2021-12-01 13:00", "2021-12-01 14:00");
+        sm.removeEvent("2021-12-01 14:00", "2021-12-01 15:00");
+        sm.removeEvent("2021-12-01 15:00", "2021-12-01 16:00");
     }
 }

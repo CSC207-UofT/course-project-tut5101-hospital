@@ -13,5 +13,7 @@ public interface ScheduleManaging {
 
     String getScheduleString();
 
-    Schedule staffSchedule(String event) throws InvalidInputException;
+    void appointStaffSchedule(String event, int input) throws InvalidInputException;
+
+    Schedule addNurseSchedule() throws  InvalidInputException;
 }

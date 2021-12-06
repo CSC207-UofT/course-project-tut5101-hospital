@@ -6,6 +6,7 @@ import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
 import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
+import Exceptions.StaffNotFoundException;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
@@ -33,7 +34,7 @@ public class WorkerMenu extends StaffMenu {
                 " Type 2 to view schedule; Type 3 to check assigned patient record)");
         c = scanner.nextLine();
         if (c.equals("1")) {
-            confirmAppointment();
+            confirmYourAppointment();
         }
         if (c.equals("2")) {
             viewStaffSchedule();
@@ -43,10 +44,23 @@ public class WorkerMenu extends StaffMenu {
         }
     }
 
-    private void confirmAppointment() {
-        Staff staff = loginSignup.initStaff(id);
-        System.out.println(loginSignup.checkIfStaffExists(id));
-        ScheduleManager sm = new ScheduleManager(staff.getSchedule());
+    private void confirmYourAppointment() {
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        if (appointmentMaker.checkStaffSchedule() != null){
+            System.out.println("Are you going to confirm your appointment?");
+            String c = scanner.nextLine();
+            if (c.equals("1")){
+                System.out.println("Schedule confirmed");
+            }
+            else if (c.equals("2")){
+                try {
+                    appointmentMaker.deleteAllEvent();
+                    System.out.println("All Schedule canceled");
+                } catch (StaffNotFoundException e) {
+                    System.out.println("Staff Not Found");
+                }
+            }
+        }
     }
 
     private void viewStaffSchedule() {
