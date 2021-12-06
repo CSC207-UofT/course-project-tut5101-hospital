@@ -43,7 +43,7 @@ prof, there would be too many interfaces.
 
 ## Clean Architecture
 
-1. UML diagram
+1. [UML diagram](uml.pdf)
 2. Scenario Walkthrough:  
    Say the management staff(Admin) wants to look for the best staff in the hospital. They would first interact with
    the `Menu.Ui`
