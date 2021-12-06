@@ -140,7 +140,7 @@ public class MenuForPatient {
         try {
             am.viewChoices();
             String d = scanner.nextLine();
-            am.makeAppointment(d, event, id);
+            am.makeAppointment(d, event, id, hcn);
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
         }

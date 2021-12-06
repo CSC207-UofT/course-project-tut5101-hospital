@@ -42,6 +42,7 @@ public class ScheduleManager implements ScheduleManaging {
      */
     public ScheduleManager(Patient p) {
         sessionData = new PatientData();
+        staffData = new StaffData();
         this.s = p.getSchedule();
 
     }
@@ -123,7 +124,7 @@ public class ScheduleManager implements ScheduleManaging {
         staffData.saveData();
     }
 
-    public void makeAppointment(String c, String event, Long id) throws InvalidInputException {
+    public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st;
         LocalDateTime e;
@@ -171,10 +172,12 @@ public class ScheduleManager implements ScheduleManaging {
             default: throw new IllegalStateException("Unexpected value: " + c);
         }
         Event eventPatient = new Event(st, e);
-        System.out.println(staffData.searchID(id));
-        s.addOrModifyEvent(event, eventPatient);
-//        staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
+//        System.out.println(staffData.searchID(id));
+//        s.addOrModifyEvent(event, eventPatient);
+        sessionData.searchHCN(hcn).setSchedule(s.addOrModifyEventForStaff(event, eventPatient));
+        staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
         saveSchedule();
+        saveStaffSchedule();
     }
 
     public void viewScheduleChoices(){

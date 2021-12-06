@@ -66,8 +66,8 @@ public class AppointmentMaker {
      * @param event String name of event
      * @param id   id of staff
      */
-    public void makeAppointment(String c, String event, Long id) throws InvalidInputException {
-        sm.makeAppointment(c, event, id);
+    public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
+        sm.makeAppointment(c, event, id, hcn);
     }
 
     public void viewChoices(){
