@@ -12,11 +12,11 @@ public class PatientRecordList implements java.io.Serializable {
     transient private HashMap<String, Object> patientRecords = new HashMap<>() {};
 
     public void addRecord(PatientRecords record, String date) {
-        patientRecords.put(date, record);
+        this.patientRecords.put(date, record);
     }
 
     public void addHistory(PatientMedicalHistory history, String date) {
-        patientRecords.put(date, history);
+        this.patientRecords.put(date, history);
     }
 
     /**
@@ -28,7 +28,4 @@ public class PatientRecordList implements java.io.Serializable {
         return patientRecords;
     }
 
-    public void setPatientRecords(HashMap<String, Object> patientRecords) {
-        this.patientRecords = patientRecords;
-    }
 }

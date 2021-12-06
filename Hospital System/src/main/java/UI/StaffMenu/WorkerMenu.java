@@ -79,6 +79,7 @@ public class WorkerMenu extends StaffMenu {
         System.out.println("Please input the health card number of the patient to see her/his record.");
         try {
             healthCardNumber = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
@@ -89,6 +90,7 @@ public class WorkerMenu extends StaffMenu {
             System.out.println("2: Medical Record");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }
@@ -102,9 +104,8 @@ public class WorkerMenu extends StaffMenu {
         }
     }
 
-    public void addPatientMH() throws InvalidInputException, FileNotFoundException {
+    public void addPatientMH() throws InvalidInputException {
         List<String> currentMedications = new ArrayList<>();
-        List<InputStream> medicalImages = new ArrayList<>();
         String done = "";
 
         System.out.println("Input your name (Input String)");
@@ -128,17 +129,7 @@ public class WorkerMenu extends StaffMenu {
         String diagnosis = scanner.nextLine();
         System.out.println("Input treatment methods (Use String)");
         String treatment = scanner.nextLine();
-        System.out.println("Upload medical images taken (Input image file path and type complete when input completed)");
-        while (done.equals("done")) {
-            String imagePath = scanner.nextLine();
-            if (imagePath.equals("complete")) {
-                done = "complete";
-            } else {
-                InputStream imageFile = new FileInputStream(imagePath);
-                medicalImages.add(imageFile);
-            }
-        }
-        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment, medicalImages);
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment);
         System.out.println("Patient Medical History successfully created");
 
         System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
@@ -146,11 +137,8 @@ public class WorkerMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextInt();
-        } catch (Exception e) {
-            throw new InvalidInputException("");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addHistory(patientMedicalHistory, date);
@@ -161,13 +149,11 @@ public class WorkerMenu extends StaffMenu {
         String c = "";
         String change = "";
         String result = "No patient record";
+
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextInt();
-        } catch (Exception e) {
-            throw new InvalidInputException("");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
@@ -206,6 +192,9 @@ public class WorkerMenu extends StaffMenu {
             } catch (Exception e) {
                 throw new InvalidInputException("");
             }
+        }
+        if (choice == 7) {
+            makePatientRecord();
         }
     }
 
@@ -247,11 +236,8 @@ public class WorkerMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        try {
-            healthCardNumber = scanner.nextInt();
-        } catch (Exception e) {
-            throw new InvalidInputException("");
-        }
+        healthCardNumber = scanner.nextLong();
+        scanner.nextLine();
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);

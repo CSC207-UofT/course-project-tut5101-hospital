@@ -6,15 +6,11 @@ import Controllers.Admin.GetBestStrategies.GetBestByOperations;
 import Controllers.Admin.GetBestStrategies.GetBestByTime;
 import Exceptions.InvalidInputException;
 import Presenters.Functions.FindBestStaffPresenter;
-import Presenters.MenuPresenter.AccountantMenuPresenter;
 import Presenters.MenuPresenter.AdminMenuPresenter;
-import Presenters.PatientRecords.PatientMedicalRecordViewer;
-import Presenters.PatientRecords.PatientRecordViewer;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
 import Presenters.Schedule.ViewOtherStaffSchedules;
 import UI.MenuForStaff;
-import UseCases.Staff.StaffManager;
 
 public class AdminMenu extends StaffMenu {
     public AdminMenu(MenuForStaff context) {
@@ -23,7 +19,7 @@ public class AdminMenu extends StaffMenu {
 
     //Stuff admin can do in admin menu
     @Override
-    public void doStuff() throws InvalidInputException {
+    public void doStuff() throws InvalidInputException{
         AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter();
 
         int choice = 4;
@@ -96,6 +92,7 @@ public class AdminMenu extends StaffMenu {
             System.out.println("3: OtherStaff");
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine();
             } catch (Exception e) {
                 System.out.println("Input is invalid, please try again");
             }
