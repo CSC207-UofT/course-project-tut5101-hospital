@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +26,7 @@ public class TestPatientManager {
     @Before
     public void setUp() throws Exception {
         pm.addPatient("Claire", "Female", 5, 453, "growl", 0);
-        patient = pm.newPatient("Claire", "Female", 5, 453, "growl", 0);
+        patient = pm.getPatient(453);
         PatientRecordList pRL = patient.getPRL();
         List<String> vaccinations = new ArrayList<>();
         vaccinations.add("pfizer");
@@ -82,6 +81,6 @@ public class TestPatientManager {
 
     @Test
     public void TestgetPatientRecord() {
-        Assert.assertEquals(patientRecords.getPatientRecord(), pm.getPatientRecord(435));
+        Assert.assertEquals(patientRecords.getPatientRecord(), pm.getPatientRecord(453));
     }
 }

@@ -42,6 +42,7 @@ public class ScheduleManager implements ScheduleManaging {
      */
     public ScheduleManager(Patient p) {
         sessionData = new PatientData();
+        staffData = new StaffData();
         this.s = p.getSchedule();
 
     }
@@ -121,6 +122,82 @@ public class ScheduleManager implements ScheduleManaging {
 
     private void saveStaffSchedule() {
         staffData.saveData();
+    }
+
+    public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime st;
+        LocalDateTime e;
+        switch (c) {
+            case "1": {
+                st = LocalDateTime.parse("2021-12-01 08:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 09:00", formatter);
+                break;
+            }
+            case "2": {
+                st = LocalDateTime.parse("2021-12-01 09:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 10:00", formatter);
+                break;
+            }
+            case "3": {
+                st = LocalDateTime.parse("2021-12-01 10:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 11:00", formatter);
+                break;
+            }
+            case "4": {
+                st = LocalDateTime.parse("2021-12-01 11:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 12:00", formatter);
+                break;
+            }
+            case "5": {
+                st = LocalDateTime.parse("2021-12-01 12:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 13:00", formatter);
+                break;
+            }
+            case "6": {
+                st = LocalDateTime.parse("2021-12-01 13:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 14:00", formatter);
+                break;
+            }
+            case "7": {
+                st = LocalDateTime.parse("2021-12-01 14:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 15:00", formatter);
+                break;
+            }
+            case "8": {
+                st = LocalDateTime.parse("2021-12-01 15:00", formatter);
+                e = LocalDateTime.parse("2021-12-01 16:00", formatter);
+                break;
+            }
+            default: throw new IllegalStateException("Unexpected value: " + c);
+        }
+        Event eventPatient = new Event(st, e);
+//        System.out.println(staffData.searchID(id));
+//        s.addOrModifyEvent(event, eventPatient);
+        sessionData.searchHCN(hcn).setSchedule(s.addOrModifyEventForStaff(event, eventPatient));
+        staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
+        saveSchedule();
+        saveStaffSchedule();
+    }
+
+    public void viewScheduleChoices(){
+        System.out.println("You can choose from these time choices");
+        System.out.println("Choice 1: Start: 2021-12-01 08:00 " +
+                "End:2021-12-01 09:00 (Enter 1 to choose this)");
+        System.out.println("Choice 2: Start: 2021-12-01 09:00 " +
+                "End:2021-12-01 10:00 (Enter 2 to choose this)");
+        System.out.println("Choice 3: Start: 2021-12-01 10:00 " +
+                "End:2021-12-01 11:00 (Enter 3 to choose this)");
+        System.out.println("Choice 4: Start: 2021-12-01 11:00 " +
+                "End:2021-12-01 12:00 (Enter 4 to choose this)");
+        System.out.println("Choice 5: Start: 2021-12-01 12:00 " +
+                "End:2021-12-01 13:00 (Enter 5 to choose this)");
+        System.out.println("Choice 6: Start: 2021-12-01 13:00 " +
+                "End:2021-12-01 14:00 (Enter 6 to choose this)");
+        System.out.println("Choice 7: Start: 2021-12-01 14:00 " +
+                "End:2021-12-01 15:00 (Enter 7 to choose this)");
+        System.out.println("Choice 8: Start: 2021-12-01 15:00 " +
+                "End:2021-12-01 16:00 (Enter 8 to choose this)");
     }
 
     @Override

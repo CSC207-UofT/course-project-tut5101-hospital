@@ -101,8 +101,9 @@ public class LoginSignup {
     }
 
 
-    public Schedule makeWorkingTime(String event) throws InvalidInputException {
-        return sms.staffSchedule(event);
+    public Schedule makeWorkingTime() throws InvalidInputException {
+        return sms.getSchedule();
+//        return sms.staffSchedule(event);
     }
 
     /**
