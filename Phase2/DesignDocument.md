@@ -55,6 +55,8 @@ prof, there would be too many interfaces.
    After controller passes the `ID` of the best staff to `UI` the `Menu` then calls the presenter to return a string
    description of the best staff, which `Menu` prints out to the user.
 
+3. Some part of the code is avoiding Clean Architecture such that `DoctorMenu` and we don't have time to fix it before . 
+   presentation. 
 ## Design Patterns
 
 1. ***Facade Design pattern*** in `UseCases.OpertionFacade` package: [x]
@@ -105,7 +107,7 @@ comments***.
 ## Testing
 Most basic part of our system are tested such as Entity and UseCases layer. But due to our design, some part of code such as UI and 
 presenters are very hard to test. So we just decide to leave it without test. And for controller, it just called usecases, so if usecases works, 
-controllers will works too.
+controllers will works too. That is why we have fewer tests fot controller.
 ## Refactoring
 
 In phase 2 we tried to eliminate code smells and apply design patterns to our work.
