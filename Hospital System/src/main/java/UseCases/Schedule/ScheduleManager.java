@@ -119,7 +119,13 @@ public class ScheduleManager implements ScheduleManaging {
      * Save schedule
      */
     private void saveSchedule() {
-        sessionData.saveData();
+        //if this object is for a staff(sessiondata for patient is null then save staffdata.)
+        if(sessionData==null){
+            staffData.saveData();
+        }else{
+            sessionData.saveData();
+        }
+
     }
 
     private void saveStaffSchedule() {
