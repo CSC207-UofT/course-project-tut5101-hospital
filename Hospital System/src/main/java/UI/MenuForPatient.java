@@ -3,6 +3,7 @@ package UI;
 import java.util.Scanner;
 
 import Controllers.Appointment.AppointmentMaker;
+import Controllers.Appointment.PayFee;
 import Entity.Patients.Patient;
 import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
@@ -122,10 +123,13 @@ public class MenuForPatient {
         if (c == 1) {
             System.out.println("Your Account Have $ " + patient.getFee());
         }
-        while (patient.getFee() < 50) {
-            payBookingFee(patient);
+        PayFee pf = new PayFee();
+        while (loginSignup.initPatient(hcn).getFee() < 50) {
+            pf.view(hcn);
+            String e = scanner.nextLine();
+            pf.payBookingFee(hcn, e);
         }
-        patient.payFee(50);
+        loginSignup.initPatient(hcn).payFee(50);
         System.out.println("Fee Paid");
         checkSchedule();
         System.out.println("Which Staff would you like, enter id");
@@ -186,23 +190,4 @@ public class MenuForPatient {
         } while (choice != 1 && choice != 2 && choice != 3);
     }
 
-
-    /**
-     * Pay the Booking fee of a patient
-     */
-    public void payBookingFee(Patient patient) {
-        System.out.println("This is the money in your account: $ " + patient.getFee());
-        System.out.println("Do you want to add money (Type 1 to add, Type 2 to not add)");
-        String c;
-        c = scanner.nextLine();
-        if (c.equals("1")) {
-            System.out.println("How much do you want to add");
-            int addFee = scanner.nextInt();
-            scanner.nextLine();
-            patient.addFee(addFee);
-            System.out.println("Move on to the appointment");
-        } else if (c.equals("2")) {
-            System.out.println("Move on to the appointment");
-        }
-    }
 }

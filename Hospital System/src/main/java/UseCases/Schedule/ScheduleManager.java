@@ -127,7 +127,6 @@ public class ScheduleManager implements ScheduleManaging {
     }
 
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String st = "";
         String e = "";
         switch (c) {
