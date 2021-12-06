@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -207,11 +208,11 @@ public class DoctorMenu extends StaffMenu {
                 allergies.add(allergy);
             }
         }
-        System.out.println("Input patient vaccinations (Use String and type done when input completed)");
-        while (done.equals("")) {
+        System.out.println("Input patient vaccinations (Use String and type finish when input completed)");
+        while (done.equals("done")) {
             String vaccine = scanner.nextLine();
-            if (vaccine.equals("done")) {
-                done = "done";
+            if (vaccine.equals("finish")) {
+                done = "finish";
             } else {
                 vaccinations.add(vaccine);
             }
@@ -226,12 +227,13 @@ public class DoctorMenu extends StaffMenu {
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
         try {
-            healthCardNumber = scanner.nextInt();
+            healthCardNumber = scanner.nextLong();
         } catch (Exception e) {
             throw new InvalidInputException("");
         }
 
         PatientManager patientManager = PatientManager.getInstance();
         patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);
+        System.out.println("Patient record successfully added to patient record list");
     }
 }
