@@ -11,9 +11,6 @@ import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
 import UseCases.Patient.PatientManager;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -135,8 +132,12 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        healthCardNumber = scanner.nextLong();
-        scanner.nextLine();
+        try {
+            healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
+        } catch (Exception e) {
+            throw new InvalidInputException("Invalid input");
+        }
 
         PatientManager patientManager = PatientManager.getInstance();
         PatientRecordList PRL = patientManager.getPatient(healthCardNumber).getPRL();
@@ -181,7 +182,7 @@ public class DoctorMenu extends StaffMenu {
         }
     }
 
-    public void makePatientRecord() {
+    public void makePatientRecord() throws InvalidInputException {
         List<String> allergies = new ArrayList<>();
         List<String> vaccinations = new ArrayList<>();
         String done = "";
@@ -219,15 +220,15 @@ public class DoctorMenu extends StaffMenu {
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
-        healthCardNumber = scanner.nextLong();
-        scanner.nextLine();
+        try {
+            healthCardNumber = scanner.nextLong();
+            scanner.nextLine();
+        } catch (Exception e) {
+            throw new InvalidInputException("Invalid input");
+        }
 
         PatientManager patientManager = PatientManager.getInstance();
-        if (patientManager.getPatient(healthCardNumber).getPRL() == null) {
-            HashMap<String, Object> pRecords = new HashMap<>();
-            pRecords.put(date, patientRecords);
-            patientManager.getPatient(healthCardNumber).getPRL().setPatientRecords(pRecords);
-        }
+        patientManager.getPatient(healthCardNumber).getPRL().addRecord(patientRecords, date);
         System.out.println("Patient record successfully added to patient record list");
     }
 }

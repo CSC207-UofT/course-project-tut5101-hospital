@@ -27,8 +27,4 @@ public class PatientRecordList implements java.io.Serializable {
     public HashMap<String, Object> getPatientRecords() {
         return this.patientRecords;
     }
-
-    public void setPatientRecords(HashMap<String, Object> patientRecords) {
-        this.patientRecords = patientRecords;
-    }
 }
