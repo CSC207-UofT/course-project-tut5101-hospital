@@ -172,12 +172,15 @@ public class ScheduleManager implements ScheduleManaging {
             default: throw new IllegalStateException("Unexpected value: " + c);
         }
         Event eventPatient = new Event(st, e);
-//        System.out.println(staffData.searchID(id));
-//        s.addOrModifyEvent(event, eventPatient);
-        sessionData.searchHCN(hcn).setSchedule(s.addOrModifyEventForStaff(event, eventPatient));
-        staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
-        saveSchedule();
-        saveStaffSchedule();
+        if (!st.isBefore(e)) {
+            throw new InvalidInputException("");
+        }
+        else {
+            sessionData.searchHCN(hcn).setSchedule(s.addOrModifyEventForStaff(event, eventPatient));
+            staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
+            saveSchedule();
+            saveStaffSchedule();
+        }
     }
 
     public void viewScheduleChoices(){

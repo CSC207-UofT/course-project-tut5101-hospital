@@ -136,13 +136,13 @@ public class MenuForPatient {
 //            sfm.getStaffSm(id);
 //        }
         System.out.println("Choose a time that is not in the staff's schedule");
-        AppointmentMaker am = new AppointmentMaker(hcn);
+        AppointmentMaker am = new AppointmentMaker(hcn, id);
         try {
             am.viewChoices();
             String d = scanner.nextLine();
             am.makeAppointment(d, event, id, hcn);
         } catch (InvalidInputException e) {
-            System.out.println("Input is invalid");
+            System.out.println("Input is invalid" + e);
         }
         if (sm.getScheduleString() != null) {
             System.out.println("You have successfully booked an appointment");
@@ -151,8 +151,7 @@ public class MenuForPatient {
     }
 
     private void viewAppointment() {
-        ScheduleManager sm = new ScheduleManager(loginSignup.initPatient(hcn));
-        System.out.println(sm.getScheduleString());
+        System.out.println(loginSignup.initPatient(hcn).getSchedule().getScheduleString());
     }
 
 
