@@ -17,7 +17,7 @@ public class StaffLogInSignUpMenu implements Menu {
     Scanner scanner = new Scanner(System.in);
     public Long id;
     LoginSignup loginSignup = new LoginSignup();
-    public String type = "Doctor";
+    public String type = "LogIn";
     MenuForStaff context;
 
     public StaffLogInSignUpMenu(MenuForStaff context) {

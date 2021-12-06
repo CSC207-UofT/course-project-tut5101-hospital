@@ -10,7 +10,7 @@ Uses descriptive titles and provides explanations for every input needed.
 ####Principle 4: Perceptible Information
 Uses large text size with contrasting text and background color for ease of reading and good legibility.
 ####Principle 5: Tolerance for Error
-Input errors are easily tolerated and an explanation is given when an input fails. 
+Input errors are not easily tolerated since they may crash the system but an explanation is given when an input fails. 
 Only one user command line hence minimal elements that can cause error.
 ####Principle 6: Low Physical Effort
 No physical effort needed and allows user to maintain a neutral body position.
@@ -25,5 +25,9 @@ Our program runs on a computer hence it can be accessible or not depending on wh
 depends on whether a desktop or laptop is used.
 
 ##2.Write a paragraph about who you would market your program towards, if you were to sell or license your program to customers. This could be a specific category such as "students" or more vague, such as "people who like games". Try to give a bit more detail along with the category.
+The program would be marketed towards hospitals that require a system to keep track of staff and patients. 
+The program would be licensed and the hospital would pay to use the system every year.
 
 ##3.Write a paragraph about whether or not your program is less likely to be used by certain demographics. For example, a program that converts txt files to files that can be printed by a braille printer are less likely to be used by people who do not read braille.
+The program would less likely be used by hospitals that only have disabled or elderly patients as it would be very difficult 
+for such patients to type into a computer.

@@ -9,7 +9,7 @@ public class PatientRecordList implements java.io.Serializable {
      * patient medical history and patient records.
      */
 
-    private HashMap<String, Object> patientRecords = new HashMap<>();
+    private final HashMap<String, Object> patientRecords = new HashMap<>();
 
     public void addRecord(PatientRecords record, String date) {
         this.patientRecords.put(date, record);
@@ -26,9 +26,5 @@ public class PatientRecordList implements java.io.Serializable {
      */
     public HashMap<String, Object> getPatientRecords() {
         return this.patientRecords;
-    }
-
-    public void setPatientRecords(HashMap<String, Object> patientRecords) {
-        this.patientRecords = patientRecords;
     }
 }

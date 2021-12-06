@@ -74,7 +74,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
     /**
      * Save session
      */
-    private void saveSession() {
+    public void saveSession() {
         sessionData.saveData();
     }
 
@@ -154,8 +154,6 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         StringBuilder list = new StringBuilder();
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
-
-
         for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
                 list.append(((PatientRecords) entry.getValue()).getPatientRecord());

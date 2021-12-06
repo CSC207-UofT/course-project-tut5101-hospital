@@ -81,6 +81,7 @@ public class ScheduleManager implements ScheduleManaging {
         } else {
             s.addOrModifyEvent(event, new Event(st, e));
             saveSchedule();
+            saveStaffSchedule();
         }
     }
 
@@ -98,6 +99,7 @@ public class ScheduleManager implements ScheduleManaging {
         Event ev = new Event(st, e);
         s.removeEvent(ev);
         saveSchedule();
+        saveStaffSchedule();
     }
 
     /**
@@ -117,7 +119,13 @@ public class ScheduleManager implements ScheduleManaging {
      * Save schedule
      */
     private void saveSchedule() {
-        sessionData.saveData();
+        //if this object is for a staff(sessiondata for patient is null then save staffdata.)
+        if(sessionData==null){
+            staffData.saveData();
+        }else{
+            sessionData.saveData();
+        }
+
     }
 
     private void saveStaffSchedule() {
@@ -126,61 +134,54 @@ public class ScheduleManager implements ScheduleManaging {
 
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime st;
-        LocalDateTime e;
+        String st = "";
+        String e = "";
         switch (c) {
             case "1": {
-                st = LocalDateTime.parse("2021-12-01 08:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 09:00", formatter);
+                st ="2021-12-01 08:00";
+                e = "2021-12-01 09:00";
                 break;
             }
             case "2": {
-                st = LocalDateTime.parse("2021-12-01 09:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 10:00", formatter);
+                st ="2021-12-01 09:00";
+                e = "2021-12-01 10:00";
                 break;
             }
             case "3": {
-                st = LocalDateTime.parse("2021-12-01 10:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 11:00", formatter);
+                st = "2021-12-01 10:00";
+                e = "2021-12-01 11:00";
                 break;
             }
             case "4": {
-                st = LocalDateTime.parse("2021-12-01 11:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 12:00", formatter);
+                st = "2021-12-01 11:00";
+                e = "2021-12-01 12:00";
                 break;
             }
             case "5": {
-                st = LocalDateTime.parse("2021-12-01 12:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 13:00", formatter);
+                st = "2021-12-01 12:00";
+                e = "2021-12-01 13:00";
                 break;
             }
             case "6": {
-                st = LocalDateTime.parse("2021-12-01 13:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 14:00", formatter);
+                st = "2021-12-01 13:00";
+                e = "2021-12-01 14:00";
                 break;
             }
             case "7": {
-                st = LocalDateTime.parse("2021-12-01 14:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 15:00", formatter);
+                st = "2021-12-01 14:00";
+                e = "2021-12-01 15:00";
                 break;
             }
             case "8": {
-                st = LocalDateTime.parse("2021-12-01 15:00", formatter);
-                e = LocalDateTime.parse("2021-12-01 16:00", formatter);
+                st = "2021-12-01 15:00";
+                e = "2021-12-01 16:00";
                 break;
             }
             default: throw new IllegalStateException("Unexpected value: " + c);
         }
-        Event eventPatient = new Event(st, e);
-        if (!st.isBefore(e)) {
-            throw new InvalidInputException("");
-        }
-        else {
-            sessionData.searchHCN(hcn).setSchedule(s.addOrModifyEventForStaff(event, eventPatient));
-            staffData.searchID(id).setWorkingTime(s.addOrModifyEventForStaff(event, eventPatient));
-            saveSchedule();
-            saveStaffSchedule();
-        }
+        addOrModifyEvent(event, st, e);
+        saveSchedule();
+        saveStaffSchedule();
     }
 
     public void viewScheduleChoices(){

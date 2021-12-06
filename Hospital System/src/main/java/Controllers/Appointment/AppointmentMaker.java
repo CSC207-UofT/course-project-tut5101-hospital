@@ -23,15 +23,14 @@ public class AppointmentMaker {
     /**
      * Constructor for appointment maker
      *
-     * @param hcn Patient health card number
-     * @param id Staff id
+     * @param hcnOrId Patient health card number or Staff id
      */
-    public AppointmentMaker(long id, long hcn) {
+    public AppointmentMaker(long hcnOrId) {
         this.pm = PatientManager.getInstance();
         this.stm = StaffManager.getInstance();
-        this.sm = pm.getPatientScheduleManager(hcn);
-        this.stms = new ScheduleManager(stm.getStaff(id));
+        this.sm = pm.getPatientScheduleManager(hcnOrId);
     }
+
 
     /**
      * Get patient schedule
@@ -60,7 +59,8 @@ public class AppointmentMaker {
      */
     public void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException {
         sm.makeAppointment(c, event, id, hcn);
-        stms.makeAppointment(c, event, id, hcn);
+        ScheduleManager smStaff = new ScheduleManager(stm.getStaff(id));
+        smStaff.makeAppointment(c, event, id, hcn);
     }
 
     public void viewChoices(){
