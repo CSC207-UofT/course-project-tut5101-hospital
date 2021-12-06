@@ -97,7 +97,12 @@ The program can persist(store, read, update) entities including patients, staffs
    major part of the staff features in our hospital. Also it shows some example to the rest of group member how to
    implement Clean Architecture because I created new UI, UseCase, Controllers and Presenters to implement those
    features.
-2. Fion:
+2. Fion: In charge of Patient Medical Record, Patient Record and Patient Record list entity classes (Made the classes, 
+   made the tests and implemented them into menu). Used to create a patient record and patient medical record while 
+   storing them by date created into patient record list. Created tests for UseCases. Filled out the Accessibility Report.
+   I did not really use pull requests as I had a lot of trouble with it during phase 1. Instead we divided up tasks in 
+   Github tracker and opened and assigned issues.
+   Link to pull request from phase 1: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/1
 3. Jeremy:
 4. Chiatzen:   
    Phase 0: Usecases and schedule class, responsible for controllers of making appointments and view appointments,
