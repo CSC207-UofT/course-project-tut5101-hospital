@@ -17,5 +17,7 @@ public interface ScheduleManaging {
 
     void appointStaffSchedule(String event, int input) throws InvalidInputException;
 
+    void makeAppointment(String c, String event, Long id, long hcn) throws InvalidInputException;
+
     Schedule addNurseSchedule() throws  InvalidInputException;
 }

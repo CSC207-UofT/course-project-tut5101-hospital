@@ -15,7 +15,6 @@ import Controllers.LoginSignUp.LoginSignup;
 public class MenuForPatient {
     Scanner scanner = new Scanner(System.in);
     private long hcn;
-    private long id;
     LoginSignup loginSignup = new LoginSignup();
 
     public MenuForPatient() {

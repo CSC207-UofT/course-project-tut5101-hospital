@@ -132,7 +132,7 @@ public class ScheduleManager implements ScheduleManaging {
     @Override
     public String getScheduleString() {
         if (s == null) {
-            return "You have no appointments for now.";
+            return "You have no appointments";
         }
         return s.getScheduleString();
     }
