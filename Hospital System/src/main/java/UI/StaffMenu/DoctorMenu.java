@@ -176,7 +176,7 @@ public class DoctorMenu extends StaffMenu {
                     String st = scanner.nextLine();
                     System.out.println("Choose Your Time (end time) to cancel in this kind of format: yyyy-MM-dd HH:mm");
                     String e = scanner.nextLine();
-                    appointmentMaker.deleteEvent(st, e, id, hcn);
+                    appointmentMaker.deleteEvent(st, e, hcn);
                     System.out.println("This Schedule canceled");
                 } catch (StaffNotFoundException e) {
                     System.out.println("Staff Not Found");

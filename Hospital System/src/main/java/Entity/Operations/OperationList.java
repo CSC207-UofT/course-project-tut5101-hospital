@@ -8,7 +8,7 @@ public class OperationList implements Serializable {
     /**
      * List of operations
      */
-    List<Operation> Operations = new ArrayList<Operation>();
+    List<Operation> Operations = new ArrayList<>();
 
     /**
      * Remove an operation

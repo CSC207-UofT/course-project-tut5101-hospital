@@ -2,7 +2,6 @@ package Controllers.Appointment;
 
 // Avoid Clean Ar
 
-import Entity.Staff.Staff;
 
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
@@ -78,7 +77,7 @@ public class AppointmentMaker {
      * @param start Start time and date
      * @param end   End time and date
      */
-    public void deleteEvent(String start, String end, Long id, long hcn) throws StaffNotFoundException {
+    public void deleteEvent(String start, String end, long hcn) throws StaffNotFoundException {
         stms.removeEvent(start, end);
         ScheduleManager smPatient = new ScheduleManager(pm.getPatient(hcn));
         smPatient.removeEvent(start, end);

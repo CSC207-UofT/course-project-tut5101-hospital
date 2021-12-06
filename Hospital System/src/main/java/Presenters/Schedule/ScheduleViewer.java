@@ -14,7 +14,6 @@ public class ScheduleViewer implements Printable {
     @Override
     public String print() {
         ScheduleManager sm = new ScheduleManager(PatientManager.getInstance().getPatient(hcn));
-        String s = sm.getScheduleString();
-        return s;
+        return sm.getScheduleString();
     }
 }

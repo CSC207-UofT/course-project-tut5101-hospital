@@ -31,27 +31,14 @@ public class StaffManager implements StaffManaging {
     }
 
     /**
-     * New staff
-     *
-     * @param name
-     * @param gender
-     * @param ID
-     * @param workingTime
-     * @param pwd
-     * @param fixedSalary
-     * @return
-     */
-
-
-    /**
      * Add staff
      *
-     * @param name
-     * @param gender
-     * @param ID
-     * @param workingTime
-     * @param pwd
-     * @param fixedSalary
+     * @param name name of the staff
+     * @param gender gender of the staff
+     * @param ID id of the staff
+     * @param workingTime working time of the staff
+     * @param pwd password of the staff
+     * @param fixedSalary salary of the staff
      */
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
@@ -124,7 +111,7 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who work the longest
      *
-     * @return
+     * @return id
      */
     public long getBestStaffByTime() {
 
@@ -144,7 +131,7 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who did most operations
      *
-     * @return
+     * @return id
      */
     public long getBestStaffByNumberOfOperation() {
         List<Staff> staffList = getAllStaff();
@@ -165,7 +152,7 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who earn most money for hospital
      *
-     * @return
+     * @return id
      */
     @Override
     public long getBestStaffByMostOperationIncome() {
@@ -190,7 +177,7 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the total hospital profit, can be negative number
      *
-     * @return
+     * @return the profit of hospital
      */
     @Override
     public int getHospitalProfit() {
@@ -218,11 +205,11 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all doctor id
      *
-     * @return
+     * @return doctor ids
      */
     public List<Long> getAllDoctorId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> doctors = new ArrayList<Long>();
+        List<Long> doctors = new ArrayList<>();
         for (Staff s : staffs) {
             if (s instanceof Doctor) {
                 doctors.add(s.getStaffID());
@@ -234,12 +221,12 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all Nurse id
      *
-     * @return
+     * @return Nurse id
      */
     @Override
     public List<Long> getAllNurseId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> nurses = new ArrayList<Long>();
+        List<Long> nurses = new ArrayList<>();
         for (Staff s : staffs) {
             if (s instanceof Nurse) {
                 nurses.add(s.getStaffID());
@@ -251,11 +238,11 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all other staff id
      *
-     * @return
+     * @return Staff id
      */
     public List<Long> getAllOtherId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> others = new ArrayList<Long>();
+        List<Long> others = new ArrayList<>();
         for (Staff s : staffs) {
             if (s instanceof OtherStaff) {
                 others.add(s.getStaffID());
