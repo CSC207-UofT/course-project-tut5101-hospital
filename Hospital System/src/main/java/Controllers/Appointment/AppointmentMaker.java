@@ -28,8 +28,12 @@ public class AppointmentMaker {
     public AppointmentMaker(long hcnOrId) {
         this.pm = PatientManager.getInstance();
         this.stm = StaffManager.getInstance();
-        this.sm = pm.getPatientScheduleManager(hcnOrId);
-        this.stms = stm.getStaffSm(hcnOrId);
+        if (pm.getPatient(hcnOrId) != null) {
+            this.sm = pm.getPatientScheduleManager(hcnOrId);
+        }
+        else {
+            this.stms = stm.getStaffSm(hcnOrId);
+        }
     }
 
 

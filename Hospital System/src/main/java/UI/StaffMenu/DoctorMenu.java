@@ -139,6 +139,7 @@ public class DoctorMenu extends StaffMenu {
 
     private void confirmAppointment() {
         AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        System.out.println("Yes");
         if (appointmentMaker.checkStaffSchedule() != null){
             viewStaffSchedule();
             System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
