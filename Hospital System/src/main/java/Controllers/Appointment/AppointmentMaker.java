@@ -78,8 +78,10 @@ public class AppointmentMaker {
      * @param start Start time and date
      * @param end   End time and date
      */
-    public void deleteEvent(String start, String end) throws StaffNotFoundException {
-        sm.removeEvent(start, end);
+    public void deleteEvent(String start, String end, Long id, long hcn) throws StaffNotFoundException {
+        stms.removeEvent(start, end);
+        ScheduleManager smPatient = new ScheduleManager(pm.getPatient(hcn));
+        smPatient.removeEvent(start,end);
     }
 
     /**

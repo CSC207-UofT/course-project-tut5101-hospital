@@ -139,7 +139,6 @@ public class DoctorMenu extends StaffMenu {
 
     private void confirmAppointment() {
         AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        System.out.println("Yes");
         if (appointmentMaker.checkStaffSchedule() != null){
             viewStaffSchedule();
             System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
@@ -149,8 +148,15 @@ public class DoctorMenu extends StaffMenu {
             }
             else if (c.equals("2")){
                 try {
-                    appointmentMaker.deleteAllEvent();
-                    System.out.println("All Schedule canceled");
+//                    appointmentMaker.deleteAllEvent();
+                    System.out.println("Write down the patient's health card number whom you cant to cancel");
+                    long hcn = scanner.nextLong();
+                    scanner.nextLine();
+                    System.out.println("Choose Your Time (start and end) to cancel in this kind of format: yyyy-MM-dd HH:mm");
+                    String st = scanner.nextLine();
+                    String e = scanner.nextLine();
+                    appointmentMaker.deleteEvent(st, e, id, hcn);
+                    System.out.println("This Schedule canceled");
                 } catch (StaffNotFoundException e) {
                     System.out.println("Staff Not Found");
                 }
