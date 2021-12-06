@@ -7,6 +7,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestStaffManager {
     private StaffManager sm = StaffManager.getInstance();
     private Staff staff;
@@ -50,4 +53,16 @@ public class TestStaffManager {
     public void TestaddAccountant() {
         Assert.assertTrue(sm.checkIfStaffExist(IDaccountant));
     }
+
+    @Test
+    public void TestgetSalary() {
+        Assert.assertEquals(35, sm.getSalary(IDdoctor), 0);
+    }
+
+    @Test
+    public void TestgetStaffInfo() {
+        Assert.assertEquals("Entity.Staff Name: Jim" + "\n" + "Gender: M" + "\n" +
+                "ID Number: 444", sm.getStaffInfo(IDadmin));
+    }
+
 }
