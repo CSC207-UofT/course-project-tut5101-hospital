@@ -73,13 +73,35 @@ public class ScheduleManager implements ScheduleManaging {
      * @throws InvalidInputException
      */
     @Override
-    public void addOrModifyEvent(String event, String start, String end) throws InvalidInputException {
+    public void addOrModifyEventStaff(String event, String start, String end) throws InvalidInputException {
         LocalDateTime st = LocalDateTime.parse(start, formatter);
         LocalDateTime e = LocalDateTime.parse(end, formatter);
         if (!st.isBefore(e)) {
             throw new InvalidInputException("");
         } else {
-            s.addOrModifyEvent(event, new Event(st, e));
+            s.addOrModifyEventStaff(event, new Event(st, e));
+            saveSchedule();
+            saveStaffSchedule();
+        }
+    }
+
+    /**
+     * Add or modify event
+     *
+     * @param event String name of event
+     * @param start Start time and date
+     * @param end   End time and date
+     * @param hcn health card number of patient
+     * @throws InvalidInputException
+     */
+    @Override
+    public void addOrModifyEvent(String event, String start, String end, Long hcn) throws InvalidInputException {
+        LocalDateTime st = LocalDateTime.parse(start, formatter);
+        LocalDateTime e = LocalDateTime.parse(end, formatter);
+        if (!st.isBefore(e)) {
+            throw new InvalidInputException("");
+        } else {
+            s.addOrModifyEvent(event, new Event(st, e), hcn);
             saveSchedule();
             saveStaffSchedule();
         }
@@ -178,7 +200,7 @@ public class ScheduleManager implements ScheduleManaging {
             }
             default: throw new IllegalStateException("Unexpected value: " + c);
         }
-        addOrModifyEvent(event, st, e);
+        addOrModifyEvent(event, st, e, hcn);
         saveSchedule();
         saveStaffSchedule();
     }
@@ -214,9 +236,9 @@ public class ScheduleManager implements ScheduleManaging {
                 throw new InvalidInputException("");
             } else {
                 Event eventStaff = new Event(st, stEnd);
-                s.addOrModifyEvent(event, eventStaff);
+                s.addOrModifyEventStaff(event, eventStaff);
                 if (choice == input) {
-                    addOrModifyEvent(event, st.toString(), stEnd.toString());
+                    addOrModifyEventStaff(event, st.toString(), stEnd.toString());
                     saveSchedule();
                     saveStaffSchedule();
                 }
@@ -236,7 +258,7 @@ public class ScheduleManager implements ScheduleManaging {
                 throw new InvalidInputException("");
             } else {
                 Event eventStaff = new Event(st, stEnd);
-                s.addOrModifyEvent("all", eventStaff);
+                s.addOrModifyEventStaff("all", eventStaff);
                 stEnd = stEnd.plusHours(1);
                 st = st.plusHours(1);
             }

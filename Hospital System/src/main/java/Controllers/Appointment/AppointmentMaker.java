@@ -24,14 +24,15 @@ public class AppointmentMaker {
      * Constructor for appointment maker
      *
      * @param hcnOrId Patient health card number or Staff id
+     * @param chooseWhatType choose if you are going to use hcn or id
      */
-    public AppointmentMaker(long hcnOrId) {
+    public AppointmentMaker(long hcnOrId, String chooseWhatType) {
         this.pm = PatientManager.getInstance();
         this.stm = StaffManager.getInstance();
-        if (pm.getPatient(hcnOrId) != null) {
+        if (chooseWhatType.equals("hcn")) {
             this.sm = pm.getPatientScheduleManager(hcnOrId);
         }
-        else {
+        else if (chooseWhatType.equals("id")){
             this.stms = stm.getStaffSm(hcnOrId);
         }
     }
@@ -51,7 +52,7 @@ public class AppointmentMaker {
      *
      * @return A string of appointment event names and time and date of events
      */
-    public String checkStaffSchedule() {
+    public String getStaffSchedule() {
         return stms.getScheduleString();
     }
 

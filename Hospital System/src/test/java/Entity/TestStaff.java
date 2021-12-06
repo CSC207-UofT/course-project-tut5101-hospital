@@ -25,7 +25,7 @@ public class TestStaff {
         LocalDateTime st = LocalDateTime.parse("2021-12-01 01:00", formatter);
         LocalDateTime e = LocalDateTime.parse("2021-12-01 02:00", formatter);
         Event eventStaff = new Event(st, e);
-        workingTime.addOrModifyEvent("Ill", eventStaff);
+        workingTime.addOrModifyEventStaff("Ill", eventStaff);
         dm.setName("John");
         dm.setGender("Male");
         dm.setWorkingTime(workingTime);

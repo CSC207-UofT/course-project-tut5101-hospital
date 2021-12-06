@@ -40,7 +40,6 @@ public class Schedule implements java.io.Serializable {
     }
     //private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm E");
 
-
     /**
      * Add or modify event
      *
@@ -48,7 +47,7 @@ public class Schedule implements java.io.Serializable {
      * @param dates Event start and end time and date
      * @throws InvalidInputException
      */
-    public void addOrModifyEvent(String event, Event dates) throws InvalidInputException {
+    public void addOrModifyEventStaff(String event, Event dates) throws InvalidInputException {
         if (!schedule.containsKey(dates)) {
             this.schedule.put(dates, event);
         } else {
@@ -61,16 +60,16 @@ public class Schedule implements java.io.Serializable {
      *
      * @param event String name of event
      * @param dates Event start and end time and date
+     * @param hcn health card number of patient
      * @throws InvalidInputException
-     * @return return a schedule
      */
-    public Schedule addOrModifyEventForStaff(String event, Event dates) throws InvalidInputException {
+    public void addOrModifyEvent(String event, Event dates, Long hcn) throws InvalidInputException {
+        event = event + "\t" + "This is the patient's health card number: " + hcn.toString();
         if (!schedule.containsKey(dates)) {
             this.schedule.put(dates, event);
         } else {
             throw new InvalidInputException("");
         }
-        return this;
     }
 
     /**

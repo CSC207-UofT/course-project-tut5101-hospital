@@ -133,7 +133,7 @@ public class MenuForPatient {
         long id = scanner.nextLong();
         scanner.nextLine();
         System.out.println("Choose a time that is not in the staff's schedule, except for nurse, you can choose time that is in the schedule");
-        AppointmentMaker am = new AppointmentMaker(hcn);
+        AppointmentMaker am = new AppointmentMaker(hcn, "hcn");
         try {
             am.viewChoices();
             String d = scanner.nextLine();

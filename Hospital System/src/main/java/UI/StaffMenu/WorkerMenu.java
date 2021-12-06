@@ -4,20 +4,15 @@ import Controllers.Appointment.AppointmentMaker;
 import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
-import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
 import UI.MenuForStaff;
 import UseCases.Patient.PatientManager;
-import UseCases.Schedule.ScheduleManager;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,8 +40,8 @@ public class WorkerMenu extends StaffMenu {
     }
 
     private void confirmYourAppointment() {
-        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        if (appointmentMaker.checkStaffSchedule() != null){
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
+        if (appointmentMaker.getStaffSchedule() != null){
             System.out.println("Are you going to confirm your appointment?");
             String c = scanner.nextLine();
             if (c.equals("1")){
@@ -64,8 +59,8 @@ public class WorkerMenu extends StaffMenu {
     }
 
     private void viewStaffSchedule() {
-        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        System.out.println(appointmentMaker.checkStaffSchedule());
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
+        System.out.println(appointmentMaker.getStaffSchedule());
     }
 
     private void checkAssignedPatientRecord() throws InvalidInputException, FileNotFoundException {

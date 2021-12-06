@@ -138,9 +138,12 @@ public class DoctorMenu extends StaffMenu {
     }
 
     private void confirmAppointment() {
-        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        if (appointmentMaker.checkStaffSchedule() != null){
-            viewStaffSchedule();
+        System.out.println("Enter your id");
+        Long id = scanner.nextLong();
+        scanner.nextLine();
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
+        System.out.println(appointmentMaker.getStaffSchedule());
+        if (appointmentMaker.getStaffSchedule() != null){
             System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
             String c = scanner.nextLine();
             if (c.equals("1")){
@@ -148,12 +151,12 @@ public class DoctorMenu extends StaffMenu {
             }
             else if (c.equals("2")){
                 try {
-//                    appointmentMaker.deleteAllEvent();
                     System.out.println("Write down the patient's health card number whom you cant to cancel");
                     long hcn = scanner.nextLong();
                     scanner.nextLine();
-                    System.out.println("Choose Your Time (start and end) to cancel in this kind of format: yyyy-MM-dd HH:mm");
+                    System.out.println("Choose Your Time (start time) to cancel in this kind of format: yyyy-MM-dd HH:mm");
                     String st = scanner.nextLine();
+                    System.out.println("Choose Your Time (end time) to cancel in this kind of format: yyyy-MM-dd HH:mm");
                     String e = scanner.nextLine();
                     appointmentMaker.deleteEvent(st, e, id, hcn);
                     System.out.println("This Schedule canceled");
@@ -165,8 +168,11 @@ public class DoctorMenu extends StaffMenu {
     }
 
     private void viewStaffSchedule() {
-        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        System.out.println(appointmentMaker.checkStaffSchedule());
+        System.out.println("Enter your id");
+        Long id = scanner.nextLong();
+        scanner.nextLine();
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
+        System.out.println(appointmentMaker.getStaffSchedule());
     }
 
     public void editPatientRecord() throws InvalidInputException {
