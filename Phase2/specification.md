@@ -1,9 +1,11 @@
 Specification(Phase2):
 
-Running the project starts a system that allows the user to interact with a hospital system that shows in the system terminal, before you get in the system, you need to choose whether you are a staff or a patient.
-While running, the program prints a few choices to let users choose what they want to do:
+Running the project starts a system that allows the user to interact with a hospital system that shows in the system 
+terminal, before you get in the system, you need to choose whether you are a staff or a patient. While running, the
+program prints a few choices to let users choose what they want to do:
 
-The scope of the project is shrinked due to group members drop out of school. We were planning to do everything on WebUi. And there was operation(surgery) system in hospital, but we cut it off.
+The scope of the project is shrunk due to group members drop out of school. We were planning to do everything on WebUi.
+And there was operation(surgery) system and Nurse entity in hospital, but we cut it off.
 
 
 For patients:
@@ -18,6 +20,7 @@ For patients:
     
     Pay booking fee
     
+There are three kinds of staff, they have their own choice:
 
 For Accountant:
 
