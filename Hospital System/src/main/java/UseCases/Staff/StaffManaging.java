@@ -46,5 +46,6 @@ public interface StaffManaging {
     public String getStaffType(long id);
 
     double getSalary(long id);
+
     void saveSession();
 }

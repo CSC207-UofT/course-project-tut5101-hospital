@@ -48,7 +48,7 @@ public class LoginSignup {
      * @return if the staff with the id exist
      */
     public Boolean checkIfStaffExists(Long id) {
-         return (sm.checkIfStaffExist(id));
+        return (sm.checkIfStaffExist(id));
     }
 
     /**

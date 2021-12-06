@@ -2,6 +2,7 @@ package UI;
 
 import Exceptions.InvalidInputException;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MenuChooseStaffOrPatient {
@@ -18,8 +19,12 @@ public class MenuChooseStaffOrPatient {
     // Choose if you are a patient or a staff
     public void choosePatientOrStaff() throws InvalidInputException {
         greeter();
-        System.out.println("Choose 1 if you are patient, choose 2 if you are a staff");
-        String c = scanner.nextLine();
+        String c = "";
+        do {
+            System.out.println("Choose 1 if you are patient, choose 2 if you are a staff");
+            c = scanner.nextLine();
+        } while (!Objects.equals(c, "1") && !Objects.equals(c, "2"));
+
         if (c.equals("1")) {
             MenuForPatient menuForPatient = new MenuForPatient();
             menuForPatient.loginSignupForPatient();
