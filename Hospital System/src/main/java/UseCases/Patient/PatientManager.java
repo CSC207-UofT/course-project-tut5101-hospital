@@ -73,7 +73,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
     /**
      * Save session
      */
-    private void saveSession() {
+    public void saveSession() {
         sessionData.saveData();
     }
 

@@ -15,6 +15,7 @@ public class AccountantMenu extends StaffMenu {
     // Menu for accountant staff
     public AccountantMenu(MenuForStaff context) {
         super(context);
+        type = "Accountant";
     }
 
     //The stuff account can do in stuff menu

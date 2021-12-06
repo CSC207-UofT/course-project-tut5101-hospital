@@ -76,7 +76,7 @@ public class StaffManager implements StaffManaging {
         saveSession();
     }
 
-    private void saveSession() {
+    public void saveSession() {
         sessionData.saveData();
     }
 

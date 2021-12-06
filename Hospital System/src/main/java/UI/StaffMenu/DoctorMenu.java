@@ -19,6 +19,7 @@ import java.util.Map;
 public class DoctorMenu extends StaffMenu {
     public DoctorMenu(MenuForStaff context) {
         super(context);
+        type = "Doctor";
     }
 
     @Override
@@ -159,7 +160,8 @@ public class DoctorMenu extends StaffMenu {
                 if (c.equals("3")) {
                     System.out.println("Input the patient's new allergy (Use String)");
                     change = scanner.nextLine();
-                    ((PatientRecords) entry.getValue()).addAllergy(change);;
+                    ((PatientRecords) entry.getValue()).addAllergy(change);
+                    ;
                 }
                 if (c.equals("4")) {
                     System.out.println("Input the vaccine given to patient (Use String)");

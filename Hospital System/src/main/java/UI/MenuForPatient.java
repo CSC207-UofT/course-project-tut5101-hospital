@@ -3,21 +3,14 @@ package UI;
 import java.util.Scanner;
 
 import Controllers.Appointment.AppointmentMaker;
-import Controllers.Appointment.PayFee;
+import Controllers.SaveEveryThing;
 import Entity.Patients.Patient;
-import Entity.Schedule.Schedule;
-import Entity.Staff.Staff;
 import Exceptions.InvalidInputException;
-import Exceptions.StaffNotFoundException;
-import Presenters.PatientRecords.PatientMedicalRecordViewer;
-import Presenters.PatientRecords.PatientRecordViewer;
 import Presenters.Schedule.ViewDoctorSchedules;
 import Presenters.Schedule.ViewNurseSchedules;
 import Presenters.Schedule.ViewOtherStaffSchedules;
-import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
 import Controllers.LoginSignUp.LoginSignup;
-import UseCases.Staff.StaffManager;
 
 public class MenuForPatient {
     Scanner scanner = new Scanner(System.in);
@@ -94,25 +87,30 @@ public class MenuForPatient {
                 }
             }
         } while (!success);
+        activitiesForPatients();
     }
 
 
     public void activitiesForPatients() {
         String c;
-        System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments)");
-        c = scanner.nextLine();
-        if (c.equals("1")) {
-            makeAppointment();
-        }
-        if (c.equals("2")) {
-            viewAppointment();
-        }
+        do {
+            System.out.println("Make or view appointments(Type 1 to make an appointment; Type 2 to view existing appointments), type \"q\" to exit");
+            c = scanner.nextLine();
+            if (c.equals("1")) {
+                makeAppointment();
+            }
+            if (c.equals("2")) {
+                viewAppointment();
+            }
+            if (c.equals("q")) {
+                quit();
+            }
+        }while(true);
     }
 
     private void makeAppointment() {
         Patient patient = loginSignup.initPatient(hcn);
         System.out.println("Patient Signed in " + loginSignup.checkIfPatientExists(hcn));
-        ScheduleManager sm = new ScheduleManager(patient);
         System.out.println("Input event (Ill, Fever, Heart, Eye, Bone)");
         String event = scanner.nextLine();
         System.out.println("You need to pay $50");
@@ -123,33 +121,24 @@ public class MenuForPatient {
         if (c == 1) {
             System.out.println("Your Account Have $ " + patient.getFee());
         }
-        PayFee pf = new PayFee();
-        while (loginSignup.initPatient(hcn).getFee() < 50) {
-            pf.view(hcn);
-            String e = scanner.nextLine();
-            pf.payBookingFee(hcn, e);
+        while (patient.getFee() < 50) {
+            payBookingFee(patient);
         }
-        loginSignup.initPatient(hcn).payFee(50);
+        patient.payFee(50);
         System.out.println("Fee Paid");
         checkSchedule();
         System.out.println("Which Staff would you like, enter id");
         long id = scanner.nextLong();
         scanner.nextLine();
-//        StaffManager sfm = StaffManager.getInstance();
-//        if (sfm.checkIfStaffExist(id)) {
-//            sfm.getStaffSm(id);
-//        }
         System.out.println("Choose a time that is not in the staff's schedule");
         AppointmentMaker am = new AppointmentMaker(hcn);
         try {
             am.viewChoices();
             String d = scanner.nextLine();
             am.makeAppointment(d, event, id, hcn);
+            System.out.println("138 MenuForPatient");
         } catch (InvalidInputException e) {
             System.out.println("Input is invalid");
-        }
-        if (sm.getScheduleString() != null) {
-            System.out.println("You have successfully booked an appointment");
         }
 
     }
@@ -190,4 +179,27 @@ public class MenuForPatient {
         } while (choice != 1 && choice != 2 && choice != 3);
     }
 
+
+    /**
+     * Pay the Booking fee of a patient
+     */
+    public void payBookingFee(Patient patient) {
+        System.out.println("This is the money in your account: $ " + patient.getFee());
+        System.out.println("Do you want to add money (Type 1 to add, Type 2 to not add)");
+        String c;
+        c = scanner.nextLine();
+        if (c.equals("1")) {
+            System.out.println("How much do you want to add");
+            int addFee = scanner.nextInt();
+            scanner.nextLine();
+            patient.addFee(addFee);
+            System.out.println("Move on to the appointment");
+        } else if (c.equals("2")) {
+            System.out.println("Move on to the appointment");
+        }
+    }public void quit(){
+        SaveEveryThing sv = new SaveEveryThing();
+        sv.save();
+        System.exit(0);
+    }
 }
