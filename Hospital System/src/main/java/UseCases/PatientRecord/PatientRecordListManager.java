@@ -1,12 +1,12 @@
-package UseCases;
+package UseCases.PatientRecord;
 
 import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientData;
-import Entity.Staff.StaffData;
 
+import java.util.List;
 import java.util.Map;
 
 public class PatientRecordListManager {
@@ -38,7 +38,7 @@ public class PatientRecordListManager {
         patientRecordList.addHistory(history, date);
         savePatientRecordList();
     }
-
+    //read a string denominating type of change and the input string that is to override the formertype
     public void editRecord(String num, String input){
         for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
@@ -60,6 +60,9 @@ public class PatientRecordListManager {
                 }
             }
         }
+    }public void newPatientRecord(String height, String weight, String sex, List<String> allergies, List<String> vaccinations, String date){
+        PatientRecords patientRecords = new PatientRecords(height, weight, sex, allergies, vaccinations);
+        addRecord(patientRecords, date);
     }
 
 }

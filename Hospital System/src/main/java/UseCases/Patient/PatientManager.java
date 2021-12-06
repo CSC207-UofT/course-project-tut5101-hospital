@@ -6,7 +6,7 @@ import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
-import UseCases.PatientRecordListManager;
+import UseCases.PatientRecord.PatientRecordListManager;
 import UseCases.Schedule.ScheduleManager;
 
 import java.util.HashMap;
@@ -162,6 +162,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @return A string
      */
     public String getPatientRecord(long healthCardNumber) {
+        String s = "No Record found";
         StringBuilder list = new StringBuilder();
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
@@ -170,7 +171,8 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
                 list.append(((PatientRecords) entry.getValue()).getPatientRecord());
             }
         }
-        return list.toString();
+        s = list.toString();
+        return s;
     }
 
 

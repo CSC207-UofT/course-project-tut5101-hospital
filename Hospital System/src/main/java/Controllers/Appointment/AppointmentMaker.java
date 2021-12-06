@@ -1,12 +1,8 @@
 package Controllers.Appointment;
 
 // Avoid Clean Ar
-
-import Entity.Staff.Staff;
-
 import UseCases.Patient.PatientManager;
 import UseCases.Schedule.ScheduleManager;
-
 import Exceptions.StaffNotFoundException;
 import Exceptions.InvalidInputException;
 import UseCases.Staff.StaffManager;
