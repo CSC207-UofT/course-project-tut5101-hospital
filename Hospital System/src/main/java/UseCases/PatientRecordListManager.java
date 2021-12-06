@@ -16,7 +16,7 @@ public class PatientRecordListManager {
      *
      * @param p patient
      */
-    public ScheduleManager(Patient p) {
+    public PatientRecordListManager(Patient p) {
         sessionData = new PatientData();
         this.patientRecordList = p.getPRL();
     }
@@ -29,9 +29,11 @@ public class PatientRecordListManager {
 
     public void addRecord(PatientRecords record, String date) {
         patientRecordList.addRecord(record, date);
+        savePatientRecordList();
     }
 
     public void addHistory(PatientMedicalHistory history, String date) {
         patientRecordList.addHistory(history, date);
+        savePatientRecordList();
     }
 }
