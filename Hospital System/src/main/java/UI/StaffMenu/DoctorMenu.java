@@ -80,10 +80,10 @@ public class DoctorMenu extends StaffMenu {
         }
         if (choice == 1) {
             PatientMedicalRecordViewer patientMedicalRecordViewer = new PatientMedicalRecordViewer();
-            patientMedicalRecordViewer.print(healthCardNumber);
+            System.out.println(patientMedicalRecordViewer.print(healthCardNumber));
         } else if (choice == 2) {
             PatientRecordViewer patientRecordViewer = new PatientRecordViewer();
-            patientRecordViewer.print(healthCardNumber);
+            System.out.println(patientRecordViewer.print(healthCardNumber));
         }
     }
 
