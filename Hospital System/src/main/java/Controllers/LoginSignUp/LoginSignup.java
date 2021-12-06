@@ -26,7 +26,7 @@ public class LoginSignup {
      * Constructor for login sign up
      */
     public LoginSignup() {
-        this.pm =PatientManager.getInstance();
+        this.pm = PatientManager.getInstance();
         this.sm = StaffManager.getInstance();
         this.sms = new ScheduleManager(new Schedule());
     }

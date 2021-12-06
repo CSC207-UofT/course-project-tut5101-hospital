@@ -98,7 +98,8 @@ public class StaffLogInSignUpMenu implements Menu {
         Schedule workingTimeNurse;
         try {
             workingTime = loginSignup.makeWorkingTime();
-            workingTimeNurse = loginSignup.nurseWorkingTime();
+            LoginSignup ls = new LoginSignup();
+            workingTimeNurse = ls.nurseWorkingTime();
             switch (type) {
                 case "Doctor":
                     new DoctorSignUp().signUp(name, gender, id, workingTime, pwd, salary);
