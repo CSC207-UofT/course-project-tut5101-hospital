@@ -33,11 +33,11 @@ public class StaffManager implements StaffManaging {
     /**
      * Add staff
      *
-     * @param name name of the staff
-     * @param gender gender of the staff
-     * @param ID id of the staff
+     * @param name        name of the staff
+     * @param gender      gender of the staff
+     * @param ID          id of the staff
      * @param workingTime working time of the staff
-     * @param pwd password of the staff
+     * @param pwd         password of the staff
      * @param fixedSalary salary of the staff
      */
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
@@ -114,7 +114,6 @@ public class StaffManager implements StaffManaging {
      * @return id
      */
     public long getBestStaffByTime() {
-
         List<Staff> staffList = getAllStaff();
         int time = staffList.get(0).getSchedule().totalTimeInMinutes();
         long id = staffList.get(0).getStaffID();
