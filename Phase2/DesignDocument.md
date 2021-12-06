@@ -177,6 +177,8 @@ not really use pull requests as I had a lot of trouble with it during phase 1. I
 tracker and opened and assigned issues. Link to pull request from phase
 1: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/1
 
-### Jeremy:
-
+### Jeremy: Making sign up and login for staff and patient up to date. Patient can make appointment and staff can confirm/ cancel the appointment
+Made the tests for entity package. Since we have changed our program's base quit often. I don't have a pull request that
+contains all of them. This link to the https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/38. 
+I have also been working on debugging throughout the past week. I have also split up the UI into multiple parts instead of a single UI class.
 
