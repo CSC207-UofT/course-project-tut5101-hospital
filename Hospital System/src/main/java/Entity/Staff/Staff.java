@@ -18,7 +18,7 @@ public class Staff implements Serializable {
     private String gender;
     private Long ID;
     private String pwd;
-    private Schedule workingTime;
+    private Schedule workingTime = new Schedule();
     private Schedule scdl = new Schedule();
     private double salary;
 
