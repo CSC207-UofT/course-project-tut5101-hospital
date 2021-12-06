@@ -6,6 +6,7 @@ import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
+import UseCases.PatientRecordListManager;
 import UseCases.Schedule.ScheduleManager;
 
 import java.util.HashMap;
@@ -96,6 +97,16 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      */
     public ScheduleManager getPatientScheduleManager(long healthCardNum) {
         return new ScheduleManager(sessionData.searchHCN(healthCardNum));
+    }
+
+    /**
+     * Get patient record list manager
+     *
+     * @param healthCardNum health card number
+     * @return Patient Record List Manager
+     */
+    public PatientRecordListManager getPatientRecordListManager(long healthCardNum) {
+        return new PatientRecordListManager(sessionData.searchHCN(healthCardNum));
     }
 
     /**

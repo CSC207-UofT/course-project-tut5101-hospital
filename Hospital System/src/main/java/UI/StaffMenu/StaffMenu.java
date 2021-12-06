@@ -38,7 +38,7 @@ public abstract class StaffMenu implements Menu {
 
     //asks for input to quit
     public void quit() {
-        System.out.println("press q to quit, other to continue");
+        System.out.println("press q to quit, other letter to continue");
         String c = scanner.nextLine();
         if (c.equals("q")) {
             exit();
