@@ -43,7 +43,7 @@ prof, there would be too many interfaces.
 
 ## Clean Architecture
 
-1. UML diagram
+1. [UML diagram](uml.pdf)
 2. Scenario Walkthrough:  
    Say the management staff(Admin) wants to look for the best staff in the hospital. They would first interact with
    the `Menu.Ui`
@@ -103,7 +103,9 @@ We used ***camel case*** naming convention and our classes and methods are well 
 comments***.
 
 ## Testing
-
+Most basic part of our system are tested such as Entity and UseCases layer. But due to our design, some part of code such as UI and 
+presenters are very hard to test. So we just decide to leave it without test. And for controller, it just called usecases, so if usecases works, 
+controllers will works too.
 ## Refactoring
 
 In phase 2 we tried to eliminate code smells and apply design patterns to our work.
@@ -162,9 +164,8 @@ Writing the design document.
 Implemented feature: sign up and log in as different type
 staffs. [Commit](https://github.com/CSC207-UofT/course-project-tut5101-hospital/commit/b59bbe3a270f59c2d90deb735769fbdb76727f3a)
 
-### Tom: Doing features about admin and accountant staff, admin can check doctor's schedule and find the best staff.
-
-Account can find the total hospital profit. Link to pull
+### Tom: Doing features about admin and accountant staff. 
+Admin can check doctor's schedule and find the best staff. Accountant can find the total hospital profit. Link to pull
 request: https://github.com/CSC207-UofT/course-project-tut5101-hospital/pull/33. This is important because this is major
 part of the staff features in our hospital. Also it shows some example to the rest of group member how to implement
 Clean Architecture because I created new UI, UseCase, Controllers and Presenters to implement those features.
