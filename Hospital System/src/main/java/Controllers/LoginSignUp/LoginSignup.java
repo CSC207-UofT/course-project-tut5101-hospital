@@ -103,7 +103,10 @@ public class LoginSignup {
 
     public Schedule makeWorkingTime() throws InvalidInputException {
         return sms.getSchedule();
-//        return sms.staffSchedule(event);
+    }
+
+    public Schedule nurseWorkingTime() throws InvalidInputException {
+        return sms.addNurseSchedule();
     }
 
     /**

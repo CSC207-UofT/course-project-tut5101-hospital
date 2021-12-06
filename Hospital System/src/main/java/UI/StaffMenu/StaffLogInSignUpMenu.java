@@ -95,8 +95,10 @@ public class StaffLogInSignUpMenu implements Menu {
         int salary = scanner.nextInt();
         scanner.nextLine();
         Schedule workingTime;
+        Schedule workingTimeNurse;
         try {
             workingTime = loginSignup.makeWorkingTime();
+            workingTimeNurse = loginSignup.nurseWorkingTime();
             switch (type) {
                 case "Doctor":
                     new DoctorSignUp().signUp(name, gender, id, workingTime, pwd, salary);
@@ -105,7 +107,7 @@ public class StaffLogInSignUpMenu implements Menu {
                 case "Accountant":
                     new AccountantSignUp().signUp(name, gender, id, workingTime, pwd, salary);
                 case "Nurse":
-                    new NurseSignUp().signUp(name, gender, id, workingTime, pwd, salary);
+                    new NurseSignUp().signUp(name, gender, id, workingTimeNurse, pwd, salary);
             }
 
 

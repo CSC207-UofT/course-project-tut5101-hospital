@@ -1,10 +1,12 @@
 package UI.StaffMenu;
 
 
+import Controllers.Appointment.AppointmentMaker;
 import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
 import Exceptions.InvalidInputException;
+import Exceptions.StaffNotFoundException;
 import Presenters.MenuPresenter.DoctorMenuPresenter;
 import Presenters.PatientRecords.PatientMedicalRecordViewer;
 import Presenters.PatientRecords.PatientRecordViewer;
@@ -26,7 +28,7 @@ public class DoctorMenu extends StaffMenu {
     @Override
     public void doStuff() throws InvalidInputException {
         DoctorMenuPresenter doctorMenuPresenter = new DoctorMenuPresenter();
-        int choice = 4;
+        int choice = 7;
         do {
             System.out.println(doctorMenuPresenter.print());
             try {
@@ -44,10 +46,14 @@ public class DoctorMenu extends StaffMenu {
                 editPatientRecord();
             } else if (choice == 4) {
                 makePatientRecord();
+            } else if (choice == 5) {
+                confirmAppointment();
+            } else if (choice == 6) {
+                viewStaffSchedule();
             } else {
                 throw new InvalidInputException("");
             }
-        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice !=5 && choice != 6);
 
     }
 
@@ -129,6 +135,38 @@ public class DoctorMenu extends StaffMenu {
         PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
         pRLmanager.addHistory(patientMedicalHistory, date);
         System.out.println("Patient history successfully added to patient record list");
+    }
+
+    private void confirmAppointment() {
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        if (appointmentMaker.checkStaffSchedule() != null){
+            viewStaffSchedule();
+            System.out.println("Are you going to confirm your appointment? Choose 1 to confirm. 2 to cancel.");
+            String c = scanner.nextLine();
+            if (c.equals("1")){
+                System.out.println("Schedule confirmed");
+            }
+            else if (c.equals("2")){
+                try {
+//                    appointmentMaker.deleteAllEvent();
+                    System.out.println("Write down the patient's health card number whom you cant to cancel");
+                    long hcn = scanner.nextLong();
+                    scanner.nextLine();
+                    System.out.println("Choose Your Time (start and end) to cancel in this kind of format: yyyy-MM-dd HH:mm");
+                    String st = scanner.nextLine();
+                    String e = scanner.nextLine();
+                    appointmentMaker.deleteEvent(st, e, id, hcn);
+                    System.out.println("This Schedule canceled");
+                } catch (StaffNotFoundException e) {
+                    System.out.println("Staff Not Found");
+                }
+            }
+        }
+    }
+
+    private void viewStaffSchedule() {
+        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+        System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
     public void editPatientRecord() throws InvalidInputException {
