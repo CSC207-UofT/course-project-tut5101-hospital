@@ -49,8 +49,8 @@ public class WorkerMenu extends StaffMenu {
     }
 
     private void viewStaffSchedule() {
-        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
-        System.out.println(appointmentMaker.checkStaffSchedule());
+//        AppointmentMaker appointmentMaker = new AppointmentMaker(id);
+//        System.out.println(appointmentMaker.checkStaffSchedule());
     }
 
     private void checkAssignedPatientRecord() throws InvalidInputException, FileNotFoundException {
