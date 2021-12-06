@@ -82,7 +82,7 @@ public class AppointmentMaker {
     public void deleteEvent(String start, String end, Long id, long hcn) throws StaffNotFoundException {
         stms.removeEvent(start, end);
         ScheduleManager smPatient = new ScheduleManager(pm.getPatient(hcn));
-        smPatient.removeEvent(start,end);
+        smPatient.removeEvent(start, end);
     }
 
     /**
@@ -90,13 +90,13 @@ public class AppointmentMaker {
 
      */
     public void deleteAllEvent() throws StaffNotFoundException {
-        sm.removeEvent("2021-12-01 08:00", "2021-12-01 09:00");
-        sm.removeEvent("2021-12-01 09:00", "2021-12-01 10:00");
-        sm.removeEvent("2021-12-01 10:00", "2021-12-01 11:00");
-        sm.removeEvent("2021-12-01 11:00", "2021-12-01 12:00");
-        sm.removeEvent("2021-12-01 12:00", "2021-12-01 13:00");
-        sm.removeEvent("2021-12-01 13:00", "2021-12-01 14:00");
-        sm.removeEvent("2021-12-01 14:00", "2021-12-01 15:00");
-        sm.removeEvent("2021-12-01 15:00", "2021-12-01 16:00");
+        stms.removeEvent("2021-12-01 08:00", "2021-12-01 09:00");
+        stms.removeEvent("2021-12-01 09:00", "2021-12-01 10:00");
+        stms.removeEvent("2021-12-01 10:00", "2021-12-01 11:00");
+        stms.removeEvent("2021-12-01 11:00", "2021-12-01 12:00");
+        stms.removeEvent("2021-12-01 12:00", "2021-12-01 13:00");
+        stms.removeEvent("2021-12-01 13:00", "2021-12-01 14:00");
+        stms.removeEvent("2021-12-01 14:00", "2021-12-01 15:00");
+        stms.removeEvent("2021-12-01 15:00", "2021-12-01 16:00");
     }
 }

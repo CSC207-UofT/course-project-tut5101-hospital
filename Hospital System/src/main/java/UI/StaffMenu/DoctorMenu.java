@@ -20,6 +20,8 @@ import java.util.Map;
 
 
 public class DoctorMenu extends StaffMenu {
+    private long id;
+
     public DoctorMenu(MenuForStaff context) {
         super(context);
         type = "Doctor";
@@ -139,7 +141,7 @@ public class DoctorMenu extends StaffMenu {
 
     private void confirmAppointment() {
         System.out.println("Enter your id");
-        Long id = scanner.nextLong();
+        id = scanner.nextLong();
         scanner.nextLine();
         AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
         System.out.println(appointmentMaker.getStaffSchedule());
@@ -169,7 +171,7 @@ public class DoctorMenu extends StaffMenu {
 
     private void viewStaffSchedule() {
         System.out.println("Enter your id");
-        Long id = scanner.nextLong();
+        id = scanner.nextLong();
         scanner.nextLine();
         AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
         System.out.println(appointmentMaker.getStaffSchedule());
