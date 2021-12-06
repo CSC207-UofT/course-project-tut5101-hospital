@@ -1,7 +1,6 @@
 package Controllers;
 
 import Controllers.LoginSignUp.LoginSignup;
-import Entity.Patients.Patient;
 import Entity.Schedule.Schedule;
 import UseCases.Patient.PatientManager;
 import UseCases.Staff.StaffManager;
@@ -25,7 +24,6 @@ public class TestLoginSignup {
         ls.signUpForPatients("Claire", "Female", 5, 453, "growl", 0);
         IDdoctor = 333;
         ls.signUpForDoctors("Adam", "F", IDdoctor, sDoctor, "666", 35);
-
     }
 
     @Test
