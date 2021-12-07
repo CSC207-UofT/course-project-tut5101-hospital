@@ -1,7 +1,7 @@
 package UseCases.Staff;
 
-import Entity.Staff.*;
 import Entity.Schedule.Schedule;
+import Entity.Staff.*;
 import UseCases.Operation.OperationManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.MethodsForStaffManager.NewStaffs;
@@ -54,30 +54,27 @@ public class StaffManager implements StaffManaging {
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
-    public void saveSession() {
-        sessionData.saveData();
-    }
 
     //getter setters
     @Override

@@ -69,15 +69,13 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         pm.setFee(fee);
         Patient p = pm.getPatient();
         sessionData.addOrModifyPatient(p);
-        saveSession();
+        new PatientGateWay().saveSession(sessionData);
     }
 
     /**
      * Save session
      */
-    public void saveSession() {
-        sessionData.saveData();
-    }
+
 
     /**
      * Get patient by given a health card number

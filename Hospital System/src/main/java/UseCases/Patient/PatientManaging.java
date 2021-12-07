@@ -19,6 +19,4 @@ public interface PatientManaging {
     String getPatientMedicalRecord(long healthCardNumber);
 
     String getPatientRecord(long healthCardNumber);
-
-    void saveSession();
 }
