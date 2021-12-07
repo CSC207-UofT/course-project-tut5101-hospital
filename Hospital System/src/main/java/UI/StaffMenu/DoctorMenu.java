@@ -175,7 +175,6 @@ public class DoctorMenu extends StaffMenu {
         int choice = 6;
         String c = "";
         String change = "";
-        String result = "No patient record";
 
         long healthCardNumber = 0;
         System.out.println("Please input the health card number of the patient to add to her/his record.");
@@ -191,7 +190,6 @@ public class DoctorMenu extends StaffMenu {
         if (epv.checkPatientRecordexists()) {
             System.out.println("Patient has an existing patient record, what would you like to update?" +
                     "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
-            result = "Patient record exist";
             c = scanner.nextLine();
             if (c.equals("1")) {
                 System.out.println("Input the patient's new height (Use String)");
@@ -217,18 +215,16 @@ public class DoctorMenu extends StaffMenu {
                 epv.editVaccination(change);
                 System.out.println("Patient's vaccine has been successfully added");
             }
-
-            if (result.equals("No patient record")) {
-                System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
-                try {
-                    choice = scanner.nextInt();
-                } catch (Exception e) {
-                    throw new InvalidInputException("");
-                }
+        } else {
+            System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
+            try {
+                choice = scanner.nextInt();
+            } catch (Exception e) {
+                throw new InvalidInputException("");
             }
-            if (choice == 7) {
-                makePatientRecord();
-            }
+        }
+        if (choice == 7) {
+            makePatientRecord();
         }
     }
 
