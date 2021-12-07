@@ -5,3 +5,5 @@ To run our main program, the thing you should do is go to main.java under Hospit
 When you are running the program you would be told by the program what to input whether if it's integer or string.
 Be aware of one thing is that if you enter a same id twice we would overwrite the second entry, and leave the saved file with 
 the information that you entered the first time.
+
+Our tests are under Hospital System/src/test/java.
