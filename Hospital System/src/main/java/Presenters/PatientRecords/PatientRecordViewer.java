@@ -8,7 +8,7 @@ public class PatientRecordViewer {
      * Presenter to view patient record
      */
 
-    PatientManager patientManager =PatientManager.getInstance();
+    PatientManager patientManager = PatientManager.getInstance();
 
     /**
      * Call use case to return patient record, return ""No Record found"" if there are no records
