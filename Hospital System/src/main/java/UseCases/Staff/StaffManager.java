@@ -17,39 +17,23 @@ public class StaffManager implements StaffManaging {
     StaffData sessionData = new StaffData();
 
     //singleton design pattern
-    private static StaffManager sm =null;
+    private static StaffManager sm = null;
 
-    private StaffManager(){
+    private StaffManager() {
 
     }
+
     public static StaffManager getInstance() {
-        if(sm == null){
+        if (sm == null) {
             sm = new StaffManager();
-        }return sm;
+        }
+        return sm;
     }
-
-    /**
-     * New staff
-     *
-     * @param name
-     * @param gender
-     * @param ID
-     * @param workingTime
-     * @param pwd
-     * @param fixedSalary
-     * @return
-     */
 
 
     /**
      * Add staff
      *
-     * @param name
-     * @param gender
-     * @param ID
-     * @param workingTime
-     * @param pwd
-     * @param fixedSalary
      */
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
@@ -119,7 +103,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who work the longest
      *
-     * @return
      */
     public long getBestStaffByTime() {
 
@@ -139,7 +122,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who did most operations
      *
-     * @return
      */
     public long getBestStaffByNumberOfOperation() {
         List<Staff> staffList = getAllStaff();
@@ -160,7 +142,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who earn most money for hospital
      *
-     * @return
      */
     @Override
     public long getBestStaffByMostOperationIncome() {
@@ -185,7 +166,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the total hospital profit, can be negative number
      *
-     * @return
      */
     @Override
     public int getHospitalProfit() {
@@ -212,7 +192,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all doctor id
      *
-     * @return
      */
     public List<Long> getAllDoctorId() {
         List<Staff> staffs = getAllStaff();
@@ -228,7 +207,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all Nurse id
      *
-     * @return
      */
     @Override
     public List<Long> getAllNurseId() {
@@ -245,7 +223,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all other staff id
      *
-     * @return
      */
     public List<Long> getAllOtherId() {
         List<Staff> staffs = getAllStaff();
@@ -274,6 +251,10 @@ public class StaffManager implements StaffManaging {
         } else {
             return "OtherStaff";
         }
+    }
+
+    public void saveSession() {
+        new StaffGateway().saveSession(sessionData);
     }
 
 

@@ -49,7 +49,6 @@ public class AdminMenu extends StaffMenu {
     /**
      * Only Admin can call this function to find the best staff function.
      *
-     * @throws InvalidInputException
      */
     public void findBestStaff() throws InvalidInputException {
         int choice = 4;

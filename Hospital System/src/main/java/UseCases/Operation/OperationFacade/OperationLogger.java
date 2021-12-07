@@ -19,9 +19,6 @@ public class OperationLogger {
     /**
      * Constructor for operation logger
      *
-     * @param p
-     * @param d
-     * @param op
      */
     public OperationLogger(Patient p, Doctor d, Operation op) {
         this.pOpm = new OperationManager(p);

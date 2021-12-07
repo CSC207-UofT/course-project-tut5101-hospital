@@ -1,8 +1,7 @@
 package UseCases.Staff.MethodsForStaffManager;
 
-import Entity.Patients.Patient;
 import Entity.Schedule.Schedule;
-import Entity.Staff.*;
+import Entity.Staff.Staff;
 import UseCases.Staff.Builders.*;
 
 public class NewStaffs {

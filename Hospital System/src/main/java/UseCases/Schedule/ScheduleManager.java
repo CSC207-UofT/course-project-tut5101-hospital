@@ -1,17 +1,17 @@
 package UseCases.Schedule;
 // import java.time.format.DateTimeFormatter;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import Entity.Patients.Patient;
 import Entity.Patients.PatientData;
 import Entity.Schedule.Event;
+import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Entity.Staff.StaffData;
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
-import Entity.Schedule.Schedule;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ScheduleManager implements ScheduleManaging {
     /**
@@ -70,7 +70,6 @@ public class ScheduleManager implements ScheduleManaging {
      * @param event String name of event
      * @param start Start time and date
      * @param end   End time and date
-     * @throws InvalidInputException
      */
     @Override
     public void addOrModifyEventStaff(String event, String start, String end) throws InvalidInputException {
@@ -92,7 +91,6 @@ public class ScheduleManager implements ScheduleManaging {
      * @param start Start time and date
      * @param end   End time and date
      * @param hcn health card number of patient
-     * @throws InvalidInputException
      */
     @Override
     public void addOrModifyEvent(String event, String start, String end, Long hcn) throws InvalidInputException {
@@ -112,7 +110,6 @@ public class ScheduleManager implements ScheduleManaging {
      *
      * @param start Start time and date
      * @param end   End time and date
-     * @throws StaffNotFoundException
      */
     @Override
     public void removeEvent(String start, String end) throws StaffNotFoundException {

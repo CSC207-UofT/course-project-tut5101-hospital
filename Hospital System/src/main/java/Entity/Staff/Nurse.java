@@ -2,20 +2,17 @@ package Entity.Staff;
 
 import Entity.Patients.Patient;
 
-
-import java.util.*;
+import java.util.ArrayList;
 
 public class Nurse extends Staff implements java.io.Serializable {
-    /**
-     * Nurse Entity
-     */
-    private ArrayList<Patient> patients;
 
     public Nurse() {
 
     }
 
     public void setPatients(ArrayList<Patient> patients) {
-        this.patients = patients;
+        /**
+         * Nurse Entity
+         */
     }
 }

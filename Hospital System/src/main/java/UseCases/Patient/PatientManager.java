@@ -72,10 +72,6 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         new PatientGateWay().saveSession(sessionData);
     }
 
-    /**
-     * Save session
-     */
-
 
     /**
      * Get patient by given a health card number
@@ -173,5 +169,8 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         return s;
     }
 
-
+    @Override
+    public void saveSession() {
+        new PatientGateWay().saveSession(sessionData);
+    }
 }

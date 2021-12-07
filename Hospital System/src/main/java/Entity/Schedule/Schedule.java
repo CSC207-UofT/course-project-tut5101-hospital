@@ -1,13 +1,11 @@
 package Entity.Schedule;
 
-import java.time.LocalDateTime;
-import java.util.Map.Entry;
-
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
 
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Schedule implements java.io.Serializable {
     /**
@@ -45,7 +43,6 @@ public class Schedule implements java.io.Serializable {
      *
      * @param event String name of event
      * @param dates Event start and end time and date
-     * @throws InvalidInputException
      */
     public void addOrModifyEventStaff(String event, Event dates) throws InvalidInputException {
         if (!schedule.containsKey(dates)) {
@@ -61,7 +58,6 @@ public class Schedule implements java.io.Serializable {
      * @param event String name of event
      * @param dates Event start and end time and date
      * @param hcn health card number of patient
-     * @throws InvalidInputException
      */
     public void addOrModifyEvent(String event, Event dates, Long hcn) throws InvalidInputException {
         event = event + "\t" + "This is the patient's health card number: " + hcn.toString();
@@ -76,7 +72,6 @@ public class Schedule implements java.io.Serializable {
      * Remove event
      *
      * @param dates Event start and end time and date
-     * @throws StaffNotFoundException
      */
     public void removeEvent(Event dates) throws StaffNotFoundException {
         boolean ex = true;
