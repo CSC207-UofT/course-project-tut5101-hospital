@@ -2,6 +2,7 @@ package UI.StaffMenu;
 
 
 import Controllers.Appointment.AppointmentMaker;
+import Controllers.PatientRecord.AddPatientMH;
 import Controllers.PatientRecord.AddPatientRecord;
 import Controllers.PatientRecord.EditPatientRecord;
 import Exceptions.InvalidInputException;
@@ -94,7 +95,7 @@ public class DoctorMenu extends StaffMenu {
         String done = "";
 
         System.out.println("Input your name (Input String)");
-        String name = scanner.nextLine();
+        String physicianName = scanner.nextLine();
         System.out.println("Input patient blood pressure (Input String systolic/diastolic)");
         String bp = scanner.nextLine();
         System.out.println("Input patient pulse (Input String)");
@@ -114,8 +115,6 @@ public class DoctorMenu extends StaffMenu {
         String diagnosis = scanner.nextLine();
         System.out.println("Input treatment methods (Use String)");
         String treatment = scanner.nextLine();
-        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(name, bp, pulse, temperature, currentMedications, diagnosis, treatment);
-        System.out.println("Patient Medical History successfully created");
 
         System.out.println("Input date of physician diagnosis for patient in the format: yyyy-MM-dd HH:mm");
         String date = scanner.nextLine();
@@ -129,10 +128,9 @@ public class DoctorMenu extends StaffMenu {
             throw new InvalidInputException("Invalid input");
         }
 
-        PatientManager patientManager = PatientManager.getInstance();
-        PatientRecordListManager pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
-        pRLmanager.addHistory(patientMedicalHistory, date);
-        System.out.println("Patient history successfully added to patient record list");
+        AddPatientMH apMH = new AddPatientMH(healthCardNumber);
+        apMH.newPatientMH(physicianName, bp, pulse, temperature, currentMedications, diagnosis, treatment, date);
+        System.out.println("Patient history successfully created and added to patient record list");
     }
 
     private void confirmAppointment() {
@@ -192,44 +190,45 @@ public class DoctorMenu extends StaffMenu {
         EditPatientRecord epv = new EditPatientRecord(healthCardNumber);
         if (epv.checkPatientRecordexists()) {
             System.out.println("Patient has an existing patient record, what would you like to update?" +
-                        "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
+                    "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
             result = "Patient record exist";
-                c = scanner.nextLine();
-                if (c.equals("1")) {
-                   System.out.println("Input the patient's new height (Use String)");
-                    change = scanner.nextLine();
-                    epv.editHeight(change);
-                }
-                if (c.equals("2")) {
-                    System.out.println("Input the patient's new weight (Use String)");
-                    change = scanner.nextLine();
-                    epv.editWeight(change);
-                }
-                if (c.equals("3")) {
-                    System.out.println("Input the patient's new allergy (Use String)");
-                    change = scanner.nextLine();
-                    epv.editAllergy(change);
-                }
-                if (c.equals("4")) {
-                    System.out.println("Input the vaccine given to patient (Use String)");
-                    change = scanner.nextLine();
-                    epv.editVaccination(change);
-        }
-
-        if (result.equals("No patient record")) {
-            System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
-            try {
-                choice = scanner.nextInt();
-            } catch (Exception e) {
-                throw new InvalidInputException("");
+            c = scanner.nextLine();
+            if (c.equals("1")) {
+                System.out.println("Input the patient's new height (Use String)");
+                change = scanner.nextLine();
+                epv.editHeight(change);
             }
-        }
-        if (choice == 7) {
-            makePatientRecord();
+            if (c.equals("2")) {
+                System.out.println("Input the patient's new weight (Use String)");
+                change = scanner.nextLine();
+                epv.editWeight(change);
+            }
+            if (c.equals("3")) {
+                System.out.println("Input the patient's new allergy (Use String)");
+                change = scanner.nextLine();
+                epv.editAllergy(change);
+            }
+            if (c.equals("4")) {
+                System.out.println("Input the vaccine given to patient (Use String)");
+                change = scanner.nextLine();
+                epv.editVaccination(change);
+            }
+
+            if (result.equals("No patient record")) {
+                System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
+                try {
+                    choice = scanner.nextInt();
+                } catch (Exception e) {
+                    throw new InvalidInputException("");
+                }
+            }
+            if (choice == 7) {
+                makePatientRecord();
+            }
         }
     }
 
-    public void makePatientRecord() throws InvalidInputException {
+    public void makePatientRecord () throws InvalidInputException {
         List<String> allergies = new ArrayList<>();
         List<String> vaccinations = new ArrayList<>();
         String done = "";
@@ -258,7 +257,6 @@ public class DoctorMenu extends StaffMenu {
                 vaccinations.add(vaccine);
             }
         }
-        System.out.println("Patient Record successfully created");
 
         System.out.println("Input date of patient record creation in the format: yyyy-MM-dd HH:mm");
         String date = scanner.nextLine();
@@ -273,6 +271,6 @@ public class DoctorMenu extends StaffMenu {
         }
         AddPatientRecord apr = new AddPatientRecord(healthCardNumber);
         apr.newPatientRecord(height, weight, sex, allergies, vaccinations, date);
-        System.out.println("Patient record successfully added to patient record list");
+        System.out.println("Patient record successfully created and added to patient record list");
     }
 }

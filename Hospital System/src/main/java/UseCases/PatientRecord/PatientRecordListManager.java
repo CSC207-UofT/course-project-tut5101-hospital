@@ -65,6 +65,13 @@ public class PatientRecordListManager {
         addRecord(patientRecords, date);
     }
 
+    public void newPatientHistory(String physicianName, String bloodPressure, String pulse, String temperature,
+                                  List<String> currentMedications, String diagnosis, String treatment, String date){
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(physicianName, bloodPressure, pulse,
+                temperature, currentMedications, diagnosis, treatment);
+        addHistory(patientMedicalHistory, date);
+    }
+
     public boolean checkPatientRecordexists() {
         for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
