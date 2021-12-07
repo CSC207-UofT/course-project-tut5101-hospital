@@ -102,7 +102,8 @@ public class DoctorMenu extends StaffMenu {
         String pulse = scanner.nextLine();
         System.out.println("Input patient temperature (Input String)");
         String temperature = scanner.nextLine();
-        System.out.println("Input current medications in use for patient (Use String and type done when input completed)");
+        System.out.println("Input current medications in use for patient (Use String and type done when input completed;" +
+                " if patient has no current medications, type none)");
         while (done.equals("")) {
             String currentMeds = scanner.nextLine();
             if (currentMeds.equals("done")) {
@@ -239,7 +240,7 @@ public class DoctorMenu extends StaffMenu {
         String weight = scanner.nextLine();
         System.out.println("Input patient gender at birth (Input String)");
         String sex = scanner.nextLine();
-        System.out.println("Input patient allergies (Use String and type done when input completed)");
+        System.out.println("Input patient allergies (Use String and type done when input completed; if patient has no allergies, type none)");
         while (done.equals("")) {
             String allergy = scanner.nextLine();
             if (allergy.equals("done")) {
@@ -248,7 +249,8 @@ public class DoctorMenu extends StaffMenu {
                 allergies.add(allergy);
             }
         }
-        System.out.println("Input patient vaccinations (Use String and type finish when input completed)");
+        System.out.println("Input patient vaccinations (Use String and type finish when input completed; " +
+                "if patient has no vaccinations, type none)");
         while (done.equals("done")) {
             String vaccine = scanner.nextLine();
             if (vaccine.equals("finish")) {
