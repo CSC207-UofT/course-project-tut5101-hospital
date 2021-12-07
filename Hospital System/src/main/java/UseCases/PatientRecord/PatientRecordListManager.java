@@ -1,12 +1,12 @@
-package UseCases;
+package UseCases.PatientRecord;
 
 import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecordList;
 import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientData;
-import Entity.Staff.StaffData;
 
+import java.util.List;
 import java.util.Map;
 
 public class PatientRecordListManager {
@@ -23,9 +23,7 @@ public class PatientRecordListManager {
         this.patientRecordList = p.getPRL();
     }
 
-    public PatientRecordList getPatientRecordList() {
-        return this.patientRecordList;
-    }
+    public PatientRecordList getPatientRecordList() {return this.patientRecordList;}
 
     private void savePatientRecordList() {
         sessionData.saveData();
@@ -40,8 +38,8 @@ public class PatientRecordListManager {
         patientRecordList.addHistory(history, date);
         savePatientRecordList();
     }
-
-    public void editRecord(String num, String input) {
+    //read a string denominating type of change and the input string that is to override the formertype
+    public void editRecord(String num, String input){
         for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
                 if (num.equals("1")) {
@@ -62,6 +60,24 @@ public class PatientRecordListManager {
                 }
             }
         }
+    }public void newPatientRecord(String height, String weight, String sex, List<String> allergies, List<String> vaccinations, String date){
+        PatientRecords patientRecords = new PatientRecords(height, weight, sex, allergies, vaccinations);
+        addRecord(patientRecords, date);
     }
 
+    public void newPatientHistory(String physicianName, String bloodPressure, String pulse, String temperature,
+                                  List<String> currentMedications, String diagnosis, String treatment, String date){
+        PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(physicianName, bloodPressure, pulse,
+                temperature, currentMedications, diagnosis, treatment);
+        addHistory(patientMedicalHistory, date);
+    }
+
+    public boolean checkPatientRecordexists() {
+        for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
+            if (entry.getValue() instanceof PatientRecords) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

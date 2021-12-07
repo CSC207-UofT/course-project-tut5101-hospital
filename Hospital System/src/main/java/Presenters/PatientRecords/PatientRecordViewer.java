@@ -11,7 +11,7 @@ public class PatientRecordViewer {
     PatientManager patientManager = PatientManager.getInstance();
 
     /**
-     * Call use case to return patient record
+     * Call use case to return patient record, return ""No Record found"" if there are no records
      *
      * @param healthCardNumber Health card number of that patient
      * @return A string

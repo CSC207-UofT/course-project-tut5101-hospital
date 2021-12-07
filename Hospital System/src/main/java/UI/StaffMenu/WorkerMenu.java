@@ -41,12 +41,13 @@ public class WorkerMenu extends StaffMenu {
 
     private void confirmYourAppointment() {
         AppointmentMaker appointmentMaker = new AppointmentMaker(id, "id");
-        if (appointmentMaker.getStaffSchedule() != null) {
+        if (appointmentMaker.getStaffSchedule() != null){
             System.out.println("Are you going to confirm your appointment?");
             String c = scanner.nextLine();
-            if (c.equals("1")) {
+            if (c.equals("1")){
                 System.out.println("Schedule confirmed");
-            } else if (c.equals("2")) {
+            }
+            else if (c.equals("2")){
                 try {
                     appointmentMaker.deleteAllEvent();
                     System.out.println("All Schedule canceled");
@@ -186,7 +187,6 @@ public class WorkerMenu extends StaffMenu {
                     System.out.println("Input the patient's new allergy (Use String)");
                     change = scanner.nextLine();
                     ((PatientRecords) entry.getValue()).addAllergy(change);
-                    ;
                 }
                 if (c.equals("4")) {
                     System.out.println("Input the vaccine given to patient (Use String)");

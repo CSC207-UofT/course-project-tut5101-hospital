@@ -15,8 +15,6 @@ public class OperationFeeCalculator {
     /**
      * Constructor for operation fee calculator
      *
-     * @param p
-     * @param op
      */
     public OperationFeeCalculator(Patient p, Operation op) {
         this.p = p;

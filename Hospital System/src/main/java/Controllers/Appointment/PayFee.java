@@ -1,8 +1,6 @@
 package Controllers.Appointment;
 
-import Entity.Patients.Patient;
 import UseCases.Patient.PatientManager;
-import UseCases.Patient.PatientManaging;
 
 import java.util.Scanner;
 

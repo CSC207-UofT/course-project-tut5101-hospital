@@ -6,7 +6,7 @@ import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
-import UseCases.PatientRecordListManager;
+import UseCases.PatientRecord.PatientRecordListManager;
 import UseCases.Schedule.ScheduleManager;
 
 import java.util.HashMap;
@@ -17,17 +17,15 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * Patient manager
      */
     PatientData sessionData = new PatientData();
-    private static PatientManager pm = null;
+    private static PatientManager pm =null;
 
-    private PatientManager() {
+    private PatientManager(){
 
     }
-
     public static PatientManager getInstance() {
-        if (pm == null) {
+        if(pm == null){
             pm = new PatientManager();
-        }
-        return pm;
+        }return pm;
     }
 
 
@@ -71,15 +69,9 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         pm.setFee(fee);
         Patient p = pm.getPatient();
         sessionData.addOrModifyPatient(p);
-        saveSession();
+        new PatientGateWay().saveSession(sessionData);
     }
 
-    /**
-     * Save session
-     */
-    public void saveSession() {
-        sessionData.saveData();
-    }
 
     /**
      * Get patient by given a health card number
@@ -146,13 +138,14 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
         String record = "";
-        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
+        HashMap<String, Object> patientRecords =  patientRecordList.getPatientRecords();
 
-        for (Object value : patientRecords.values()) {
+        for (Object value: patientRecords.values()) {
             if (value instanceof PatientMedicalHistory) {
-                record += (((PatientMedicalHistory) value).getPatientMH());
+                record+=(((PatientMedicalHistory) value).getPatientMH());
             }
         }
+        System.out.println(patientRecords.size()==0);
         return record;
     }
 
@@ -163,17 +156,21 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
      * @return A string
      */
     public String getPatientRecord(long healthCardNumber) {
+        String s = "No Record found";
+        StringBuilder list = new StringBuilder();
         Patient patient = getPatient(healthCardNumber);
         PatientRecordList patientRecordList = patient.getPRL();
-        String record = "";
-        HashMap<String, Object> patientRecords = patientRecordList.getPatientRecords();
-        for (Object value : patientRecords.values()) {
-            if (value instanceof PatientRecords) {
-                record += (((PatientRecords) value).getPatientRecord());
+        for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
+            if (entry.getValue() instanceof PatientRecords) {
+                list.append(((PatientRecords) entry.getValue()).getPatientRecord());
             }
         }
-        return record;
+        s = list.toString();
+        return s;
     }
 
-
+    @Override
+    public void saveSession() {
+        new PatientGateWay().saveSession(sessionData);
+    }
 }

@@ -1,7 +1,7 @@
 package UseCases.Staff;
 
-import Entity.Staff.*;
 import Entity.Schedule.Schedule;
+import Entity.Staff.*;
 import UseCases.Operation.OperationManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.MethodsForStaffManager.NewStaffs;
@@ -30,43 +30,35 @@ public class StaffManager implements StaffManaging {
         return sm;
     }
 
+
     /**
      * Add staff
      *
-     * @param name        name of the staff
-     * @param gender      gender of the staff
-     * @param ID          id of the staff
-     * @param workingTime working time of the staff
-     * @param pwd         password of the staff
-     * @param fixedSalary salary of the staff
      */
     public void addNurse(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newNurse(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addAdmin(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAdmin(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addAccountant(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newAccountant(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
     public void addDoctor(String name, String gender, long ID, Schedule workingTime, String pwd, int fixedSalary) {
         Staff s = new NewStaffs().newDoctor(name, gender, ID, workingTime, pwd, fixedSalary);
         sessionData.addOrModifyStaff(s);
-        saveSession();
+        new StaffGateway().saveSession(sessionData);
     }
 
-    public void saveSession() {
-        sessionData.saveData();
-    }
 
     //getter setters
     @Override
@@ -111,9 +103,9 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who work the longest
      *
-     * @return id
      */
     public long getBestStaffByTime() {
+
         List<Staff> staffList = getAllStaff();
         int time = staffList.get(0).getSchedule().totalTimeInMinutes();
         long id = staffList.get(0).getStaffID();
@@ -130,7 +122,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who did most operations
      *
-     * @return id
      */
     public long getBestStaffByNumberOfOperation() {
         List<Staff> staffList = getAllStaff();
@@ -151,7 +142,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the staff who earn most money for hospital
      *
-     * @return id
      */
     @Override
     public long getBestStaffByMostOperationIncome() {
@@ -176,7 +166,6 @@ public class StaffManager implements StaffManaging {
     /**
      * Return the total hospital profit, can be negative number
      *
-     * @return the profit of hospital
      */
     @Override
     public int getHospitalProfit() {
@@ -194,8 +183,7 @@ public class StaffManager implements StaffManaging {
             }
         }
 
-
-        return (int) (totalRevenue - totalCost);
+        return (int) (totalCost - totalRevenue);
     }
 
 
@@ -204,11 +192,10 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all doctor id
      *
-     * @return doctor ids
      */
     public List<Long> getAllDoctorId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> doctors = new ArrayList<>();
+        List<Long> doctors = new ArrayList<Long>();
         for (Staff s : staffs) {
             if (s instanceof Doctor) {
                 doctors.add(s.getStaffID());
@@ -220,12 +207,11 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all Nurse id
      *
-     * @return Nurse id
      */
     @Override
     public List<Long> getAllNurseId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> nurses = new ArrayList<>();
+        List<Long> nurses = new ArrayList<Long>();
         for (Staff s : staffs) {
             if (s instanceof Nurse) {
                 nurses.add(s.getStaffID());
@@ -237,11 +223,10 @@ public class StaffManager implements StaffManaging {
     /**
      * Return all other staff id
      *
-     * @return Staff id
      */
     public List<Long> getAllOtherId() {
         List<Staff> staffs = getAllStaff();
-        List<Long> others = new ArrayList<>();
+        List<Long> others = new ArrayList<Long>();
         for (Staff s : staffs) {
             if (s instanceof OtherStaff) {
                 others.add(s.getStaffID());
@@ -266,6 +251,10 @@ public class StaffManager implements StaffManaging {
         } else {
             return "OtherStaff";
         }
+    }
+
+    public void saveSession() {
+        new StaffGateway().saveSession(sessionData);
     }
 
 

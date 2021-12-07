@@ -14,8 +14,6 @@ public class OperationBonusCalculator {
     /**
      * Constructor for Operation bonus calculator
      *
-     * @param d
-     * @param op
      */
     public OperationBonusCalculator(Doctor d, Operation op) {
         this.d = d;

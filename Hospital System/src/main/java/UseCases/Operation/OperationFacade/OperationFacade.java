@@ -19,9 +19,6 @@ public class OperationFacade {
     /**
      * Constructor for Operation Facada
      *
-     * @param p
-     * @param d
-     * @param op
      */
     public OperationFacade(Patient p, Doctor d, Operation op) {
         this.p = p;

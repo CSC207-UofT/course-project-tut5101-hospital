@@ -1,17 +1,17 @@
 package UseCases.Schedule;
 // import java.time.format.DateTimeFormatter;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import Entity.Patients.Patient;
 import Entity.Patients.PatientData;
 import Entity.Schedule.Event;
+import Entity.Schedule.Schedule;
 import Entity.Staff.Staff;
 import Entity.Staff.StaffData;
 import Exceptions.InvalidInputException;
 import Exceptions.StaffNotFoundException;
-import Entity.Schedule.Schedule;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ScheduleManager implements ScheduleManaging {
     /**
@@ -70,7 +70,6 @@ public class ScheduleManager implements ScheduleManaging {
      * @param event String name of event
      * @param start Start time and date
      * @param end   End time and date
-     * @throws InvalidInputException If Input is invalid
      */
     @Override
     public void addOrModifyEventStaff(String event, String start, String end) throws InvalidInputException {
@@ -91,8 +90,7 @@ public class ScheduleManager implements ScheduleManaging {
      * @param event String name of event
      * @param start Start time and date
      * @param end   End time and date
-     * @param hcn   health card number of patient
-     * @throws InvalidInputException If Input is invalid
+     * @param hcn health card number of patient
      */
     @Override
     public void addOrModifyEvent(String event, String start, String end, Long hcn) throws InvalidInputException {
@@ -112,7 +110,6 @@ public class ScheduleManager implements ScheduleManaging {
      *
      * @param start Start time and date
      * @param end   End time and date
-     * @throws StaffNotFoundException If staff is not found
      */
     @Override
     public void removeEvent(String start, String end) throws StaffNotFoundException {
@@ -142,9 +139,9 @@ public class ScheduleManager implements ScheduleManaging {
      */
     private void saveSchedule() {
         //if this object is for a staff(sessiondata for patient is null then save staffdata.)
-        if (sessionData == null) {
+        if(sessionData==null){
             staffData.saveData();
-        } else {
+        }else{
             sessionData.saveData();
         }
 
@@ -159,12 +156,12 @@ public class ScheduleManager implements ScheduleManaging {
         String e = "";
         switch (c) {
             case "1": {
-                st = "2021-12-01 08:00";
+                st ="2021-12-01 08:00";
                 e = "2021-12-01 09:00";
                 break;
             }
             case "2": {
-                st = "2021-12-01 09:00";
+                st ="2021-12-01 09:00";
                 e = "2021-12-01 10:00";
                 break;
             }
@@ -198,15 +195,14 @@ public class ScheduleManager implements ScheduleManaging {
                 e = "2021-12-01 16:00";
                 break;
             }
-            default:
-                throw new IllegalStateException("Unexpected value: " + c);
+            default: throw new IllegalStateException("Unexpected value: " + c);
         }
         addOrModifyEvent(event, st, e, hcn);
         saveSchedule();
         saveStaffSchedule();
     }
 
-    public void viewScheduleChoices() {
+    public void viewScheduleChoices(){
         System.out.println("You can choose from these time choices");
         System.out.println("Choice 1: Start: 2021-12-01 08:00 " +
                 "End:2021-12-01 09:00 (Enter 1 to choose this)");
@@ -249,7 +245,7 @@ public class ScheduleManager implements ScheduleManaging {
         }
     }
 
-    public Schedule addNurseSchedule() throws InvalidInputException {
+    public Schedule addNurseSchedule() throws InvalidInputException{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime st = LocalDateTime.parse("2021-12-01 08:00", formatter);
         LocalDateTime stEnd = LocalDateTime.parse("2021-12-01 09:00", formatter);
