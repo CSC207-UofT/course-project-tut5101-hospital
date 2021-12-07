@@ -65,4 +65,12 @@ public class PatientRecordListManager {
         addRecord(patientRecords, date);
     }
 
+    public boolean checkPatientRecordexists() {
+        for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
+            if (entry.getValue() instanceof PatientRecords) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

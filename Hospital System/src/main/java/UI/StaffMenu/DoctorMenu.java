@@ -189,38 +189,33 @@ public class DoctorMenu extends StaffMenu {
         }
         PatientRecordViewer prv = new PatientRecordViewer();
         System.out.println(prv.print(healthCardNumber));
-        if
         EditPatientRecord epv = new EditPatientRecord(healthCardNumber);
+        if (epv.checkPatientRecordexists()) {
+            System.out.println("Patient has an existing patient record, what would you like to update?" +
+                        "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
+            result = "Patient record exist";
+                c = scanner.nextLine();
+                if (c.equals("1")) {
+                   System.out.println("Input the patient's new height (Use String)");
+                    change = scanner.nextLine();
+                    epv.editHeight(change);
+                }
+                if (c.equals("2")) {
+                    System.out.println("Input the patient's new weight (Use String)");
+                    change = scanner.nextLine();
+                    epv.editWeight(change);
+                }
+                if (c.equals("3")) {
+                    System.out.println("Input the patient's new allergy (Use String)");
+                    change = scanner.nextLine();
+                    epv.editAllergy(change);
+                }
+                if (c.equals("4")) {
+                    System.out.println("Input the vaccine given to patient (Use String)");
+                    change = scanner.nextLine();
+                    epv.editVaccination(change);
+        }
 
-
-//        for (Map.Entry<String, Object> entry : PRL.getPatientRecords().entrySet()) {
-//            if (entry.getValue() instanceof PatientRecords) {
-//                System.out.println("Patient has an existing patient record, what would you like to update?" +
-//                        "Type: 1: height; 2: weight; 3: allergies; 4: vaccinations");
-//                result = "Patient record exist";
-//                c = scanner.nextLine();
-//                if (c.equals("1")) {
-//                    System.out.println("Input the patient's new height (Use String)");
-//                    change = scanner.nextLine();
-//                    pRLmanager.editRecord(c, change);
-//                }
-//                if (c.equals("2")) {
-//                    System.out.println("Input the patient's new weight (Use String)");
-//                    change = scanner.nextLine();
-//                    pRLmanager.editRecord(c, change);
-//                }
-//                if (c.equals("3")) {
-//                    System.out.println("Input the patient's new allergy (Use String)");
-//                    change = scanner.nextLine();
-//                    pRLmanager.editRecord(c, change);
-//                }
-//                if (c.equals("4")) {
-//                    System.out.println("Input the vaccine given to patient (Use String)");
-//                    change = scanner.nextLine();
-//                    pRLmanager.editRecord(c, change);
-//                }
-//            }
-//        }
         if (result.equals("No patient record")) {
             System.out.println("Patient does not have an existing patient record, please type 7 create a new patient record?");
             try {

@@ -1,6 +1,5 @@
 package Controllers.PatientRecord;
 
-import UseCases.Patient.PatientManager;
 import UseCases.PatientRecord.PatientRecordListManager;
 
 import java.util.List;
