@@ -197,21 +197,25 @@ public class DoctorMenu extends StaffMenu {
                 System.out.println("Input the patient's new height (Use String)");
                 change = scanner.nextLine();
                 epv.editHeight(change);
+                System.out.println("Patient's height has been successfully changed");
             }
             if (c.equals("2")) {
                 System.out.println("Input the patient's new weight (Use String)");
                 change = scanner.nextLine();
                 epv.editWeight(change);
+                System.out.println("Patient's weight has been successfully changed");
             }
             if (c.equals("3")) {
                 System.out.println("Input the patient's new allergy (Use String)");
                 change = scanner.nextLine();
                 epv.editAllergy(change);
+                System.out.println("Patient's allergy has been successfully added");
             }
             if (c.equals("4")) {
                 System.out.println("Input the vaccine given to patient (Use String)");
                 change = scanner.nextLine();
                 epv.editVaccination(change);
+                System.out.println("Patient's vaccine has been successfully added");
             }
 
             if (result.equals("No patient record")) {
