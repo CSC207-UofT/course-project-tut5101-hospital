@@ -10,7 +10,6 @@ public class AddPatientRecord {
     PatientRecordListManager pRLmanager;
 
     public AddPatientRecord(long healthCardNumber) {
-        patientManager = PatientManager.getInstance();
         pRLmanager = patientManager.getPatientRecordListManager(healthCardNumber);
     }
 
