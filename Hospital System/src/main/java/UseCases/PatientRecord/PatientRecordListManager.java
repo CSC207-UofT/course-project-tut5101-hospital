@@ -38,7 +38,7 @@ public class PatientRecordListManager {
         patientRecordList.addHistory(history, date);
         savePatientRecordList();
     }
-    //read a string denominating type of change and the input string that is to override the formertype
+    //read a string denominating type of change and the input string that is to override the former type
     public void editRecord(String num, String input){
         for (Map.Entry<String, Object> entry : patientRecordList.getPatientRecords().entrySet()) {
             if (entry.getValue() instanceof PatientRecords) {
@@ -60,9 +60,12 @@ public class PatientRecordListManager {
                 }
             }
         }
-    }public void newPatientRecord(String height, String weight, String sex, List<String> allergies, List<String> vaccinations, String date){
+    }
+
+    public void newPatientRecord(String height, String weight, String sex, List<String> allergies, List<String> vaccinations, String date){
         PatientRecords patientRecords = new PatientRecords(height, weight, sex, allergies, vaccinations);
         addRecord(patientRecords, date);
+        savePatientRecordList();
     }
 
     public void newPatientHistory(String physicianName, String bloodPressure, String pulse, String temperature,
@@ -70,6 +73,7 @@ public class PatientRecordListManager {
         PatientMedicalHistory patientMedicalHistory = new PatientMedicalHistory(physicianName, bloodPressure, pulse,
                 temperature, currentMedications, diagnosis, treatment);
         addHistory(patientMedicalHistory, date);
+        savePatientRecordList();
     }
 
     public boolean checkPatientRecordexists() {
