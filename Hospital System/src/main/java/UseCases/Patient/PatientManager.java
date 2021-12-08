@@ -142,7 +142,7 @@ public class PatientManager implements PatientManaging, java.io.Serializable {
 
         for (Object value: patientRecords.values()) {
             if (value instanceof PatientMedicalHistory) {
-                record+=(((PatientMedicalHistory) value).getPatientMH());
+                record+=(((PatientMedicalHistory) value).getPatientMH() + "\n\n");
             }
         }
         System.out.println(patientRecords.size()==0);
