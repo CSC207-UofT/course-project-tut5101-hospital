@@ -238,7 +238,7 @@ public class DoctorMenu extends StaffMenu {
         String height = scanner.nextLine();
         System.out.println("Input patient weight (Input String)");
         String weight = scanner.nextLine();
-        System.out.println("Input patient gender at birth (Input String)");
+        System.out.println("Input patient gender at birth (Input Male or Female)");
         String sex = scanner.nextLine();
         System.out.println("Input patient allergies (Use String and type done when input completed; if patient has no allergies, type none)");
         while (done.equals("")) {
