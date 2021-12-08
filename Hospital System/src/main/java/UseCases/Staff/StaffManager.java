@@ -2,6 +2,7 @@ package UseCases.Staff;
 
 import Entity.Schedule.Schedule;
 import Entity.Staff.*;
+import Gateways.StaffGateway;
 import UseCases.Operation.OperationManager;
 import UseCases.Schedule.ScheduleManager;
 import UseCases.Staff.MethodsForStaffManager.NewStaffs;

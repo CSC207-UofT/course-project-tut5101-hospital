@@ -1,4 +1,4 @@
-package UseCases.Patient;
+package Gateways;
 
 import Entity.Patients.PatientData;
 

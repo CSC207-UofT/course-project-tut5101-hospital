@@ -6,6 +6,7 @@ import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import Entity.Patients.PatientBuilder;
 import Entity.Patients.PatientData;
+import Gateways.PatientGateWay;
 import UseCases.PatientRecord.PatientRecordListManager;
 import UseCases.Schedule.ScheduleManager;
 

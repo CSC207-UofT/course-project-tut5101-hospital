@@ -1,4 +1,4 @@
-package UseCases.Staff;
+package Gateways;
 
 import Entity.Staff.StaffData;
 
