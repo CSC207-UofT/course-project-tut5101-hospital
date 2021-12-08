@@ -4,6 +4,7 @@ import Entity.PatientRecords.PatientMedicalHistory;
 import Entity.PatientRecords.PatientRecords;
 import Entity.Patients.Patient;
 import UseCases.Patient.PatientManager;
+import UseCases.PatientRecord.PatientRecordListManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,7 +45,7 @@ public class TestPatientRecordListManager {
         Assert.assertEquals(pm.getPatientMedicalRecord(453), "Physician Name: Jane" + "\n" +
                 "Blood pressure: 120/20" + "\n" + "BPM: 78" + "\n" + "Temperature: 35" + "\n" +
                 "Current Medications: Reactin" + "\n" + "Physician Diagnosis: you are dying" + "\n" +
-                "Treatment given: cannot be saved");
+                "Treatment given: cannot be saved\n\n");
     }
 
     @Test

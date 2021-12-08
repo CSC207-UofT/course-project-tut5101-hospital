@@ -76,7 +76,7 @@ public class TestPatientManager {
 
     @Test
     public void TestgetPatientMedicalRecord() {
-       Assert.assertEquals(patientMedicalHistory.getPatientMH() + patientMH.getPatientMH(), pm.getPatientMedicalRecord(453));
+       Assert.assertEquals(patientMedicalHistory.getPatientMH() +"\n\n" + patientMH.getPatientMH() + "\n\n", pm.getPatientMedicalRecord(453));
     }
 
     @Test
